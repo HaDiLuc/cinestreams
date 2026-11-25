@@ -1,0 +1,33 @@
+{
+  "name": "cinestreams-monorepo",
+  "version": "1.0.0",
+  "description": "CineStreams - Nền tảng xem phim trực tuyến 4K HLS & Dolby Atmos",
+  "private": true,
+  "workspaces": [
+    "client"
+  ],
+  "scripts": {
+    "dev": "npm --prefix client run dev",
+    "dev:client": "npm --prefix client run dev",
+    "dev:vite": "npm --prefix client run dev:vite",
+    "build:client": "npm --prefix client run build",
+    "build": "npm run build:client && cd server && .\\mvnw.cmd clean package -DskipTests",
+    "deploy": "powershell -ExecutionPolicy Bypass -File .\\deploy.ps1",
+    "deploy:frontend": "powershell -ExecutionPolicy Bypass -File .\\deploy-frontend.ps1",
+    "server:run": "cd server && .\\mvnw.cmd spring-boot:run",
+    "server:test": "cd server && .\\mvnw.cmd test",
+    "server:compile": "cd server && .\\mvnw.cmd test-compile"
+  },
+  "keywords": [
+    "cinestreams",
+    "streaming",
+    "hls",
+    "spring-boot",
+    "react",
+    "jwt",
+    "mongodb"
+  ],
+  "author": "CineStreams Core Team",
+  "license": "MIT"
+}
+

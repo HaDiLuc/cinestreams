@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #080e1d;
+    color: #dde2f8;
+  }
+  body {
+    overscroll-behavior: none;
+  }
+  main > :first-child {
+    margin-top: 0 !important;
+  }
+  main > :last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+/* Custom sleek scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0d1322;
+}
+::-webkit-scrollbar-thumb {
+  background: #242a3a;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffc174;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.icon-filled {
+  font-variation-settings: 'FILL' 1 !important;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.8);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s infinite;
+}
+
+/* TASK-011: Rung lắc khi báo lỗi nhập OTP */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.animate-shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+/* Watch Party Floating Emojis */
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(0.8);
+  }
+  50% {
+    opacity: 0.95;
+    transform: translateY(-90px) scale(1.25);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-200px) scale(0.9);
+  }
+}
+
+.animate-float-up {
+  animation: floatUp 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}

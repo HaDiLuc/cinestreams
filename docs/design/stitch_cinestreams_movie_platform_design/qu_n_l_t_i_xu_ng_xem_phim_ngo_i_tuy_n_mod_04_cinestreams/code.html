@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>CineStreams - Nocturne Cinema</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"outline":"#a08e7a","surface":"#0d1322","secondary":"#ffc640","on-primary-fixed-variant":"#653e00","on-tertiary-container":"#004965","on-secondary-fixed-variant":"#5c4300","on-error-container":"#ffdad6","on-surface-variant":"#d8c3ad","surface-container-highest":"#2f3445","on-surface":"#dde2f8","inverse-on-surface":"#2a3040","inverse-primary":"#855300","surface-container-low":"#151b2b","on-tertiary":"#00354a","surface-bright":"#33394a","secondary-fixed":"#ffdf9f","secondary-container":"#e3aa00","surface-container-lowest":"#080e1d","primary":"#ffc174","on-error":"#690005","secondary-fixed-dim":"#f9bd22","outline-variant":"#534434","on-primary-container":"#613b00","surface-variant":"#2f3445","surface-tint":"#ffb95f","tertiary-fixed":"#c4e7ff","error-container":"#93000a","on-primary-fixed":"#2a1700","tertiary-container":"#38bdf8","on-primary":"#472a00","on-secondary":"#402d00","tertiary-fixed-dim":"#7bd0ff","background":"#0d1322","on-background":"#dde2f8","surface-dim":"#0d1322","on-secondary-fixed":"#261a00","inverse-surface":"#dde2f8","on-tertiary-fixed-variant":"#004c69","on-tertiary-fixed":"#001e2c","surface-container":"#191f2f","primary-fixed":"#ffddb8","error":"#ffb4ab","tertiary":"#8ed5ff","surface-container-high":"#242a3a","primary-container":"#f59e0b","on-secondary-container":"#5a4100","primary-fixed-dim":"#ffb95f"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xs":"0.25rem","margin-mobile":"1rem","space-lg":"1.5rem","margin":"3rem","space-sm":"0.5rem","space-md":"1rem","gutter-mobile":"0.75rem","gutter":"1.5rem","space-xl":"2.5rem"},"fontFamily":{"headline-sm":["Sora"],"label-md":["Sora"],"headline-lg-mobile":["Sora"],"display-hero-mobile":["Sora"],"body-md":["Plus Jakarta Sans"],"display-hero":["Sora"],"label-lg":["Sora"],"body-lg":["Plus Jakarta Sans"],"headline-md":["Sora"],"headline-lg":["Sora"],"label-caps":["Sora"],"body-sm":["Plus Jakarta Sans"]},"fontSize":{"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"0em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-hero-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["15px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"display-hero":["56px",{"lineHeight":"64px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.02em","fontWeight":"600"}],"body-lg":["18px",{"lineHeight":"28px","letterSpacing":"0em","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-caps":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"700"}],"body-sm":["13px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"400"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 inset-x-0 z-50 bg-surface/80 backdrop-blur-xl shadow-[0_12px_32px_-8px_rgba(0,0,0,0.6)]"><div class="h-20 w-full px-margin-mobile lg:px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-xl"><a class="flex items-center gap-space-sm group focus:outline-none" data-path="trang-chu" href="#"><div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-container to-secondary-container flex items-center justify-center shadow-[0_0_20px_rgba(245,158,11,0.35)] group-hover:shadow-[0_0_28px_rgba(245,158,11,0.55)] transition-all"><span class="material-symbols-outlined text-surface-container-lowest text-[24px]">movie_filter</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold leading-none">CineStreams</span><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mt-0.5">Nocturne Cinema</span></div></a><nav class="hidden xl:flex items-center gap-space-xs p-1 rounded-xl bg-surface-container-low/60" data-active-classes="bg-primary-container text-on-primary-container font-label-lg text-label-lg rounded-xl shadow-[0_0_16px_rgba(245,158,11,0.35)]"><a class="px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="trang-chu" href="#">Trang Chủ</a><a class="px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="phim-le" href="#">Phim Lẻ</a><a class="px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="phim-bo" href="#">Phim Bộ</a><a class="px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="bang-xep-hang" href="#">Bảng Xếp Hạng</a><a class="px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="tro-ly-cineai" href="#">Trợ Lý CineAI</a><a class="px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="tu-phim" href="#">Tủ Phim</a><a class="px-space-md py-space-sm rounded-xl font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" data-path="tai-xuong" href="#">Tải Xuống</a></nav></div><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center gap-space-xs h-10 px-space-md rounded-xl bg-gradient-to-r from-primary-container to-secondary text-surface-container-lowest font-label-lg text-label-lg shadow-[0_0_20px_rgba(245,158,11,0.4)] hover:shadow-[0_0_28px_rgba(245,158,11,0.65)] hover:scale-105 transition-all" data-path="goi-cuoc-vip" href="#"><span class="material-symbols-outlined text-[18px]">workspace_premium</span><span>Gói Cước VIP</span></a><div class="flex items-center gap-space-sm"><button aria-label="Tìm kiếm phim" class="w-10 h-10 rounded-full bg-surface-container-high/70 hover:bg-surface-container-highest text-on-surface-variant hover:text-primary flex items-center justify-center transition-all" type="button"><span class="material-symbols-outlined text-[20px]">search</span></button><button aria-label="Thông báo" class="relative w-10 h-10 rounded-full bg-surface-container-high/70 hover:bg-surface-container-highest text-on-surface-variant hover:text-primary flex items-center justify-center transition-all" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary-container shadow-[0_0_8px_#f59e0b]"></span></button><a aria-label="Hồ sơ cá nhân" class="focus:outline-none focus:ring-2 focus:ring-primary-container rounded-full" data-path="tai-khoan" href="#"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_12px_rgba(255,193,116,0.3)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></a></div></div></div></header><main class="w-full pt-20 bg-background min-h-[calc(100vh-20rem)]"><div class="flex flex-col w-full text-on-surface">
+<!-- Top Ambient Glow Aura (Contained) -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-32 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[140px] pointer-events-none"></div>
+<div class="absolute top-12 right-1/4 w-[30rem] h-80 bg-tertiary-container/10 rounded-full blur-[160px] pointer-events-none"></div>
+<!-- MAIN CONTAINER WITH DESIGN SPEC PADDING -->
+<div class="w-full px-margin-mobile lg:px-margin py-space-lg space-y-space-xl">
+<!-- 1. HEADER & BREADCRUMB & TECH TAGS -->
+<section class="space-y-space-md">
+<!-- Breadcrumb -->
+<nav class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<a class="hover:text-primary transition-colors flex items-center gap-1" data-path="trang-chu" href="#">
+<span class="material-symbols-outlined text-[16px]">home</span>Trang Chủ
+          </a>
+<span class="text-outline-variant">/</span>
+<a class="hover:text-primary transition-colors" data-path="tu-phim" href="#">Tủ Phim</a>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-medium">Tải Xuống &amp; Xem Phim Ngoại Tuyến (Downloads Hub)</span>
+</nav>
+<!-- Main Title & Operational Actions -->
+<div class="flex flex-col xl:flex-row xl:items-end justify-between gap-space-md">
+<div class="space-y-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-label-caps text-label-caps tracking-widest uppercase shadow-sm">
+                HLS AES-128 ENCRYPTED OFFLINE
+              </span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-tertiary font-label-caps text-label-caps tracking-widest uppercase shadow-sm">
+                AUTO SYNC WATCH PROGRESS
+              </span>
+<span class="px-2.5 py-1 rounded bg-primary-container/20 text-secondary font-label-caps text-label-caps tracking-widest uppercase shadow-sm">
+                SMART DOWNLOAD 2.0
+              </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">
+              Tải Xuống &amp; Quản Lý Bộ Nhớ Ngoại Tuyến
+            </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+              Thưởng thức phim chiếu rạp chuẩn 4K HDR &amp; âm thanh Dolby Atmos không cần mạng. Quản lý giấy phép bản quyền cục bộ, đồng bộ tiến trình tự động và kiểm soát dung lượng lưu trữ trên SSD thiết bị.
+            </p>
+</div>
+<!-- Operational Controls -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="h-10 px-space-md rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface hover:text-primary text-label-lg font-label-lg transition-all flex items-center gap-2 shadow-sm" id="btn-pause-all">
+<span class="material-symbols-outlined text-[18px]">pause_circle</span>
+<span>Tạm Dừng Tất Cả</span>
+</button>
+<button class="h-10 px-space-md rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface hover:text-secondary text-label-lg font-label-lg transition-all flex items-center gap-2 shadow-sm" id="btn-resume-all">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+<span>Tiếp Tục Tất Cả</span>
+</button>
+<button class="h-10 px-space-md rounded-xl bg-surface-container-low hover:bg-error-container text-on-surface-variant hover:text-error text-label-lg font-label-lg transition-all flex items-center gap-2 shadow-sm" id="btn-delete-watched">
+<span class="material-symbols-outlined text-[18px]">auto_delete</span>
+<span>Xóa Toàn Bộ Đã Xem</span>
+</button>
+</div>
+</div>
+</section>
+<!-- 2. STORAGE ALLOCATION BAR & DISK HEALTH MONITOR -->
+<section class="rounded-xl bg-surface-container p-space-lg shadow-xl relative overflow-hidden">
+<!-- Subtle backplate accent -->
+<div class="absolute -right-20 -bottom-20 w-72 h-72 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md mb-space-md">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">hard_drive</span>
+<span class="font-headline-sm text-headline-sm font-semibold">Tình Trạng Ổ Cứng Thiết Bị</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-tertiary text-label-caps font-label-caps">M.2 NVMe SSD</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Khả dụng <strong class="text-on-surface font-semibold">342.8 GB</strong> / 512.0 GB SSD (Đã sử dụng 33.05% tổng thể)
+            </p>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 text-label-md font-label-md text-on-surface-variant">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span>Sức khỏe đĩa: Tốt (100% TRIM)</span>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-md text-label-md transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">cleaning_services</span>
+<span>Dọn dẹp nhanh</span>
+</button>
+</div>
+</div>
+<!-- Multi-segment Stacked Bar -->
+<div class="space-y-space-sm">
+<div class="w-full h-4 rounded-full bg-surface-container-lowest p-0.5 flex gap-1 overflow-hidden shadow-inner">
+<!-- Segment 1: CineStreams (68.4GB ~ 13.3%) -->
+<div class="h-full rounded-l-full bg-gradient-to-r from-primary-container to-secondary transition-all" style="width: 13.3%" title="CineStreams Offline: 68.4 GB"></div>
+<!-- Segment 2: In-Progress (14.2GB ~ 2.8%) -->
+<div class="h-full bg-tertiary-container transition-all" style="width: 2.8%" title="Đang tải: 14.2 GB"></div>
+<!-- Segment 3: System & Apps (86.6GB ~ 16.9%) -->
+<div class="h-full bg-surface-bright transition-all" style="width: 16.9%" title="Ứng dụng khác &amp; Hệ thống: 86.6 GB"></div>
+<!-- Segment 4: Free (342.8GB ~ 67%) -->
+<div class="h-full rounded-r-full bg-surface-container-high transition-all" style="width: 67%" title="Khả dụng: 342.8 GB"></div>
+</div>
+<!-- Color Legends -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm pt-space-xs font-body-sm text-body-sm">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary-container flex-shrink-0"></span>
+<div class="truncate">
+<span class="text-on-surface font-medium">CineStreams Offline</span>
+<span class="text-on-surface-variant block text-label-md font-label-md">68.4 GB (4K HDR)</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-tertiary-container flex-shrink-0"></span>
+<div class="truncate">
+<span class="text-on-surface font-medium">Phim Đang Tải</span>
+<span class="text-on-surface-variant block text-label-md font-label-md">14.2 GB (2 tiến trình)</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-surface-bright flex-shrink-0"></span>
+<div class="truncate">
+<span class="text-on-surface font-medium">App &amp; Hệ Điều Hành</span>
+<span class="text-on-surface-variant block text-label-md font-label-md">86.6 GB (Hệ thống)</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-surface-container-high flex-shrink-0"></span>
+<div class="truncate">
+<span class="text-on-surface font-medium">Dung Lượng Trống</span>
+<span class="text-on-surface-variant block text-label-md font-label-md">342.8 GB khả dụng</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Telemetry Summary Badges -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-sm mt-space-md pt-space-md bg-surface-container-low rounded-lg p-space-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">movie</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold leading-none">8</div>
+<div class="font-label-md text-label-md text-on-surface-variant mt-1">Phim Lẻ Hoàn Tất</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">video_library</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold leading-none">14</div>
+<div class="font-label-md text-label-md text-on-surface-variant mt-1">Tập Phim Bộ Đã Tải</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[20px]">downloading</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold leading-none">2</div>
+<div class="font-label-md text-label-md text-on-surface-variant mt-1">Bản Tải Đang Chạy</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[20px]">timer</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-error font-bold leading-none">3</div>
+<div class="font-label-md text-label-md text-on-surface-variant mt-1">Sắp Hết Hạn DRM (30N)</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. ACTIVE DOWNLOAD QUEUE (LIVE PROGRESS) -->
+<section class="space-y-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary-container"></span>
+</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold">
+              Đang Tải Xuống <span class="text-primary">(2 Tác Vụ)</span>
+</h2>
+</div>
+<div class="flex items-center gap-3 text-body-sm font-body-sm text-on-surface-variant bg-surface-container-low px-space-md py-1.5 rounded-full">
+<span class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[16px]">speed</span>
+<strong class="font-semibold text-on-surface">48.6 MB/s</strong>
+</span>
+<span>•</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">hourglass_top</span>
+<span>Ước tính: ~4 phút 12s</span>
+</span>
+<span>•</span>
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]">wifi</span>
+<span>WiFi 6 (802.11ax)</span>
+</span>
+</div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-gutter">
+<!-- Active Card 1: Severance -->
+<div class="rounded-xl bg-surface-container p-space-md shadow-lg flex flex-col justify-between gap-space-md hover:bg-surface-container-high transition-colors">
+<div class="flex gap-space-md">
+<div class="w-32 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container-highest relative shadow-md">
+<img class="w-full h-full object-cover" data-alt="Severance dark eerie corporate lumon laboratory corridor neon lighting cinematic cold blue tones highly detailed shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzlsJuIaq2q-A_cdlPoRcMf0JktkRp1vi2HApsKqx0R84EGN6O52DNyC2s8PbEuLQD4aoN8B3DBXre9hjZITxe0W9InxAa2Dwhkrn78ofedM95K8ntfm2Zne6iNfbuIyippDbpUclEVhVdxxv0YcJ4FO_soJxpyh4Up950LqlHa2GKn6mzrDANwHHfVdDfngtV44YZFuot4bO3MmcXFoShRiH52-juxc3niaQ_lSUX"/>
+<div class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-surface-container-lowest/90 text-label-caps font-label-caps text-secondary">
+                  4K DV
+                </div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-start justify-between gap-2">
+<div class="truncate">
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface truncate">
+                      Severance: Tách Rời - Mùa 2
+                    </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">
+                      Tập 1: Hello Ms. Cobel • 4K Dolby Vision, Atmos 5.1
+                    </p>
+</div>
+<span class="px-2 py-0.5 rounded bg-primary-container/20 text-primary font-label-md text-label-md flex-shrink-0 font-semibold">
+                    68%
+                  </span>
+</div>
+<!-- Mini spec line -->
+<div class="flex items-center gap-3 font-body-sm text-body-sm text-on-surface-variant mt-2">
+<span>3.2 GB / 4.8 GB</span>
+<span>•</span>
+<span class="text-tertiary">32.4 MB/s</span>
+<span>•</span>
+<span>Còn 1 phút 20s</span>
+</div>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="space-y-1.5">
+<div class="w-full h-2 rounded-full bg-surface-container-lowest overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary-container to-secondary rounded-full" style="width: 68%"></div>
+</div>
+<div class="flex items-center justify-between text-label-md font-label-md text-on-surface-variant pt-1">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary">lock</span>
+                  DRM Block: Phân đoạn mã hóa 412/600
+                </span>
+<div class="flex items-center gap-1">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface hover:text-primary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">pause</span>Tạm dừng
+                  </button>
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface hover:text-tertiary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">tune</span>Đổi chất lượng
+                  </button>
+<button class="p-1 rounded bg-surface-container-high hover:bg-error-container text-on-surface-variant hover:text-error transition-colors" title="Hủy tải">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Card 2: Dune Part Two -->
+<div class="rounded-xl bg-surface-container p-space-md shadow-lg flex flex-col justify-between gap-space-md hover:bg-surface-container-high transition-colors">
+<div class="flex gap-space-md">
+<div class="w-32 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container-highest relative shadow-md">
+<img class="w-full h-full object-cover" data-alt="Dune Part Two Paul Atreides standing in golden desert sand dunes spice glow cinematic moody lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8dg790Lt6jJiyvfWmEj9Id7WQ5JK-uR9_d1JRnZ0VrgnI6B88iqGYMDwjSqHqc0uhJCiD6jSn7VjI4MD3RCO3WZy50Nigf55adefXH4ig645iLf_UZ0mI_3gmmT2f9zIV1RbXJJAcJxZDSQvBOvRr2cL1Iy0i_06c3nyluN8-FM1MG_30_G6lwIod7nQapHkG1DNaP8yLacxRzte2cXc7kZw22RXG_9kfANrjkd5N"/>
+<div class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-surface-container-lowest/90 text-label-caps font-label-caps text-primary">
+                  IMAX 4K
+                </div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-start justify-between gap-2">
+<div class="truncate">
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface truncate">
+                        Dune: Hành Tinh Cát 2
+                      </h3>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-secondary text-label-caps font-label-caps">Ưu tiên WiFi</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">
+                      IMAX Enhanced 4K • Dolby Atmos Master Audio • 12.6 GB
+                    </p>
+</div>
+<span class="px-2 py-0.5 rounded bg-tertiary-container/20 text-tertiary font-label-md text-label-md flex-shrink-0 font-semibold">
+                    24%
+                  </span>
+</div>
+<!-- Mini spec line -->
+<div class="flex items-center gap-3 font-body-sm text-body-sm text-on-surface-variant mt-2">
+<span>3.0 GB / 12.6 GB</span>
+<span>•</span>
+<span class="text-tertiary">16.2 MB/s</span>
+<span>•</span>
+<span>Còn 7 phút 45s</span>
+</div>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="space-y-1.5">
+<div class="w-full h-2 rounded-full bg-surface-container-lowest overflow-hidden">
+<div class="h-full bg-gradient-to-r from-tertiary-container to-tertiary rounded-full" style="width: 24%"></div>
+</div>
+<div class="flex items-center justify-between text-label-md font-label-md text-on-surface-variant pt-1">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">wifi_protected_setup</span>
+                  Đang ghép luồng Master Track 7.1
+                </span>
+<div class="flex items-center gap-1">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface hover:text-primary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">pause</span>Tạm dừng
+                  </button>
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface hover:text-tertiary transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">tune</span>Đổi chất lượng
+                  </button>
+<button class="p-1 rounded bg-surface-container-high hover:bg-error-container text-on-surface-variant hover:text-error transition-colors" title="Hủy tải">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. LIBRARY FILTERS & TAB CONTROLS -->
+<section class="space-y-space-md pt-space-xs">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<!-- Filter Tabs -->
+<div class="flex flex-wrap items-center gap-space-xs p-1 rounded-xl bg-surface-container-low max-w-full overflow-x-auto">
+<button class="px-space-md py-2 rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg font-semibold shadow-md">
+              Tất Cả Đã Tải (22)
+            </button>
+<button class="px-space-md py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all font-label-lg text-label-lg">
+              Phim Lẻ (8)
+            </button>
+<button class="px-space-md py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all font-label-lg text-label-lg">
+              Phim Bộ / Series (14)
+            </button>
+<button class="px-space-md py-2 rounded-lg text-error hover:bg-error-container/20 transition-all font-label-lg text-label-lg flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+              Sắp Hết Hạn DRM (3)
+            </button>
+<button class="px-space-md py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all font-label-lg text-label-lg">
+              Đã Xem Xong (5)
+            </button>
+</div>
+<!-- Search & Select Toolbars -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- Search bar -->
+<div class="relative w-full sm:w-64">
+<span class="material-symbols-outlined text-outline absolute left-3 top-1/2 -translate-y-1/2 text-[18px]">search</span>
+<input class="w-full h-10 pl-9 pr-3 rounded-xl bg-surface-container text-body-sm font-body-sm text-on-surface placeholder:text-outline-variant focus:outline-none focus:ring-1 focus:ring-primary shadow-sm" placeholder="Tìm tác phẩm đã tải..." type="text"/>
+</div>
+<!-- Quality Filter -->
+<div class="relative">
+<select class="h-10 px-3 pr-8 rounded-xl bg-surface-container text-on-surface font-label-md text-label-md appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-primary shadow-sm">
+<option>Mọi Định Dạng (Tất cả)</option>
+<option>4K Ultra HD / Dolby Vision</option>
+<option>1080p Full HD</option>
+<option>720p Tiết Kiệm</option>
+</select>
+<span class="material-symbols-outlined text-outline-variant absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-[18px]">expand_more</span>
+</div>
+<!-- Sort Selection -->
+<div class="relative">
+<select class="h-10 px-3 pr-8 rounded-xl bg-surface-container text-on-surface font-label-md text-label-md appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-primary shadow-sm">
+<option>Sắp xếp: Mới tải gần nhất</option>
+<option>Sắp xếp: Dung lượng lớn nhất</option>
+<option>Sắp xếp: Hạn bản quyền (Gần hết trước)</option>
+<option>Sắp xếp: Tên A-Z</option>
+</select>
+<span class="material-symbols-outlined text-outline-variant absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-[18px]">sort</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. READY TO WATCH OFFLINE GRID (6 MEDIA CARDS) -->
+<section class="space-y-space-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold flex items-center gap-2">
+<span>Thư Viện Ngoại Tuyến Đã Sẵn Sàng</span>
+<span class="text-label-md font-label-md font-normal px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary">Sẵn sàng 100% không cần Internet</span>
+</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant hidden md:inline">Hiển thị 6 / 22 tác phẩm</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1: Gia Tộc Rồng -->
+<div class="rounded-xl bg-surface-container overflow-hidden shadow-lg hover:shadow-2xl transition-all group flex flex-col justify-between">
+<div class="relative aspect-video w-full overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="House of the Dragon Season 2 dark throne room with burning golden brazier and immense scaled dragon eye glowing" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClOY9DirV16JWp6ihGn2UFMumoxqUCByTb2t4fjH5ZN_51SqA6Hat5ejXQDU9iYJ6h7Bd8KI-g8lQL9aS1aKlX_M8JYIhx9G1t7RDKi_9T7PBogLKT_3TcSBfIc3rISIg0sIYm8vlnv9jlAFPXzmQjOSexq0fNAzPB2WraHYrgqccDrRvcY-buz6PGselnjidvdbi0R-vLNN4HAQogaW1FnoiRroV-ucRji7SlgCAX"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+<!-- Badges -->
+<div class="absolute top-3 left-3 flex flex-wrap gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/80 text-secondary text-label-caps font-label-caps font-bold">4K HDR</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/80 text-on-surface text-label-caps font-label-caps">DOLBY ATMOS</span>
+</div>
+<div class="absolute top-3 right-3">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-primary text-label-caps font-label-caps flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span>TRỌN BỘ 8/8
+                </span>
+</div>
+<!-- Storage weight -->
+<div class="absolute bottom-2 left-3 font-label-md text-label-md text-on-surface font-semibold bg-surface-container-lowest/80 px-2 py-0.5 rounded">
+                38.2 GB SSD
+              </div>
+</div>
+<div class="p-space-md space-y-space-md flex-1 flex flex-col justify-between">
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-primary transition-colors">
+                    Gia Tộc Rồng: Mùa 2
+                  </h3>
+<span class="text-label-caps font-label-caps text-secondary px-2 py-0.5 rounded bg-surface-container-high">SERIES</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
+                  House of the Dragon • Phụ đề tiếng Việt chuẩn phòng chiếu
+                </p>
+<div class="flex items-center gap-2 text-label-md font-label-md text-on-surface-variant pt-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">verified_user</span>
+<span>Bản quyền DRM còn: <strong class="text-on-surface">28 ngày</strong></span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-space-xs">
+<a class="flex-1 h-10 rounded-xl bg-gradient-to-r from-primary-container to-secondary text-surface-container-lowest font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-md hover:shadow-lg hover:scale-[1.02] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">play_arrow</span>
+<span>Phát Ngoại Tuyến</span>
+</a>
+<button class="h-10 px-3 rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface hover:text-primary transition-colors" title="Quản lý từng tập phim">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2: Lật Mặt 7 -->
+<div class="rounded-xl bg-surface-container overflow-hidden shadow-lg hover:shadow-2xl transition-all group flex flex-col justify-between">
+<div class="relative aspect-video w-full overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Vietnamese cinema emotional drama countryside cinematic warm sunset golden hour lighting dramatic family moment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNt32jsS8RcMbK4shaR_AFTiqo1CPgRLY1YdEBJcLFxpbGIMpcqtpoXAsA21C1mJc_8Rc0TBU4VDy7QPAiLDLCyYx3Pss4utjsWCgXRQppXMtD3lJFl7jXY0WjazfdFDB77xU6uNPT3RgO7Ub1t_IncgiSPZEIU_Icr2qr5mp_bgW8vAKD4AG8sTQGLtpKV1uJTn-PaEetTnVxga-l2gCfXcS5hNGVGqk_RHFHuwSR"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+<div class="absolute top-3 left-3 flex flex-wrap gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/80 text-secondary text-label-caps font-label-caps font-bold">4K DOLBY VISION</span>
+</div>
+<div class="absolute top-3 right-3">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-tertiary text-label-caps font-label-caps flex items-center gap-1">
+                  THUYẾT MINH KÉP
+                </span>
+</div>
+<div class="absolute bottom-2 left-3 font-label-md text-label-md text-on-surface font-semibold bg-surface-container-lowest/80 px-2 py-0.5 rounded">
+                6.4 GB SSD
+              </div>
+</div>
+<div class="p-space-md space-y-space-md flex-1 flex flex-col justify-between">
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-primary transition-colors">
+                    Lật Mặt 7: Một Điều Ước
+                  </h3>
+<span class="text-label-caps font-label-caps text-primary px-2 py-0.5 rounded bg-surface-container-high">PHIM LẺ</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
+                  Đạo diễn Lý Hải • Bản quyền độc quyền rạp CineStreams
+                </p>
+<div class="flex items-center gap-2 text-label-md font-label-md text-on-surface-variant pt-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">verified_user</span>
+<span>Bản quyền DRM còn: <strong class="text-on-surface">25 ngày</strong></span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-space-xs">
+<a class="flex-1 h-10 rounded-xl bg-gradient-to-r from-primary-container to-secondary text-surface-container-lowest font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-md hover:shadow-lg hover:scale-[1.02] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">play_arrow</span>
+<span>Phát Ngoại Tuyến</span>
+</a>
+<button class="h-10 px-3 rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface hover:text-error transition-colors" title="Xóa bản tải">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3: Oppenheimer -->
+<div class="rounded-xl bg-surface-container overflow-hidden shadow-lg hover:shadow-2xl transition-all group flex flex-col justify-between">
+<div class="relative aspect-video w-full overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Oppenheimer silhouette against blinding orange firestorm nuclear explosion particles in dark room cinematic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsVai93F7yvw-QdbJhCYbHlc2n6qRsm5EL5deOHrWW2UmwoTO_0SMsta3HgJVd7hdIWTamE_iRrD01cYbpx-gfjO_RJT3CC4bhWIjldR-Pl9n72AuXf61fAhQ_JxmiY0c1kYm_NhC7-AIS7kTpRcWqHt5bbPL-K8_8cIEqm0J9zO13KQtum0IXfF90CGoQII3p2_ETyaLNHSNQ0FbF8I8srzaW6aoV_Nn9Cr25apyY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+<div class="absolute top-3 left-3 flex flex-wrap gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/80 text-primary text-label-caps font-label-caps font-bold">IMAX ULTRA 4K</span>
+</div>
+<div class="absolute top-3 right-3">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-on-surface text-label-caps font-label-caps">
+                  AUDIO 5.1 GỐC
+                </span>
+</div>
+<div class="absolute bottom-2 left-3 font-label-md text-label-md text-on-surface font-semibold bg-surface-container-lowest/80 px-2 py-0.5 rounded">
+                9.8 GB SSD
+              </div>
+</div>
+<div class="p-space-md space-y-space-md flex-1 flex flex-col justify-between">
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-primary transition-colors">
+                    Oppenheimer
+                  </h3>
+<span class="text-label-caps font-label-caps text-primary px-2 py-0.5 rounded bg-surface-container-high">PHIM LẺ</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
+                  Christopher Nolan • Tỷ lệ khung hình chuyển đổi IMAX 1.90:1
+                </p>
+<div class="flex items-center gap-2 text-label-md font-label-md text-on-surface-variant pt-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">verified_user</span>
+<span>Bản quyền DRM còn: <strong class="text-on-surface">14 ngày</strong></span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-space-xs">
+<a class="flex-1 h-10 rounded-xl bg-gradient-to-r from-primary-container to-secondary text-surface-container-lowest font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-md hover:shadow-lg hover:scale-[1.02] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">play_arrow</span>
+<span>Phát Ngoại Tuyến</span>
+</a>
+<button class="h-10 px-3 rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface hover:text-error transition-colors" title="Xóa bản tải">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4: Arcane: Mùa 2 -->
+<div class="rounded-xl bg-surface-container overflow-hidden shadow-lg hover:shadow-2xl transition-all group flex flex-col justify-between">
+<div class="relative aspect-video w-full overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Arcane animated vibrant neon fantasy steampunk city Zaun Vi and Jinx high-contrast neon blue and pink cinematic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnAuIjYv0GU2jg6jeLhWIcBd7K_7FIfYFBTCasZfHV9jCyhF-jjnzN3FtpngLZEzzEW18_c1jLh-ZLZRBU1hVAoExe9HxsFuFkZXe8Z2_nUroV4uVLQtziI7YKi9b0_esbX1OQYa5LMoY1py3vifBXqX9JiApNe7xmoc2AvKt5Ma3RdrEODjAhBZU_L1WzMXrXnciU_9uVf7EhUneRR8BzTexgJldK6Beptd-PXuWQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+<div class="absolute top-3 left-3 flex flex-wrap gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/80 text-secondary text-label-caps font-label-caps font-bold">4K UHD</span>
+</div>
+<div class="absolute top-3 right-3">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 text-tertiary text-label-caps font-label-caps">
+                  TẬP 1 - 3
+                </span>
+</div>
+<div class="absolute bottom-2 left-3 font-label-md text-label-md text-on-surface font-semibold bg-surface-container-lowest/80 px-2 py-0.5 rounded">
+                7.5 GB SSD
+              </div>
+</div>
+<div class="p-space-md space-y-space-md flex-1 flex flex-col justify-between">
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-primary transition-colors">
+                    Arcane: Mùa 2
+                  </h3>
+<span class="text-label-caps font-label-caps text-secondary px-2 py-0.5 rounded bg-surface-container-high">SERIES</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
+                  Hồi 1 (Tập 1 đến 3) • Phụ đề Tiếng Việt + Tiếng Anh
+                </p>
+<div class="flex items-center gap-2 text-label-md font-label-md text-on-surface-variant pt-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">verified_user</span>
+<span>Bản quyền DRM còn: <strong class="text-on-surface">29 ngày</strong></span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-space-xs">
+<a class="flex-1 h-10 rounded-xl bg-gradient-to-r from-primary-container to-secondary text-surface-container-lowest font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-md hover:shadow-lg hover:scale-[1.02] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">play_arrow</span>
+<span>Phát Ngoại Tuyến</span>
+</a>
+<button class="h-10 px-3 rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface hover:text-primary transition-colors" title="Quản lý tập">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 5: Alien: Romulus (In-progress Watch) -->
+<div class="rounded-xl bg-surface-container overflow-hidden shadow-lg hover:shadow-2xl transition-all group flex flex-col justify-between">
+<div class="relative aspect-video w-full overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Alien Romulus dark spaceship corridor with red emergency lights and xenomorph silhouette horror cinematic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5Uo4Qb5-4B4IT2X72FP0WKAhTUZE4GWAWeHDSdaqFZd3XF01vTXEppCBZLleNrcgsV1H0XwZPCmyJOQMO-4JmfFKT1Wp2YR6K7bixJM011rV33S7OOFd_gJYMdSpzdD8KF1pFScpHnKBqNLEc0x7NGbDZJRNGvcoWQIG9gIqrZ3jyrrFJ1fuYaLY747acHW82YwGM1o8grEVOlmUtwfQvOXKgroN11BMbNzDac08o"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+<div class="absolute top-3 left-3 flex flex-wrap gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/80 text-on-surface text-label-caps font-label-caps font-bold">1080P FHD</span>
+</div>
+<div class="absolute top-3 right-3">
+<span class="px-2 py-0.5 rounded bg-primary-container text-on-primary-container text-label-caps font-label-caps font-bold">
+                  ĐÃ XEM 85%
+                </span>
+</div>
+<!-- Progress overlay on artwork -->
+<div class="absolute bottom-0 inset-x-0 h-1.5 bg-surface-container-lowest">
+<div class="h-full bg-primary-container" style="width: 85%"></div>
+</div>
+<div class="absolute bottom-3 left-3 font-label-md text-label-md text-on-surface font-semibold bg-surface-container-lowest/80 px-2 py-0.5 rounded">
+                4.1 GB SSD
+              </div>
+</div>
+<div class="p-space-md space-y-space-md flex-1 flex flex-col justify-between">
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-primary transition-colors">
+                    Alien: Romulus
+                  </h3>
+<span class="text-label-caps font-label-caps text-primary px-2 py-0.5 rounded bg-surface-container-high">PHIM LẺ</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
+                  Đã dừng ở phút 01:34:10 • Tiến trình đã lưu cục bộ
+                </p>
+<div class="flex items-center gap-2 text-label-md font-label-md text-on-surface-variant pt-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">sync</span>
+<span>Đồng bộ tiến trình: <strong class="text-on-surface">Đã sẵn sàng</strong></span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-space-xs">
+<a class="flex-1 h-10 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-md hover:shadow-lg hover:scale-[1.02] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">resume</span>
+<span>Xem Tiếp (01:34:10)</span>
+</a>
+<button class="h-10 px-3 rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface hover:text-error transition-colors" title="Xóa bản tải">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 6: The Batman (DRM Expiration Warning) -->
+<div class="rounded-xl bg-surface-container overflow-hidden shadow-lg hover:shadow-2xl transition-all group flex flex-col justify-between relative ring-1 ring-error/40">
+<div class="relative aspect-video w-full overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="The Batman in dark rain soaked Gotham street with amber flare in distance intense noir atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7E4ND7mj0TKGRTMTA7ge-S9Uk_R_SId-iuwJzwkdejImEf4OA77SO8ti225dHeeATMW5CbU2MLtpXVO1bLM00Mt1k2FX9jsGQfC3hJma1aufC3Xqu3QvKBhdgxKvRWPQXj1ckB9nD48h4BuEt-WrA61ucKCY41Ayl1K2I6zIMTWwq0Z7g3ni_OmKiH3XzHlQAECHKhFA0Bm5LREo3nf-vmUjxF4lCT_ew-Nz6ezMZ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent"></div>
+<div class="absolute top-3 left-3 flex flex-wrap gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/80 text-secondary text-label-caps font-label-caps font-bold">4K UHD</span>
+</div>
+<div class="absolute top-3 right-3">
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container text-label-caps font-label-caps font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">warning</span>HẾT HẠN TRONG 48H
+                </span>
+</div>
+<div class="absolute bottom-2 left-3 font-label-md text-label-md text-on-surface font-semibold bg-surface-container-lowest/80 px-2 py-0.5 rounded">
+                8.2 GB SSD
+              </div>
+</div>
+<div class="p-space-md space-y-space-md flex-1 flex flex-col justify-between">
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-primary transition-colors">
+                    The Batman (2022)
+                  </h3>
+<span class="text-label-caps font-label-caps text-primary px-2 py-0.5 rounded bg-surface-container-high">PHIM LẺ</span>
+</div>
+<p class="font-body-sm text-body-sm text-error line-clamp-1">
+                  ⚠️ Giấy phép xem offline sắp hết hạn trong 48 giờ!
+                </p>
+<div class="flex items-center gap-2 text-label-md font-label-md text-on-surface-variant pt-1">
+<span class="material-symbols-outlined text-[16px] text-error">update</span>
+<span>Bấm gia hạn để duy trì quyền xem thêm 30 ngày</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-space-xs">
+<a class="flex-1 h-10 rounded-xl bg-gradient-to-r from-primary-container to-secondary text-surface-container-lowest font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-md hover:shadow-lg hover:scale-[1.02] transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">play_arrow</span>
+<span>Phát Ngay</span>
+</a>
+<button class="h-10 px-3 rounded-xl bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-primary transition-all flex items-center gap-1 font-label-md text-label-md" title="Gia hạn giấy phép DRM">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+<span>Gia Hạn</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. SMART DOWNLOAD & STORAGE SETTINGS -->
+<section class="rounded-xl bg-surface-container p-space-lg shadow-xl space-y-space-lg">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-sm border-b border-surface-container-high">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[28px]">settings_suggest</span>
+<span>Cài Đặt Tải Xuống Thông Minh &amp; Quản Lý Bản Quyền DRM</span>
+</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Tùy biến hành vi lưu trữ, thiết lập mạng tự động và cơ chế làm mới chứng chỉ KMS Offline.
+            </p>
+</div>
+<button class="h-10 px-space-md rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-lg text-label-lg transition-all flex items-center gap-2 shadow-sm" id="btn-sync-all-drm">
+<span class="material-symbols-outlined text-[18px]">key</span>
+<span>Đồng Bộ Giấy Phép DRM Ngay</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Setting 1: Smart Download Switch -->
+<div class="rounded-xl bg-surface-container-low p-space-md flex flex-col justify-between gap-space-md">
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Tải Thông Minh (Smart Downloads)</span>
+<!-- Switch Toggle -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Tự động xóa các tập phim bộ đã xem xong sau 24 giờ và âm thầm tải trước tập tiếp theo khi kết nối WiFi tốc độ cao.
+              </p>
+</div>
+<div class="flex items-center gap-2 font-label-md text-label-md text-secondary">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Đang bảo vệ 12.4 GB dung lượng</span>
+</div>
+</div>
+<!-- Setting 2: Wi-Fi Only -->
+<div class="rounded-xl bg-surface-container-low p-space-md flex flex-col justify-between gap-space-md">
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Chỉ Tải Khi Có WiFi</span>
+<!-- Switch Toggle -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Ngăn chặn hoàn toàn việc tiêu tốn gói dữ liệu di động 4G/5G khi tải phim chất lượng cao. Chỉ kích hoạt khi có mạng nội bộ không giới hạn.
+              </p>
+</div>
+<div class="flex items-center gap-2 font-label-md text-label-md text-tertiary">
+<span class="material-symbols-outlined text-[16px]">wifi</span>
+<span>Đang kết nối: VNPT-Cinema-5G</span>
+</div>
+</div>
+<!-- Setting 3: Default Quality -->
+<div class="rounded-xl bg-surface-container-low p-space-md flex flex-col justify-between gap-space-md">
+<div class="space-y-space-xs">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface block">Chất Lượng Tải Mặc Định</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Độ phân giải và chuẩn nén áp dụng cho các lượt tải mới trong toàn bộ ứng dụng.
+              </p>
+<div class="pt-2">
+<select class="w-full h-10 px-3 rounded-lg bg-surface-container text-body-sm font-body-sm text-on-surface focus:outline-none focus:ring-1 focus:ring-primary">
+<option selected="">4K Ultra HD (HDR / Dolby Vision + Atmos)</option>
+<option>1080p Full HD (Khuyên dùng - Cân bằng tốt)</option>
+<option>720p HD (Tiết kiệm tối đa bộ nhớ máy)</option>
+</select>
+</div>
+</div>
+<div class="font-label-md text-label-md text-on-surface-variant">
+              Ước tính: ~4.5 GB - 8.5 GB / Mỗi 2 giờ xem
+            </div>
+</div>
+<!-- Setting 4: Audio & Subtitle Language -->
+<div class="rounded-xl bg-surface-container-low p-space-md flex flex-col justify-between gap-space-md">
+<div class="space-y-space-xs">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface block">Ngôn Ngữ Ngoại Tuyến Mặc Định</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Lựa chọn gói kênh âm thanh và phụ đề tải đính kèm vào container mã hóa DRM.
+              </p>
+<div class="pt-2 space-y-2">
+<div class="flex items-center justify-between text-body-sm font-body-sm bg-surface-container px-3 py-2 rounded-lg">
+<span>Âm thanh mặc định:</span>
+<strong class="text-primary font-semibold">Gốc + Thuyết Minh Tiếng Việt</strong>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm bg-surface-container px-3 py-2 rounded-lg">
+<span>Phụ đề mặc định:</span>
+<strong class="text-tertiary font-semibold">Tiếng Việt + Tiếng Anh (Song ngữ)</strong>
+</div>
+</div>
+</div>
+<div class="font-label-md text-label-md text-on-surface-variant">
+              Tự động khớp font chữ phụ đề CineSubtitle Cinema Pro
+            </div>
+</div>
+<!-- Setting 5: DRM License Sync -->
+<div class="rounded-xl bg-surface-container-low p-space-md flex flex-col justify-between gap-space-md lg:col-span-2">
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Cơ Chế Bản Quyền Số Ngoại Tuyến (DRM KMS Cluster)</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-tertiary font-label-caps text-label-caps">WIDEVINE L1 &amp; FAIRPLAY</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Theo quy định bảo hộ tác phẩm điện ảnh quốc tế, mỗi tệp phim tải xuống có thời hạn xác thực ngoại tuyến 30 ngày. Khi thiết bị kết nối Internet, hệ thống sẽ tự động giao tiếp với cụm máy chủ CineStreams Key Management Server (KMS) để gia hạn mà không cần tải lại phim từ đầu.
+              </p>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pt-2 bg-surface-container/60 p-space-sm rounded-lg">
+<div class="flex items-center gap-2 text-label-md font-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-secondary">update</span>
+<span>Lần đồng bộ gần nhất: <strong>14:28 Hôm nay</strong> • Trạng thái: <strong>Hợp Lệ</strong></span>
+</div>
+<button class="px-space-md py-2 rounded-lg bg-primary-container text-on-primary-container hover:bg-secondary font-label-md text-label-md font-semibold transition-all flex items-center justify-center gap-1.5 shadow-md">
+<span class="material-symbols-outlined text-[16px]">sync_saved_locally</span>
+<span>Kiểm Tra &amp; Làm Mới Giấy Phép Cục Bộ</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- INLINE MICRO-INTERACTION SCRIPT -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const pauseAllBtn = document.getElementById('btn-pause-all');
+      const resumeAllBtn = document.getElementById('btn-resume-all');
+      const deleteWatchedBtn = document.getElementById('btn-delete-watched');
+      const syncDrmBtn = document.getElementById('btn-sync-all-drm');
+
+      if (pauseAllBtn) {
+        pauseAllBtn.addEventListener('click', () => {
+          pauseAllBtn.classList.toggle('text-primary');
+          const isPaused = pauseAllBtn.innerText.includes('Đã Tạm Dừng');
+          pauseAllBtn.innerHTML = isPaused 
+            ? '<span class="material-symbols-outlined text-[18px]">pause_circle</span><span>Tạm Dừng Tất Cả</span>' 
+            : '<span class="material-symbols-outlined text-[18px]">check_circle</span><span>Đã Tạm Dừng</span>';
+        });
+      }
+
+      if (resumeAllBtn) {
+        resumeAllBtn.addEventListener('click', () => {
+          resumeAllBtn.classList.add('scale-95');
+          setTimeout(() => resumeAllBtn.classList.remove('scale-95'), 150);
+          if (pauseAllBtn) {
+            pauseAllBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">pause_circle</span><span>Tạm Dừng Tất Cả</span>';
+            pauseAllBtn.classList.remove('text-primary');
+          }
+        });
+      }
+
+      if (deleteWatchedBtn) {
+        deleteWatchedBtn.addEventListener('click', () => {
+          if (confirm('Bạn có chắc muốn giải phóng dung lượng của toàn bộ các tập phim và tác phẩm đã xem xong (khoảng 14.1 GB)?')) {
+            deleteWatchedBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check</span><span>Đã Giải Phóng!</span>';
+            deleteWatchedBtn.classList.add('text-secondary');
+            setTimeout(() => {
+              deleteWatchedBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">auto_delete</span><span>Xóa Toàn Bộ Đã Xem</span>';
+              deleteWatchedBtn.classList.remove('text-secondary');
+            }, 3000);
+          }
+        });
+      }
+
+      if (syncDrmBtn) {
+        syncDrmBtn.addEventListener('click', () => {
+          syncDrmBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span><span>Đang Xác Thực KMS...</span>';
+          setTimeout(() => {
+            syncDrmBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">verified</span><span>Đã Làm Mới 22 Giấy Phép!</span>';
+            setTimeout(() => {
+              syncDrmBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">key</span><span>Đồng Bộ Giấy Phép DRM Ngay</span>';
+            }, 3000);
+          }, 1200);
+        });
+      }
+    });
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest pt-space-xl pb-space-lg shadow-[0_-12px_32px_rgba(0,0,0,0.5)]"><div class="w-full px-margin-mobile lg:px-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-gutter mb-space-xl"><div class="lg:col-span-2 space-y-space-md"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-container to-secondary flex items-center justify-center"><span class="material-symbols-outlined text-surface-container-lowest text-[18px]">movie_filter</span></div><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">CineStreams</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">Nền tảng phát trực tuyến điện ảnh chuẩn mực Nocturne Cinema. Trải nghiệm kiệt tác điện ảnh độ phân giải 4K HDR, âm thanh vòm Dolby Atmos với sự hỗ trợ đề xuất từ trí tuệ CineAI thế hệ mới.</p><div class="flex items-center gap-space-sm pt-space-xs"><div class="px-space-sm py-1 rounded bg-surface-container font-label-caps text-label-caps text-tertiary border border-surface-container-highest">4K ULTRA HD</div><div class="px-space-sm py-1 rounded bg-surface-container font-label-caps text-label-caps text-primary border border-surface-container-highest">DOLBY VISION</div><div class="px-space-sm py-1 rounded bg-surface-container font-label-caps text-label-caps text-secondary border border-surface-container-highest">ATMOS SOUND</div></div></div><div><div class="font-label-lg text-label-lg text-on-surface font-semibold mb-space-md">Khám Phá</div><ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" data-path="phim-le" href="#">Phim Chiếu Rạp Mới</a></li><li><a class="hover:text-primary transition-colors" data-path="phim-bo" href="#">Phim Bộ Độc Quyền</a></li><li><a class="hover:text-primary transition-colors" data-path="bang-xep-hang" href="#">Top 10 Thịnh Hành</a></li><li><a class="hover:text-primary transition-colors" data-path="tro-ly-cineai" href="#">Trợ Lý Cảm Xúc CineAI</a></li><li><a class="hover:text-primary transition-colors" data-path="goi-cuoc-vip" href="#">CineStreams Premiere VIP</a></li></ul></div><div><div class="font-label-lg text-label-lg text-on-surface font-semibold mb-space-md">Hỗ Trợ &amp; Thiết Bị</div><ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" data-path="tai-xuong" href="#">Ứng Dụng Xem Offline</a></li><li><a class="hover:text-primary transition-colors" href="#">Trung Tâm Hỗ Trợ</a></li><li><a class="hover:text-primary transition-colors" href="#">Kiểm Tra Tốc Độ Mạng</a></li><li><a class="hover:text-primary transition-colors" href="#">Thiết Bị Tương Thích</a></li><li><a class="hover:text-primary transition-colors" href="#">Yêu Cầu Phim Mới</a></li></ul></div><div><div class="font-label-lg text-label-lg text-on-surface font-semibold mb-space-md">Pháp Lý &amp; Bảo Mật</div><ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" href="#">Điều Khoản Sử Dụng</a></li><li><a class="hover:text-primary transition-colors" href="#">Chính Sách Quyền Riêng Tư</a></li><li><a class="hover:text-primary transition-colors" href="#">Bản Quyền &amp; Giấy Phép</a></li><li><a class="hover:text-primary transition-colors" href="#">Tùy Chọn Cookie</a></li><li><a class="hover:text-primary transition-colors" href="#">Liên Hệ Truyền Thông</a></li></ul></div></div><div class="pt-space-md mt-space-md flex flex-col md:flex-row items-center justify-between gap-space-sm"><p class="font-body-sm text-body-sm text-on-surface-variant/70">© 2025 CineStreams Entertainment Inc. Giữ toàn bộ bản quyền nội dung phát sóng và công nghệ chiếu phim trực tuyến.</p><div class="flex items-center gap-space-md font-body-sm text-body-sm text-on-surface-variant/70"><span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></span>Hệ Thống Sẵn Sàng (Ultra Latency)</span><span>Khu vực: Việt Nam (VN)</span></div></div></div></footer></body></html>

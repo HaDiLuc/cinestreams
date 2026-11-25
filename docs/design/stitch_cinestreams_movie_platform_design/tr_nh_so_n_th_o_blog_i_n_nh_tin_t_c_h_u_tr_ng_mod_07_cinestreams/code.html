@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Sora:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-surface": "#dde2f8", "on-error-container": "#ffdad6", "surface-container-high": "#242a3a", "tertiary-fixed": "#c4e7ff", "on-secondary-fixed-variant": "#5c4300", "on-background": "#dde2f8", "on-primary-fixed": "#2a1700", "primary-fixed-dim": "#ffb95f", "secondary-fixed-dim": "#f9bd22", "tertiary": "#8ed5ff", "on-error": "#690005", "surface-bright": "#33394a", "secondary-container": "#e3aa00", "inverse-surface": "#dde2f8", "primary-container": "#f59e0b", "inverse-on-surface": "#2a3040", "secondary-fixed": "#ffdf9f", "on-secondary": "#402d00", "surface-variant": "#2f3445", "on-primary": "#472a00", "on-primary-fixed-variant": "#653e00", "surface-container": "#191f2f", "on-primary-container": "#613b00", "surface-tint": "#ffb95f", "on-secondary-container": "#5a4100", "outline-variant": "#534434", "primary-fixed": "#ffddb8", "background": "#0d1322", "surface-container-lowest": "#080e1d", "primary": "#ffc174", "surface": "#0d1322", "inverse-primary": "#855300", "surface-container-low": "#151b2b", "on-tertiary-fixed-variant": "#004c69", "surface-container-highest": "#2f3445", "error": "#ffb4ab", "error-container": "#93000a", "secondary": "#ffc640", "tertiary-container": "#38bdf8", "outline": "#a08e7a", "on-tertiary-container": "#004965", "on-tertiary": "#00354a", "tertiary-fixed-dim": "#7bd0ff", "on-secondary-fixed": "#261a00", "surface-dim": "#0d1322", "on-tertiary-fixed": "#001e2c", "on-surface-variant": "#d8c3ad" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "margin": "3rem", "gutter-mobile": "0.75rem", "space-lg": "1.5rem", "margin-mobile": "1rem", "space-xs": "0.25rem", "space-xl": "2.5rem", "gutter": "1.5rem", "space-sm": "0.5rem" }, "fontFamily": { "body-sm": ["Plus Jakarta Sans"], "headline-md": ["Sora"], "label-lg": ["Sora"], "label-md": ["Sora"], "headline-lg": ["Sora"], "headline-sm": ["Sora"], "display-hero": ["Sora"], "display-hero-mobile": ["Sora"], "body-md": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Sora"], "body-lg": ["Plus Jakarta Sans"], "label-caps": ["Sora"] }, "fontSize": { "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }], "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }], "label-caps": ["10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "700" }] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="flex flex-col h-full overflow-hidden"><div class="h-20 px-space-lg flex items-center justify-between shrink-0 bg-surface-container-lowest"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center shadow-[0_0_16px_rgba(245,158,11,0.35)]"><span class="material-symbols-outlined text-on-primary-container text-[22px]">movie_filter</span></div><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-bold">CineStreams</span></div><span class="font-label-caps text-label-caps text-primary tracking-wider uppercase font-semibold">Studio Ops CMS</span></div></div><span class="font-label-caps text-label-caps px-space-xs py-0.5 rounded bg-surface-container-high text-primary font-bold">v2.8</span></div><div class="flex-1 overflow-y-auto px-space-md py-space-sm space-y-space-lg"><nav class="space-y-space-md" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg shadow-[0_0_18px_rgba(245,158,11,0.3)]"><div class="space-y-space-xs"><span class="px-space-sm font-label-caps text-label-caps uppercase text-outline tracking-wider font-bold block">Tổng Quan</span><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="dashboard-&amp;-doanh-thu" href="#"><span class="material-symbols-outlined text-[19px]">query_stats</span><span>Dashboard &amp; Doanh Thu</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="bao-cao-phan-tich" href="#"><span class="material-symbols-outlined text-[19px]">analytics</span><span>Báo Cáo Phân Tích</span></a></div><div class="space-y-space-xs"><div class="flex items-center justify-between px-space-sm"><span class="font-label-caps text-label-caps uppercase text-primary tracking-wider font-bold block">Quản Lý Nội Dung CMS</span><span class="font-label-caps text-label-caps text-outline">MOD-07</span></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="danh-muc-phim-le" href="#"><span class="material-symbols-outlined text-[19px]">theaters</span><span>Danh Mục Phim Lẻ</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="phim-bo-&amp;-mua/tap" href="#"><span class="material-symbols-outlined text-[19px]">video_library</span><span>Phim Bộ &amp; Mùa/Tập</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="upload-video-goc" href="#"><span class="material-symbols-outlined text-[19px]">cloud_upload</span><span>Upload Video Gốc</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="phu-de-&amp;-audio-track" href="#"><span class="material-symbols-outlined text-[19px]">subtitles</span><span>Phụ Đề &amp; Audio Track</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="phan-doan-phat-hanh" href="#"><span class="material-symbols-outlined text-[19px]">event_upcoming</span><span>Phân Đoạn Phát Hành</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="tin-tuc-&amp;-blog-dien-anh" href="#"><span class="material-symbols-outlined text-[19px]">auto_stories</span><span>Tin Tức &amp; Blog Điện Ảnh</span></a></div><div class="space-y-space-xs"><span class="px-space-sm font-label-caps text-label-caps uppercase text-outline tracking-wider font-bold block">Thương Mại &amp; Thanh Toán</span><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="goi-cuoc-vip" href="#"><span class="material-symbols-outlined text-[19px]">workspace_premium</span><span>Gói Cước VIP</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="giao-dich-vietqr/momo" href="#"><span class="material-symbols-outlined text-[19px]">payments</span><span>Giao Dịch VietQR/MoMo</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="doi-soat-webhook" href="#"><span class="material-symbols-outlined text-[19px]">sync_alt</span><span>Đối Soát Webhook</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="khuyen-mai-&amp;-voucher" href="#"><span class="material-symbols-outlined text-[19px]">confirmation_number</span><span>Khuyến Mãi &amp; Voucher</span></a></div><div class="space-y-space-xs"><span class="px-space-sm font-label-caps text-label-caps uppercase text-outline tracking-wider font-bold block">Hệ Thống &amp; SecOps</span><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="cau-hinh-cineai-studio" href="#"><span class="material-symbols-outlined text-[19px] text-tertiary">neurology</span><span>Cấu Hình CineAI Studio</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="thanh-vien-&amp;-rbac" href="#"><span class="material-symbols-outlined text-[19px]">badge</span><span>Thành Viên &amp; RBAC</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="nhat-ky-&amp;-secops" href="#"><span class="material-symbols-outlined text-[19px]">security</span><span>Nhật Ký &amp; SecOps</span></a></div></nav></div><div class="p-space-md shrink-0 bg-surface-container-lowest"><div class="p-space-sm rounded-lg bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.25)] space-y-space-xs"><div class="flex items-center justify-between"><span class="font-label-caps text-label-caps uppercase text-outline font-semibold">Cluster Edge 04</span><span class="flex h-2 w-2 relative"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span></span></div><div class="flex items-center justify-between text-on-surface"><span class="font-label-md text-label-md font-medium text-on-surface-variant">HCMC-VN</span><span class="font-label-md text-label-md font-semibold text-primary">12ms latency</span></div></div></div></div></aside><div class="pl-72 min-h-screen flex flex-col bg-background"><header class="fixed top-0 left-72 right-0 h-20 bg-surface/85 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.35)] flex items-center justify-between px-space-lg"><div class="flex-1 max-w-2xl"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline text-[20px]">search</span><input class="w-full h-11 pl-10 pr-space-md rounded-lg bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-high transition-all" placeholder="Tìm kiếm bài viết, tác giả, tag, phim liên kết..." type="text"/></div></div><div class="flex items-center gap-space-md pl-space-md"><div class="hidden xl:flex items-center gap-space-sm"><div class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-full bg-surface-container-high shadow-[0_1px_8px_rgba(0,0,0,0.2)]"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-caps text-label-caps text-on-surface font-semibold">CDN 99.98% ACTIVE</span></div><div class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-full bg-tertiary-container/20 text-tertiary shadow-[0_1px_8px_rgba(56,189,248,0.15)]"><span class="material-symbols-outlined text-[14px]">auto_awesome</span><span class="font-label-caps text-label-caps font-bold tracking-wide">AI SEO ASSIST ONLINE</span></div></div><button class="w-10 h-10 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high flex items-center justify-center transition-colors relative"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="text-right hidden sm:block"><div class="font-label-lg text-label-lg font-semibold text-on-surface leading-tight">Alex Tran</div><div class="font-label-md text-label-md text-primary font-medium leading-tight">Chief Editor / Content Lead</div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="relative pt-20 w-full flex-1 bg-surface-container-lowest px-space-lg py-space-lg"><div class="flex flex-col w-full space-y-space-lg text-on-surface">
+<!-- TOP CONTEXT HEADER & ACTION BAR -->
+<section class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md p-space-md rounded-xl bg-surface-container-low shadow-sm">
+<div class="flex flex-col space-y-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs text-outline font-label-md">
+<span>CineStreams Ops</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span>Quản Lý Nội Dung CMS</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span>Tin Tức &amp; Blog Điện Ảnh</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-semibold">Soạn Thảo #ART-2025-089</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm pt-1">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-caps uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span>Bản nháp tự lưu (32s trước)</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-tertiary font-label-caps uppercase">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span>AI SEO: 94/100 (Tối ưu)</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-secondary font-label-caps uppercase">
+<span class="material-symbols-outlined text-[14px]">rss_feed</span>
+<span>Google News Sync: Sẵn sàng</span>
+</div>
+</div>
+</div>
+<!-- Right Actions Cluster -->
+<div class="flex flex-wrap items-center gap-space-xs sm:gap-space-sm">
+<button class="h-10 px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center gap-1.5 font-label-lg transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+<span>Xem Trước</span>
+</button>
+<button class="h-10 px-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center gap-1 font-label-md transition-colors" title="Lịch sử phiên bản">
+<span class="material-symbols-outlined text-[18px]">history</span>
+<span class="hidden sm:inline">v1.4</span>
+</button>
+<button class="h-10 px-space-md rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface flex items-center gap-1.5 font-label-lg transition-colors">
+<span class="material-symbols-outlined text-[18px]">save</span>
+<span>Lưu Nháp</span>
+</button>
+<div class="relative inline-flex">
+<button class="h-10 px-space-lg rounded-lg bg-primary-container hover:bg-secondary-container text-on-primary font-label-lg flex items-center gap-2 shadow-[0_0_18px_rgba(245,158,11,0.35)] transition-all">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">send</span>
+<span>Lên Lịch &amp; Xuất Bản</span>
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+</div>
+</div>
+</section>
+<!-- QUICK STATS & EDITORIAL METRICS (4 CARDS) -->
+<section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Card 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-caps uppercase tracking-wider text-outline">Tổng Bài Đã Xuất Bản</span>
+<span class="material-symbols-outlined text-primary text-[20px]">library_books</span>
+</div>
+<div class="my-space-xs">
+<div class="font-headline-md text-headline-md font-bold text-on-surface">482 <span class="font-label-md text-label-md text-primary font-normal">Bài Viết</span></div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">+18 bài trong tháng • 4.2M views</p>
+</div>
+<!-- Mini Sparkline inline svg -->
+<div class="w-full h-7 mt-1 text-primary">
+<svg class="w-full h-full stroke-current stroke-2" fill="none" viewbox="0 0 120 28">
+<path d="M0 24 Q 20 20, 35 15 T 70 18 T 100 8 L 120 4" stroke-linecap="round"></path>
+</svg>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-caps uppercase tracking-wider text-outline">Dự Báo Lượt Đọc (AI Engine)</span>
+<span class="material-symbols-outlined text-tertiary text-[20px]">trending_up</span>
+</div>
+<div class="my-space-xs">
+<div class="font-headline-md text-headline-md font-bold text-on-surface">~85.000 <span class="font-label-md text-label-md text-tertiary font-normal">Lượt xem</span></div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">Theo từ khóa Dune 2 &amp; Hans Zimmer</p>
+</div>
+<div class="w-full h-7 mt-1 text-tertiary">
+<svg class="w-full h-full stroke-current stroke-2" fill="none" viewbox="0 0 120 28">
+<path d="M0 26 Q 30 18, 55 10 T 90 6 L 120 2" stroke-linecap="round"></path>
+</svg>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-caps uppercase tracking-wider text-outline">Tối Ưu SEO &amp; Flesch Ease</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">fact_check</span>
+</div>
+<div class="my-space-xs">
+<div class="font-headline-md text-headline-md font-bold text-secondary">94/100 <span class="font-label-md text-label-md text-on-surface-variant font-normal">Xuất sắc</span></div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">Đọc ~6 phút • Độ mạch lạc 72/100</p>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 mt-2 overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 94%;"></div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-caps uppercase tracking-wider text-outline">Tỷ Lệ Chuyển Đổi SVOD</span>
+<span class="material-symbols-outlined text-primary text-[20px]">smart_display</span>
+</div>
+<div class="my-space-xs">
+<div class="font-headline-md text-headline-md font-bold text-on-surface">12.4% <span class="font-label-md text-label-md text-primary font-normal">Click-Through</span></div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">Người đọc mua vé hoặc kích hoạt VIP</p>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 mt-2 overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 48%;"></div>
+</div>
+</div>
+</section>
+<!-- WORKSPACE SPLIT (68% MAIN EDITOR / 32% INSPECTOR) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN: MAIN EDITOR (8 COLS) -->
+<div class="lg:col-span-8 flex flex-col space-y-space-md">
+<!-- Metadata & Taxonomy Header -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm space-y-space-md">
+<!-- Category selector tabs -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1">
+<button class="px-3 py-1.5 rounded-full bg-primary-container text-on-primary font-label-md shrink-0 shadow-sm">Tiêu Điểm &amp; Tin Nóng</button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface-variant font-label-md shrink-0 transition-colors">Phân Tích Chuyên Sâu</button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface-variant font-label-md shrink-0 transition-colors">Hậu Trường Kỹ Thuật (VFX/Âm Thanh)</button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface-variant font-label-md shrink-0 transition-colors">Phỏng Vấn Đạo Diễn</button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface-variant font-label-md shrink-0 transition-colors">Bình Phim Độc Quyền</button>
+</div>
+<!-- Editable Title Field -->
+<div class="space-y-space-xs">
+<label class="font-label-caps uppercase text-outline">Tiêu Đề Bài Viết (H1 - Hiển thị Trang Chủ &amp; Social)</label>
+<textarea class="w-full p-space-sm rounded-lg bg-surface-container text-on-surface font-headline-md text-headline-md font-bold resize-none focus:outline-none focus:bg-surface-container-high transition-colors" placeholder="Nhập tiêu đề điện ảnh sắc bén..." rows="2">Giải Mã Kỹ Thuật Quay Phim Bằng Máy IMAX &amp; Âm Thanh Dolby Atmos Đỉnh Cao Trong Siêu Phẩm Dune: Hành Tinh Cát 2</textarea>
+</div>
+<!-- Slug & Permalink Bar -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs p-space-sm rounded-lg bg-surface-container font-body-sm text-body-sm">
+<div class="flex items-center gap-1.5 text-on-surface-variant min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline shrink-0">link</span>
+<span class="text-outline">cinestreams.vn/blog/</span>
+<span class="text-primary font-semibold truncate">giai-ma-ky-thuat-imax-dolby-atmos-dune-2</span>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="text-on-surface-variant hover:text-on-surface flex items-center gap-1 font-label-md">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+<span>Sao chép</span>
+</button>
+<span class="text-surface-bright">•</span>
+<button class="text-tertiary hover:underline font-label-md">Sửa Slug</button>
+</div>
+</div>
+<!-- Author & Co-pilot stamp -->
+<div class="flex flex-wrap items-center justify-between gap-space-xs text-on-surface-variant font-body-sm pt-space-xs">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center font-bold text-on-primary font-label-md">AT</div>
+<span><strong>Alex Trần</strong> (Lead Editor)</span>
+<span class="text-outline">•</span>
+<span class="inline-flex items-center gap-1 text-tertiary"><span class="material-symbols-outlined text-[15px]">auto_awesome</span> CineAI Assist</span>
+</div>
+<span class="text-outline">Khởi tạo: 30/03/2025 • Cập nhật lần cuối: Hôm nay 14:28</span>
+</div>
+</div>
+<!-- STICKY RICH-TEXT & AI FORMATTING TOOLBAR -->
+<div class="sticky top-20 z-30 p-space-sm rounded-xl bg-surface-container-low/95 backdrop-blur-md shadow-md space-y-space-xs">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<!-- Text Styling -->
+<div class="flex items-center gap-0.5">
+<button class="w-8 h-8 rounded hover:bg-surface-container-high flex items-center justify-center text-on-surface" title="Đậm (Ctrl+B)"><span class="material-symbols-outlined text-[18px]">format_bold</span></button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-high flex items-center justify-center text-on-surface" title="Nghiêng (Ctrl+I)"><span class="material-symbols-outlined text-[18px]">format_italic</span></button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-high flex items-center justify-center text-on-surface" title="Gạch chân"><span class="material-symbols-outlined text-[18px]">format_underlined</span></button>
+<div class="w-px h-5 bg-surface-container-high mx-1"></div>
+<button class="px-2 h-8 rounded hover:bg-surface-container-high flex items-center justify-center text-on-surface font-label-md font-bold">H2</button>
+<button class="px-2 h-8 rounded hover:bg-surface-container-high flex items-center justify-center text-on-surface font-label-md font-bold">H3</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-high flex items-center justify-center text-on-surface" title="Trích dẫn"><span class="material-symbols-outlined text-[18px]">format_quote</span></button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-high flex items-center justify-center text-on-surface"><span class="material-symbols-outlined text-[18px]">format_list_bulleted</span></button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-high flex items-center justify-center text-on-surface"><span class="material-symbols-outlined text-[18px]">format_list_numbered</span></button>
+</div>
+<!-- Cine Media Inserters -->
+<div class="flex items-center gap-1">
+<button class="px-2.5 h-8 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px] text-primary">add_photo_alternate</span>
+<span class="hidden sm:inline">Chèn Ảnh/Gallery</span>
+</button>
+<button class="px-2.5 h-8 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px] text-secondary">movie</span>
+<span class="hidden sm:inline">Thẻ Phim SVOD</span>
+</button>
+<button class="px-2.5 h-8 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px] text-tertiary">videocam</span>
+<span class="hidden sm:inline">Video Clip HLS</span>
+</button>
+</div>
+</div>
+<!-- CineAI Prompts Ribbon -->
+<div class="flex items-center gap-space-xs pt-1 overflow-x-auto text-label-md">
+<span class="text-tertiary font-bold flex items-center gap-1 shrink-0"><span class="material-symbols-outlined text-[16px]">neurology</span> CineAI:</span>
+<button class="px-2.5 py-1 rounded bg-surface-container text-tertiary hover:bg-surface-container-high transition-colors shrink-0 flex items-center gap-1">
+<span>✨ Tóm tắt đoạn này chuẩn Sapo</span>
+</button>
+<button class="px-2.5 py-1 rounded bg-surface-container text-tertiary hover:bg-surface-container-high transition-colors shrink-0 flex items-center gap-1">
+<span>✨ Viết tiếp kết luận chuyên sâu</span>
+</button>
+<button class="px-2.5 py-1 rounded bg-surface-container text-tertiary hover:bg-surface-container-high transition-colors shrink-0 flex items-center gap-1">
+<span>✨ Đề xuất 3 tiêu đề giật gân SEO</span>
+</button>
+</div>
+</div>
+<!-- MAIN ARTICLE CANVAS -->
+<article class="p-space-lg rounded-xl bg-surface-container-low shadow-sm space-y-space-lg">
+<!-- Featured Hero Banner Preview -->
+<div class="space-y-space-xs">
+<div class="relative w-full h-80 rounded-xl overflow-hidden group shadow-lg">
+<div class="bg-cover bg-center w-full h-full transform group-hover:scale-105 transition-transform duration-500" data-alt="A grand cinematic wide-angle shot of sweeping golden desert sand dunes at sunset inspired by Dune Part Two, an IMAX film camera rig mounted on a sand crawler, atmospheric dust motes shimmering in ambient amber glow, deep obsidian midnight shadows, hyper-realistic, 8k resolution, cinematic lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB1auqxZZFrA4iXMuqbc95GqHQPvdmsISiRW_KY_9-pt-_zd9HLWmR5pGavIhmkIt90WScr7Mxq0gyPXdt8GOFb5ebVfCCSW1-2Pcwe1PL2jt0_Ew9u6hd-lr7uWMvegJSdJaiEtFP6_jQuBbXOIjRaQGT5roUMpydLb5elvgbBGKQ6WNkmXOZ1wFSpqmAMxycJRCQ3C-QjI62zf4VseZjpkKS4HgUS5dve-pankckgVA6ef1vzOl9gIg')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent"></div>
+<div class="absolute top-space-md left-space-md">
+<span class="px-3 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-primary font-label-caps uppercase tracking-wider font-bold">Ảnh Bìa Chính (1920x1080 - WebP 142KB)</span>
+</div>
+<div class="absolute bottom-space-md right-space-md flex gap-2">
+<button class="px-3 py-2 rounded-lg bg-surface-container-lowest/90 hover:bg-surface-container-high backdrop-blur-md text-on-surface font-label-md flex items-center gap-1.5 transition-colors shadow">
+<span class="material-symbols-outlined text-[16px]">crop</span>
+<span>Cắt Tỷ Lệ 16:9</span>
+</button>
+<button class="px-3 py-2 rounded-lg bg-primary-container hover:bg-secondary-container text-on-primary font-label-md flex items-center gap-1.5 transition-colors shadow">
+<span class="material-symbols-outlined text-[16px]">movie_filter</span>
+<span>Trích Xuất Frame Phim Gốc (4K Master)</span>
+</button>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-outline italic text-center">Hình 1. Toàn cảnh đại sa mạc Arrakis được quay hoàn toàn bằng máy Arri Alexa LF IMAX độc quyền.</p>
+</div>
+<!-- Sapo / Lead Paragraph -->
+<div class="p-space-md rounded-lg bg-surface-container text-on-surface font-body-lg text-body-lg italic leading-relaxed">
+          "Không chỉ dừng lại ở một thiên sử thi khoa học viễn tưởng vĩ đại, Dune: Part Two của đạo diễn Denis Villeneuve còn là một kỳ quan điện ảnh về mặt kỹ thuật nghe nhìn khi khai thác trọn vẹn 100% tỷ lệ khung hình IMAX 1.43:1 cùng thiết kế âm thanh Dolby Atmos làm rung chuyển mọi rạp chiếu toàn cầu..."
+        </div>
+<!-- Section H2 -->
+<div class="space-y-space-sm pt-space-xs">
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface flex items-center gap-space-xs">
+<span class="w-2 h-6 rounded-full bg-primary inline-block"></span>
+<span>1. Cuộc Cách Mạng Khung Hình IMAX 65mm Kỹ Thuật Số</span>
+</h2>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+            Khác với phần đầu tiên ra mắt vào năm 2021 chỉ có khoảng 40% thời lượng ghi hình bằng máy quay đạt chứng nhận IMAX, đạo diễn hình ảnh Greig Fraser đã nâng tỷ lệ này lên 100% cho phần hai. Sử dụng hệ thống máy quay ARRI Alexa Mini LF và Alexa 65 trang bị ống kính Ultra Vista anamorphic tùy biến, từng hạt cát Arrakis và biểu cảm nhỏ nhất của Paul Atreides (Timothée Chalamet) đều đạt độ phân giải quang học siêu thực.
+          </p>
+</div>
+<!-- INTERACTIVE EMBEDDED MOVIE CARD WIDGET -->
+<div class="p-space-md rounded-xl bg-surface-container shadow-md flex flex-col md:flex-row items-center gap-space-md group">
+<div class="w-28 h-40 shrink-0 rounded-lg overflow-hidden relative shadow-md">
+<div class="bg-cover bg-center w-full h-full" data-alt="Official dark sci-fi movie poster for Dune Part Two, featuring cinematic portraits of Paul Atreides and Chani silhouetted against glowing orange spice dunes, deep teal and fiery amber cinema palette, clean typography banner" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBccXUj9bXzzf51RINxP36W7oZ2WncOx2skmz0E8uAeDkp4KZXNNv3J1uCs-UWf8mi9MMPv9t1ppl4vR7ZA2KCPEaZbQJh7bbZn9jwlAuoyqVT8KSsoSZKvRG2MLqN1Sl2pOHDIFI6cF51oq1VNnkZfYIoyh7P5Ia79Gfp0ajg3dbqfSlJXnhKvB_nq8FJwVOzXIGIDBXAKyg91fBusTTRtZs8bbaaVPbXcQM6b89gW3iE6K4cuz7jxEw')"></div>
+<div class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-surface-container-lowest/90 font-label-caps text-secondary font-bold">4K HDR</div>
+</div>
+<div class="flex-1 space-y-space-xs">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-caps uppercase">Thẻ Phim Nhúng (Live SVOD Widget)</span>
+<span class="font-label-caps text-outline">ID: MOV-DUNE-PART2</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Dune: Hành Tinh Cát - Phần Hai (2024)</h3>
+<div class="flex flex-wrap items-center gap-space-sm text-on-surface-variant font-label-md">
+<span class="flex items-center gap-1 text-secondary"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span> 8.6 IMDb</span>
+<span>•</span>
+<span>166 phút</span>
+<span>•</span>
+<span>Đạo diễn: Denis Villeneuve</span>
+<span>•</span>
+<span class="text-tertiary">Dolby Atmos / IMAX Enhanced</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Cuộc hành trình thần thoại của Paul Atreides khi anh hợp nhất với Chani và người Fremen trên con đường báo thù chống lại những kẻ đã hủy diệt gia tộc mình.</p>
+</div>
+<div class="shrink-0 flex flex-col gap-2 w-full md:w-auto">
+<a class="px-space-md py-2.5 rounded-lg bg-primary-container hover:bg-secondary-container text-on-primary font-label-md flex items-center justify-center gap-2 shadow-sm transition-all" href="#">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+<span>Xem Trên CineStreams</span>
+</a>
+<span class="font-label-caps text-center text-outline">Chuyển đổi trực tiếp +12.4%</span>
+</div>
+</div>
+<!-- Pull-Quote Component -->
+<blockquote class="p-space-lg rounded-xl bg-surface-container/60 shadow-sm relative overflow-hidden">
+<div class="flex gap-space-md items-start">
+<span class="material-symbols-outlined text-primary text-4xl leading-none">format_quote</span>
+<div class="space-y-space-xs">
+<p class="font-headline-sm text-headline-sm font-semibold text-primary italic leading-relaxed">
+                "Âm thanh trong Dune không đơn thuần là tiếng động bổ trợ, nó là một thực thể sinh học dẫn đường người xem xuyên qua vùng đất chết Arrakis."
+              </p>
+<div class="font-label-md text-on-surface-variant">
+                — <strong>Hans Zimmer</strong>, Giám đốc Âm nhạc đoạt giải Oscar
+              </div>
+</div>
+</div>
+</blockquote>
+<!-- Image Gallery / Comparison Section -->
+<div class="space-y-space-xs pt-space-xs">
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">So Sánh Tỷ Lệ Khung Hình: Chuẩn Rạp 2.39:1 vs IMAX 1.43:1</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm pt-2">
+<div class="space-y-1">
+<div class="w-full h-48 rounded-lg overflow-hidden relative shadow">
+<div class="bg-cover bg-center w-full h-full" data-alt="Cinematic widescreen 2.39:1 aspect ratio comparison showing cropped desert horizon scene with black letterbox bars on top and bottom, moody twilight lighting, high contrast" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBzbESQE9r4BAf_WhloKlqpwG-U3GKRdlxyOJNEYfx3oEbAXeBSVn19oAIEwEo7ynsE0bjjSEK6uJxJEAdBGFbtQS5K29PFPbMJRrrQY9KTVPYrRmh5dz4RExEt_i6TeOLMXj-9lRcwJMJgHtusru6duRHv_maU8j3_tL0ydh4hqMxK2EUwIeGMhwKQ6f6U82QtfRbjXWywtSBitXGuw6lirAD1givwn8hY20X9A-C9qi01F3NvoMPbyQ')"></div>
+<div class="absolute bottom-2 left-2 px-2 py-1 rounded bg-surface-container-lowest/80 text-on-surface font-label-caps">Chuẩn Rạp Chiếu Phổ Thông (2.39:1)</div>
+</div>
+<p class="font-body-sm text-body-sm text-outline text-center">Bị cắt xén 26% chiều cao khung hình thực tế</p>
+</div>
+<div class="space-y-1">
+<div class="w-full h-48 rounded-lg overflow-hidden relative shadow">
+<div class="bg-cover bg-center w-full h-full" data-alt="Full frame IMAX 1.43:1 aspect ratio comparison showing complete massive towering sand worm emerging in expansive desert, towering sky, intense volumetric light" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBUs62dIXs8TiagayxxzJ8z4jbHhe1FCG1T3UZQbE6YY5zd1fDea88Jwpn2jC2TfAB9aTmvsGfleVZ1qgYRh2FCBfsebYGFsFYKhsamxoGo-lkaW_ZrlBpyA5URRm-g3wYcrIRq-2jgfl_meCLa5VX54Z6jfxXDCfkeGn9BriKmrvqquZCwExI-XTOn6-MyMECsdKtzs51XwB-tg1p-jZy-_044CVn659dyuh_wUfGHySCjF5XlatV_Dw')"></div>
+<div class="absolute bottom-2 left-2 px-2 py-1 rounded bg-primary-container text-on-primary font-label-caps font-bold">Đầy Đủ Khung Hình IMAX (1.43:1)</div>
+</div>
+<p class="font-body-sm text-body-sm text-primary text-center">Trọn vẹn 100% diện tích thị giác nguyên bản</p>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- RIGHT COLUMN: INSPECTOR & SYNDICATION SIDEBAR (4 COLS) -->
+<aside class="lg:col-span-4 flex flex-col space-y-space-md">
+<!-- PANEL 1: PUBLISHING SCHEDULE & VISIBILITY -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">schedule</span>
+<span>Xuất Bản &amp; Phân Phối</span>
+</h3>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-caps uppercase font-bold">Bản Nháp</span>
+</div>
+<div class="space-y-space-sm font-body-sm text-body-sm">
+<!-- Radio Publish Choice -->
+<div class="grid grid-cols-2 gap-space-xs p-1 rounded-lg bg-surface-container">
+<button class="py-2 rounded-md bg-surface-container-high text-on-surface font-label-md font-semibold text-center shadow-sm">Lên Lịch Hẹn Giờ</button>
+<button class="py-2 rounded-md text-on-surface-variant hover:text-on-surface font-label-md text-center transition-colors">Xuất Bản Ngay</button>
+</div>
+<div class="space-y-1">
+<label class="font-label-caps text-outline uppercase">Thời gian phát hành dự kiến (GMT+7)</label>
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container text-on-surface">
+<span class="material-symbols-outlined text-outline text-[18px]">calendar_clock</span>
+<input class="bg-transparent font-label-md w-full focus:outline-none text-on-surface" type="text" value="19:30 - 31/03/2025"/>
+</div>
+</div>
+<!-- Toggles -->
+<div class="space-y-space-xs pt-1">
+<label class="flex items-center justify-between p-2 rounded-lg hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex flex-col">
+<span class="font-label-md text-on-surface font-semibold">Quyền Xem Trước Cho VIP (Early Access)</span>
+<span class="font-label-caps text-outline">Mở khóa độc quyền trước 24 giờ cho thành viên VIP</span>
+</div>
+<div class="w-10 h-6 rounded-full bg-primary-container flex items-center justify-end px-1">
+<div class="w-4 h-4 rounded-full bg-on-primary"></div>
+</div>
+</label>
+<label class="flex items-center justify-between p-2 rounded-lg hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex flex-col">
+<span class="font-label-md text-on-surface font-semibold">Ghim Lên Hero Banner Tin Tức</span>
+<span class="font-label-caps text-outline">Vị trí tiêu điểm trang nhất mục Blog Điện Ảnh</span>
+</div>
+<div class="w-10 h-6 rounded-full bg-primary-container flex items-center justify-end px-1">
+<div class="w-4 h-4 rounded-full bg-on-primary"></div>
+</div>
+</label>
+</div>
+</div>
+</div>
+<!-- PANEL 2: LIVE SEO INSPECTOR & AI SCORING -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">speed</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">CineAI SEO Score</h3>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container/20 text-secondary font-label-caps font-bold">94 / 100 ĐIỂM</span>
+</div>
+<!-- Google SERP Snippet Preview -->
+<div class="p-space-sm rounded-lg bg-surface-container space-y-1">
+<div class="flex items-center gap-1.5 text-label-caps text-outline">
+<span class="material-symbols-outlined text-[14px]">public</span>
+<span>Mô phỏng hiển thị Google Search</span>
+</div>
+<div class="text-[#8ab4f8] font-label-md hover:underline cursor-pointer truncate">
+            Giải Mã Kỹ Thuật IMAX &amp; Âm Thanh Dolby Atmos Đỉnh Cao | CineStreams
+          </div>
+<div class="text-[#008744] dark:text-[#81c995] font-label-caps">
+            https://cinestreams.vn › blog › giai-ma-ky-thuat-imax-dolby-atmos-dune-2
+          </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+            Khám phá chiều sâu kỹ thuật quay IMAX 1.43:1 và thiết kế âm thanh Dolby Atmos trong Dune 2 cùng phân tích chi tiết từ đạo diễn Denis Villeneuve và Hans Zimmer...
+          </p>
+</div>
+<!-- SEO Checklist -->
+<div class="space-y-space-xs font-body-sm text-body-sm">
+<div class="flex items-start gap-2 p-1.5 rounded hover:bg-surface-container">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-on-surface-variant">Tiêu đề chứa từ khóa chính <strong class="text-on-surface font-semibold">Dune 2</strong> (62/70 ký tự lý tưởng)</span>
+</div>
+<div class="flex items-start gap-2 p-1.5 rounded hover:bg-surface-container">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-on-surface-variant">Meta Description đủ độ dài tối ưu (156 ký tự)</span>
+</div>
+<div class="flex items-start gap-2 p-1.5 rounded hover:bg-surface-container">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-on-surface-variant">Mật độ từ khóa đạt <strong class="text-secondary font-semibold">1.8%</strong> (Mức tự nhiên hoàn hảo)</span>
+</div>
+<div class="flex items-start gap-2 p-1.5 rounded hover:bg-surface-container">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-on-surface-variant">4 Liên kết nội bộ (Internal link) tới phim và VIP</span>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container text-on-surface">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0">warning</span>
+<span class="text-primary font-medium text-body-sm">Thiếu Alt tag mô tả 1 hình ảnh</span>
+</div>
+<button class="px-2 py-0.5 rounded bg-surface-container-high text-primary hover:bg-primary hover:text-on-primary font-label-caps transition-colors">Sửa Bằng AI</button>
+</div>
+</div>
+</div>
+<!-- PANEL 3: ENTITY TAGGING & MOVIE TAXONOMY -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm space-y-space-md">
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary text-[20px]">hub</span>
+<span>Liên Kết Thực Thể Phim &amp; Nhân Vật</span>
+</h3>
+<!-- Movie Entities -->
+<div class="space-y-space-xs">
+<label class="font-label-caps text-outline uppercase">Phim trong hệ thống CineStreams</label>
+<div class="flex flex-wrap gap-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-primary font-label-md">
+<span>Dune: Phần Hai (2024)</span>
+<button class="hover:text-on-surface"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-primary font-label-md">
+<span>Oppenheimer (2023)</span>
+<button class="hover:text-on-surface"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<button class="px-2 py-1 rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface-variant font-label-md flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">add</span>
+<span>Thêm Phim</span>
+</button>
+</div>
+</div>
+<!-- Directors & Cast -->
+<div class="space-y-space-xs">
+<label class="font-label-caps text-outline uppercase">Đạo Diễn &amp; Diễn Viên Liên Quan</label>
+<div class="flex flex-wrap gap-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-md">
+<span>Denis Villeneuve</span>
+<button class="hover:text-outline"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-md">
+<span>Hans Zimmer</span>
+<button class="hover:text-outline"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-md">
+<span>Timothée Chalamet</span>
+<button class="hover:text-outline"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-md">
+<span>Zendaya</span>
+<button class="hover:text-outline"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+</div>
+</div>
+<!-- Hashtags -->
+<div class="space-y-space-xs">
+<label class="font-label-caps text-outline uppercase">Hashtag &amp; Phân Cụm SEO</label>
+<div class="flex flex-wrap gap-1.5 text-on-surface-variant font-label-md">
+<span class="px-2 py-0.5 rounded bg-surface-container text-tertiary">#Dune2</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-tertiary">#IMAX</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-tertiary">#DolbyAtmos</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-tertiary">#BehindTheScenes</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-tertiary">#CineAnalysis</span>
+</div>
+</div>
+</div>
+<!-- PANEL 4: OMNICHANNEL SYNDICATION AUTOMATION -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm space-y-space-md">
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">cell_tower</span>
+<span>Phân Phối Đa Kênh Tự Động</span>
+</h3>
+<div class="space-y-space-sm font-body-sm text-body-sm">
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">notifications_active</span>
+<div class="flex flex-col">
+<span class="font-label-md text-on-surface font-semibold">Push Notification App</span>
+<span class="font-label-caps text-outline">Gửi tới 120.000 fan theo dõi Dune 2</span>
+</div>
+</div>
+<input checked="" class="w-4 h-4 accent-amber-500 rounded cursor-pointer" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">share</span>
+<div class="flex flex-col">
+<span class="font-label-md text-on-surface font-semibold">Social Syndication (AI Bot)</span>
+<span class="font-label-caps text-outline">Tự động tạo tóm tắt lên FB &amp; Telegram</span>
+</div>
+</div>
+<input checked="" class="w-4 h-4 accent-amber-500 rounded cursor-pointer" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">rss_feed</span>
+<div class="flex flex-col">
+<span class="font-label-md text-on-surface font-semibold">CineStreams RSS &amp; Google News</span>
+<span class="font-label-caps text-secondary font-bold">Tự động Ping Sitemap</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div></main></div></body></html>

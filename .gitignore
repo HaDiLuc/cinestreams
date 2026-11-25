@@ -1,0 +1,95 @@
+# ==============================================================================
+# CineStreams Monorepo .gitignore
+# ==============================================================================
+
+# ----------------- Node.js & Frontend -----------------
+node_modules/
+**/node_modules/
+client/node_modules/
+dist/
+**/dist/
+client/dist/
+.npm/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ----------------- Java & Maven -----------------
+target/
+**/target/
+server/target/
+Java-SpringBoot-JWT-Lab2/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+.mvn/wrapper/maven-wrapper.jar
+.flattened-pom.xml
+
+# ----------------- CineStreams Runtime Media Uploads -----------------
+# Giữ lại cấu trúc thư mục uploads nhưng không commit video và chunk tạm thời
+server/uploads/temp/*
+!server/uploads/temp/.gitkeep
+server/uploads/videos/*
+!server/uploads/videos/.gitkeep
+uploads/temp/*
+!uploads/temp/.gitkeep
+uploads/videos/*
+!uploads/videos/.gitkeep
+
+# Không commit các file media dung lượng lớn
+*.mp4
+*.ts
+*.m3u8
+*.mov
+*.avi
+*.mkv
+*.webm
+
+# ----------------- Environment & Secrets -----------------
+.env
+.env.local
+.env.*.local
+**/.env
+**/.env.local
+!**/.env.example
+*.pem
+*.key
+*.backup
+**/application-local.properties
+
+# ----------------- IDEs & Editors -----------------
+.idea/
+*.iml
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.project
+.classpath
+.settings/
+
+# ----------------- Operating System Junk -----------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+__MACOSX/
+*.tmp
+*.log
+
+# ----------------- Archive Files -----------------
+*.zip
+*.tar.gz
+*.rar
+*.7z

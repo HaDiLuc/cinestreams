@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Sora:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary": "#ffc174", "surface-container-low": "#151b2b", "tertiary-fixed-dim": "#7bd0ff", "surface-dim": "#0d1322", "on-error-container": "#ffdad6", "surface-container-high": "#242a3a", "on-tertiary": "#00354a", "tertiary-fixed": "#c4e7ff", "tertiary": "#8ed5ff", "on-primary-fixed": "#2a1700", "surface": "#0d1322", "primary-container": "#f59e0b", "inverse-surface": "#dde2f8", "surface-variant": "#2f3445", "on-primary-fixed-variant": "#653e00", "outline-variant": "#534434", "on-secondary-fixed": "#261a00", "on-primary-container": "#613b00", "secondary": "#ffc640", "outline": "#a08e7a", "surface-container": "#191f2f", "on-primary": "#472a00", "inverse-primary": "#855300", "on-secondary": "#402d00", "on-surface": "#dde2f8", "surface-container-lowest": "#080e1d", "secondary-fixed-dim": "#f9bd22", "on-surface-variant": "#d8c3ad", "on-tertiary-fixed": "#001e2c", "surface-bright": "#33394a", "on-secondary-container": "#5a4100", "secondary-fixed": "#ffdf9f", "on-error": "#690005", "on-secondary-fixed-variant": "#5c4300", "on-tertiary-container": "#004965", "surface-tint": "#ffb95f", "inverse-on-surface": "#2a3040", "on-background": "#dde2f8", "error": "#ffb4ab", "surface-container-highest": "#2f3445", "tertiary-container": "#38bdf8", "on-tertiary-fixed-variant": "#004c69", "primary-fixed-dim": "#ffb95f", "secondary-container": "#e3aa00", "error-container": "#93000a", "primary-fixed": "#ffddb8", "background": "#0d1322" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-sm": "0.5rem", "space-lg": "1.5rem", "gutter-mobile": "0.75rem", "margin-mobile": "1rem", "space-md": "1rem", "space-xl": "2.5rem", "margin": "3rem", "gutter": "1.5rem", "space-xs": "0.25rem" }, "fontFamily": { "headline-lg-mobile": [ "Sora" ], "body-lg": [ "Plus Jakarta Sans" ], "body-sm": [ "Plus Jakarta Sans" ], "display-hero": [ "Sora" ], "headline-lg": [ "Sora" ], "label-lg": [ "Sora" ], "display-hero-mobile": [ "Sora" ], "headline-sm": [ "Sora" ], "label-md": [ "Sora" ], "body-md": [ "Plus Jakarta Sans" ], "headline-md": [ "Sora" ], "label-caps": [ "Sora" ] }, "fontSize": { "headline-lg-mobile": [ "24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "body-lg": [ "18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" } ], "body-sm": [ "13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" } ], "display-hero": [ "56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "headline-lg": [ "32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600" } ], "label-lg": [ "14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" } ], "display-hero-mobile": [ "36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "headline-sm": [ "18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" } ], "label-md": [ "12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" } ], "body-md": [ "15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" } ], "headline-md": [ "24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "label-caps": [ "10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "700" } ] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest z-50 flex flex-col shadow-[0_1px_8px_rgba(0,0,0,0.5)]"><div class="h-16 px-space-lg flex items-center gap-space-sm bg-surface-container-lowest"><div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shadow-[0_0_12px_rgba(245,158,11,0.2)]"><span class="material-symbols-outlined text-primary text-[22px]">video_settings</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight leading-none">CineStreams</span><span class="font-label-caps text-label-caps text-primary tracking-widest uppercase mt-0.5">STUDIO OPS CMS</span></div></div><div class="flex-1 overflow-y-auto px-space-md py-space-md space-y-space-lg"><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(245,158,11,0.35)]"><div class="px-space-sm pb-space-xs"><span class="font-label-caps text-label-caps text-outline uppercase tracking-wider font-bold">TỔNG QUAN</span></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="dashboard-doanh-thu" href="#"><span class="material-symbols-outlined text-[20px]">query_stats</span><span>Dashboard &amp; Doanh Thu</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="bao-cao-phan-tich" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span><span>Báo Cáo Phân Tích</span></a></nav><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(245,158,11,0.35)]"><div class="px-space-sm pb-space-xs"><span class="font-label-caps text-label-caps text-outline uppercase tracking-wider font-bold">QUẢN LÝ NỘI DUNG CMS</span></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="danh-muc-phim-le" href="#"><span class="material-symbols-outlined text-[20px]">movie</span><span>Danh Mục Phim Lẻ</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="phim-bo-mua-tap" href="#"><span class="material-symbols-outlined text-[20px]">tv</span><span>Phim Bộ &amp; Mùa/Tập</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="upload-video-goc" href="#"><span class="material-symbols-outlined text-[20px]">cloud_upload</span><span>Upload Video Gốc</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="quan-ly-phu-de-audio-track" href="#"><span class="material-symbols-outlined text-[20px]">subtitles</span><span>Quản Lý Phụ Đề &amp; Audio Track</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="phan-doan-phat-hanh" href="#"><span class="material-symbols-outlined text-[20px]">dynamic_feed</span><span>Phân Đoạn Phát Hành</span></a></nav><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(245,158,11,0.35)]"><div class="px-space-sm pb-space-xs"><span class="font-label-caps text-label-caps text-outline uppercase tracking-wider font-bold">THƯƠNG MẠI &amp; THANH TOÁN</span></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="goi-cuoc-vip" href="#"><span class="material-symbols-outlined text-[20px]">workspace_premium</span><span>Gói Cước VIP</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="giao-dich-vietqr-momo" href="#"><span class="material-symbols-outlined text-[20px]">qr_code_scanner</span><span>Giao Dịch VietQR/MoMo</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="doi-soat-webhook" href="#"><span class="material-symbols-outlined text-[20px]">sync_alt</span><span>Đối Soát Webhook</span></a></nav><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(245,158,11,0.35)]"><div class="px-space-sm pb-space-xs"><span class="font-label-caps text-label-caps text-outline uppercase tracking-wider font-bold">HỆ THỐNG &amp; AI</span></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="cau-hinh-cineai-studio" href="#"><span class="material-symbols-outlined text-[20px]">auto_awesome</span><span>Cấu Hình CineAI Studio</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="quan-ly-thanh-vien-rbac" href="#"><span class="material-symbols-outlined text-[20px]">admin_panel_settings</span><span>Quản Lý Thành Viên &amp; RBAC</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="nhat-ky-he-thong" href="#"><span class="material-symbols-outlined text-[20px]">terminal</span><span>Nhật Ký Hệ Thống</span></a></nav></div><div class="p-space-md bg-surface-container-low/60 backdrop-blur-md m-space-sm rounded-xl"><div class="flex items-center justify-between text-on-surface"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-tertiary text-[18px]">memory</span><span class="font-label-caps text-label-caps font-bold tracking-wider">CINE-ENGINE</span></div><span class="font-label-caps text-label-caps text-tertiary font-bold">v4.8.2</span></div><div class="mt-1 text-on-surface-variant font-body-sm text-body-sm leading-tight">GPU Clusters &amp; Transcoders Active</div></div></aside><div class="pl-72 min-h-screen flex flex-col"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-low/80 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.3)]"><div class="h-16 w-full px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md flex-1 max-w-xl"><div class="relative w-full max-w-md"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span><input class="w-full h-10 pl-10 pr-4 bg-surface-container-high/80 rounded-lg text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary shadow-inner" placeholder="Tìm kiếm phim, metadata ID, audio tracks, webhook logs..." type="text"/></div><div class="hidden xl:flex items-center gap-space-sm px-3 py-1.5 rounded-full bg-surface-container-high/60 backdrop-blur-md"><span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span><span class="font-label-caps text-label-caps text-on-surface font-semibold">CDN 99.98%</span><span class="text-outline text-xs">•</span><span class="flex h-2 w-2 rounded-full bg-emerald-400"></span><span class="font-label-caps text-label-caps text-on-surface font-semibold">Transcoder Hoạt Động</span></div></div><div class="flex items-center gap-space-md"><button class="relative w-9 h-9 rounded-full bg-surface-container-high hover:bg-surface-container-highest flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-all" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-primary-container ring-2 ring-surface-container-low"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="text-right hidden sm:block"><div class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Alex Tran</div><div class="font-label-caps text-label-caps text-primary uppercase font-bold tracking-wider">Super Admin</div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-16 bg-surface flex-1"><div class="flex flex-col w-full">
+<!-- Command Header & Telemetry Breadcrumbs -->
+<section class="px-gutter py-space-md bg-surface-container-lowest/60 backdrop-blur-xl">
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-md">
+<!-- Breadcrumb & Primary Title -->
+<div class="space-y-space-xs">
+<div class="flex items-center gap-2 text-outline font-label-caps text-label-caps uppercase tracking-wider">
+<span class="hover:text-primary cursor-pointer transition-colors">Quản Trị CMS</span>
+<span class="text-outline-variant">/</span>
+<span class="hover:text-primary cursor-pointer transition-colors">Hạ Tầng Kỹ Thuật Media</span>
+<span class="text-outline-variant">/</span>
+<span class="text-tertiary font-bold">MOD-07: Media Infrastructure &amp; Edge Streaming Observability</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm pt-1">
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">
+            Giám Sát Cụm Máy Chủ Chuyển Mã Transcoding &amp; CDN Edge Nodes
+          </h1>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-on-surface font-semibold">LIVE CLUSTER FEED</span>
+</div>
+</div>
+<!-- Health Badges Cluster -->
+<div class="flex flex-wrap items-center gap-2 pt-1">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-surface-container font-label-caps text-label-caps">
+<span class="material-symbols-outlined text-secondary text-[14px]">memory</span>
+<span class="text-outline">GPU WORKER POOL:</span>
+<span class="text-primary font-bold">32 NODES ACTIVE</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-surface-container font-label-caps text-label-caps">
+<span class="material-symbols-outlined text-tertiary text-[14px]">cloud_sync</span>
+<span class="text-outline">GLOBAL EDGE HIT RATIO:</span>
+<span class="text-tertiary font-bold">98.4%</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-surface-container font-label-caps text-label-caps">
+<span class="material-symbols-outlined text-emerald-400 text-[14px]">verified</span>
+<span class="text-outline">PACKAGER:</span>
+<span class="text-emerald-400 font-bold">HLS / DASH HEALTHY</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-surface-container font-label-caps text-label-caps">
+<span class="material-symbols-outlined text-outline text-[14px]">lock</span>
+<span class="text-outline">DRM CBCS:</span>
+<span class="text-on-surface font-bold">WIDEVINE / FAIRPLAY ACTIVE</span>
+</div>
+</div>
+</div>
+<!-- Action Button Group -->
+<div class="flex flex-wrap items-center gap-space-sm self-start lg:self-center">
+<button class="flex items-center gap-1.5 px-3.5 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface transition-all font-label-md text-label-md shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px] text-outline">file_download</span>
+<span>Xuất Báo Cáo (.json / .csv)</span>
+</button>
+<button class="flex items-center gap-1.5 px-3.5 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface transition-all font-label-md text-label-md shadow-sm group" id="btn-purge-global" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary group-hover:rotate-180 transition-transform">layers_clear</span>
+<span>Purge Edge Cache Toàn Cầu</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg font-bold shadow-[0_0_20px_rgba(245,158,11,0.35)] hover:shadow-[0_0_28px_rgba(245,158,11,0.55)] transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+<span>+ Cấu Hình Auto-Scaling GPU Pods</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Top Realtime KPI Metrics Grid -->
+<section class="px-gutter pt-space-lg">
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Card 1: GPU Engine Load -->
+<div class="p-space-md rounded-xl bg-surface-container-low/80 backdrop-blur-md shadow-md relative overflow-hidden group">
+<div class="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-primary/10 blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between pb-space-sm">
+<span class="font-label-caps text-label-caps text-outline uppercase font-bold tracking-wider">TẢI GPU ENCODE (L40S / H100)</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">developer_board</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-display-hero text-headline-lg font-bold text-on-surface">78.4%</span>
+<span class="font-label-md text-label-md text-secondary font-semibold">Tải Cao Đạt Đỉnh</span>
+</div>
+<!-- Micro Gauge Bar -->
+<div class="w-full bg-surface-container-high h-2 rounded-full mt-3 overflow-hidden">
+<div class="bg-gradient-to-r from-primary to-primary-container h-full rounded-full transition-all duration-700" style="width: 78.4%"></div>
+</div>
+<div class="mt-3 flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<span>24/32 Node Tải Nặng</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-outline">8 Standby</span>
+<span class="text-outline">•</span>
+<span class="text-tertiary font-mono font-medium">64°C Avg</span>
+</div>
+</div>
+</div>
+<!-- Card 2: CDN Realtime Egress -->
+<div class="p-space-md rounded-xl bg-surface-container-low/80 backdrop-blur-md shadow-md relative overflow-hidden group">
+<div class="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-tertiary/10 blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between pb-space-sm">
+<span class="font-label-caps text-label-caps text-outline uppercase font-bold tracking-wider">BĂNG THÔNG CDN REALTIME</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[18px]">speed</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-display-hero text-headline-lg font-bold text-on-surface">142.8</span>
+<span class="font-headline-sm text-headline-sm text-tertiary font-bold">Gbps</span>
+<span class="ml-auto font-label-caps text-label-caps text-emerald-400 px-2 py-0.5 rounded bg-emerald-500/10 font-bold">+18.2% vs h.qua</span>
+</div>
+<!-- Sparkline SVG Inline -->
+<div class="w-full h-8 mt-2">
+<svg class="w-full h-full text-tertiary" preserveaspectratio="none" viewbox="0 0 200 40">
+<path d="M0,28 Q25,20 50,30 T100,12 T150,22 T200,8 L200,40 L0,40 Z" fill="currentColor" fill-opacity="0.12"></path>
+<path d="M0,28 Q25,20 50,30 T100,12 T150,22 T200,8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<div class="mt-2 flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span>Peak hôm nay: <strong class="text-on-surface font-mono">218 Gbps</strong></span>
+<span class="text-emerald-400 font-semibold">Tối ưu -24% chi phí</span>
+</div>
+</div>
+<!-- Card 3: Encoding Queue Throughput -->
+<div class="p-space-md rounded-xl bg-surface-container-low/80 backdrop-blur-md shadow-md relative overflow-hidden group">
+<div class="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-secondary/10 blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between pb-space-sm">
+<span class="font-label-caps text-label-caps text-outline uppercase font-bold tracking-wider">HÀNG ĐỢI CHUYỂN MÃ (PIPELINE)</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">queue_play_next</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-display-hero text-headline-lg font-bold text-on-surface">14</span>
+<span class="font-label-lg text-label-lg text-outline">Items trong hàng đợi</span>
+<span class="ml-auto font-label-caps text-label-caps text-primary px-2 py-0.5 rounded bg-primary/10 font-bold">4.2x SPEED</span>
+</div>
+<!-- Multi-segment visualizer -->
+<div class="grid grid-cols-4 gap-1.5 mt-3">
+<div class="h-2 rounded bg-primary" title="Rendering AV1"></div>
+<div class="h-2 rounded bg-primary-container" title="Packaging FairPlay"></div>
+<div class="h-2 rounded bg-tertiary" title="Atmos Encoding"></div>
+<div class="h-2 rounded bg-surface-container-high" title="VRAM Alloc Queued"></div>
+</div>
+<div class="mt-3 flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span>1h Phim = ~14 Phút Render</span>
+<span class="text-tertiary font-mono">4K/1080/720/480p</span>
+</div>
+</div>
+<!-- Card 4: Edge Hit Ratio Multi-Tier -->
+<div class="p-space-md rounded-xl bg-surface-container-low/80 backdrop-blur-md shadow-md relative overflow-hidden group">
+<div class="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-emerald-400/10 blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between pb-space-sm">
+<span class="font-label-caps text-label-caps text-outline uppercase font-bold tracking-wider">EDGE CACHE HIT RATIO</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-emerald-400">
+<span class="material-symbols-outlined text-[18px]">hub</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-display-hero text-headline-lg font-bold text-on-surface">98.6%</span>
+<span class="font-label-md text-label-md text-emerald-400 font-semibold">Tối Ưu Shield</span>
+</div>
+<!-- Tier Breakdown Bar -->
+<div class="w-full flex h-2 rounded-full mt-3 overflow-hidden bg-surface-container-high">
+<div class="bg-emerald-400 h-full" style="width: 91.2%" title="NVMe Edge Tier-1 (91.2%)"></div>
+<div class="bg-tertiary-container h-full" style="width: 7.4%" title="Mid-Tier Cache (7.4%)"></div>
+<div class="bg-error h-full" style="width: 1.4%" title="Origin Fallback (1.4%)"></div>
+</div>
+<div class="mt-3 flex items-center justify-between font-label-caps text-label-caps">
+<span class="text-emerald-400">NVMe 91.2%</span>
+<span class="text-tertiary">Mid 7.4%</span>
+<span class="text-error">Origin 1.4%</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Stage: 2-Column Asymmetric Ops Dashboard -->
+<section class="px-gutter py-space-lg">
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+<!-- Left Column (8 cols): Pipeline Jobs & Edge Node Topology -->
+<div class="xl:col-span-8 flex flex-col gap-space-lg min-w-0">
+<!-- Active Video Transcoding Pipeline Grid -->
+<div class="bg-surface-container-low/90 backdrop-blur-xl rounded-xl p-space-md shadow-lg flex flex-col">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-md">
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container animate-ping"></span>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Active Transcoding Pipelines</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">4 luồng render ưu tiên cao cấp Studio ABR Master Profile</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-outline uppercase font-semibold">Lọc Codec:</span>
+<button class="px-2.5 py-1 rounded bg-primary text-on-primary font-label-caps text-label-caps font-bold">ALL</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps">AV1</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps">HEVC</button>
+</div>
+</div>
+<!-- Job Cards List -->
+<div class="space-y-space-sm">
+<!-- Job #ENC-8821 -->
+<div class="p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high/70 transition-all shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+<div class="flex items-start gap-3 min-w-0">
+<div class="w-16 h-10 rounded-md bg-surface-container-high overflow-hidden relative shrink-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="Cinematic still from Dune 2 with golden desert dunes and cinematic dust particles under deep twilight amber lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDMyE2HyE32KUCbBu0_uXdZPfQ5mFyX81A_w5_dpmnt2JY31k5f7PDgm1R3j5_0r68F7gv1vlIlts_99U1PyEn7f0irsri2CYAjFBf5tgeGCo6pWxvRXHs8Q8KkrN-wT5OB9_yj3Ny4hFpzt9tAOtxqb-yATt9i_w1klZRLE-5FlH0VCSNnF8nqHFxD6tcraQxa-nIu-tfCiXOG8GyuVwI3ea90sNra22rw4GlQRpH1PFU2i-beaHLP6Q')"></div>
+<span class="absolute bottom-0 right-0 px-1 rounded-tl bg-surface-container-lowest text-primary font-label-caps text-[9px] font-bold">4K HDR</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-primary font-bold font-mono">#ENC-8821</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold truncate">Dune: Hành Tinh Cát 2</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-outline font-label-caps text-label-caps font-mono">ProRes 4444 XQ</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-2 mt-0.5">
+<span class="text-primary font-medium">Render ABR Profile (AV1 + HEVC 10-bit)</span>
+<span>•</span>
+<span class="font-mono text-tertiary">gpu-pod-vn-hcm-04 (2x NVIDIA L40S)</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between lg:justify-end gap-space-md shrink-0">
+<div class="text-right">
+<div class="font-label-lg text-label-lg text-primary font-mono font-bold">74%</div>
+<div class="font-label-caps text-label-caps text-outline">96 FPS • ETA 6m 20s</div>
+</div>
+<div class="w-24 sm:w-36 bg-surface-container-highest h-2.5 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-secondary to-primary h-full rounded-full transition-all duration-500" style="width: 74%"></div>
+</div>
+<button class="p-1.5 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-primary transition-colors" title="Xem chi tiết log ffmpeg">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+</button>
+</div>
+</div>
+<!-- Bitrate Ladder Indicators -->
+<div class="mt-3 pt-2 flex flex-wrap items-center gap-2 bg-surface-container-low/50 px-2.5 py-1.5 rounded">
+<span class="font-label-caps text-label-caps text-outline uppercase font-semibold">Ladder:</span>
+<span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-label-caps text-label-caps font-mono font-bold">4K 18Mbps [AV1 Complete]</span>
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-label-caps text-label-caps font-mono font-bold">1080p 6.5Mbps [Pass 2/2]</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps font-mono">720p 3.2Mbps</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps font-mono">480p 1.1Mbps</span>
+<span class="ml-auto font-label-caps text-label-caps text-tertiary font-bold">Dolby Vision XML Injected</span>
+</div>
+</div>
+<!-- Job #ENC-8822 -->
+<div class="p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high/70 transition-all shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+<div class="flex items-start gap-3 min-w-0">
+<div class="w-16 h-10 rounded-md bg-surface-container-high overflow-hidden relative shrink-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="Medieval fantasy throne room with golden dragon heraldry and smoky atmospheric backlight for House of the Dragon episode." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCo3E4yjYUCvTSsH6BEb2Y_zoBgoj65UbFfGSGym2n6DErrQtpevdpgOaJ13OutpZCo7g1pRaG6rmjmT6AfoOyHBvOwzryfAUlhrq44yN-oFKLpqQKo-VTKfx5ab9XBgBDfD0sYCwjhWUMBEXucYguQZJnx-vvDQcCLeRaaQfCLxTTGMtGSgEhUpD-hXGvLQaQYJ9iVB4BHlQXqNKt8dYgkxTssVz0fcxCjqZEdNbf1kEi5ueftzOK9gg')"></div>
+<span class="absolute bottom-0 right-0 px-1 rounded-tl bg-surface-container-lowest text-tertiary font-label-caps text-[9px] font-bold">HLS DRM</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-secondary font-bold font-mono">#ENC-8822</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold truncate">Gia Tộc Rồng: Mùa 2 - Tập 5</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-outline font-label-caps text-label-caps font-mono">DNxHR HQX</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-2 mt-0.5">
+<span class="text-secondary font-medium">HLS Master Playlist Packaging &amp; DRM FairPlay/Widevine</span>
+<span>•</span>
+<span class="font-mono text-tertiary">gpu-pod-vn-hn-02</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between lg:justify-end gap-space-md shrink-0">
+<div class="text-right">
+<div class="font-label-lg text-label-lg text-emerald-400 font-mono font-bold">92%</div>
+<div class="font-label-caps text-label-caps text-outline">142 FPS • ETA 1m 15s</div>
+</div>
+<div class="w-24 sm:w-36 bg-surface-container-highest h-2.5 rounded-full overflow-hidden">
+<div class="bg-emerald-400 h-full rounded-full transition-all duration-500" style="width: 92%"></div>
+</div>
+<button class="p-1.5 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-primary transition-colors" title="Xem chi tiết log ffmpeg">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+</button>
+</div>
+</div>
+<div class="mt-3 pt-2 flex flex-wrap items-center gap-2 bg-surface-container-low/50 px-2.5 py-1.5 rounded">
+<span class="font-label-caps text-label-caps text-outline uppercase font-semibold">Keys:</span>
+<span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-label-caps text-label-caps font-mono font-bold">FairPlay k-id Verified</span>
+<span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-label-caps text-label-caps font-mono font-bold">Widevine CBCS Chunk Encr.</span>
+<span class="px-2 py-0.5 rounded bg-tertiary-container/20 text-on-tertiary-fixed font-label-caps text-label-caps font-mono">m3u8 Master Generated</span>
+</div>
+</div>
+<!-- Job #ENC-8823 -->
+<div class="p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high/70 transition-all shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+<div class="flex items-start gap-3 min-w-0">
+<div class="w-16 h-10 rounded-md bg-surface-container-high overflow-hidden relative shrink-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="High contrast film still of Vietnamese family gathering in misty mountain village with rich emerald greens and warm golden lanterns." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDDGQyAV8Tj2ZHR3EuEgv6-6AbRzdyRXrUIFfId_GpnMkEyn9Uzka6YtJxCFfKSKQyvY2vtKH7aHzFKucJEDYvhFsyGBt2Dnad5K2zS1R3CsbR83QcMiY0Ygyn7prgjnzZi0sEHMxWc8XqE4SkC46nqxLDe8uI-CyvCP58uCqyqszs3glP2F6KmfSC_Dq-J6i2vQhcfl1HnZjs67x_wVZdy5t6dRtdgHOysCWWj2DmyBxI-oQonO5r7KQ')"></div>
+<span class="absolute bottom-0 right-0 px-1 rounded-tl bg-surface-container-lowest text-tertiary font-label-caps text-[9px] font-bold">ATMOS</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-primary font-bold font-mono">#ENC-8823</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold truncate">Lật Mặt 7: Một Điều Ước</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-outline font-label-caps text-label-caps font-mono">ProRes 422 HQ</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-2 mt-0.5">
+<span class="text-tertiary font-medium">Trích xuất Dolby Atmos 7.1 &amp; EAC3 JOC Spatial</span>
+<span>•</span>
+<span class="font-mono text-tertiary">gpu-pod-sg-01</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between lg:justify-end gap-space-md shrink-0">
+<div class="text-right">
+<div class="font-label-lg text-label-lg text-tertiary font-mono font-bold">38%</div>
+<div class="font-label-caps text-label-caps text-outline">Audio Matrix • ETA 4m 50s</div>
+</div>
+<div class="w-24 sm:w-36 bg-surface-container-highest h-2.5 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full transition-all duration-500" style="width: 38%"></div>
+</div>
+<button class="p-1.5 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-primary transition-colors" title="Xem chi tiết log ffmpeg">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Job #ENC-8824 (Queued) -->
+<div class="p-space-sm rounded-lg bg-surface-container/60 hover:bg-surface-container transition-all">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 opacity-80">
+<div class="flex items-start gap-3 min-w-0">
+<div class="w-16 h-10 rounded-md bg-surface-container-high overflow-hidden relative shrink-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="Neon cyberpunk animation art with vibrant cyan and violet electricity arcs in Zaun underground city style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCWu8rvBIVzkhirjEYi8xZUDlpoJ9ZlsLlSuPeTjm0l4IBBzun0lFYdCh7LYGj1nK_Yymnk55Y4ImntOeptfx_Zw98ZppgY7F2zp144bYNkatczvAVGYkYTZZ92HcB6e4rjV-O9VkUxAVRX7HAvSWTgjvZflZsImAIL2DwRyePtv0GrCgLY0AVurNMu_f-duh27KzlvJMl_TuqOHBK83utZyaRBVoBYJPPffTaoa09k1Ir5Iuc0Wn0lcQ')"></div>
+<span class="absolute bottom-0 right-0 px-1 rounded-tl bg-surface-container-lowest text-outline font-label-caps text-[9px] font-bold">QUEUED</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-outline font-bold font-mono">#ENC-8824</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold truncate">Arcane: Mùa 2 - Tập 3 (Remaster HDR)</span>
+</div>
+<div class="font-body-sm text-body-sm text-outline mt-0.5">
+                      Chờ cấp phát GPU VRAM Pool (Priority #1 khi Node vn-hn-02 hoàn tất)
+                    </div>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<span class="px-2.5 py-1 rounded bg-surface-container-high font-label-caps text-label-caps text-outline font-semibold">Chờ Cấp Phát Tài Nguyên</span>
+<button class="px-3 py-1.5 rounded bg-surface-container-high text-on-surface hover:bg-primary hover:text-on-primary transition-colors font-label-caps text-label-caps font-bold">
+                    Ép Render Ngay
+                  </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Edge Network Topology & CDN Realtime Heatmap -->
+<div class="bg-surface-container-low/90 backdrop-blur-xl rounded-xl p-space-md shadow-lg flex flex-col">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-md">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[22px]">public</span>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">CDN Edge Nodes Topology &amp; Lưu Lượng</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Phân phối lưu lượng video chunk theo Edge Point-of-Presence (POP)</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+<span class="font-label-caps text-label-caps text-emerald-400 font-bold">ALL 4 POPS SYNCHRONIZED</span>
+</div>
+</div>
+<!-- Graphic Representation (Map & SVG Connection Grid) -->
+<div class="w-full h-44 rounded-xl bg-surface-container-lowest relative overflow-hidden flex items-center justify-center p-4">
+<!-- Simulated Geo Circuit Nodes with SVG Connections -->
+<svg class="absolute inset-0 w-full h-full text-surface-container-high pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+<line stroke="rgba(142,213,255,0.25)" stroke-dasharray="4 4" stroke-width="2" x1="28%" x2="52%" y1="35%" y2="55%"></line>
+<line stroke="rgba(245,158,11,0.3)" stroke-dasharray="4 4" stroke-width="2" x1="52%" x2="75%" y1="55%" y2="70%"></line>
+<line stroke="rgba(56,189,248,0.3)" stroke-dasharray="4 4" stroke-width="2" x1="75%" x2="88%" y1="70%" y2="82%"></line>
+</svg>
+<!-- Interactive Geo Anchors -->
+<div class="w-full max-w-2xl flex items-center justify-between relative z-10 px-2 sm:px-6">
+<!-- Node VN-HAN -->
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-surface-container-high group-hover:bg-primary-container/20 flex items-center justify-center transition-all shadow-md">
+<span class="material-symbols-outlined text-emerald-400 text-[20px]">router</span>
+</div>
+<span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-emerald-400 ring-2 ring-surface-container-lowest"></span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface font-bold mt-2">VN-HAN (Hà Nội)</span>
+<span class="font-mono text-[11px] text-tertiary">52.1 Gbps</span>
+</div>
+<!-- Node VN-DANANG -->
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-surface-container-high group-hover:bg-primary-container/20 flex items-center justify-center transition-all shadow-md">
+<span class="material-symbols-outlined text-emerald-400 text-[20px]">router</span>
+</div>
+<span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-emerald-400 ring-2 ring-surface-container-lowest"></span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface font-bold mt-2">VN-DAD (Đà Nẵng)</span>
+<span class="font-mono text-[11px] text-tertiary">14.6 Gbps</span>
+</div>
+<!-- Node VN-HCM -->
+<div class="flex flex-col items-center group cursor-pointer scale-105">
+<div class="relative">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 ring-2 ring-primary-container flex items-center justify-center transition-all shadow-[0_0_16px_rgba(245,158,11,0.3)]">
+<span class="material-symbols-outlined text-primary text-[24px]">dns</span>
+</div>
+<span class="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-400 ring-2 ring-surface-container-lowest animate-pulse"></span>
+</div>
+<span class="font-label-caps text-label-caps text-primary font-bold mt-2">VN-SGN (TP.HCM Master)</span>
+<span class="font-mono text-[11px] text-primary font-bold">68.4 Gbps</span>
+</div>
+<!-- Node SG-SIN -->
+<div class="flex flex-col items-center group cursor-pointer">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-surface-container-high group-hover:bg-primary-container/20 flex items-center justify-center transition-all shadow-md">
+<span class="material-symbols-outlined text-emerald-400 text-[20px]">lan</span>
+</div>
+<span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-emerald-400 ring-2 ring-surface-container-lowest"></span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface font-bold mt-2">SG-SIN (Singapore)</span>
+<span class="font-mono text-[11px] text-tertiary">7.7 Gbps</span>
+</div>
+</div>
+</div>
+<!-- POP Detail Telemetry Table -->
+<div class="overflow-x-auto mt-space-md">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="bg-surface-container font-label-caps text-label-caps text-outline uppercase tracking-wider">
+<th class="py-2.5 px-3 rounded-l-lg">POP Location &amp; IDC</th>
+<th class="py-2.5 px-3">Băng Thông</th>
+<th class="py-2.5 px-3">Requests / s</th>
+<th class="py-2.5 px-3">Latency / TTFB</th>
+<th class="py-2.5 px-3">Cache Hit %</th>
+<th class="py-2.5 px-3">Lỗi 5xx</th>
+<th class="py-2.5 px-3 text-right rounded-r-lg">Thao Tác</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 space-y-1">
+<!-- POP 1: HCM -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3 px-3">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<div>
+<div class="font-label-md text-label-md font-bold text-on-surface">VN-HCM (Viettel IDC / VNPT Tân Thuận)</div>
+<div class="text-outline font-label-caps text-[10px]">Tier-3 Facility • 120Gbps Upstream</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 font-mono font-bold text-primary">68.4 Gbps</td>
+<td class="py-3 px-3 font-mono text-on-surface">428,500 req/s</td>
+<td class="py-3 px-3">
+<span class="font-mono text-emerald-400 font-semibold">4.2ms</span>
+<span class="text-outline font-label-caps text-[10px] ml-1">(TTFB 18ms)</span>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5 font-mono text-emerald-400 font-bold">
+<span>99.1%</span>
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+</div>
+</td>
+<td class="py-3 px-3 font-mono text-on-surface-variant">&lt; 0.003%</td>
+<td class="py-3 px-3 text-right">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-caps text-label-caps transition-colors">
+                      Purge POP
+                    </button>
+</td>
+</tr>
+<!-- POP 2: HAN -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3 px-3">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<div>
+<div class="font-label-md text-label-md font-bold text-on-surface">VN-HAN (FPT Cầu Giấy / VNPT Nam Thăng Long)</div>
+<div class="text-outline font-label-caps text-[10px]">Tier-3 Facility • 100Gbps Upstream</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 font-mono font-bold text-tertiary">52.1 Gbps</td>
+<td class="py-3 px-3 font-mono text-on-surface">312,200 req/s</td>
+<td class="py-3 px-3">
+<span class="font-mono text-emerald-400 font-semibold">5.1ms</span>
+<span class="text-outline font-label-caps text-[10px] ml-1">(TTFB 21ms)</span>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5 font-mono text-emerald-400 font-bold">
+<span>98.7%</span>
+</div>
+</td>
+<td class="py-3 px-3 font-mono text-on-surface-variant">&lt; 0.005%</td>
+<td class="py-3 px-3 text-right">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-caps text-label-caps transition-colors">
+                      Purge POP
+                    </button>
+</td>
+</tr>
+<!-- POP 3: DANANG -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3 px-3">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<div>
+<div class="font-label-md text-label-md font-bold text-on-surface">VN-DANANG (Edge Regional Cache POP)</div>
+<div class="text-outline font-label-caps text-[10px]">Edge Local NVMe Caching • 40Gbps</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 font-mono text-on-surface">14.6 Gbps</td>
+<td class="py-3 px-3 font-mono text-on-surface">88,400 req/s</td>
+<td class="py-3 px-3">
+<span class="font-mono text-emerald-400 font-semibold">6.8ms</span>
+<span class="text-outline font-label-caps text-[10px] ml-1">(TTFB 24ms)</span>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5 font-mono text-emerald-400 font-bold">
+<span>97.8%</span>
+</div>
+</td>
+<td class="py-3 px-3 font-mono text-on-surface-variant">&lt; 0.002%</td>
+<td class="py-3 px-3 text-right">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-caps text-label-caps transition-colors">
+                      Purge POP
+                    </button>
+</td>
+</tr>
+<!-- POP 4: SINGAPORE -->
+<tr class="hover:bg-surface-container/60 transition-colors">
+<td class="py-3 px-3">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<div>
+<div class="font-label-md text-label-md font-bold text-on-surface">SG-SIN (Equinix SG1 - Transit Quốc Tế)</div>
+<div class="text-outline font-label-caps text-[10px]">Cross-border Overseas Roaming Edge</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 font-mono text-on-surface">7.7 Gbps</td>
+<td class="py-3 px-3 font-mono text-on-surface">45,100 req/s</td>
+<td class="py-3 px-3">
+<span class="font-mono text-primary font-semibold">28.0ms</span>
+<span class="text-outline font-label-caps text-[10px] ml-1">(TTFB 34ms)</span>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5 font-mono text-emerald-400 font-bold">
+<span>96.9%</span>
+</div>
+</td>
+<td class="py-3 px-3 font-mono text-on-surface-variant">0.012%</td>
+<td class="py-3 px-3 text-right">
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-caps text-label-caps transition-colors">
+                      Purge POP
+                    </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Right Column (4 cols): Control Sidebar (Encoding Presets & Shield Policy) -->
+<div class="xl:col-span-4 flex flex-col gap-space-lg">
+<!-- Panel 1: Codec Preset Active Engine -->
+<div class="bg-surface-container-low/90 backdrop-blur-xl rounded-xl p-space-md shadow-lg flex flex-col space-y-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">video_settings</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Tham Số Encoding Preset</h3>
+</div>
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-label-caps text-label-caps font-bold">V4.9-PROD</span>
+</div>
+<!-- Video Codec Spec -->
+<div class="p-space-sm rounded-lg bg-surface-container space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase font-semibold">Video Multi-Codec Ladder</span>
+<span class="font-label-caps text-label-caps text-emerald-400 font-bold">GPU HW ACCELERATED</span>
+</div>
+<div class="space-y-1.5 font-body-sm text-body-sm">
+<div class="flex items-center justify-between">
+<span class="text-on-surface font-semibold">Tier 1 (Next-Gen):</span>
+<span class="font-mono text-tertiary">SVT-AV1 CRF 22 (Preset 5)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface font-semibold">Tier 2 (HDR10/DV):</span>
+<span class="font-mono text-primary">HEVC NVENC (CQ 20 Main10)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface font-semibold">Legacy Fallback:</span>
+<span class="font-mono text-outline">H.264 High Profile Level 4.2</span>
+</div>
+</div>
+</div>
+<!-- Audio Codec Spec -->
+<div class="p-space-sm rounded-lg bg-surface-container space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase font-semibold">Spatial Audio Engine</span>
+<span class="font-label-caps text-label-caps text-tertiary font-bold">DOLBY CERTIFIED</span>
+</div>
+<div class="space-y-1.5 font-body-sm text-body-sm">
+<div class="flex items-center justify-between">
+<span class="text-on-surface font-semibold">Surround Atmos:</span>
+<span class="font-mono text-on-surface">E-AC-3 JOC 448 kbps</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface font-semibold">Stereo Track:</span>
+<span class="font-mono text-on-surface">AAC-LC 192 kbps (CBR)</span>
+</div>
+</div>
+</div>
+<!-- Chunk Segment Window -->
+<div class="p-space-sm rounded-lg bg-surface-container space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase font-semibold">HLS / DASH Segmentation</span>
+<span class="font-mono text-primary font-bold">4.0s TARGET</span>
+</div>
+<div class="grid grid-cols-2 gap-2 text-center pt-1 font-label-caps text-label-caps">
+<div class="p-2 rounded bg-surface-container-high">
+<div class="text-outline">SLIDING WINDOW</div>
+<div class="text-on-surface font-bold font-mono text-[12px] mt-0.5">3 Segments (12s)</div>
+</div>
+<div class="p-2 rounded bg-surface-container-high">
+<div class="text-outline">KEYFRAME INTERVAL</div>
+<div class="text-tertiary font-bold font-mono text-[12px] mt-0.5">96 frames (4.0s @ 24fps)</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Panel 2: Origin Shield & Security Rules -->
+<div class="bg-surface-container-low/90 backdrop-blur-xl rounded-xl p-space-md shadow-lg flex flex-col space-y-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-400 text-[20px]">security</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Origin Shield &amp; Bảo Vệ DDoS</h3>
+</div>
+<span class="flex h-2 w-2 rounded-full bg-emerald-400"></span>
+</div>
+<!-- Cloudflare Magic Transit & Shield Switch -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container">
+<div class="space-y-0.5 pr-2">
+<div class="font-label-md text-label-md font-bold text-on-surface">Cloudflare Magic Transit &amp; Shield</div>
+<div class="font-body-sm text-body-sm text-outline">Giảm tải 95% lưu lượng về Origin Storage S3</div>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" id="shield-toggle" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-primary-container after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</div>
+</div>
+<!-- Throttling Limit Input -->
+<div class="p-space-sm rounded-lg bg-surface-container space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase font-semibold">Rate Limiting per IP</span>
+<span class="font-mono text-secondary font-bold">50 req / s</span>
+</div>
+<div class="text-on-surface-variant font-body-sm text-body-sm">
+              Tự động chặn IP nếu yêu cầu m3u8 chunk vượt quá ngưỡng cho phép (chống rip phim hàng loạt).
+            </div>
+</div>
+<!-- Geo-blocking Status -->
+<div class="p-space-sm rounded-lg bg-surface-container space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase font-semibold">CDN GeoGuard MaxMind</span>
+<span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-label-caps text-label-caps font-bold">ENABLED</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+              Khóa phát hành theo bản quyền lãnh thổ (VN / SEA / Global Tier 1).
+            </div>
+</div>
+<!-- Rapid Admin Action Buttons -->
+<div class="space-y-2 pt-space-xs">
+<button class="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-tertiary">restart_alt</span>
+<span>Khởi Động Lại 32 Worker Pods</span>
+</button>
+<button class="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-primary">dynamic_form</span>
+<span>Cập Nhật Bitrate Ladder ABR</span>
+</button>
+<button class="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-variant text-secondary font-label-md text-label-md transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px]">cached</span>
+<span>Xóa Cache HLS Manifest (.m3u8) Toàn Mạng</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<script>
+  // Simple micro-interaction for purge confirmation
+  const purgeBtn = document.getElementById('btn-purge-global');
+  if (purgeBtn) {
+    purgeBtn.addEventListener('click', () => {
+      const originalText = purgeBtn.innerHTML;
+      purgeBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] text-primary animate-spin">sync</span><span>Đang Xóa Cache Toàn Cầu...</span>';
+      purgeBtn.classList.add('opacity-75');
+      setTimeout(() => {
+        purgeBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] text-emerald-400">check_circle</span><span>Đã Hoàn Tất Xóa Cache!</span>';
+        setTimeout(() => {
+          purgeBtn.innerHTML = originalText;
+          purgeBtn.classList.remove('opacity-75');
+        }, 2500);
+      }, 1200);
+    });
+  }
+</script></main></div></body></html>

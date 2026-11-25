@@ -1,0 +1,1606 @@
+{
+  "info": {
+    "_postman_id": "a67b9e14-2391-4e78-9e12-88f6153fa829",
+    "name": "Spring Boot JWT & Dynamic RBAC API Collection",
+    "description": "Bộ Postman Collection hoàn chỉnh bao gồm:\n- Đăng ký, gửi OTP 6 số qua Gmail & Verify trong 10 phút\n- Đăng nhập JWT & Refresh Token\n- Quản lý Động Role & Permission\n- CRUD Category & Product với bảo mật phân quyền fine-grained\n- Test Controller demo check quyền",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8088",
+      "type": "string"
+    },
+    {
+      "key": "accessToken",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "refreshToken",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "categoryId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "productId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "roleId",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Authentication & Email OTP",
+      "item": [
+        {
+          "name": "1.1 Đăng ký tài khoản (Gửi OTP 6 số qua email)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"nguyenvan_a\",\n  \"email\": \"dongdinhvan17031991@gmail.com\",\n  \"password\": \"123456\",\n  \"roles\": [\"user\"]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            },
+            "description": "Đăng ký tài khoản mới. Hệ thống sẽ sinh mã xác minh 6 số ngẫu nhiên, lưu tạm thời trong 10 phút và gửi email HTML về địa chỉ email của bạn."
+          }
+        },
+        {
+          "name": "1.2 Xác minh tài khoản (Verify OTP 6 số)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"dongdinhvan17031991@gmail.com\",\n  \"code\": \"123456\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/verify",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "verify"
+              ]
+            },
+            "description": "Nhập mã xác minh 6 chữ số nhận được trong email để kích hoạt tài khoản. Nếu quá 10 phút, tài khoản tạm thời sẽ tự động bị hủy."
+          }
+        },
+        {
+          "name": "1.3 Gửi lại mã OTP (Resend Code)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/resend-code?email=dongdinhvan17031991@gmail.com",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "resend-code"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "dongdinhvan17031991@gmail.com"
+                }
+              ]
+            },
+            "description": "Gửi lại mã OTP mới nếu chưa hết hạn hoặc mã trước đó bị thất lạc."
+          }
+        },
+        {
+          "name": "1.4 Đăng nhập Admin mẫu (Lưu Access Token)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    var json = pm.response.json();",
+                  "    if (json.data && json.data.accessToken) {",
+                  "        pm.collectionVariables.set('accessToken', json.data.accessToken);",
+                  "        pm.collectionVariables.set('refreshToken', json.data.refreshToken);",
+                  "        console.log('Access token và Refresh token đã được lưu tự động!');",
+                  "    }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            },
+            "description": "Đăng nhập với tài khoản admin mặc định. Script sẽ tự động lấy accessToken và gán vào collection variable 'accessToken'."
+          }
+        },
+        {
+          "name": "1.5 Đăng nhập User vừa đăng ký",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    var json = pm.response.json();",
+                  "    if (json.data && json.data.accessToken) {",
+                  "        pm.collectionVariables.set('accessToken', json.data.accessToken);",
+                  "        pm.collectionVariables.set('refreshToken', json.data.refreshToken);",
+                  "    }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"nguyenvan_a\",\n  \"password\": \"123456\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            },
+            "description": "Đăng nhập tài khoản user sau khi đã verify thành công."
+          }
+        },
+        {
+          "name": "1.6 Refresh Token (Làm mới Access Token)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    var json = pm.response.json();",
+                  "    if (json.data && json.data.accessToken) {",
+                  "        pm.collectionVariables.set('accessToken', json.data.accessToken);",
+                  "    }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refreshToken\": \"{{refreshToken}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/refreshtoken",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "refreshtoken"
+              ]
+            }
+          }
+        },
+        {
+          "name": "1.7 Đăng xuất (Logout)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/logout",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "logout"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Dynamic Roles & Permissions",
+      "item": [
+        {
+          "name": "2.1 Lấy danh sách tất cả Permissions",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/permissions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "permissions"
+              ]
+            }
+          }
+        },
+        {
+          "name": "2.2 Tạo Permission động mới",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"invoice:export\",\n  \"description\": \"Quyền xuất báo cáo hóa đơn\",\n  \"module\": \"INVOICE\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/permissions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "permissions"
+              ]
+            }
+          }
+        },
+        {
+          "name": "2.3 Lấy danh sách tất cả Roles",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/roles",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "roles"
+              ]
+            }
+          }
+        },
+        {
+          "name": "2.4 Tạo Role động mới và gán Permissions",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    var json = pm.response.json();",
+                  "    if (json.data && json.data.id) {",
+                  "        pm.collectionVariables.set('roleId', json.data.id);",
+                  "    }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"ROLE_MANAGER\",\n  \"description\": \"Quản lý cửa hàng\",\n  \"permissions\": [\n    \"product:read\",\n    \"product:create\",\n    \"product:update\",\n    \"category:read\",\n    \"category:create\",\n    \"category:update\"\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/roles",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "roles"
+              ]
+            }
+          }
+        },
+        {
+          "name": "2.5 Cập nhật Permissions cho Role",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"permissions\": [\n    \"product:read\",\n    \"product:update\",\n    \"category:read\"\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/roles/{{roleId}}/permissions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "roles",
+                "{{roleId}}",
+                "permissions"
+              ]
+            }
+          }
+        },
+        {
+          "name": "2.6 Gán Role động cho User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"nguyenvan_a\",\n  \"roles\": [\"ROLE_MANAGER\"]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/roles/assign-user",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "roles",
+                "assign-user"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Category Management",
+      "item": [
+        {
+          "name": "3.1 Tạo mới Danh mục (category:create)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    var json = pm.response.json();",
+                  "    if (json.data && json.data.id) {",
+                  "        pm.collectionVariables.set('categoryId', json.data.id);",
+                  "    }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Điện thoại thông minh\",\n  \"description\": \"Các dòng điện thoại di động chính hãng\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/categories",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories"
+              ]
+            }
+          }
+        },
+        {
+          "name": "3.2 Lấy danh sách Danh mục (category:read)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories"
+              ]
+            }
+          }
+        },
+        {
+          "name": "3.3 Xem chi tiết Danh mục (category:read)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/{{categoryId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "{{categoryId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "3.4 Cập nhật Danh mục (category:update)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Smartphones & Phụ kiện\",\n  \"description\": \"Cập nhật danh mục điện thoại và phụ kiện cao cấp\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/{{categoryId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "{{categoryId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "3.5 Xóa Danh mục (category:delete)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/{{categoryId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "categories",
+                "{{categoryId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Product Management",
+      "item": [
+        {
+          "name": "4.1 Tạo mới Sản phẩm (product:create)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    var json = pm.response.json();",
+                  "    if (json.data && json.data.id) {",
+                  "        pm.collectionVariables.set('productId', json.data.id);",
+                  "    }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"iPhone 16 Pro Max\",\n  \"description\": \"Apple A18 Pro, 256GB Desert Titanium\",\n  \"price\": 1499.99,\n  \"quantity\": 30,\n  \"categoryId\": \"{{categoryId}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/products",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products"
+              ]
+            }
+          }
+        },
+        {
+          "name": "4.2 Lấy danh sách Sản phẩm (product:read)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/products",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products"
+              ]
+            }
+          }
+        },
+        {
+          "name": "4.3 Xem chi tiết Sản phẩm (product:read)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/products/{{productId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products",
+                "{{productId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "4.4 Xem Sản phẩm theo Danh mục (product:read)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/products/category/{{categoryId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products",
+                "category",
+                "{{categoryId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "4.5 Cập nhật Sản phẩm (product:update)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"iPhone 16 Pro Max 512GB\",\n  \"description\": \"Nâng cấp dung lượng 512GB\",\n  \"price\": 1699.99,\n  \"quantity\": 20,\n  \"categoryId\": \"{{categoryId}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/products/{{productId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products",
+                "{{productId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "4.6 Xóa Sản phẩm (product:delete)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/products/{{productId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "products",
+                "{{productId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Demo Permission Check API (TestController)",
+      "item": [
+        {
+          "name": "5.1 Public Endpoint (Không cần token)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/test/public",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "test",
+                "public"
+              ]
+            }
+          }
+        },
+        {
+          "name": "5.2 Quyền Đọc (user:read)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/test/permission/read",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "test",
+                "permission",
+                "read"
+              ]
+            },
+            "description": "Yêu cầu quyền [user:read]. USER, MODERATOR, ADMIN đều truy cập được."
+          }
+        },
+        {
+          "name": "5.3 Quyền Tạo (user:create)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/test/permission/create",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "test",
+                "permission",
+                "create"
+              ]
+            },
+            "description": "Yêu cầu quyền [user:create]. Chỉ ADMIN (hoặc role có gán quyền này) mới gọi được."
+          }
+        },
+        {
+          "name": "5.4 Quyền Sửa (user:update)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/test/permission/update",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "test",
+                "permission",
+                "update"
+              ]
+            },
+            "description": "Yêu cầu quyền [user:update]. MODERATOR và ADMIN truy cập được. USER bị 403 Forbidden."
+          }
+        },
+        {
+          "name": "5.5 Quyền Xóa (user:delete)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/test/permission/delete",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "test",
+                "permission",
+                "delete"
+              ]
+            },
+            "description": "Yêu cầu quyền [user:delete]. Chỉ ADMIN truy cập được."
+          }
+        },
+        {
+          "name": "5.6 Kiểm tra hasAnyAuthority (user:update hoặc user:delete)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/test/permission/manage",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "test",
+                "permission",
+                "manage"
+              ]
+            }
+          }
+        },
+        {
+          "name": "5.7 Kiểm tra kết hợp Role & Permission",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/test/permission/combined",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "test",
+                "permission",
+                "combined"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "6. CineStreams OTP Email & 2FA Tests (TASK-001 - TASK-015)",
+      "item": [
+        {
+          "name": "6.1 [TASK-004] Đăng ký tài khoản bước 1 (POST /api/auth/register-otp)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"hadinhluc_pm\",\n  \"email\": \"luc.hadinh@cinestreams.vn\",\n  \"password\": \"Password123!\",\n  \"roles\": [\n    \"user\"\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/register-otp",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "register-otp"
+              ]
+            },
+            "description": "Test case: Gửi mail OTP 6 số thành công, hạn 5 phút, lưu vào email_otps."
+          }
+        },
+        {
+          "name": "6.2 [TASK-005] Xác thực OTP Đăng ký bước 2 (POST /api/auth/verify-register-otp)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"luc.hadinh@cinestreams.vn\",\n  \"otpCode\": \"123456\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/verify-register-otp",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "verify-register-otp"
+              ]
+            },
+            "description": "Test case: Nhập OTP đúng -> user active, cấp JWT Token và Refresh Token."
+          }
+        },
+        {
+          "name": "6.3 [TASK-006] Đăng nhập 2 bước 2FA - Bước 1 (POST /api/auth/login-2fa)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"hadinhluc_pm\",\n  \"password\": \"Password123!\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login-2fa",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login-2fa"
+              ]
+            }
+          }
+        },
+        {
+          "name": "6.4 [TASK-006] Xác thực 2FA OTP - Bước 2 (POST /api/auth/verify-login-2fa)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"luc.hadinh@cinestreams.vn\",\n  \"otpCode\": \"123456\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/verify-login-2fa",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "verify-login-2fa"
+              ]
+            }
+          }
+        },
+        {
+          "name": "6.5 [TASK-007] Quên mật khẩu - Bước 1 Nhận OTP (POST /api/auth/forgot-password-otp)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"luc.hadinh@cinestreams.vn\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/forgot-password-otp",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "forgot-password-otp"
+              ]
+            }
+          }
+        },
+        {
+          "name": "6.6 [TASK-007] Quên mật khẩu - Bước 2 Verify OTP lấy resetToken",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"luc.hadinh@cinestreams.vn\",\n  \"otpCode\": \"123456\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/verify-forgot-password-otp",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "verify-forgot-password-otp"
+              ]
+            }
+          }
+        },
+        {
+          "name": "6.7 [TASK-007] Quên mật khẩu - Bước 3 Đặt lại mật khẩu (POST /api/auth/reset-password)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"luc.hadinh@cinestreams.vn\",\n  \"resetToken\": \"reset_token_test_123\",\n  \"newPassword\": \"NewStrongPassword2026!\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/reset-password",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "reset-password"
+              ]
+            }
+          }
+        },
+        {
+          "name": "6.8 [TASK-008] Test Cooldown 60s & Chống spam resend (POST /api/auth/resend-otp)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"luc.hadinh@cinestreams.vn\",\n  \"type\": \"REGISTER\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/resend-otp",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "resend-otp"
+              ]
+            },
+            "description": "Test case: Bấm resend < 60s sẽ bị từ chối kèm thời gian chờ; bấm quá 5 lần/h sẽ khóa."
+          }
+        },
+        {
+          "name": "6.9 [TASK-009] Test Brute-Force nhập sai 5 lần",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"luc.hadinh@cinestreams.vn\",\n  \"otpCode\": \"000000\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/verify-register-otp",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "verify-register-otp"
+              ]
+            },
+            "description": "Test case: Nhập sai 5 lần liên tiếp -> mã OTP bị vô hiệu hóa ngay lập tức."
+          }
+        }
+      ]
+    },
+    {
+      "name": "7. Chunked Upload & Transcoding Tests (TASK-016 - TASK-045)",
+      "item": [
+        {
+          "name": "7.1 [TASK-019] Khởi tạo phiên Upload video (Init Upload Session)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/videos/upload/init?fileName=movie_dune2.mp4&fileSize=15728640&totalChunks=3&chunkSize=5242880&movieId=dune-2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "videos",
+                "upload",
+                "init"
+              ]
+            }
+          }
+        },
+        {
+          "name": "7.2 [TASK-021] Kiểm tra trạng thái các chunk đã tải (Resume Status)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/videos/upload/status/sample-upload-id-123",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "videos",
+                "upload",
+                "status",
+                "sample-upload-id-123"
+              ]
+            }
+          }
+        },
+        {
+          "name": "7.3 [TASK-023] Hoàn tất ghép video & kích hoạt HLS Transcode",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/videos/upload/complete?uploadId=sample-upload-id-123",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "videos",
+                "upload",
+                "complete"
+              ]
+            }
+          }
+        },
+        {
+          "name": "7.4 [TASK-041] Lấy tiến độ Transcode thời gian thực",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/videos/transcode-status/vid_sample",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "videos",
+                "transcode-status",
+                "vid_sample"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "8. Video Streaming & VIP Quality Gate Tests (TASK-046 - TASK-055)",
+      "item": [
+        {
+          "name": "8.1 [TASK-049] Lấy Stream Ticket bảo mật",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/stream/ticket?videoId=dune-2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "stream",
+                "ticket"
+              ]
+            }
+          }
+        },
+        {
+          "name": "8.2 [TASK-047] Byte-Range Request Tua Seek (HTTP 206 Partial Content)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Range",
+                "value": "bytes=0-1048575"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/stream/video/dune-2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "stream",
+                "video",
+                "dune-2"
+              ]
+            }
+          }
+        },
+        {
+          "name": "8.3 [TASK-050] Dynamic HLS Master Playlist (VIP Quality Gate)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/stream/hls/dune-2/master.m3u8",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "stream",
+                "hls",
+                "dune-2",
+                "master.m3u8"
+              ]
+            }
+          }
+        },
+        {
+          "name": "8.4 [TASK-053] Lưu mốc xem dở định kỳ mỗi 10s",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/user/history?movieId=dune-2&episodeId=1&currentSeconds=1250&totalSeconds=9960",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "user",
+                "history"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "9. CMS Quản Trị & Xuất Bản Phim (TASK-056 - TASK-064)",
+      "item": [
+        {
+          "name": "9.1 [TASK-064] Lấy danh sách phim hiển thị trang chủ",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/movies",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "movies"
+              ]
+            }
+          }
+        },
+        {
+          "name": "9.2 [TASK-058] Quản trị viên lấy toàn bộ phim (DRAFT & PUBLISHED)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/movies",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "movies"
+              ]
+            }
+          }
+        },
+        {
+          "name": "9.3 [TASK-058] Thêm phim mới vào MongoDB",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Avatar 3: Hỏa Tro Của Pandora\",\n  \"originalTitle\": \"Avatar: Fire and Ash\",\n  \"slug\": \"avatar-3-fire-and-ash\",\n  \"synopsis\": \"Chuyến phiêu lưu tiếp theo của Jake Sully khi đối mặt với tộc Tro Tàn.\",\n  \"poster\": \"https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400\",\n  \"backdrop\": \"https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1200\",\n  \"genres\": [\n    \"Khoa Học Viễn Tưởng\",\n    \"Hành Động\"\n  ],\n  \"imdbRating\": 8.9,\n  \"releaseYear\": 2026,\n  \"ageRating\": \"13+\",\n  \"type\": \"movie\",\n  \"status\": \"DRAFT\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/movies",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "movies"
+              ]
+            }
+          }
+        },
+        {
+          "name": "9.4 [TASK-060] Phê duyệt & Xuất bản phim (Publish Movie)",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/movies/dune-2/publish",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "movies",
+                "dune-2",
+                "publish"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

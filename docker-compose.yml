@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+  # ----------------------------------------------------------------------------
+  # MongoDB Database Service
+  # ----------------------------------------------------------------------------
+  mongodb:
+    image: mongo:7.0
+    container_name: cinestreams-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: jwt_demo_db
+    volumes:
+      - cinestreams_mongo_data:/data/db
+    networks:
+      - cinestreams-network
+    healthcheck:
+      test: [ "CMD", "mongosh", "--eval", "db.adminCommand('ping')" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  # ----------------------------------------------------------------------------
+  # CineStreams Backend Service (Spring Boot 3 + Java 17)
+  # Chạy độc lập qua mvnw hoặc docker-compose
+  # ----------------------------------------------------------------------------
+  # server:
+  #   build:
+  #     context: ./server
+  #     dockerfile: Dockerfile
+  #   container_name: cinestreams-server
+  #   restart: unless-stopped
+  #   ports:
+  #     - "8088:8088"
+  #   environment:
+  #     SPRING_DATA_MONGODB_URI: mongodb://mongodb:27017/jwt_demo_db
+  #     SERVER_PORT: 8088
+  #   depends_on:
+  #     mongodb:
+  #       condition: service_healthy
+  #   volumes:
+  #     - ./server/uploads:/app/uploads
+  #   networks:
+  #     - cinestreams-network
+
+  # ----------------------------------------------------------------------------
+  # CineStreams Frontend Service (React + Vite Gateway)
+  # ----------------------------------------------------------------------------
+  # client:
+  #   build:
+  #     context: ./client
+  #     dockerfile: Dockerfile
+  #   container_name: cinestreams-client
+  #   restart: unless-stopped
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     SPRING_BOOT_URL: http://server:8088
+  #   depends_on:
+  #     - server
+  #   networks:
+  #     - cinestreams-network
+
+volumes:
+  cinestreams_mongo_data:
+    name: cinestreams_mongo_data
+
+networks:
+  cinestreams-network:
+    name: cinestreams-network
+    driver: bridge

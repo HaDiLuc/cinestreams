@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Sora:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary": "#ffc174", "surface-container-low": "#151b2b", "tertiary-fixed-dim": "#7bd0ff", "surface-dim": "#0d1322", "on-error-container": "#ffdad6", "surface-container-high": "#242a3a", "on-tertiary": "#00354a", "tertiary-fixed": "#c4e7ff", "tertiary": "#8ed5ff", "on-primary-fixed": "#2a1700", "surface": "#0d1322", "primary-container": "#f59e0b", "inverse-surface": "#dde2f8", "surface-variant": "#2f3445", "on-primary-fixed-variant": "#653e00", "outline-variant": "#534434", "on-secondary-fixed": "#261a00", "on-primary-container": "#613b00", "secondary": "#ffc640", "outline": "#a08e7a", "surface-container": "#191f2f", "on-primary": "#472a00", "inverse-primary": "#855300", "on-secondary": "#402d00", "on-surface": "#dde2f8", "surface-container-lowest": "#080e1d", "secondary-fixed-dim": "#f9bd22", "on-surface-variant": "#d8c3ad", "on-tertiary-fixed": "#001e2c", "surface-bright": "#33394a", "on-secondary-container": "#5a4100", "secondary-fixed": "#ffdf9f", "on-error": "#690005", "on-secondary-fixed-variant": "#5c4300", "on-tertiary-container": "#004965", "surface-tint": "#ffb95f", "inverse-on-surface": "#2a3040", "on-background": "#dde2f8", "error": "#ffb4ab", "surface-container-highest": "#2f3445", "tertiary-container": "#38bdf8", "on-tertiary-fixed-variant": "#004c69", "primary-fixed-dim": "#ffb95f", "secondary-container": "#e3aa00", "error-container": "#93000a", "primary-fixed": "#ffddb8", "background": "#0d1322" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-sm": "0.5rem", "space-lg": "1.5rem", "gutter-mobile": "0.75rem", "margin-mobile": "1rem", "space-md": "1rem", "space-xl": "2.5rem", "margin": "3rem", "gutter": "1.5rem", "space-xs": "0.25rem" }, "fontFamily": { "headline-lg-mobile": [ "Sora" ], "body-lg": [ "Plus Jakarta Sans" ], "body-sm": [ "Plus Jakarta Sans" ], "display-hero": [ "Sora" ], "headline-lg": [ "Sora" ], "label-lg": [ "Sora" ], "display-hero-mobile": [ "Sora" ], "headline-sm": [ "Sora" ], "label-md": [ "Sora" ], "body-md": [ "Plus Jakarta Sans" ], "headline-md": [ "Sora" ], "label-caps": [ "Sora" ] }, "fontSize": { "headline-lg-mobile": [ "24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "body-lg": [ "18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" } ], "body-sm": [ "13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" } ], "display-hero": [ "56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "headline-lg": [ "32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600" } ], "label-lg": [ "14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" } ], "display-hero-mobile": [ "36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "headline-sm": [ "18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" } ], "label-md": [ "12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" } ], "body-md": [ "15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" } ], "headline-md": [ "24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "label-caps": [ "10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "700" } ] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest z-50 flex flex-col shadow-[0_1px_8px_rgba(0,0,0,0.5)]"><div class="h-16 px-space-lg flex items-center gap-space-sm bg-surface-container-lowest"><div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shadow-[0_0_12px_rgba(245,158,11,0.2)]"><span class="material-symbols-outlined text-primary text-[22px]">video_settings</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight leading-none">CineStreams</span><span class="font-label-caps text-label-caps text-primary tracking-widest uppercase mt-0.5">STUDIO OPS CMS</span></div></div><div class="flex-1 overflow-y-auto px-space-md py-space-md space-y-space-lg"><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(245,158,11,0.35)]"><div class="px-space-sm pb-space-xs"><span class="font-label-caps text-label-caps text-outline uppercase tracking-wider font-bold">TỔNG QUAN</span></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="dashboard-doanh-thu" href="#"><span class="material-symbols-outlined text-[20px]">query_stats</span><span>Dashboard &amp; Doanh Thu</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="bao-cao-phan-tich" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span><span>Báo Cáo Phân Tích</span></a></nav><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(245,158,11,0.35)]"><div class="px-space-sm pb-space-xs"><span class="font-label-caps text-label-caps text-outline uppercase tracking-wider font-bold">QUẢN LÝ NỘI DUNG CMS</span></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="danh-muc-phim-le" href="#"><span class="material-symbols-outlined text-[20px]">movie</span><span>Danh Mục Phim Lẻ</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="phim-bo-mua-tap" href="#"><span class="material-symbols-outlined text-[20px]">tv</span><span>Phim Bộ &amp; Mùa/Tập</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="upload-video-goc" href="#"><span class="material-symbols-outlined text-[20px]">cloud_upload</span><span>Upload Video Gốc</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="quan-ly-phu-de-audio-track" href="#"><span class="material-symbols-outlined text-[20px]">subtitles</span><span>Quản Lý Phụ Đề &amp; Audio Track</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="phan-doan-phat-hanh" href="#"><span class="material-symbols-outlined text-[20px]">dynamic_feed</span><span>Phân Đoạn Phát Hành</span></a></nav><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(245,158,11,0.35)]"><div class="px-space-sm pb-space-xs"><span class="font-label-caps text-label-caps text-outline uppercase tracking-wider font-bold">THƯƠNG MẠI &amp; THANH TOÁN</span></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="goi-cuoc-vip" href="#"><span class="material-symbols-outlined text-[20px]">workspace_premium</span><span>Gói Cước VIP</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="giao-dich-vietqr-momo" href="#"><span class="material-symbols-outlined text-[20px]">qr_code_scanner</span><span>Giao Dịch VietQR/MoMo</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="doi-soat-webhook" href="#"><span class="material-symbols-outlined text-[20px]">sync_alt</span><span>Đối Soát Webhook</span></a></nav><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(245,158,11,0.35)]"><div class="px-space-sm pb-space-xs"><span class="font-label-caps text-label-caps text-outline uppercase tracking-wider font-bold">HỆ THỐNG &amp; AI</span></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="cau-hinh-cineai-studio" href="#"><span class="material-symbols-outlined text-[20px]">auto_awesome</span><span>Cấu Hình CineAI Studio</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="quan-ly-thanh-vien-rbac" href="#"><span class="material-symbols-outlined text-[20px]">admin_panel_settings</span><span>Quản Lý Thành Viên &amp; RBAC</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="nhat-ky-he-thong" href="#"><span class="material-symbols-outlined text-[20px]">terminal</span><span>Nhật Ký Hệ Thống</span></a></nav></div><div class="p-space-md bg-surface-container-low/60 backdrop-blur-md m-space-sm rounded-xl"><div class="flex items-center justify-between text-on-surface"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-tertiary text-[18px]">memory</span><span class="font-label-caps text-label-caps font-bold tracking-wider">CINE-ENGINE</span></div><span class="font-label-caps text-label-caps text-tertiary font-bold">v4.8.2</span></div><div class="mt-1 text-on-surface-variant font-body-sm text-body-sm leading-tight">GPU Clusters &amp; Transcoders Active</div></div></aside><div class="pl-72 min-h-screen flex flex-col"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-low/80 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.3)]"><div class="h-16 w-full px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md flex-1 max-w-xl"><div class="relative w-full max-w-md"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span><input class="w-full h-10 pl-10 pr-4 bg-surface-container-high/80 rounded-lg text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary shadow-inner" placeholder="Tìm kiếm phim, metadata ID, audio tracks, webhook logs..." type="text"/></div><div class="hidden xl:flex items-center gap-space-sm px-3 py-1.5 rounded-full bg-surface-container-high/60 backdrop-blur-md"><span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span><span class="font-label-caps text-label-caps text-on-surface font-semibold">CDN 99.98%</span><span class="text-outline text-xs">•</span><span class="flex h-2 w-2 rounded-full bg-emerald-400"></span><span class="font-label-caps text-label-caps text-on-surface font-semibold">Transcoder Hoạt Động</span></div></div><div class="flex items-center gap-space-md"><button class="relative w-9 h-9 rounded-full bg-surface-container-high hover:bg-surface-container-highest flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-all" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-primary-container ring-2 ring-surface-container-low"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="text-right hidden sm:block"><div class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Alex Tran</div><div class="font-label-caps text-label-caps text-primary uppercase font-bold tracking-wider">Super Admin</div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-16 bg-surface flex-1"><div class="flex flex-col w-full">
+<!-- Top Command & Master Toolbar -->
+<header class="w-full bg-surface-container-lowest px-gutter py-space-md shadow-xl flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary-container/20 text-primary font-label-caps text-label-caps uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+          MOD-07 Studio CMS
+        </span>
+<span class="text-outline text-xs">•</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant font-semibold tracking-wider">AUDIO &amp; TIMECODE SYNC LAB</span>
+</div>
+<div class="flex flex-wrap items-baseline gap-space-sm">
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight truncate">
+          Biên Tập &amp; Quản Lý Phụ Đề, Audio Track Đa Ngôn Ngữ
+        </h1>
+</div>
+<!-- Current Media Context Badge -->
+<div class="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-1.5 text-on-surface font-medium">
+<span class="material-symbols-outlined text-primary text-[18px]">movie</span>
+<span class="font-semibold text-primary">Gia Tộc Rồng: Mùa 2</span>
+<span class="text-outline font-normal">— Tập 4: Khi Rồng Xuất Trận</span>
+</div>
+<span class="text-outline text-xs">•</span>
+<span class="font-label-caps text-label-caps bg-surface-container-high px-2 py-0.5 rounded text-tertiary font-mono">ID: VOD-SER-8921-E04</span>
+<span class="text-outline text-xs">•</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">01:04:22.000</span>
+<span class="text-outline text-xs">•</span>
+<span class="font-label-caps text-label-caps bg-surface-container-high/60 text-secondary-fixed px-2 py-0.5 rounded">ProRes 422 HQ 4K</span>
+</div>
+</div>
+<!-- Master Action Strip -->
+<div class="flex flex-wrap items-center gap-2.5 shrink-0">
+<button class="h-10 px-3.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md flex items-center gap-2 transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">swap_horiz</span>
+<span>Chọn Tập Khác</span>
+</button>
+<button class="h-10 px-3.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md flex items-center gap-2 transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px] text-tertiary">cloud_upload</span>
+<span>Tải Lên File Mới</span>
+</button>
+<button class="h-10 px-3.5 rounded-lg bg-tertiary-container/20 text-tertiary-fixed hover:bg-tertiary-container/30 font-label-md text-label-md flex items-center gap-2 transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+<span>CineAI Auto-Sync</span>
+</button>
+<button class="h-10 px-4 rounded-lg bg-gradient-to-r from-primary-container to-secondary-container text-on-primary-container font-label-md text-label-md font-bold flex items-center gap-2 transition-all shadow-lg hover:brightness-110 active:scale-95" type="button">
+<span class="material-symbols-outlined text-[19px]">satellite_alt</span>
+<span>Xuất Bản Đa Kênh CDN</span>
+</button>
+</div>
+</header>
+<div class="p-gutter flex flex-col gap-gutter">
+<!-- Row 1: Studio Cinema Player & Waveform Audio Visualizer (DAW / NLE Studio Layout) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Player Monitor Deck -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl overflow-hidden shadow-2xl flex flex-col">
+<!-- Viewport Header Strip -->
+<div class="px-space-md py-2 bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-error"></span>
+<span class="font-label-caps text-label-caps text-on-surface font-bold tracking-wider">PROGRAM MONITOR (PREVIEW 4K DCI)</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-high font-mono text-tertiary font-label-caps text-label-caps">24.00 fps</span>
+</div>
+<div class="flex items-center gap-3 font-mono text-body-sm font-semibold">
+<span class="text-primary tracking-widest bg-surface-container-lowest px-2 py-0.5 rounded shadow-inner">00:24:18.420</span>
+<span class="text-outline">/</span>
+<span class="text-on-surface-variant">01:04:22.000</span>
+</div>
+</div>
+<!-- Cinema Canvas with Live Subtitle Scrim -->
+<div class="relative w-full aspect-video bg-black flex items-center justify-center overflow-hidden group">
+<div class="w-full h-full bg-cover bg-center flex flex-col justify-end" data-alt="A dramatic cinematic still from House of the Dragon battle sequence with dragons soaring over a smoky medieval stone fortress, cinematic lighting with rich golden ambers and obsidian shadows, deep atmospheric haze, high-budget Hollywood color grading." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDyQyoOc_Qt6fo2vAcZ4Cy5HSjRwoSH38_m7E2VciW_WCmsndMxzVYgrq-zx13ZSNTMXhvYhIkx2VnZzOLOTjdNdE9rtZAbp0xZm5uc17VH_KaD3r3Ok4HJYrSjLwAxEgZ5CCjwPTRpNTpKFnUI5URVDMbpu0MNaHbJLWIy6rrbuL5DDYaFgKqw-pxhLV5VfXLe4ETSc3gIYQofsVcm8SxZMBCqoYVNlzEBc6eVnwplT3xErkujBLctOw')">
+<!-- Safe Area Guide Overlay (Hidden by default, subtle) -->
+<div class="absolute inset-8 pointer-events-none opacity-20"></div>
+<!-- Realtime Subtitle Overlay Box (EBU-TT / WebVTT Style) -->
+<div class="w-full pb-6 px-10 flex flex-col items-center text-center">
+<div class="inline-block max-w-2xl px-4 py-1.5 rounded-md bg-black/85 backdrop-blur-md shadow-2xl">
+<p class="font-headline-sm text-headline-sm text-yellow-300 font-semibold tracking-wide drop-shadow-md">
+                  Rhaenyra: “Nếu ngọn lửa này bùng cháy, ngai vàng sẽ chỉ còn lại tro tàn!”
+                </p>
+<p class="font-body-sm text-body-sm text-on-surface/90 italic mt-0.5">
+                  (Dịch khẩu hình chuẩn ngữ cảnh - CineAI Synced)
+                </p>
+</div>
+</div>
+<!-- Top Viewport Floating Badges -->
+<div class="absolute top-3 left-3 flex items-center gap-2 pointer-events-none">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md text-primary font-label-caps text-label-caps font-bold">SUB ACTIVE: vi-VN</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md text-tertiary font-label-caps text-label-caps font-bold">AUDIO: 5.1 CENTER</span>
+</div>
+</div>
+</div>
+<!-- Transport Control Panel -->
+<div class="p-space-sm bg-surface-container-low flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="Lùi 1 giây" type="button">
+<span class="material-symbols-outlined text-[20px]">replay_10</span>
+</button>
+<button class="w-8 h-8 rounded flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="Previous Cue" type="button">
+<span class="material-symbols-outlined text-[20px]">skip_previous</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-primary text-on-primary flex items-center justify-center font-bold shadow-md hover:brightness-110 active:scale-95 transition-all" title="Play/Pause" type="button">
+<span class="material-symbols-outlined text-[24px]">play_arrow</span>
+</button>
+<button class="w-8 h-8 rounded flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="Next Cue" type="button">
+<span class="material-symbols-outlined text-[20px]">skip_next</span>
+</button>
+<button class="w-8 h-8 rounded flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="Tiến 1 giây" type="button">
+<span class="material-symbols-outlined text-[20px]">forward_10</span>
+</button>
+<button class="w-8 h-8 rounded flex items-center justify-center text-primary-container bg-surface-container-high font-bold transition-all" title="Loop Segment (Vòng lặp đoạn thoại)" type="button">
+<span class="material-symbols-outlined text-[18px]">repeat</span>
+</button>
+</div>
+<div class="flex items-center gap-2">
+<!-- Playback Rate Pill -->
+<div class="flex items-center bg-surface-container-lowest rounded-lg p-0.5">
+<button class="px-2 py-1 rounded text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps font-semibold" type="button">0.5x</button>
+<button class="px-2 py-1 rounded bg-surface-container-high text-primary font-label-caps text-label-caps font-bold" type="button">1.0x</button>
+<button class="px-2 py-1 rounded text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps font-semibold" type="button">1.5x</button>
+</div>
+<!-- Safe Area Toggle & Waveform zoom -->
+<button class="p-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high" title="Hiển thị Lưới An Toàn Phim" type="button">
+<span class="material-symbols-outlined text-[20px]">grid_4x4</span>
+</button>
+<button class="p-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high" title="Phóng to Monitor" type="button">
+<span class="material-symbols-outlined text-[20px]">fullscreen</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Waveform Visualizer & Live Dialogue Telemetry Deck -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-space-md shadow-2xl flex flex-col justify-between gap-space-md">
+<div>
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">graphic_eq</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Waveform Audio &amp; Dialogue Energy</h2>
+</div>
+<span class="font-label-caps text-label-caps px-2 py-0.5 rounded bg-surface-container-high text-secondary font-mono">EBU R128: -23.8 LUFS</span>
+</div>
+<p class="text-on-surface-variant font-body-sm text-body-sm">
+            Biên độ âm thanh thời gian thực (Center Voice Track phân tách qua CineAI Stem Splitter).
+          </p>
+</div>
+<!-- Multi-Channel Waveform Graphic Card -->
+<div class="space-y-3 bg-surface-container-low p-space-sm rounded-lg">
+<!-- Voice Channel Center (Dialogue Focus) -->
+<div class="space-y-1">
+<div class="flex justify-between items-center text-on-surface-variant font-label-caps text-label-caps">
+<span class="text-primary font-bold">CENTER (DIALOGUE ENHANCED)</span>
+<span class="font-mono text-on-surface">RMS: -14.2 dBFS</span>
+</div>
+<div class="h-14 w-full bg-surface-container-lowest rounded overflow-hidden relative flex items-center px-1">
+<!-- Playhead Line -->
+<div class="absolute top-0 bottom-0 left-1/2 w-0.5 bg-primary-container z-20 shadow-[0_0_8px_rgba(245,158,11,0.9)]"></div>
+<!-- Simulated Waveform SVG Center -->
+<svg class="w-full h-10 text-primary opacity-90" fill="currentColor" preserveaspectratio="none" viewbox="0 0 500 50">
+<path d="M0 25 L10 25 L15 10 L20 40 L25 5 L30 45 L35 20 L40 30 L45 25 L60 25 L70 12 L75 38 L80 18 L90 32 L95 25 L120 25 L130 5 L140 45 L150 2 L160 48 L170 15 L180 35 L190 8 L200 42 L210 20 L220 30 L230 25 L245 25 L250 0 L255 50 L260 5 L265 45 L270 10 L275 40 L280 25 L310 25 L320 8 L330 42 L340 16 L350 34 L360 25 L390 25 L400 12 L410 38 L420 18 L430 32 L440 25 L480 25 L490 15 L500 25 Z"></path>
+</svg>
+</div>
+</div>
+<!-- Surround / Music / FX Track -->
+<div class="space-y-1">
+<div class="flex justify-between items-center text-on-surface-variant font-label-caps text-label-caps">
+<span class="text-tertiary">SURROUND L/R &amp; LFE (BGM &amp; SFX)</span>
+<span class="font-mono text-on-surface">Peak: -6.1 dBFS</span>
+</div>
+<div class="h-10 w-full bg-surface-container-lowest rounded overflow-hidden relative flex items-center px-1">
+<div class="absolute top-0 bottom-0 left-1/2 w-0.5 bg-primary-container z-20"></div>
+<svg class="w-full h-8 text-tertiary opacity-60" fill="currentColor" preserveaspectratio="none" viewbox="0 0 500 40">
+<path d="M0 20 L15 20 L20 15 L25 25 L30 10 L35 30 L40 18 L45 22 L55 20 L80 20 L90 8 L100 32 L110 12 L120 28 L130 20 L160 20 L170 14 L180 26 L190 10 L200 30 L210 20 L240 20 L250 5 L260 35 L270 12 L280 28 L290 20 L330 20 L340 15 L350 25 L360 10 L370 30 L380 20 L420 20 L440 6 L450 34 L460 20 L500 20 Z"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Telemetry Diagnostics & Sync Engine State -->
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<div class="bg-surface-container-low p-2.5 rounded-lg flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase font-semibold">ĐỘ LỆCH DIALOGUE SYNC</span>
+<span class="font-headline-sm text-headline-sm font-bold text-emerald-400 mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">verified</span> 0.00 ms
+            </span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-0.5">Khớp tuyệt đối Timecode</span>
+</div>
+<div class="bg-surface-container-low p-2.5 rounded-lg flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase font-semibold">TỐC ĐỘ ĐỌC (CPS AN TOÀN)</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">speed</span> 14.8 cps
+            </span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-0.5">Tiêu chuẩn Netflix &lt; 17 cps</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Row 2: Multi-Track Timeline Editor (DAW Timeline Interface) -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-2xl flex flex-col gap-space-sm">
+<div class="flex flex-wrap items-center justify-between pb-space-xs gap-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">layers</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Timeline Biên Tập Đa Lớp (Multi-Track DAW Editor)</h2>
+<span class="font-label-caps text-label-caps bg-surface-container-high px-2 py-0.5 rounded text-on-surface-variant">Zoom: 100% (Frame-accurate)</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-1 rounded bg-surface-container-high text-on-surface-variant hover:text-on-surface" title="Thu nhỏ timeline" type="button">
+<span class="material-symbols-outlined text-[18px]">zoom_out</span>
+</button>
+<button class="p-1 rounded bg-surface-container-high text-on-surface-variant hover:text-on-surface" title="Phóng to timeline" type="button">
+<span class="material-symbols-outlined text-[18px]">zoom_in</span>
+</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-label-caps text-label-caps font-semibold flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span> Căn Chỉnh Snap
+          </button>
+</div>
+</div>
+<!-- Timeline Canvas Board -->
+<div class="w-full bg-surface-container-low rounded-xl overflow-x-auto relative p-space-sm">
+<!-- Ruler Bar -->
+<div class="flex items-center text-outline font-mono font-label-caps text-label-caps border-b border-surface-container-highest pb-1 mb-2 pl-44">
+<span class="w-32">00:24:10</span>
+<span class="w-32">00:24:15</span>
+<span class="w-32 text-primary font-bold">00:24:20</span>
+<span class="w-32">00:24:25</span>
+<span class="w-32">00:24:30</span>
+<span class="w-32">00:24:35</span>
+<span class="w-32">00:24:40</span>
+</div>
+<!-- Global Red Playhead Needle -->
+<div class="absolute top-2 bottom-2 left-[390px] w-0.5 bg-primary-container z-30 pointer-events-none shadow-[0_0_10px_#f59e0b]">
+<div class="w-3 h-3 bg-primary-container -ml-[5px] rotate-45 rounded-sm"></div>
+</div>
+<div class="space-y-2 min-w-[1000px]">
+<!-- Track 1: Video Reference Thumbnails -->
+<div class="flex items-center gap-2">
+<div class="w-40 shrink-0 flex items-center justify-between px-2 py-1.5 rounded bg-surface-container-high text-on-surface font-label-caps text-label-caps font-bold">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-tertiary">videocam</span> VIDEO REF</span>
+<span class="text-outline text-xs">4K HQ</span>
+</div>
+<div class="flex-1 h-12 bg-surface-container-lowest rounded flex overflow-hidden gap-0.5">
+<div class="h-full w-24 bg-cover bg-center shrink-0 opacity-80 hover:opacity-100 transition-opacity" data-alt="Film still frame 1: Closeup of knight helmet in fire reflection" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAflWA7MO8_u5xK6Wi39sbtDhyKB4Zhmk2dSbE0gVzs6JQLiYeHTzMy3hkSuwRwPCI1JGX1H5_wyBdi-ZjersJkfnmfwuJp6LQxF-Y0s8hW99sSyNTzN7q1vRlO8Wsfz2xJkv-Kk-H4ej93hwn91yCtZDmHfIOPCHgDx3x-Zmanu8WPDQ5mndbS1oCOIFKW-GgbiGExe6M-OIUpsPBZHv6sbGV_oiSEU8UU4ZyNG1oVl1eYeXA9jBJdeA')"></div>
+<div class="h-full w-24 bg-cover bg-center shrink-0 opacity-80 hover:opacity-100 transition-opacity" data-alt="Film still frame 2: Dragon wings flapping through smoke in the sky" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAd5ycH6bdpFqqm-FW7JtBfBoSfy0tls1VS-RfEz0wT1eIVvJPDznghXWAhIL2cmS_X_uF0g-Sbr3wZ2pC12wlkB7Npi595u51wrC-ht6C_F6nZig9yBvJtQIpw0xT2w2xycKcUTud2YHGUkIlUQ7kgCgFGFQ9npGPiCemw599boSpJbrUKiPbfM_eD48u6WA_ygC6DhyJFMz1ub_ssbc9Fa20A5FDY-mlFhE_VylR8ZWxYQ8QQwFxqXA')"></div>
+<div class="h-full w-24 bg-cover bg-center shrink-0 opacity-80 hover:opacity-100 transition-opacity" data-alt="Film still frame 3: Castle wall guards screaming and running" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAI_Z_ZqoU27uGKzMTLUqVtIXC0-LhokonQWrz03FRnfI1SVeLZ9xCpMGDODWy43XcbcfoMFbuO_giXIppKQZC6PGdRik1H-vGY5oDJYCb6QEnyg8MK_gO6udul1OsFf5MS1HDELp59KElcdfwB9SZPjLMXzTwbHAJhuxg5UEwJ1yZhIvakiTA7t4GXxP39LjGia_pn5CclEhNW_Z3YoaKEdiaZSNjqNTkhzozpf89HvZRKcWZ8Q_GBdg')"></div>
+<div class="h-full w-24 bg-cover bg-center shrink-0 opacity-100 transition-opacity ring-1 ring-primary" data-alt="Film still frame 4: Queen Rhaenyra looking intensely towards the battlefield" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBk9iuTHUp8T8lAY5XPPU1KvACHatlp_y9KOVGavDR58W7iiNQMsHPgkH7MHVLMpsjdsi1hL6hylh8q4sjHJo19O5-mMf3_7R1Me4CC0OQ-Mzj3SBuGIZUpas3hQ8HnEFzXunzdcgAxr2AAcx5yRl6T-WnKzYp79qI5Pwwb89-u2WuLvKnON_CwkvlUwgdFU2V8CaJD1U0jrmw2YjQBXpaLPYzlqTam74sA6dkvrPlZ74GDs9ClNLlwjA')"></div>
+<div class="h-full w-24 bg-cover bg-center shrink-0 opacity-80 hover:opacity-100 transition-opacity" data-alt="Film still frame 5: Dragon breathing golden fire onto stone field" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAweotplXE_AjAFl-_iJXIvCxUPLX4zLmbMbV8S3sEA9u8Fk1dUH-Du2J9eI-UemtcD4CihrWLJiViMX9R_3A5iIALWxj3HUGgtf0lP4UOMb7G7MAi-1vuiZSkEsFp3zTX3PoGz3DVtrZ0yUfU5oSOkfDMl_sjm9MWo85QqWP0xfgnwYpoiwkQnBnOs4GBDWAOKWfgldZIF7vp83ymcgXWEbAvF74y4H_bYghZE1fLjHJDxjVLri7aWWA')"></div>
+<div class="h-full w-24 bg-cover bg-center shrink-0 opacity-80 hover:opacity-100 transition-opacity" data-alt="Film still frame 6: Army marching through embers" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCyhdYSRM6yMWOogwiVWRzgRGLtgxYWjNYoRjCAhNrOWs8o2z04Zhd43rBqJ7FlyCAA01VBJ9GVs-dpCYVzEe2TSPuFjkjNtq2UOLkProzOOe39Wjx3XxoVdhP97uH92K1YO99QECsV1o7sFyrVd-ayfn1gIEbzOUQ4MGP4C8N9gW0rslNqg8zrkyJXYs4Frctayg4Nmxel2WE8K0sKrmHQ6Z0OeuypAug5r6T-L4_nSjG7zedwB2GLvQ')"></div>
+<div class="h-full w-24 bg-cover bg-center shrink-0 opacity-80 hover:opacity-100 transition-opacity" data-alt="Film still frame 7: Sword clashing in dark smoke" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBq4ar0ZKVK-Qfx0z5t2eiOz0ue4j0DTVccPvYzV1ctqB0hhpDlWrFNYpVO3epl4xTwDsESWRAGAcet5vStXQq-LD9XwTKRcdA9ubfYN9bX10Um1T4Tac_R2LUpbPHECKzk6IIM3z6xwWRmAK01gK2mRJMbsNRl21SsVH-4hRjGLl30C36eR12Zr6-cNd-L0THC4juU_oFO_g_GqUyZ-eTop87YhcocWxN7ppooGX5skNQwhFyNsODAjA')"></div>
+</div>
+</div>
+<!-- Track 2: Master Audio Track (Vietnamese Voiceover) -->
+<div class="flex items-center gap-2">
+<div class="w-40 shrink-0 flex items-center justify-between px-2 py-1.5 rounded bg-surface-container-high text-on-surface font-label-caps text-label-caps font-bold">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-primary">record_voice_over</span> AUD-01 (VIE 5.1)</span>
+<span class="text-primary font-mono text-[10px]">SOLO</span>
+</div>
+<div class="flex-1 h-9 bg-surface-container-lowest rounded relative overflow-hidden flex items-center px-2">
+<div class="absolute left-8 w-64 h-7 rounded bg-primary/20 flex items-center px-2 text-primary font-label-caps text-label-caps font-semibold">
+<span class="material-symbols-outlined text-[14px] mr-1">mic</span> Voiceover Take #04 (00:24:12 - 00:24:28)
+              </div>
+<div class="absolute left-80 w-56 h-7 rounded bg-primary/20 flex items-center px-2 text-primary font-label-caps text-label-caps font-semibold">
+<span class="material-symbols-outlined text-[14px] mr-1">mic</span> Voiceover Take #05 (00:24:30 - 00:24:42)
+              </div>
+</div>
+</div>
+<!-- Track 3: Subtitle Track VIETNAMESE (Primary) -->
+<div class="flex items-center gap-2">
+<div class="w-40 shrink-0 flex items-center justify-between px-2 py-1.5 rounded bg-surface-container-high text-on-surface font-label-caps text-label-caps font-bold">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-yellow-400">subtitles</span> SUB: TIẾNG VIỆT</span>
+<span class="text-yellow-400 font-mono text-[10px]">100%</span>
+</div>
+<div class="flex-1 h-9 bg-surface-container-lowest rounded relative overflow-hidden flex items-center px-2">
+<!-- Cue block 1 -->
+<div class="absolute left-10 w-44 h-7 rounded bg-yellow-400/25 text-yellow-300 flex items-center justify-between px-2 font-label-caps text-label-caps font-medium cursor-pointer shadow-sm">
+<span class="truncate">#412: Hãy chuẩn bị rồng!</span>
+<span class="text-[9px] text-yellow-500">2.4s</span>
+</div>
+<!-- Cue block 2 (Active highlighted) -->
+<div class="absolute left-60 w-72 h-7 rounded bg-yellow-400 text-on-primary-container flex items-center justify-between px-2 font-label-caps text-label-caps font-bold cursor-pointer shadow-lg ring-2 ring-yellow-200">
+<span class="truncate">#413: Nếu ngọn lửa này bùng cháy...</span>
+<span class="text-[9px] bg-yellow-600 text-yellow-100 px-1 rounded">ACTIVE</span>
+</div>
+</div>
+</div>
+<!-- Track 4: Subtitle Track ENGLISH (CC) -->
+<div class="flex items-center gap-2">
+<div class="w-40 shrink-0 flex items-center justify-between px-2 py-1.5 rounded bg-surface-container-high text-on-surface font-label-caps text-label-caps font-bold">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-tertiary">closed_caption</span> SUB: ENGLISH [CC]</span>
+<span class="text-tertiary font-mono text-[10px]">SDH</span>
+</div>
+<div class="flex-1 h-9 bg-surface-container-lowest rounded relative overflow-hidden flex items-center px-2">
+<!-- Cue block with Sync Warning Badge -->
+<div class="absolute left-10 w-48 h-7 rounded bg-tertiary-container/20 text-tertiary flex items-center justify-between px-2 font-label-caps text-label-caps font-medium">
+<span class="truncate">[DRAGON SCREECHES] Ready the beasts!</span>
+</div>
+<div class="absolute left-64 w-64 h-7 rounded bg-tertiary-container/20 text-tertiary flex items-center justify-between px-2 font-label-caps text-label-caps font-medium">
+<span class="truncate">“If this flame takes hold...”</span>
+<span class="px-1.5 py-0.5 rounded bg-error-container text-error font-label-caps text-label-caps font-bold flex items-center gap-0.5" title="Độ lệch nhịp âm thanh">
+<span class="material-symbols-outlined text-[12px]">warning</span> Lệch +180ms
+                </span>
+</div>
+</div>
+</div>
+<!-- Track 5: Subtitle Track KOREAN (AI Translating) -->
+<div class="flex items-center gap-2">
+<div class="w-40 shrink-0 flex items-center justify-between px-2 py-1.5 rounded bg-surface-container-high text-on-surface font-label-caps text-label-caps font-bold">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-purple-400">translate</span> SUB: KOREAN (ko)</span>
+<span class="text-purple-400 font-mono text-[10px]">QA 94%</span>
+</div>
+<div class="flex-1 h-9 bg-surface-container-lowest rounded relative overflow-hidden flex items-center px-2">
+<div class="absolute left-10 w-44 h-7 rounded bg-purple-500/20 text-purple-300 flex items-center justify-between px-2 font-label-caps text-label-caps font-medium">
+<span class="truncate">용을 준비하라!</span>
+</div>
+<div class="absolute left-60 w-64 h-7 rounded bg-purple-500/20 text-purple-300 flex items-center justify-between px-2 font-label-caps text-label-caps font-medium">
+<span class="truncate">이 불길이 번진다면 오직 잿더미만...</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Row 3: Subtitle Asset Manager & Multi-Audio Streams Manager (2-Column Split) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Subtitles Asset Manager (MOD-07 Subtitle Pool) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-space-md shadow-2xl flex flex-col justify-between">
+<div class="space-y-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-2 pb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">subtitles</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Danh Sách Bản Dịch Phụ Đề (Subtitles Asset Manager)</h2>
+</div>
+<div class="flex items-center gap-1.5">
+<button class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps font-semibold flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[15px]">transform</span> SRT sang WebVTT
+              </button>
+<button class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps font-semibold flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[15px]">palette</span> CSS Styling
+              </button>
+</div>
+</div>
+<!-- Subtitle Assets Table -->
+<div class="w-full overflow-x-auto rounded-lg bg-surface-container-low">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container-high/60 text-outline font-label-caps text-label-caps uppercase">
+<tr>
+<th class="py-2.5 px-3">Ngôn Ngữ &amp; Code</th>
+<th class="py-2.5 px-3">Tên File Master</th>
+<th class="py-2.5 px-3">Cỡ &amp; Cues</th>
+<th class="py-2.5 px-3">Trạng Thái Phê Duyệt</th>
+<th class="py-2.5 px-3 text-right">Tác Vụ</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Row 1: Tiếng Việt -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<div>
+<div class="font-semibold text-on-surface">Tiếng Việt (vi-VN)</div>
+<div class="text-[11px] text-primary">Master Subtitle</div>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-3 font-mono text-[12px] text-on-surface-variant">hotd_s02e04_vi.vtt</td>
+<td class="py-2.5 px-3 text-on-surface-variant">
+<div>142 KB</div>
+<div class="text-[11px] text-outline">842 Cues</div>
+</td>
+<td class="py-2.5 px-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 font-label-caps text-label-caps font-semibold">
+<span class="material-symbols-outlined text-[13px]">check_circle</span> Đã duyệt &amp; Sẵn sàng
+                    </span>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded text-primary hover:bg-surface-container-high" title="Biên tập câu thoại" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high" title="Tải về WebVTT" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: English CC -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<div>
+<div class="font-semibold text-on-surface">English [CC] (en-US)</div>
+<div class="text-[11px] text-tertiary">SDH Hoạt Họa &amp; Âm Thanh</div>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-3 font-mono text-[12px] text-on-surface-variant">hotd_s02e04_en_cc.vtt</td>
+<td class="py-2.5 px-3 text-on-surface-variant">
+<div>158 KB</div>
+<div class="text-[11px] text-outline">890 Cues</div>
+</td>
+<td class="py-2.5 px-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 font-label-caps text-label-caps font-semibold">
+<span class="material-symbols-outlined text-[13px]">check_circle</span> Hoàn tất
+                    </span>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded text-primary hover:bg-surface-container-high" title="Biên tập" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high" title="Tải về" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Korean -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<div>
+<div class="font-semibold text-on-surface">Tiếng Hàn (ko-KR)</div>
+<div class="text-[11px] text-outline">Subrip (.srt)</div>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-3 font-mono text-[12px] text-on-surface-variant">hotd_s02e04_ko.srt</td>
+<td class="py-2.5 px-3 text-on-surface-variant">
+<div>135 KB</div>
+<div class="text-[11px] text-outline">820 Cues</div>
+</td>
+<td class="py-2.5 px-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary/15 text-secondary font-label-caps text-label-caps font-semibold">
+<span class="material-symbols-outlined text-[13px]">pending</span> Chờ QA duyệt (94%)
+                    </span>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded text-primary hover:bg-surface-container-high" title="Biên tập" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high" title="Tải về" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Japanese -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<div>
+<div class="font-semibold text-on-surface">Tiếng Nhật (ja-JP)</div>
+<div class="text-[11px] text-outline">CineAI Generative Sub</div>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-3 font-mono text-[12px] text-on-surface-variant">hotd_s02e04_ja.vtt</td>
+<td class="py-2.5 px-3 text-on-surface-variant">
+<div>128 KB</div>
+<div class="text-[11px] text-outline">815 Cues</div>
+</td>
+<td class="py-2.5 px-3">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center gap-1 text-tertiary font-label-caps text-label-caps font-semibold">
+<span class="material-symbols-outlined text-[13px] animate-spin">sync</span> Đang dịch AI (68%)
+                      </span>
+<div class="w-28 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full w-[68%]"></div>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-3 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container-high" title="Tạm dừng AI" type="button">
+<span class="material-symbols-outlined text-[18px]">pause</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Subtitle Quick Styling Panel -->
+<div class="mt-space-md p-space-sm bg-surface-container-low rounded-lg flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">format_paint</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">Định Dạng Vị Trí &amp; Font:</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">Đáy màn hình (Bottom-Center), Font Roboto / Sora, Viền mờ Drop Shadow</span>
+</div>
+<button class="px-3 py-1 rounded bg-surface-container-high text-primary hover:bg-primary hover:text-on-primary font-label-caps text-label-caps font-bold transition-all" type="button">
+            Cấu Hình VTT CSS
+          </button>
+</div>
+</div>
+<!-- Right Column: Multi-Audio Streams Manager (HLS Manifest Sync) -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-space-md shadow-2xl flex flex-col justify-between">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">audiotrack</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Quản Lý Luồng Audio (HLS Manifest)</h2>
+</div>
+<span class="font-label-caps text-label-caps text-tertiary font-mono">#EXT-X-MEDIA:TYPE=AUDIO</span>
+</div>
+<p class="text-on-surface-variant font-body-sm text-body-sm">
+            Danh sách stream âm thanh độc lập tích hợp vào master m3u8 phát sóng cho TV và thiết bị di động.
+          </p>
+<!-- Audio Stream Cards -->
+<div class="space-y-2">
+<!-- Stream 1: English Atmos -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-1.5 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded bg-primary-container/20 text-primary flex items-center justify-center font-bold text-xs font-mono">1</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">English Original (Dolby Atmos 7.1)</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-label-caps text-label-caps font-bold">MẶC ĐỊNH</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-3 text-on-surface-variant font-label-caps text-label-caps">
+<span>Code: <code class="text-on-surface">eng</code></span>
+<span>Bitrate: 768 kbps</span>
+<span>Chuẩn: TrueHD / E-AC-3 JOC</span>
+<span class="text-emerald-400">R128: -24.0 LUFS</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="text-[11px] text-outline">Âm thanh gốc trường quay HBO Master</span>
+<span class="text-primary font-mono text-[11px]">Offset: 0 ms</span>
+</div>
+</div>
+<!-- Stream 2: Vietnamese Voiceover Thành Lộc -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-1.5 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold text-xs font-mono">2</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">Tiếng Việt Thuyết Minh Studio (Dolby 5.1)</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-tertiary font-label-caps text-label-caps font-bold">AUTO-SELECT VN</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-3 text-on-surface-variant font-label-caps text-label-caps">
+<span>Code: <code class="text-on-surface">vie</code></span>
+<span>Bitrate: 384 kbps</span>
+<span>Chuẩn: AC-3 Surround</span>
+<span class="text-emerald-400">R128: -23.9 LUFS</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="text-[11px] text-outline">Lồng tiếng bởi NSƯT Thành Lộc &amp; CineTeam</span>
+<span class="text-emerald-400 font-mono text-[11px]">Offset: +12 ms</span>
+</div>
+</div>
+<!-- Stream 3: Tiếng Việt Miền Nam -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-1.5 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold text-xs font-mono">3</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">Tiếng Việt Lồng Tiếng Miền Nam (Stereo 2.0)</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-outline font-label-caps text-label-caps font-bold">TÙY CHỌN</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-3 text-on-surface-variant font-label-caps text-label-caps">
+<span>Code: <code class="text-on-surface">vie_south</code></span>
+<span>Bitrate: 192 kbps</span>
+<span>Chuẩn: AAC-LC</span>
+<span class="text-emerald-400">R128: -24.1 LUFS</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="text-[11px] text-outline">Bản mix tối ưu cho loa di động &amp; tai nghe</span>
+<span class="text-primary font-mono text-[11px]">Offset: 0 ms</span>
+</div>
+</div>
+<!-- Stream 4: Audio Description (AD) -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-1.5 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold text-xs font-mono">4</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">Audio Description (Thuyết Minh Mô Tả AD)</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps font-bold">ACCESSIBILITY</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-3 text-on-surface-variant font-label-caps text-label-caps">
+<span>Code: <code class="text-on-surface">en_ad</code></span>
+<span>Bitrate: 128 kbps</span>
+<span>Chuẩn: AAC</span>
+<span class="text-emerald-400">R128: -24.0 LUFS</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="text-[11px] text-outline">Dành cho người khiếm thị / thị lực kém</span>
+<span class="text-primary font-mono text-[11px]">Offset: -5 ms</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Sync Calibration Action Box -->
+<div class="mt-space-md p-space-sm bg-surface-container-low rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">equalizer</span>
+<div>
+<div class="font-label-md text-label-md font-semibold text-on-surface">Hiệu Chuẩn Bù Âm (Audio Delay Compensator)</div>
+<div class="font-body-sm text-body-sm text-outline">Căn chỉnh độ trễ mili-giây thời gian thực với Master Video</div>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md flex items-center gap-1 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">build</span> Cân Chỉnh
+          </button>
+</div>
+</div>
+</section>
+<!-- Row 4: Cue Editor & AI Correction Table (Bảng Biên Tập Chi Tiết Từng Câu Thoại) -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md shadow-2xl flex flex-col gap-space-md">
+<!-- Section Header & CineAI Assistant Bar -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">edit_note</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Bảng Biên Tập Từng Câu Thoại &amp; CineAI Correction Table</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Phân tích CPS (Ký tự / giây), ngắt dòng 2 câu không che mặt nhân vật, và đối chiếu song ngữ.</p>
+</div>
+</div>
+<!-- CineAI Toolbar Pill -->
+<div class="flex flex-wrap items-center gap-2 bg-surface-container-low p-1.5 rounded-xl">
+<span class="px-2.5 py-1 rounded-lg bg-tertiary-container/20 text-tertiary font-label-caps text-label-caps font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span> CINEAI ASSISTANT
+          </span>
+<button class="px-3 py-1 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-caps text-label-caps font-semibold flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px] text-emerald-400">spellcheck</span> Sửa Ngữ Pháp
+          </button>
+<button class="px-3 py-1 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-caps text-label-caps font-semibold flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px] text-primary">view_agenda</span> Tự Động Ngắt Dòng
+          </button>
+<button class="px-3 py-1 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-caps text-label-caps font-semibold flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px] text-tertiary">record_voice_over</span> Đồng Bộ Khẩu Hình
+          </button>
+</div>
+</div>
+<!-- Cue Table Grid -->
+<div class="w-full overflow-x-auto rounded-lg bg-surface-container-low">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container-high/60 text-outline font-label-caps text-label-caps uppercase">
+<tr>
+<th class="py-2.5 px-3 w-14 text-center">STT</th>
+<th class="py-2.5 px-3 w-32">Start Time</th>
+<th class="py-2.5 px-3 w-32">End Time</th>
+<th class="py-2.5 px-3 w-20">Duration</th>
+<th class="py-2.5 px-4">Văn Bản Gốc (Original Dialogue - EN)</th>
+<th class="py-2.5 px-4">Bản Dịch / Biên Tập (Edited Subtitle - VI)</th>
+<th class="py-2.5 px-3 w-24 text-center">Tốc Độ CPS</th>
+<th class="py-2.5 px-3 w-24 text-right">Thao Tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Cue #411 -->
+<tr class="hover:bg-surface-container-high/30 transition-colors">
+<td class="py-3 px-3 text-center font-mono text-on-surface-variant">411</td>
+<td class="py-3 px-3 font-mono text-tertiary text-[13px]">00:24:08.200</td>
+<td class="py-3 px-3 font-mono text-on-surface-variant text-[13px]">00:24:11.850</td>
+<td class="py-3 px-3 font-mono text-outline text-[12px]">3.65s</td>
+<td class="py-3 px-4 text-on-surface-variant italic">
+                Daemon: Sound the war horns! We ride before dusk!
+              </td>
+<td class="py-3 px-4">
+<input class="w-full bg-surface-container-lowest/80 text-on-surface px-2.5 py-1 rounded text-body-sm focus:outline-none focus:ring-1 focus:ring-primary shadow-inner" type="text" value="Daemon: Hãy thổi tù và chiến trận! Chúng ta xuất kích trước hoàng hôn!"/>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 font-label-caps text-label-caps font-bold">
+                  12.4 CPS
+                </span>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container-high" title="Nghe câu này" type="button">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-error hover:bg-surface-container-high" title="Xóa cue" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Cue #412 -->
+<tr class="hover:bg-surface-container-high/30 transition-colors">
+<td class="py-3 px-3 text-center font-mono text-on-surface-variant">412</td>
+<td class="py-3 px-3 font-mono text-tertiary text-[13px]">00:24:12.100</td>
+<td class="py-3 px-3 font-mono text-on-surface-variant text-[13px]">00:24:14.500</td>
+<td class="py-3 px-3 font-mono text-outline text-[12px]">2.40s</td>
+<td class="py-3 px-4 text-on-surface-variant italic">
+                Commander: Hold the southern gate at all costs!
+              </td>
+<td class="py-3 px-4">
+<input class="w-full bg-surface-container-lowest/80 text-on-surface px-2.5 py-1 rounded text-body-sm focus:outline-none focus:ring-1 focus:ring-primary shadow-inner" type="text" value="Chỉ huy: Bằng mọi giá phải giữ vững cổng thành phía nam!"/>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 font-label-caps text-label-caps font-bold">
+                  14.1 CPS
+                </span>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container-high" title="Nghe câu này" type="button">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-error hover:bg-surface-container-high" title="Xóa cue" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Cue #413 (ACTIVE / CURRENT PLAYHEAD) -->
+<tr class="bg-primary/10 transition-colors">
+<td class="py-3 px-3 text-center font-mono text-primary font-bold">413</td>
+<td class="py-3 px-3 font-mono text-primary font-bold text-[13px]">00:24:18.420</td>
+<td class="py-3 px-3 font-mono text-primary font-bold text-[13px]">00:24:22.600</td>
+<td class="py-3 px-3 font-mono text-primary text-[12px]">4.18s</td>
+<td class="py-3 px-4 text-on-surface font-medium">
+                Rhaenyra: If this flame takes hold, the throne shall be nothing more than ash!
+              </td>
+<td class="py-3 px-4">
+<div class="space-y-1">
+<input class="w-full bg-surface-container-lowest text-primary font-semibold px-2.5 py-1.5 rounded text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-md" type="text" value="Rhaenyra: Nếu ngọn lửa này bùng cháy, ngai vàng sẽ chỉ còn lại tro tàn!"/>
+<div class="flex items-center gap-2 text-[11px] text-tertiary">
+<span class="material-symbols-outlined text-[13px]">psychology</span>
+<span>CineAI Suggestion: Cấu trúc câu ngắn gọn, tạo nhịp kịch tính chuẩn trường đoạn cao trào.</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 font-label-caps text-label-caps font-bold">
+                  14.8 CPS
+                </span>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded text-primary hover:bg-surface-container-high" title="Đang phát đoạn này" type="button">
+<span class="material-symbols-outlined text-[20px]">pause_circle</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-error hover:bg-surface-container-high" title="Xóa cue" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Cue #414 (Warning CPS Alert) -->
+<tr class="hover:bg-surface-container-high/30 transition-colors">
+<td class="py-3 px-3 text-center font-mono text-on-surface-variant">414</td>
+<td class="py-3 px-3 font-mono text-tertiary text-[13px]">00:24:23.100</td>
+<td class="py-3 px-3 font-mono text-on-surface-variant text-[13px]">00:24:24.500</td>
+<td class="py-3 px-3 font-mono text-outline text-[12px]">1.40s</td>
+<td class="py-3 px-4 text-on-surface-variant italic">
+                Alicent: Then let it burn, so peace may rise from its embers!
+              </td>
+<td class="py-3 px-4">
+<div class="space-y-1">
+<input class="w-full bg-surface-container-lowest/80 text-on-surface px-2.5 py-1 rounded text-body-sm focus:outline-none focus:ring-1 focus:ring-error shadow-inner" type="text" value="Alicent: Vậy thì hãy để nó thiêu rụi, để hòa bình có thể vươn dậy từ đống tro tàn hoang phế!"/>
+<div class="flex items-center gap-1.5 text-[11px] text-error">
+<span class="material-symbols-outlined text-[13px]">warning</span>
+<span>Cảnh báo: Câu quá dài trong thời gian 1.4s! Nên ngắt bớt từ hoặc kéo dài End Time.</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex px-2 py-0.5 rounded bg-error-container text-error font-label-caps text-label-caps font-bold">
+                  21.2 CPS
+                </span>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded text-primary hover:bg-surface-container-high" title="Tự động rút gọn AI" type="button">
+<span class="material-symbols-outlined text-[18px]">auto_fix_high</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-error hover:bg-surface-container-high" title="Xóa cue" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Cue #415 -->
+<tr class="hover:bg-surface-container-high/30 transition-colors">
+<td class="py-3 px-3 text-center font-mono text-on-surface-variant">415</td>
+<td class="py-3 px-3 font-mono text-tertiary text-[13px]">00:24:26.000</td>
+<td class="py-3 px-3 font-mono text-on-surface-variant text-[13px]">00:24:30.200</td>
+<td class="py-3 px-3 font-mono text-outline text-[12px]">4.20s</td>
+<td class="py-3 px-4 text-on-surface-variant italic">
+                [DRAGON ROARS DEAFENINGLY AS FLAMES ENGULF THE LOWER KEEP]
+              </td>
+<td class="py-3 px-4">
+<input class="w-full bg-surface-container-lowest/80 text-tertiary px-2.5 py-1 rounded text-body-sm focus:outline-none focus:ring-1 focus:ring-primary shadow-inner font-mono text-xs" type="text" value="[TIẾNG RỒNG GẦM XÉ TRỜI KHI LỬA BAO TRÙM THÁP CHÍNH PHÍA DƯỚI]"/>
+</td>
+<td class="py-3 px-3 text-center">
+<span class="inline-flex px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-caps text-label-caps">
+                  SFX Tag
+                </span>
+</td>
+<td class="py-3 px-3 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container-high" title="Nghe câu này" type="button">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-error hover:bg-surface-container-high" title="Xóa cue" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination & Table Operations Footer -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-2">
+<span>Hiển thị câu <strong>411 - 425</strong> trên tổng số <strong>842</strong> câu thoại</span>
+<span class="text-outline">•</span>
+<span class="text-primary flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[16px]">check_circle</span> 839 / 842 Đạt chuẩn CPS
+          </span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-caps text-label-caps font-semibold flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">add_circle</span> Chèn Thêm Cue
+          </button>
+<button class="px-3 py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-caps text-label-caps font-semibold flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">file_download</span> Xuất File VTT Nhanh
+          </button>
+<button class="px-4 py-1.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-bold hover:brightness-110 shadow-md" type="button">
+            Lưu Toàn Bộ Thay Đổi (Cmd+S)
+          </button>
+</div>
+</div>
+</section>
+</div>
+</div></main></div></body></html>

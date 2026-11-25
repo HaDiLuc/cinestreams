@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Sora:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-surface": "#dde2f8", "on-error-container": "#ffdad6", "surface-container-high": "#242a3a", "tertiary-fixed": "#c4e7ff", "on-secondary-fixed-variant": "#5c4300", "on-background": "#dde2f8", "on-primary-fixed": "#2a1700", "primary-fixed-dim": "#ffb95f", "secondary-fixed-dim": "#f9bd22", "tertiary": "#8ed5ff", "on-error": "#690005", "surface-bright": "#33394a", "secondary-container": "#e3aa00", "inverse-surface": "#dde2f8", "primary-container": "#f59e0b", "inverse-on-surface": "#2a3040", "secondary-fixed": "#ffdf9f", "on-secondary": "#402d00", "surface-variant": "#2f3445", "on-primary": "#472a00", "on-primary-fixed-variant": "#653e00", "surface-container": "#191f2f", "on-primary-container": "#613b00", "surface-tint": "#ffb95f", "on-secondary-container": "#5a4100", "outline-variant": "#534434", "primary-fixed": "#ffddb8", "background": "#0d1322", "surface-container-lowest": "#080e1d", "primary": "#ffc174", "surface": "#0d1322", "inverse-primary": "#855300", "surface-container-low": "#151b2b", "on-tertiary-fixed-variant": "#004c69", "surface-container-highest": "#2f3445", "error": "#ffb4ab", "error-container": "#93000a", "secondary": "#ffc640", "tertiary-container": "#38bdf8", "outline": "#a08e7a", "on-tertiary-container": "#004965", "on-tertiary": "#00354a", "tertiary-fixed-dim": "#7bd0ff", "on-secondary-fixed": "#261a00", "surface-dim": "#0d1322", "on-tertiary-fixed": "#001e2c", "on-surface-variant": "#d8c3ad" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "margin": "3rem", "gutter-mobile": "0.75rem", "space-lg": "1.5rem", "margin-mobile": "1rem", "space-xs": "0.25rem", "space-xl": "2.5rem", "gutter": "1.5rem", "space-sm": "0.5rem" }, "fontFamily": { "body-sm": ["Plus Jakarta Sans"], "headline-md": ["Sora"], "label-lg": ["Sora"], "label-md": ["Sora"], "headline-lg": ["Sora"], "headline-sm": ["Sora"], "display-hero": ["Sora"], "display-hero-mobile": ["Sora"], "body-md": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Sora"], "body-lg": ["Plus Jakarta Sans"], "label-caps": ["Sora"] }, "fontSize": { "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }], "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }], "label-caps": ["10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "700" }] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="flex flex-col h-full overflow-hidden"><div class="h-20 px-space-lg flex items-center justify-between shrink-0 bg-surface-container-lowest"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center shadow-[0_0_16px_rgba(245,158,11,0.35)]"><span class="material-symbols-outlined text-on-primary-container text-[22px]">movie_filter</span></div><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-bold">CineStreams</span></div><span class="font-label-caps text-label-caps text-primary tracking-wider uppercase font-semibold">Studio Ops CMS</span></div></div><span class="font-label-caps text-label-caps px-space-xs py-0.5 rounded bg-surface-container-high text-primary font-bold">v2.8</span></div><div class="flex-1 overflow-y-auto px-space-md py-space-sm space-y-space-lg"><nav class="space-y-space-md" data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg shadow-[0_0_18px_rgba(245,158,11,0.3)]"><div class="space-y-space-xs"><span class="px-space-sm font-label-caps text-label-caps uppercase text-outline tracking-wider font-bold block">Tổng Quan</span><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="dashboard-&amp;-doanh-thu" href="#"><span class="material-symbols-outlined text-[19px]">query_stats</span><span>Dashboard &amp; Doanh Thu</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="bao-cao-phan-tich" href="#"><span class="material-symbols-outlined text-[19px]">analytics</span><span>Báo Cáo Phân Tích</span></a></div><div class="space-y-space-xs"><div class="flex items-center justify-between px-space-sm"><span class="font-label-caps text-label-caps uppercase text-primary tracking-wider font-bold block">Quản Lý Nội Dung CMS</span><span class="font-label-caps text-label-caps text-outline">MOD-07</span></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="danh-muc-phim-le" href="#"><span class="material-symbols-outlined text-[19px]">theaters</span><span>Danh Mục Phim Lẻ</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="phim-bo-&amp;-mua/tap" href="#"><span class="material-symbols-outlined text-[19px]">video_library</span><span>Phim Bộ &amp; Mùa/Tập</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="upload-video-goc" href="#"><span class="material-symbols-outlined text-[19px]">cloud_upload</span><span>Upload Video Gốc</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="phu-de-&amp;-audio-track" href="#"><span class="material-symbols-outlined text-[19px]">subtitles</span><span>Phụ Đề &amp; Audio Track</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="phan-doan-phat-hanh" href="#"><span class="material-symbols-outlined text-[19px]">event_upcoming</span><span>Phân Đoạn Phát Hành</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="tin-tuc-&amp;-blog-dien-anh" href="#"><span class="material-symbols-outlined text-[19px]">auto_stories</span><span>Tin Tức &amp; Blog Điện Ảnh</span></a></div><div class="space-y-space-xs"><span class="px-space-sm font-label-caps text-label-caps uppercase text-outline tracking-wider font-bold block">Thương Mại &amp; Thanh Toán</span><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="goi-cuoc-vip" href="#"><span class="material-symbols-outlined text-[19px]">workspace_premium</span><span>Gói Cước VIP</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="giao-dich-vietqr/momo" href="#"><span class="material-symbols-outlined text-[19px]">payments</span><span>Giao Dịch VietQR/MoMo</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="doi-soat-webhook" href="#"><span class="material-symbols-outlined text-[19px]">sync_alt</span><span>Đối Soát Webhook</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="khuyen-mai-&amp;-voucher" href="#"><span class="material-symbols-outlined text-[19px]">confirmation_number</span><span>Khuyến Mãi &amp; Voucher</span></a></div><div class="space-y-space-xs"><span class="px-space-sm font-label-caps text-label-caps uppercase text-outline tracking-wider font-bold block">Hệ Thống &amp; SecOps</span><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="cau-hinh-cineai-studio" href="#"><span class="material-symbols-outlined text-[19px] text-tertiary">neurology</span><span>Cấu Hình CineAI Studio</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="thanh-vien-&amp;-rbac" href="#"><span class="material-symbols-outlined text-[19px]">badge</span><span>Thành Viên &amp; RBAC</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="nhat-ky-&amp;-secops" href="#"><span class="material-symbols-outlined text-[19px]">security</span><span>Nhật Ký &amp; SecOps</span></a></div></nav></div><div class="p-space-md shrink-0 bg-surface-container-lowest"><div class="p-space-sm rounded-lg bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.25)] space-y-space-xs"><div class="flex items-center justify-between"><span class="font-label-caps text-label-caps uppercase text-outline font-semibold">Cluster Edge 04</span><span class="flex h-2 w-2 relative"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span></span></div><div class="flex items-center justify-between text-on-surface"><span class="font-label-md text-label-md font-medium text-on-surface-variant">HCMC-VN</span><span class="font-label-md text-label-md font-semibold text-primary">12ms latency</span></div></div></div></div></aside><div class="pl-72 min-h-screen flex flex-col bg-background"><header class="fixed top-0 left-72 right-0 h-20 bg-surface/85 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.35)] flex items-center justify-between px-space-lg"><div class="flex-1 max-w-2xl"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline text-[20px]">search</span><input class="w-full h-11 pl-10 pr-space-md rounded-lg bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-high transition-all" placeholder="Tìm kiếm bài viết, tác giả, tag, phim liên kết..." type="text"/></div></div><div class="flex items-center gap-space-md pl-space-md"><div class="hidden xl:flex items-center gap-space-sm"><div class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-full bg-surface-container-high shadow-[0_1px_8px_rgba(0,0,0,0.2)]"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-caps text-label-caps text-on-surface font-semibold">CDN 99.98% ACTIVE</span></div><div class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-full bg-tertiary-container/20 text-tertiary shadow-[0_1px_8px_rgba(56,189,248,0.15)]"><span class="material-symbols-outlined text-[14px]">auto_awesome</span><span class="font-label-caps text-label-caps font-bold tracking-wide">AI SEO ASSIST ONLINE</span></div></div><button class="w-10 h-10 rounded-full bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high flex items-center justify-center transition-colors relative"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="text-right hidden sm:block"><div class="font-label-lg text-label-lg font-semibold text-on-surface leading-tight">Alex Tran</div><div class="font-label-md text-label-md text-primary font-medium leading-tight">Chief Editor / Content Lead</div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="relative pt-20 w-full flex-1 bg-surface-container-lowest px-space-lg py-space-lg"><div class="flex flex-col w-full space-y-space-lg">
+<!-- BREADCRUMB & HEADER -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-outline">
+<span class="hover:text-on-surface cursor-pointer transition-colors">CineStreams Ops</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="hover:text-on-surface cursor-pointer transition-colors">Hạ Tầng &amp; Hệ Thống Media</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-semibold">Quản Trị Lưu Trữ Origin Storage &amp; Sao Lưu (MOD-07)</span>
+</div>
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
+<div class="space-y-1">
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">
+          Trung Tâm Quản Trị Origin Storage &amp; Sao Lưu Dữ Liệu
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-4xl">
+          Hạ tầng lưu trữ file Master gốc (ProRes 422 HQ, RAW Audio Stems, 4K HDR), cấu hình phân tầng Hot/Warm/Cold Storage Lifecycle và tự động hóa sao lưu dự phòng thảm họa (Disaster Recovery).
+        </p>
+</div>
+<div class="flex items-center flex-wrap gap-space-sm">
+<button class="px-space-md py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg shadow-sm flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-[18px] text-tertiary">sync</span>
+<span>Đồng Bộ Ngay (Force Sync)</span>
+</button>
+<button class="px-space-md py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg shadow-sm flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-[18px] text-secondary">tune</span>
+<span>Cấu Hình Lifecycle Rules</span>
+</button>
+<button class="px-space-lg py-2.5 rounded-xl bg-primary-container hover:bg-primary-fixed-dim text-on-primary-container font-label-lg text-label-lg shadow-lg flex items-center gap-2 font-bold transition-all">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>+ Tạo Bucket / Gắn Volume Mới</span>
+</button>
+</div>
+</div>
+<!-- TECH METRIC PILLS -->
+<div class="flex items-center flex-wrap gap-2 pt-1">
+<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface font-label-caps text-label-caps flex items-center gap-1.5 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span>ZFS POOL HEALTHY</span>
+</span>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-tertiary font-label-caps text-label-caps flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[13px]">cloud</span>
+<span>AWS S3 + WASABI MULTI-CLOUD</span>
+</span>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-primary font-label-caps text-label-caps flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[13px]">swap_vert</span>
+<span>HOT/COLD AUTO-TIERING V2.4</span>
+</span>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-secondary font-label-caps text-label-caps flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[13px]">public</span>
+<span>GEO-REDUNDANT RPO &lt; 5M</span>
+</span>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[13px]">lock</span>
+<span>ENCRYPTED AES-256 GCM</span>
+</span>
+</div>
+</div>
+<!-- TOP KPI METRICS (4 CARDS) -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Card 1: Total Storage Capacity -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-md space-y-space-sm relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Tổng Dung Lượng Đang Lưu Trữ</span>
+<span class="p-2 rounded-lg bg-surface-container-high text-primary">
+<span class="material-symbols-outlined text-[20px]">hard_drive</span>
+</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">842.6 TB</span>
+<span class="font-label-md text-label-md text-on-surface-variant">/ 1.2 PB khả dụng</span>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between font-label-caps text-label-caps text-on-surface-variant">
+<span>70.2% đã dùng</span>
+<span class="text-primary font-semibold">+14.8 TB (30 ngày qua)</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full rounded-full bg-primary-container" style="width: 70.2%;"></div>
+</div>
+</div>
+</div>
+<!-- Card 2: Tier Breakdown -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-md space-y-space-sm relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Phân Tầng Hot vs Cold Storage</span>
+<span class="p-2 rounded-lg bg-surface-container-high text-tertiary">
+<span class="material-symbols-outlined text-[20px]">layers</span>
+</span>
+</div>
+<div class="grid grid-cols-3 gap-1 pt-1">
+<div class="p-2 rounded-lg bg-surface-container">
+<div class="font-label-caps text-label-caps text-tertiary">HOT NVMe</div>
+<div class="font-label-lg text-label-lg font-bold text-on-surface">128.4 TB</div>
+</div>
+<div class="p-2 rounded-lg bg-surface-container">
+<div class="font-label-caps text-label-caps text-primary">WARM S3</div>
+<div class="font-label-lg text-label-lg font-bold text-on-surface">342.2 TB</div>
+</div>
+<div class="p-2 rounded-lg bg-surface-container">
+<div class="font-label-caps text-label-caps text-on-surface-variant">COLD GLR</div>
+<div class="font-label-lg text-label-lg font-bold text-on-surface">372.0 TB</div>
+</div>
+</div>
+<div class="flex items-center gap-1.5 font-label-md text-label-md text-secondary">
+<span class="material-symbols-outlined text-[16px]">savings</span>
+<span>Tiết kiệm 62% chi phí lưu trữ hàng tháng</span>
+</div>
+</div>
+<!-- Card 3: Master Assets Integrity -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-md space-y-space-sm relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Bản Gốc Phim Đã Lưu (Master)</span>
+<span class="p-2 rounded-lg bg-surface-container-high text-secondary">
+<span class="material-symbols-outlined text-[20px]">video_file</span>
+</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">3.420</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Tác Phẩm Độc Quyền</span>
+</div>
+<div class="flex items-center justify-between font-label-md text-label-md pt-1">
+<span class="text-on-surface-variant">12.850 tập/Reels</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-caps text-label-caps font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span>
+          100% SHA-256
+        </span>
+</div>
+<p class="font-label-caps text-label-caps text-outline">
+        Toàn vẹn bitstream, tự động checksum scrubbing hàng tuần.
+      </p>
+</div>
+<!-- Card 4: Disaster Recovery Status -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-md space-y-space-sm relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Tình Trạng Sao Lưu DR</span>
+<span class="p-2 rounded-lg bg-surface-container-high text-primary">
+<span class="material-symbols-outlined text-[20px]">shield</span>
+</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-secondary">100% Đồng Bộ</span>
+</div>
+<div class="grid grid-cols-2 gap-2 text-on-surface-variant font-label-md text-label-md">
+<div class="flex items-center gap-1">
+<span class="text-outline">RPO:</span>
+<span class="text-on-surface font-semibold">4m 12s</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="text-outline">RTO:</span>
+<span class="text-on-surface font-semibold">15 phút</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 font-label-caps text-label-caps text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>3 Vùng: HCMC Edge • Singapore DC • Tokyo DR</span>
+</div>
+</div>
+</div>
+<!-- NAVIGATION TABS & FILTERS -->
+<div class="flex flex-col space-y-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-sm bg-surface-container-low p-space-sm rounded-xl">
+<div class="flex flex-wrap items-center gap-1">
+<button class="px-space-md py-2 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md font-bold shadow-sm">
+          Danh Sách Buckets &amp; Volumes (8)
+        </button>
+<button class="px-space-md py-2 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors">
+          Chính Sách Lifecycle &amp; Chuyển Vùng
+        </button>
+<button class="px-space-md py-2 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors">
+          Lịch Sử Sao Lưu &amp; Snapshot
+        </button>
+<button class="px-space-md py-2 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1.5">
+<span>Cảnh Báo &amp; Toàn Vẹn Checksum</span>
+<span class="px-1.5 py-0.5 rounded-full bg-secondary/15 text-secondary font-label-caps text-label-caps">0 Lỗi</span>
+</button>
+<button class="px-space-md py-2 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors">
+          Dự Báo Chi Phí Lưu Trữ
+        </button>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-outline uppercase">Chế độ xem:</span>
+<button class="p-1.5 rounded-lg bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[18px]">view_list</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+</button>
+</div>
+</div>
+<!-- FILTER BAR -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-sm p-space-md rounded-xl bg-surface-container">
+<div class="md:col-span-5 relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline text-[18px]">search</span>
+<input class="w-full h-10 pl-9 pr-3 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-high transition-colors" placeholder="Tìm theo Bucket name, mã phim, đường dẫn file, định dạng (ProRes, MKV, WAV)..." type="text"/>
+</div>
+<div class="md:col-span-2">
+<select class="w-full h-10 px-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm focus:outline-none cursor-pointer">
+<option>Tất cả Tier (Hot / Warm / Cold)</option>
+<option>HOT - NVMe Flash Storage</option>
+<option>WARM - Wasabi S3</option>
+<option>COLD - AWS Glacier Flexible</option>
+</select>
+</div>
+<div class="md:col-span-3">
+<select class="w-full h-10 px-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm focus:outline-none cursor-pointer">
+<option>Nhà Cung Cấp: Tất Cả (On-Prem, Cloud)</option>
+<option>On-Prem ZFS Ceph (TP.HCM DC01)</option>
+<option>Wasabi Cloud (Singapore AP-Southeast)</option>
+<option>AWS S3 Vault (Tokyo AP-Northeast)</option>
+</select>
+</div>
+<div class="md:col-span-2 flex items-center gap-2">
+<select class="w-full h-10 px-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm focus:outline-none cursor-pointer">
+<option>Trạng thái: Active / Synced</option>
+<option>Syncing (Đang đồng bộ)</option>
+<option>Snapshot Running</option>
+</select>
+</div>
+</div>
+</div>
+<!-- MAIN 2-COLUMN OPS CONSOLE -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN (7 COLS): MAIN STORAGE BUCKETS DIRECTORY -->
+<div class="xl:col-span-7 flex flex-col space-y-space-md">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">folder_special</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Danh Sách Origin Buckets &amp; Media Pools</span>
+</div>
+<span class="font-label-caps text-label-caps text-outline uppercase">4 / 8 Pools Đang Hiển Thị</span>
+</div>
+<!-- BUCKET 1: HOT ORIGIN MASTER 4K -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-md space-y-space-md transition-all hover:bg-surface-container">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-tertiary-container/20 text-tertiary flex items-center justify-center shrink-0 shadow-inner">
+<span class="material-symbols-outlined text-[26px]">flash_on</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">cinestreams-origin-master-4k</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-container/30 text-tertiary font-label-caps text-label-caps font-bold">
+                  HOT TIER
+                </span>
+<span class="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-caps text-label-caps">
+                  Active
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-0.5">
+                NVMe Ceph Cluster • HCMC-DC01 Origin Fast Pool • Tự động snapshot mỗi 6 giờ
+              </p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" title="Cấu hình CDN Cache">
+<span class="material-symbols-outlined text-[18px]">dns</span>
+</button>
+<button class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" title="Đổi quyền truy cập IAM">
+<span class="material-symbols-outlined text-[18px]">key</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-md text-label-md font-semibold transition-all">
+              Xem Files (85 Phim)
+            </button>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container space-y-2">
+<div class="flex justify-between items-baseline font-label-md text-label-md">
+<span class="text-on-surface-variant">Dung lượng: <strong class="text-on-surface">128.4 TB / 160 TB</strong></span>
+<span class="text-primary font-bold">80.2% đã dùng</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-lowest overflow-hidden">
+<div class="h-full rounded-full bg-primary-container" style="width: 80.2%;"></div>
+</div>
+<div class="flex flex-wrap items-center justify-between text-on-surface-variant font-label-caps text-label-caps pt-1">
+<span>Tốc độ: <strong>4.8 GB/s Read</strong> • <strong>2.1 GB/s Write</strong></span>
+<span>IOPS: <strong>68,400 IOPS</strong> • NVMe-oF Low Latency</span>
+</div>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+          Nội dung: File gốc Master ProRes 422 HQ 4K của 85 bom tấn chiếu rạp độc quyền và phim bộ Originals mới phát hành. Sẵn sàng phục vụ pipeline ABR Transcoder 4K/HDR10+/Dolby Vision.
+        </div>
+</div>
+<!-- BUCKET 2: WARM CATALOG ARCHIVE -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-md space-y-space-md transition-all hover:bg-surface-container">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 text-primary flex items-center justify-center shrink-0 shadow-inner">
+<span class="material-symbols-outlined text-[26px]">cloud_sync</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">cinestreams-catalog-warm-archive</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-container/30 text-primary font-label-caps text-label-caps font-bold">
+                  WARM TIER
+                </span>
+<span class="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-caps text-label-caps">
+                  Healthy
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-0.5">
+                Wasabi Hot Cloud Storage • AP-Southeast-1 (Singapore) • Sao lưu chéo hai chiều
+              </p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">dns</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-md text-label-md font-semibold transition-all">
+              Xem Files (2.400 Phim)
+            </button>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container space-y-2">
+<div class="flex justify-between items-baseline font-label-md text-label-md">
+<span class="text-on-surface-variant">Dung lượng: <strong class="text-on-surface">342.2 TB / 500 TB</strong></span>
+<span class="text-secondary font-bold">68.4% đã dùng</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-lowest overflow-hidden">
+<div class="h-full rounded-full bg-secondary-container" style="width: 68.4%;"></div>
+</div>
+<div class="flex flex-wrap items-center justify-between text-on-surface-variant font-label-caps text-label-caps pt-1">
+<span>Chi phí ước tính: <strong class="text-primary">$2,053/tháng</strong> (Tiết kiệm $6,400 so với S3 Standard)</span>
+<span>API Egress: Miễn phí • Multi-AZ Redundancy</span>
+</div>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+          Nội dung: Kho 2.400 phim lẻ và phim bộ catalog cũ, master mezzanine H.265 CRF 16 phục vụ tái chuyển mã khi có codec mới (AV1 / VVC).
+        </div>
+</div>
+<!-- BUCKET 3: DEEP COLD GLACIER -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-md space-y-space-md transition-all hover:bg-surface-container">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high text-on-surface-variant flex items-center justify-center shrink-0 shadow-inner">
+<span class="material-symbols-outlined text-[26px]">ac_unit</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">cinestreams-deep-cold-glacier</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-caps text-label-caps font-bold">
+                  COLD TIER
+                </span>
+<span class="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-caps text-label-caps">
+                  Encrypted Vault Lock
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-0.5">
+                AWS S3 Glacier Flexible Retrieval • AP-Northeast-1 (Tokyo DR Vault) • WORM Compliance
+              </p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-md text-label-md font-semibold transition-all">
+              Quản Trị Vault (372 TB)
+            </button>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container space-y-2">
+<div class="flex justify-between items-baseline font-label-md text-label-md">
+<span class="text-on-surface-variant">Dung lượng lưu trữ: <strong class="text-on-surface">372.0 TB</strong></span>
+<span class="text-outline font-bold">Chi phí siêu tiết kiệm: $0.0036/GB</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-lowest overflow-hidden">
+<div class="h-full rounded-full bg-surface-bright" style="width: 100%;"></div>
+</div>
+<div class="flex flex-wrap items-center justify-between text-on-surface-variant font-label-caps text-label-caps pt-1">
+<span>Retrieval SLA: <strong>3 - 5 giờ</strong> (Expedited: 5 phút)</span>
+<span>Khóa bảo vệ: <strong>AWS Object Lock vĩnh viễn</strong></span>
+</div>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+          Nội dung: Bản lưu trữ vĩnh viễn (Cold Archive) nguyên gốc RAW Camera Footage, audio stems đa kênh 5.1/7.1 và source project hậu kỳ hậu mãi phòng chống thảm họa.
+        </div>
+</div>
+<!-- BUCKET 4: SUBTITLES & METADATA HOT POOL -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-md space-y-space-md transition-all hover:bg-surface-container">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-start gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-tertiary-container/20 text-tertiary flex items-center justify-center shrink-0 shadow-inner">
+<span class="material-symbols-outlined text-[26px]">subtitles</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">cinestreams-subtitles-metadata-hot</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-container/30 text-tertiary font-label-caps text-label-caps font-bold">
+                  HOT FAST POOL
+                </span>
+<span class="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-caps text-label-caps">
+                  Active 99.999%
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-0.5">
+                ZFS Fast Mirror Pool • Đồng bộ thời gian thực qua 3 Edge Nodes
+              </p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-md text-label-md font-semibold transition-all">
+              Duyệt 1.8M Files
+            </button>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container flex items-center justify-between font-label-md text-label-md">
+<div class="space-y-0.5">
+<div class="text-on-surface font-semibold">4.2 TB / 10 TB (42.0%)</div>
+<div class="font-label-caps text-label-caps text-outline">1.824.190 file SRT/VTT, Posters 8K, Keyframes</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+</span>
+<span class="font-label-caps text-label-caps text-secondary font-bold">REALTIME EDGE SYNC</span>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN (5 COLS): INSPECTOR, DISASTER RECOVERY & POLICIES -->
+<div class="xl:col-span-5 flex flex-col space-y-space-md">
+<!-- BLOCK 1: GEO-DISTRIBUTION MAP & DR DRILL -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-md space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">public</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Chi Tiết Node &amp; Phân Bổ Địa Lý</span>
+</div>
+<span class="font-label-caps text-label-caps text-secondary font-bold">3 ACTIVE REGIONS</span>
+</div>
+<!-- Geo Schematic Nodes -->
+<div class="space-y-space-sm">
+<!-- Node HCMC -->
+<div class="p-space-sm rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-[12px]">
+                VN
+              </div>
+<div>
+<div class="font-label-lg text-label-lg font-bold text-on-surface">Node TP.HCM (Master Origin)</div>
+<div class="font-label-caps text-label-caps text-outline">NVMe Flash Ceph • 12ms latency</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-secondary font-label-caps text-label-caps font-bold">PRIMARY</span>
+</div>
+<!-- Node Singapore -->
+<div class="p-space-sm rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high text-tertiary flex items-center justify-center font-bold text-[12px]">
+                SG
+              </div>
+<div>
+<div class="font-label-lg text-label-lg font-bold text-on-surface">Node Singapore (Warm Mirror)</div>
+<div class="font-label-caps text-label-caps text-outline">Wasabi AP-Southeast • 28ms latency</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-tertiary font-label-caps text-label-caps font-bold">WARM SYNC</span>
+</div>
+<!-- Node Tokyo -->
+<div class="p-space-sm rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold text-[12px]">
+                JP
+              </div>
+<div>
+<div class="font-label-lg text-label-lg font-bold text-on-surface">Node Tokyo (Disaster Backup)</div>
+<div class="font-label-caps text-label-caps text-outline">AWS Glacier Vault • 65ms latency</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-outline font-label-caps text-label-caps font-bold">COLD VAULT</span>
+</div>
+</div>
+<button class="w-full py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px]">biotech</span>
+<span>Kiểm Thử Khôi Phục Thảm Họa (DR Drill Simulation)</span>
+</button>
+</div>
+<!-- BLOCK 2: LIFECYCLE AUTOMATION POLICY -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-md space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">auto_mode</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Quy Tắc Tự Động Phân Tầng</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-caps text-label-caps text-secondary font-bold">ON</span>
+<div class="w-8 h-4 rounded-full bg-primary-container p-0.5 flex justify-end">
+<div class="w-3 h-3 rounded-full bg-on-primary-container"></div>
+</div>
+</div>
+</div>
+<div class="space-y-space-sm text-body-sm font-body-sm text-on-surface-variant">
+<div class="p-space-sm rounded-lg bg-surface-container space-y-1">
+<div class="flex items-center gap-2 text-on-surface font-semibold">
+<span class="material-symbols-outlined text-[16px] text-tertiary">counter_1</span>
+<span>Phim Mới Phát Hành / Bom Tấn</span>
+</div>
+<p class="text-outline pl-6">Lưu tại Hot NVMe trong 60 ngày đầu để tối đa hóa tốc độ phục vụ chuyển mã thời gian thực.</p>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container space-y-1">
+<div class="flex items-center gap-2 text-on-surface font-semibold">
+<span class="material-symbols-outlined text-[16px] text-primary">counter_2</span>
+<span>Sau 60 ngày &amp; Xem &lt; 5.000 lượt/tháng</span>
+</div>
+<p class="text-outline pl-6">Tự động nén lossless AV1/H.265 mezzanine và di chuyển sang Wasabi Warm Storage.</p>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container space-y-1">
+<div class="flex items-center gap-2 text-on-surface font-semibold">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">counter_3</span>
+<span>Sau 365 ngày (Lưu trữ vĩnh viễn)</span>
+</div>
+<p class="text-outline pl-6">Chuyển sang AWS Glacier Cold Archive, giải phóng băng thông &amp; chi phí cloud.</p>
+</div>
+</div>
+</div>
+<!-- BLOCK 3: INTEGRITY & BITROT AUDIT -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-md space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">security_update_good</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Nhật Ký Toàn Vẹn Dữ Liệu</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-caps text-label-caps font-bold">BITROT SAFE</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Quét tự động SHA-256 định kỳ hàng tuần chống hỏng hóc bit (Bitrot protection) cho toàn bộ file Master ProRes &amp; Audio.
+        </p>
+<div class="p-space-sm rounded-lg bg-surface-container space-y-2">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface-variant">Lần quét gần nhất:</span>
+<span class="text-on-surface font-bold">03:00 Hôm nay (Tuần 14)</span>
+</div>
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface-variant">Khối dữ liệu đã kiểm tra:</span>
+<span class="text-primary font-bold">4.821.902 blocks</span>
+</div>
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-on-surface-variant">File bị lỗi hoặc phân mảnh:</span>
+<span class="text-secondary font-bold">0 file (100% Khớp SHA-256)</span>
+</div>
+</div>
+<button class="w-full py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary">play_circle</span>
+<span>Chạy Quét Nhanh Ngay</span>
+</button>
+</div>
+</div>
+</div>
+<!-- FOOTER OPS STATUS BAR -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-sm text-on-surface-variant font-label-md text-label-md">
+<div class="flex flex-wrap items-center gap-space-md">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Đồng bộ máy chủ: <strong class="text-on-surface">HCMC-Origin-01</strong></span>
+</div>
+<span class="text-outline hidden md:inline">•</span>
+<div>Thời gian: <strong class="text-on-surface">14:35:10 GMT+7</strong></div>
+<span class="text-outline hidden md:inline">•</span>
+<div>Storage Pool IOPS: <strong class="text-primary">124.500 IOPS</strong></div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">speed</span>
+<span>Băng thông Uplink nội bộ: <strong class="text-tertiary">40 Gbps</strong></span>
+</div>
+<div class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-caps text-label-caps font-bold">
+        STATUS: NOMINAL
+      </div>
+</div>
+</div>
+</div></main></div></body></html>

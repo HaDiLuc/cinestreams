@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Sora:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary": "#ffc174", "surface-container-low": "#151b2b", "tertiary-fixed-dim": "#7bd0ff", "surface-dim": "#0d1322", "on-error-container": "#ffdad6", "surface-container-high": "#242a3a", "on-tertiary": "#00354a", "tertiary-fixed": "#c4e7ff", "tertiary": "#8ed5ff", "on-primary-fixed": "#2a1700", "surface": "#0d1322", "primary-container": "#f59e0b", "inverse-surface": "#dde2f8", "surface-variant": "#2f3445", "on-primary-fixed-variant": "#653e00", "outline-variant": "#534434", "on-secondary-fixed": "#261a00", "on-primary-container": "#613b00", "secondary": "#ffc640", "outline": "#a08e7a", "surface-container": "#191f2f", "on-primary": "#472a00", "inverse-primary": "#855300", "on-secondary": "#402d00", "on-surface": "#dde2f8", "surface-container-lowest": "#080e1d", "secondary-fixed-dim": "#f9bd22", "on-surface-variant": "#d8c3ad", "on-tertiary-fixed": "#001e2c", "surface-bright": "#33394a", "on-secondary-container": "#5a4100", "secondary-fixed": "#ffdf9f", "on-error": "#690005", "on-secondary-fixed-variant": "#5c4300", "on-tertiary-container": "#004965", "surface-tint": "#ffb95f", "inverse-on-surface": "#2a3040", "on-background": "#dde2f8", "error": "#ffb4ab", "surface-container-highest": "#2f3445", "tertiary-container": "#38bdf8", "on-tertiary-fixed-variant": "#004c69", "primary-fixed-dim": "#ffb95f", "secondary-container": "#e3aa00", "error-container": "#93000a", "primary-fixed": "#ffddb8", "background": "#0d1322" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-sm": "0.5rem", "space-lg": "1.5rem", "gutter-mobile": "0.75rem", "margin-mobile": "1rem", "space-md": "1rem", "space-xl": "2.5rem", "margin": "3rem", "gutter": "1.5rem", "space-xs": "0.25rem" }, "fontFamily": { "headline-lg-mobile": [ "Sora" ], "body-lg": [ "Plus Jakarta Sans" ], "body-sm": [ "Plus Jakarta Sans" ], "display-hero": [ "Sora" ], "headline-lg": [ "Sora" ], "label-lg": [ "Sora" ], "display-hero-mobile": [ "Sora" ], "headline-sm": [ "Sora" ], "label-md": [ "Sora" ], "body-md": [ "Plus Jakarta Sans" ], "headline-md": [ "Sora" ], "label-caps": [ "Sora" ] }, "fontSize": { "headline-lg-mobile": [ "24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "body-lg": [ "18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" } ], "body-sm": [ "13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" } ], "display-hero": [ "56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "headline-lg": [ "32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600" } ], "label-lg": [ "14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" } ], "display-hero-mobile": [ "36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "headline-sm": [ "18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" } ], "label-md": [ "12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" } ], "body-md": [ "15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" } ], "headline-md": [ "24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "label-caps": [ "10px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "700" } ] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest z-50 flex flex-col shadow-[0_1px_8px_rgba(0,0,0,0.5)]"><div class="h-16 px-space-lg flex items-center gap-space-sm bg-surface-container-lowest"><div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shadow-[0_0_12px_rgba(245,158,11,0.2)]"><span class="material-symbols-outlined text-primary text-[22px]">video_settings</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight leading-none">CineStreams</span><span class="font-label-caps text-label-caps text-primary tracking-widest uppercase mt-0.5">STUDIO OPS CMS</span></div></div><div class="flex-1 overflow-y-auto px-space-md py-space-md space-y-space-lg"><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(245,158,11,0.35)]"><div class="px-space-sm pb-space-xs"><span class="font-label-caps text-label-caps text-outline uppercase tracking-wider font-bold">TỔNG QUAN</span></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="dashboard-doanh-thu" href="#"><span class="material-symbols-outlined text-[20px]">query_stats</span><span>Dashboard &amp; Doanh Thu</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="bao-cao-phan-tich" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span><span>Báo Cáo Phân Tích</span></a></nav><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(245,158,11,0.35)]"><div class="px-space-sm pb-space-xs"><span class="font-label-caps text-label-caps text-outline uppercase tracking-wider font-bold">QUẢN LÝ NỘI DUNG CMS</span></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="danh-muc-phim-le" href="#"><span class="material-symbols-outlined text-[20px]">movie</span><span>Danh Mục Phim Lẻ</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="phim-bo-mua-tap" href="#"><span class="material-symbols-outlined text-[20px]">tv</span><span>Phim Bộ &amp; Mùa/Tập</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="upload-video-goc" href="#"><span class="material-symbols-outlined text-[20px]">cloud_upload</span><span>Upload Video Gốc</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="quan-ly-phu-de-audio-track" href="#"><span class="material-symbols-outlined text-[20px]">subtitles</span><span>Quản Lý Phụ Đề &amp; Audio Track</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="phan-doan-phat-hanh" href="#"><span class="material-symbols-outlined text-[20px]">dynamic_feed</span><span>Phân Đoạn Phát Hành</span></a></nav><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(245,158,11,0.35)]"><div class="px-space-sm pb-space-xs"><span class="font-label-caps text-label-caps text-outline uppercase tracking-wider font-bold">THƯƠNG MẠI &amp; THANH TOÁN</span></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="goi-cuoc-vip" href="#"><span class="material-symbols-outlined text-[20px]">workspace_premium</span><span>Gói Cước VIP</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="giao-dich-vietqr-momo" href="#"><span class="material-symbols-outlined text-[20px]">qr_code_scanner</span><span>Giao Dịch VietQR/MoMo</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="doi-soat-webhook" href="#"><span class="material-symbols-outlined text-[20px]">sync_alt</span><span>Đối Soát Webhook</span></a></nav><nav class="space-y-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_16px_rgba(245,158,11,0.35)]"><div class="px-space-sm pb-space-xs"><span class="font-label-caps text-label-caps text-outline uppercase tracking-wider font-bold">HỆ THỐNG &amp; AI</span></div><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="cau-hinh-cineai-studio" href="#"><span class="material-symbols-outlined text-[20px]">auto_awesome</span><span>Cấu Hình CineAI Studio</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="quan-ly-thanh-vien-rbac" href="#"><span class="material-symbols-outlined text-[20px]">admin_panel_settings</span><span>Quản Lý Thành Viên &amp; RBAC</span></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-label-md text-label-md" data-path="nhat-ky-he-thong" href="#"><span class="material-symbols-outlined text-[20px]">terminal</span><span>Nhật Ký Hệ Thống</span></a></nav></div><div class="p-space-md bg-surface-container-low/60 backdrop-blur-md m-space-sm rounded-xl"><div class="flex items-center justify-between text-on-surface"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-tertiary text-[18px]">memory</span><span class="font-label-caps text-label-caps font-bold tracking-wider">CINE-ENGINE</span></div><span class="font-label-caps text-label-caps text-tertiary font-bold">v4.8.2</span></div><div class="mt-1 text-on-surface-variant font-body-sm text-body-sm leading-tight">GPU Clusters &amp; Transcoders Active</div></div></aside><div class="pl-72 min-h-screen flex flex-col"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-low/80 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.3)]"><div class="h-16 w-full px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md flex-1 max-w-xl"><div class="relative w-full max-w-md"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span><input class="w-full h-10 pl-10 pr-4 bg-surface-container-high/80 rounded-lg text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary shadow-inner" placeholder="Tìm kiếm phim, metadata ID, audio tracks, webhook logs..." type="text"/></div><div class="hidden xl:flex items-center gap-space-sm px-3 py-1.5 rounded-full bg-surface-container-high/60 backdrop-blur-md"><span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span><span class="font-label-caps text-label-caps text-on-surface font-semibold">CDN 99.98%</span><span class="text-outline text-xs">•</span><span class="flex h-2 w-2 rounded-full bg-emerald-400"></span><span class="font-label-caps text-label-caps text-on-surface font-semibold">Transcoder Hoạt Động</span></div></div><div class="flex items-center gap-space-md"><button class="relative w-9 h-9 rounded-full bg-surface-container-high hover:bg-surface-container-highest flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-all" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-primary-container ring-2 ring-surface-container-low"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="text-right hidden sm:block"><div class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Alex Tran</div><div class="font-label-caps text-label-caps text-primary uppercase font-bold tracking-wider">Super Admin</div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-16 bg-surface flex-1"><div class="flex flex-col w-full">
+<!-- Command Header & Breadcrumb -->
+<div class="px-gutter py-space-lg bg-surface-container-lowest/80 backdrop-blur-md shadow-md flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-outline">
+<span>Quản Trị CMS</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span>Phân Phối &amp; Phát Hành</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-semibold">Cấu Hình Cửa Sổ Phát Hành &amp; Chính Sách DRM (MOD-07)</span>
+</div>
+<div class="flex items-center gap-space-sm mt-1">
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">
+            Chiến Lược Cửa Sổ Phát Hành &amp; Bảo Mật Bản Quyền DRM Studio
+          </h1>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary/10 text-primary font-label-caps text-label-caps uppercase font-bold tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+            ACTIVE KERNEL
+          </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-4xl">
+          Thiết lập các giai đoạn phát hành (Theatrical, Premium VOD, Early Access VIP, SVOD Miễn Phí), cấu hình mã hóa phần cứng Widevine Modular L1, Apple FairPlay Streaming, PlayReady SL3000 và bảo vệ chống ghi màn hình HDCP 2.2/2.3.
+        </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="h-10 px-4 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-all flex items-center gap-2 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px] text-tertiary">history</span>
+<span>Lịch Sử Phiên Bản DRM</span>
+</button>
+<button class="h-10 px-4 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-all flex items-center gap-2 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">vpn_key_alert</span>
+<span>Kiểm Tra Khóa Key Server (KMS)</span>
+</button>
+<button class="h-10 px-space-lg rounded-lg bg-gradient-to-r from-primary-container to-secondary text-on-primary font-label-md text-label-md font-semibold transition-all hover:shadow-[0_0_20px_rgba(245,158,11,0.4)] flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>+ Tạo Cửa Sổ Phát Hành Mới</span>
+</button>
+</div>
+</div>
+</div>
+<div class="px-gutter py-space-lg flex flex-col gap-space-xl">
+<!-- Real-time KMS Cluster Status KPIs -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-gutter">
+<!-- KPI 1 -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-md flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute right-0 top-0 translate-x-2 -translate-y-2 w-28 h-28 rounded-full bg-primary/5 blur-2xl group-hover:bg-primary/10 transition-all pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div>
+<div class="font-label-caps text-label-caps text-outline uppercase tracking-wider font-semibold">CẤP PHÁT KHÓA HOẠT ĐỘNG</div>
+<div class="font-headline-md text-headline-md font-bold text-on-surface mt-1">4.120.890</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">key</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm bg-surface-container-low/60 rounded-lg p-2.5 flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+            Tỷ lệ phân giải
+          </span>
+<span class="font-label-md text-label-md font-bold text-primary">99.994% Succeeded</span>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-md flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute right-0 top-0 translate-x-2 -translate-y-2 w-28 h-28 rounded-full bg-tertiary/5 blur-2xl group-hover:bg-tertiary/10 transition-all pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div>
+<div class="font-label-caps text-label-caps text-outline uppercase tracking-wider font-semibold">CHUẨN DRM LIÊN MINH</div>
+<div class="font-headline-md text-headline-md font-bold text-on-surface mt-1">3 Nền Tảng</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[22px]">verified_user</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center gap-1.5 flex-wrap">
+<span class="px-2 py-0.5 rounded bg-surface-container-high font-label-caps text-label-caps text-on-surface">Widevine L1</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high font-label-caps text-label-caps text-tertiary">FairPlay Streaming</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high font-label-caps text-label-caps text-secondary">PlayReady SL3000</span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-md flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute right-0 top-0 translate-x-2 -translate-y-2 w-28 h-28 rounded-full bg-secondary/5 blur-2xl group-hover:bg-secondary/10 transition-all pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div>
+<div class="font-label-caps text-label-caps text-outline uppercase tracking-wider font-semibold">TIÊU CHUẨN MÃ HÓA LUỒNG</div>
+<div class="font-headline-md text-headline-md font-bold text-on-surface mt-1">HLS AES + L1 HW</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">lock</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm bg-surface-container-low/60 rounded-lg p-2.5 flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Giải mã phần cứng</span>
+<span class="font-label-md text-label-md font-bold text-secondary">4K Dolby Vision</span>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-md flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute right-0 top-0 translate-x-2 -translate-y-2 w-28 h-28 rounded-full bg-error/10 blur-2xl group-hover:bg-error/20 transition-all pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div>
+<div class="font-label-caps text-label-caps text-outline uppercase tracking-wider font-semibold">CHỐNG GHI LÉN (HDCP ATTACK)</div>
+<div class="font-headline-md text-headline-md font-bold text-on-surface mt-1">0 Vi Phạm Lọt</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[22px]">screen_lock_portrait</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm bg-surface-container-low/60 rounded-lg p-2.5 flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">OBS/Splitter chặn</span>
+<span class="font-label-md text-label-md font-bold text-primary">14 Phiên Ngắt Tự Động</span>
+</div>
+</div>
+</section>
+<!-- Release Windows Strategy Matrix (Visual Stages Pipeline) -->
+<section class="flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div>
+<span class="font-label-caps text-label-caps text-primary uppercase font-bold tracking-wider">LỘ TRÌNH VÒNG ĐỜI NỘI DUNG</span>
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">Ma Trận Chiến Lược 4 Cửa Sổ Phát Hành</h2>
+</div>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm bg-surface-container px-3 py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-primary text-[18px]">info</span>
+<span>Chu kỳ phát hành trung bình: 90 - 180 ngày chuyển từ Rạp sang SVOD</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Stage 1 -->
+<div class="p-space-lg rounded-xl bg-surface-container flex flex-col justify-between shadow-md relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-surface-container-high"></div>
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-outline font-label-caps text-label-caps font-bold">GIAI ĐOẠN 01</span>
+<span class="material-symbols-outlined text-outline text-[20px]">theaters</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Theatrical Exclusive</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 leading-relaxed">
+              Chiếu độc quyền tại các cụm rạp đối tác đối ứng toàn quốc. Giữ khoảng cách tối thiểu 45 ngày bảo hộ doanh thu phòng vé trước khi đưa lên hạ tầng đám mây.
+            </p>
+</div>
+<div class="mt-space-lg pt-space-sm space-y-2">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-outline">Cửa sổ giữ chỗ</span>
+<span class="text-on-surface font-semibold">45 Ngày</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-outline">Trạng thái phát</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-outline text-label-caps font-label-caps font-bold">CHẶN STREAM</span>
+</div>
+</div>
+</div>
+<!-- Stage 2 -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-xl flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-primary-container"></div>
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-label-caps text-label-caps font-bold">GIAI ĐOẠN 02 • CAO CẤP</span>
+<span class="material-symbols-outlined text-primary text-[20px]">confirmation_number</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">PVOD / Early Access VIP</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 leading-relaxed">
+              Thuê phim điện ảnh sớm hoặc xem rạp tại gia với chuẩn IMAX Enhanced 4K. Bắt buộc thanh toán Pay-Per-View hoặc đăng ký Gói Ultra VIP CineMax.
+            </p>
+</div>
+<div class="mt-space-lg pt-space-sm space-y-2">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-outline">Cơ chế bảo vệ</span>
+<span class="text-primary font-semibold">Forensic Watermark + L1</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-outline">Độ nét tối đa</span>
+<span class="text-secondary font-semibold">4K UHD Dolby Atmos</span>
+</div>
+</div>
+</div>
+<!-- Stage 3 -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-md flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-tertiary"></div>
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="px-2 py-0.5 rounded bg-tertiary/10 text-tertiary font-label-caps text-label-caps font-bold">GIAI ĐOẠN 03 • CHỦ LỰC</span>
+<span class="material-symbols-outlined text-tertiary text-[20px]">subscriptions</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">SVOD Subscribers Only</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 leading-relaxed">
+              Mở tự động cho toàn thể tài khoản thành viên VIP định kỳ (Monthly/Yearly). Kích hoạt quyền tải ngoại tuyến (HLS KMS AES-128 hạn 30 ngày).
+            </p>
+</div>
+<div class="mt-space-lg pt-space-sm space-y-2">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-outline">Tải xem offline</span>
+<span class="text-tertiary font-semibold">KMS Cấp Hạn 30 Ngày</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-outline">Luồng đồng thời</span>
+<span class="text-on-surface font-semibold">Tối đa 4 Màn Hình</span>
+</div>
+</div>
+</div>
+<!-- Stage 4 -->
+<div class="p-space-lg rounded-xl bg-surface-container shadow-md flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-surface-variant"></div>
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-outline font-label-caps text-label-caps font-bold">GIAI ĐOẠN 04</span>
+<span class="material-symbols-outlined text-outline text-[20px]">smart_display</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">AVOD / Free Tier</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 leading-relaxed">
+              Sau 6-12 tháng, nội dung mở rộng cho người dùng miễn phí có chèn quảng cáo video không thể bỏ qua (SSAI). Giới hạn độ phân giải Full HD 1080p.
+            </p>
+</div>
+<div class="mt-space-lg pt-space-sm space-y-2">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-outline">Độ phân giải khóa</span>
+<span class="text-outline font-semibold">Tối Đa 1080p FHD</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-outline">Quảng cáo</span>
+<span class="text-primary font-semibold">Chèn SSAI Dynamic</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Two-column Layout: Active Catalog Table (Left) & Anti-Piracy Studio Configuration (Right) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter items-start">
+<!-- Active Release Catalog & DRM Policy Table (8 Columns) -->
+<section class="xl:col-span-8 flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div>
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">
+              Danh Mục Phim &amp; Chính Sách DRM Đang Hoạt Động
+            </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Quản lý ràng buộc phần cứng, quy tắc xoay khóa mã hóa và bản đồ địa lý bản quyền trực tuyến.
+            </p>
+</div>
+<div class="flex items-center gap-2">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-[18px]">filter_list</span>
+<input class="h-9 pl-9 pr-3 rounded-lg bg-surface-container font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary" placeholder="Lọc theo phim/DRM..." type="text"/>
+</div>
+</div>
+</div>
+<div class="bg-surface-container rounded-xl shadow-md overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container-high/80 text-outline font-label-caps text-label-caps uppercase tracking-wider">
+<tr>
+<th class="py-3 px-4">Tác Phẩm &amp; Phân Đoạn</th>
+<th class="py-3 px-4">Cấu Hình DRM / Mã Hóa</th>
+<th class="py-3 px-4">Bảo Vệ Chống Quay Lén</th>
+<th class="py-3 px-4">Giới Hạn Bản Quyền</th>
+<th class="py-3 px-4 text-right">Thao Tác KMS</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/40 text-on-surface">
+<!-- Film 1 -->
+<tr class="hover:bg-surface-container-high/50 transition-colors">
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-16 rounded overflow-hidden bg-surface-container-lowest flex-shrink-0 relative shadow">
+<img class="w-full h-full object-cover" data-alt="Dark fantasy movie poster of House of the Dragon, dragon scales and golden crown in moody royal studio cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmg1aNe8YdhFmEnFklHAbdkipGaqov2SuqHkAgkHeJZQaFpG59AMjwt4yy-5tbAZ9i3VfMc62IN_4U3bW-Ww7CBEkNwRoAqpfInyjQP9GsW3NE-4TzgdKfX6UZo4Ayt14_XSmX-9whEHlEU8GvK9do6gHJp-SU_lQkKuxjuqhgJWRvN1PBg077pH51_rnpKr6gxtXYUeiOyPIXl_W3cFrWcKKJGcZtEXhn65zqNpNzeR0My28Jx2cEOQ"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface leading-snug">Gia Tộc Rồng: Mùa 2</span>
+<span class="font-label-caps text-label-caps text-outline mt-0.5">ID: MOV-HOTD-S2-4K</span>
+<div class="mt-1">
+<span class="px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary font-label-caps text-label-caps font-bold">SVOD VIP HIỆN TẠI</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Widevine L1 + FairPlay</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">CMAF (CBCS Encryption)</span>
+<span class="font-label-caps text-label-caps text-secondary font-bold">HDCP 2.2 Yêu Cầu</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1.5 text-primary font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[16px]">fingerprint</span>
+<span>Forensic Watermark</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Mờ 15% Góc Phải (UID + IP)</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">public</span>
+<span class="font-label-md text-label-md text-on-surface">Việt Nam &amp; Đông Nam Á</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Đồng thời: 3 thiết bị</span>
+</div>
+</td>
+<td class="py-4 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="w-8 h-8 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-primary flex items-center justify-center transition-all" title="Chỉnh sửa chính sách" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-secondary flex items-center justify-center transition-all" title="Đổi cấu hình KMS" type="button">
+<span class="material-symbols-outlined text-[18px]">published_with_changes</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high hover:bg-error-container text-on-surface-variant hover:text-error flex items-center justify-center transition-all" title="Tạm dừng cấp phép DRM (Revoke)" type="button">
+<span class="material-symbols-outlined text-[18px]">lock_reset</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Film 2 -->
+<tr class="hover:bg-surface-container-high/50 transition-colors">
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-16 rounded overflow-hidden bg-surface-container-lowest flex-shrink-0 relative shadow">
+<img class="w-full h-full object-cover" data-alt="Epic sci-fi movie poster of Dune Part Two with desert sand dunes under cinematic golden amber dual suns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuZg5FRFlPht5jcA_U4Z6phyWEPdAl8Zrymn8-zXmtyCvSHwiV-0QCXpo4Dz3AAIV5TO5KnPOqE4ieQZoS555u7lFvF_FXPAnRLw8dUfvOiFGA0xGB1tGTh0zUa8dusnScAtlpM1ZN6x7_nj2zsgSPes-vxPmhLp5D8NZZ_n8ylgQagoAcIE1Qh-6cOrbzLV2oarSOzysVIcFMrBVIn5vhBwxpcWVW6rSL1FkYOh6gb5yNv3srIZPDXA"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface leading-snug">Dune: Hành Tinh Cát 2</span>
+<span class="font-label-caps text-label-caps text-outline mt-0.5">ID: MOV-DUNE2-IMAX-HDR</span>
+<div class="mt-1">
+<span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-caps text-label-caps font-bold">PVOD EARLY ACCESS</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Widevine L1 + PlayReady SL3000</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Key Rotation: 15 Phút/Lần</span>
+<span class="font-label-caps text-label-caps text-primary font-bold">HDCP 2.3 Strict Hardware</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1.5 text-primary font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[16px]">security</span>
+<span>Chống Ghi Màn Hình Cứng</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Chặn toàn bộ HDMI Capture Card</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">timer</span>
+<span class="font-label-md text-label-md text-on-surface">Offline Max: 48 Giờ</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pay-Per-View: 69.000đ</span>
+</div>
+</td>
+<td class="py-4 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="w-8 h-8 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-primary flex items-center justify-center transition-all" title="Chỉnh sửa chính sách" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-secondary flex items-center justify-center transition-all" title="Đổi cấu hình KMS" type="button">
+<span class="material-symbols-outlined text-[18px]">published_with_changes</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high hover:bg-error-container text-on-surface-variant hover:text-error flex items-center justify-center transition-all" title="Tạm dừng cấp phép DRM (Revoke)" type="button">
+<span class="material-symbols-outlined text-[18px]">lock_reset</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Film 3 -->
+<tr class="hover:bg-surface-container-high/50 transition-colors">
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-16 rounded overflow-hidden bg-surface-container-lowest flex-shrink-0 relative shadow">
+<img class="w-full h-full object-cover" data-alt="Dramatic Vietnamese cinema movie poster of Lat Mat 7 featuring family emotional cinematic portrait shot in highland sunset tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuw6ZC3FzVp4P-yPzQaCNEDvyJTjRAfAc7kjF0J4RfpW-Y9GzjWWAhwbO9VcPZGBYHrAaul6-sz9_4U9ir-9OMTXJwAN12hU8dmK5hSB6EA3D3fbPyRJMWnY8zpZX-_D_Wq_pOvKsSEgAs-j3HEAeE-wGI5v2BdsObxTEiD19eDoyZATbiD07EqjMNxG9vL0rwfdsicx3MMjZlyH2ajB8g3NVnqDZOXcggwcEHC6tC2ZVhQOjYN0Htaw"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface leading-snug">Lật Mặt 7: Một Điều Ước</span>
+<span class="font-label-caps text-label-caps text-outline mt-0.5">ID: MOV-LATMAT-7-VN</span>
+<div class="mt-1">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-caps text-label-caps font-bold">SVOD ĐỘC QUYỀN VN</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md font-semibold text-on-surface">HLS AES-128 &amp; FairPlay</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Multi-bitrate Encrypted</span>
+<span class="font-label-caps text-label-caps text-outline font-bold">HDCP 1.4 / 2.2</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">shield</span>
+<span>Mã hóa mức Session</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Chống trích xuất Token</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1 text-error">
+<span class="material-symbols-outlined text-[16px]">block</span>
+<span class="font-label-md text-label-md font-semibold">Chỉ Lãnh Thổ Việt Nam</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Chặn tuyệt đối VPN / Cloud IP</span>
+</div>
+</td>
+<td class="py-4 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="w-8 h-8 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-primary flex items-center justify-center transition-all" title="Chỉnh sửa chính sách" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-secondary flex items-center justify-center transition-all" title="Đổi cấu hình KMS" type="button">
+<span class="material-symbols-outlined text-[18px]">published_with_changes</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high hover:bg-error-container text-on-surface-variant hover:text-error flex items-center justify-center transition-all" title="Tạm dừng cấp phép DRM (Revoke)" type="button">
+<span class="material-symbols-outlined text-[18px]">lock_reset</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Film 4 -->
+<tr class="hover:bg-surface-container-high/50 transition-colors">
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-16 rounded overflow-hidden bg-surface-container-lowest flex-shrink-0 relative shadow">
+<div class="w-full h-full bg-surface-container-high flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[24px]">movie_edit</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface leading-snug">The Batman: Part II (Teaser BTS)</span>
+<span class="font-label-caps text-label-caps text-outline mt-0.5">ID: MOV-BAT2-PROMO-ST</span>
+<div class="mt-1">
+<span class="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-caps text-label-caps font-bold">LÊN LỊCH MỞ KHOÁ</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Widevine L1 Exclusive</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Khóa Key Server chờ kích hoạt</span>
+<span class="font-label-caps text-label-caps text-outline font-bold">Thời gian: 20:00 30/03/2025</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1.5 text-primary font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[16px]">visibility_off</span>
+<span>Watermark Mức Đạo Diễn</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Forensic Micro-Dots Toàn Màn</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span class="font-label-md text-label-md font-semibold">Tự động đẩy luồng CDN</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Gói VIP Studio Exclusive</span>
+</div>
+</td>
+<td class="py-4 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="w-8 h-8 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-primary flex items-center justify-center transition-all" title="Chỉnh sửa chính sách" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-secondary flex items-center justify-center transition-all" title="Đổi cấu hình KMS" type="button">
+<span class="material-symbols-outlined text-[18px]">published_with_changes</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high hover:bg-error-container text-on-surface-variant hover:text-error flex items-center justify-center transition-all" title="Tạm dừng cấp phép DRM (Revoke)" type="button">
+<span class="material-symbols-outlined text-[18px]">lock_reset</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 bg-surface-container-low/70 flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Hiển thị 4 trong tổng số 1.842 bản ghi cấp phép</span>
+<div class="flex items-center gap-1">
+<button class="px-3 py-1 rounded bg-surface-container-high font-label-md text-label-md text-on-surface disabled:opacity-40" disabled="" type="button">Trước</button>
+<button class="px-3 py-1 rounded bg-primary-container text-on-primary-container font-label-md text-label-md font-bold" type="button">1</button>
+<button class="px-3 py-1 rounded bg-surface-container-high font-label-md text-label-md text-on-surface hover:bg-surface-container-highest" type="button">2</button>
+<button class="px-3 py-1 rounded bg-surface-container-high font-label-md text-label-md text-on-surface hover:bg-surface-container-highest" type="button">Sau</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Forensic Watermarking & Anti-Piracy Settings Control Panel (4 Columns) -->
+<section class="xl:col-span-4 flex flex-col gap-space-md">
+<div class="p-space-lg rounded-xl bg-surface-container shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[24px]">verified</span>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Cấu Hình Bảo Vệ Bản Quyền</h2>
+</div>
+<span class="font-label-caps text-label-caps text-tertiary bg-tertiary/10 px-2 py-0.5 rounded font-bold">KMS v4.8</span>
+</div>
+<!-- Setting 1: Dynamic Forensic Watermarking -->
+<div class="p-space-md rounded-lg bg-surface-container-low/80 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">fingerprint</span>
+                Dynamic Forensic Watermark
+              </span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Nhúng mã định danh UID, IP và Timecode vào luồng video khó nhận biết. Truy vết nguồn rò rỉ trong 60 giây nếu bị quay lén.
+            </p>
+<div class="mt-1 flex items-center gap-2">
+<span class="font-label-caps text-label-caps text-outline uppercase font-semibold">Độ mờ Scrim:</span>
+<input class="w-full accent-primary h-1 bg-surface-container-high rounded cursor-pointer" max="30" min="5" type="range" value="15"/>
+<span class="font-label-caps text-label-caps text-primary font-bold">15%</span>
+</div>
+</div>
+<!-- Setting 2: Resolution Enforcement -->
+<div class="p-space-md rounded-lg bg-surface-container-low/80 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary text-[18px]">tv_gen</span>
+                Kiểm Soát Theo Chuẩn Thiết Bị
+              </span>
+<span class="font-label-caps text-label-caps text-primary uppercase font-bold">ENFORCED</span>
+</div>
+<div class="space-y-2 mt-1">
+<div class="p-2 rounded bg-surface-container flex items-center justify-between">
+<div>
+<div class="font-label-md text-label-md font-semibold text-on-surface">DRM L1 (Hardware Root of Trust)</div>
+<div class="font-body-sm text-body-sm text-outline">Smart TV, Apple TV, Flagship Android</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-tertiary/10 text-tertiary font-label-caps text-label-caps font-bold">4K UHD HDR</span>
+</div>
+<div class="p-2 rounded bg-surface-container flex items-center justify-between">
+<div>
+<div class="font-label-md text-label-md font-semibold text-on-surface">DRM L3 (Software Decrypt / Web)</div>
+<div class="font-body-sm text-body-sm text-outline">Chrome/Firefox máy tính, thiết bị root</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-outline font-label-caps text-label-caps font-bold">GIỚI HẠN 720p/1080p</span>
+</div>
+</div>
+</div>
+<!-- Setting 3: Key Rotation Period -->
+<div class="p-space-md rounded-lg bg-surface-container-low/80 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">sync</span>
+                Cơ Chế Khóa Key Rotation
+              </span>
+<span class="font-label-md text-label-md font-bold text-secondary">600 Giây</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Tự động thay đổi khóa giải mã AES trong file manifest m3u8 sau mỗi chu kỳ để triệt tiêu hoàn toàn công cụ trích xuất stream.
+            </p>
+</div>
+<!-- Setting 4: VPN / Tor / Cloud Proxy Blacklist -->
+<div class="p-space-md rounded-lg bg-surface-container-low/80 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-error text-[18px]">fmd_bad</span>
+                Chặn VPN &amp; Máy Chủ Proxy
+              </span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Tích hợp cơ sở dữ liệu MaxMind GeoGuard tự động phát hiện IP trung gian và từ chối cấp DRM License Key ngay từ cổng KMS.
+            </p>
+</div>
+<!-- Save Policy Button -->
+<button class="w-full h-11 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-bold hover:shadow-[0_0_16px_rgba(255,193,116,0.3)] transition-all flex items-center justify-center gap-2 mt-2" type="button">
+<span class="material-symbols-outlined text-[20px]">save</span>
+<span>Áp Dụng Cấu Hình Bản Quyền KMS</span>
+</button>
+</div>
+</section>
+</div>
+</div>
+</div></main></div></body></html>

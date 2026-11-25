@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Sora:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-fixed-dim":"#ffb95f","surface-variant":"#2f3445","secondary-fixed-dim":"#f9bd22","tertiary-container":"#38bdf8","tertiary":"#8ed5ff","on-primary-fixed-variant":"#653e00","background":"#0d1322","on-secondary":"#402d00","inverse-surface":"#dde2f8","on-error-container":"#ffdad6","tertiary-fixed":"#c4e7ff","secondary-container":"#e3aa00","surface-container-high":"#242a3a","surface-dim":"#0d1322","on-tertiary-fixed-variant":"#004c69","on-tertiary":"#00354a","on-surface-variant":"#d8c3ad","surface-container-highest":"#2f3445","outline":"#a08e7a","on-primary-container":"#613b00","error-container":"#93000a","surface":"#0d1322","on-secondary-fixed-variant":"#5c4300","on-primary":"#472a00","surface-container-lowest":"#080e1d","primary":"#ffc174","surface-container-low":"#151b2b","on-error":"#690005","surface-bright":"#33394a","primary-container":"#f59e0b","error":"#ffb4ab","on-tertiary-container":"#004965","secondary-fixed":"#ffdf9f","inverse-primary":"#855300","outline-variant":"#534434","on-background":"#dde2f8","tertiary-fixed-dim":"#7bd0ff","on-primary-fixed":"#2a1700","on-secondary-fixed":"#261a00","on-surface":"#dde2f8","on-tertiary-fixed":"#001e2c","on-secondary-container":"#5a4100","inverse-on-surface":"#2a3040","surface-container":"#191f2f","secondary":"#ffc640","primary-fixed":"#ffddb8","surface-tint":"#ffb95f"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-lg":"1.5rem","gutter-mobile":"0.75rem","space-xl":"2.5rem",gutter:"1.5rem",margin:"3rem","margin-mobile":"1rem","space-md":"1rem","space-sm":"0.5rem","space-xs":"0.25rem"},fontFamily:{"label-lg":["Sora"],"display-hero-mobile":["Sora"],"label-md":["Sora"],"body-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Sora"],"body-lg":["Plus Jakarta Sans"],"display-hero":["Sora"],"label-caps":["Sora"],"headline-lg":["Sora"],"headline-sm":["Sora"],"headline-md":["Sora"]},fontSize:{"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.02em",fontWeight:"600"}],"display-hero-mobile":["36px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.04em",fontWeight:"600"}],"body-md":["15px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"400"}],"body-sm":["13px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"400"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-lg":["18px",{lineHeight:"28px",letterSpacing:"0em",fontWeight:"400"}],"display-hero":["56px",{lineHeight:"64px",letterSpacing:"-0.02em",fontWeight:"700"}],"label-caps":["10px",{lineHeight:"14px",letterSpacing:"0.08em",fontWeight:"700"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-sm":["18px",{lineHeight:"26px",letterSpacing:"0em",fontWeight:"600"}],"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}]}}}}</script></head><body class="bg-surface-container-lowest text-on-surface font-body-md text-body-md min-h-screen selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/85 backdrop-blur-2xl shadow-[0_4px_24px_rgba(0,0,0,0.6)]"><div class="h-20 w-full px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-xs" data-path="trang-chu" href="#"><img alt="CineStreams Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WC0McFhPdYTMUpIJiw3NTLOZDekEzqplij7U6Ik1JbwrohLRGwQha077NudFdm-uyJOYTlJ389bVezmrd0z6BwSlUa6-KDapHwljOG2Sp6W9cAX-kP9jJuyrLFx-kuH6EYmRsJicTOIRNP20-4lQcg8xmGDsHx6im-VxJh0ri4IhPmZKhOcwLsu3TMLb67bFmFSJOwLY3jzjYn9G97WMLRANSvHiinx2OhXgTVhjMWhvxuLNwLK7VBaGIb"/><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold ml-1">CineStreams</span></a><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="text-primary font-bold bg-surface-container/60 rounded-lg"><a class="px-space-sm py-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg font-label-md text-label-md" data-path="trang-chu" href="#">Trang chủ</a><a class="px-space-sm py-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg font-label-md text-label-md" data-path="phim-le" href="#">Phim Lẻ</a><a class="px-space-sm py-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg font-label-md text-label-md" data-path="phim-bo" href="#">Phim Bộ</a><a class="px-space-sm py-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg font-label-md text-label-md" data-path="hoat-hinh" href="#">Hoạt Hình</a><a class="px-space-sm py-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg font-label-md text-label-md" data-path="bang-xep-hang" href="#">Bảng Xếp Hạng</a><a class="px-space-sm py-space-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all rounded-lg font-label-md text-label-md flex items-center gap-1.5" data-path="tro-ly-phim-ai" href="#"><span class="inline-block w-1.5 h-1.5 rounded-full bg-tertiary-container animate-pulse"></span>Trợ Lý Phim AI</a><a class="px-space-sm py-space-xs text-secondary-fixed hover:text-on-surface hover:bg-surface-container transition-all rounded-lg font-label-md text-label-md flex items-center gap-1" data-path="vip-goi-cuoc" href="#"><span class="material-symbols-outlined text-secondary-fixed text-sm">workspace_premium</span>VIP Gói Cước</a></nav></div><div class="flex items-center gap-space-sm"><div class="relative hidden lg:block w-72"><div class="flex items-center h-10 px-space-sm bg-surface-container/70 rounded-full focus-within:ring-1 focus-within:ring-primary transition-all"><span class="material-symbols-outlined text-outline text-lg mr-2">search</span><input class="bg-transparent border-none outline-none w-full text-on-surface placeholder:text-outline font-body-sm text-body-sm" placeholder="Tìm phim, diễn viên, đạo diễn..." type="text"/><span class="px-1.5 py-0.5 rounded bg-surface-container-high text-outline text-label-caps font-label-caps">⌘K</span></div></div><div class="flex items-center gap-space-xs"><button class="p-2 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all relative" title="Watch Party" type="button"><span class="material-symbols-outlined">groups</span></button><button class="p-2 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all relative" title="Thông báo" type="button"><span class="material-symbols-outlined">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary"></span></button><a class="hidden sm:flex items-center gap-1.5 px-space-sm py-1.5 rounded-full bg-gradient-to-r from-secondary-container to-primary-container text-on-secondary font-label-md text-label-md shadow-[0_0_16px_rgba(245,158,11,0.3)] hover:shadow-[0_0_24px_rgba(245,158,11,0.5)] transition-all" data-path="vip-goi-cuoc" href="#"><span class="material-symbols-outlined text-sm">stars</span><span>Nâng Cấp VIP</span></a><div class="pl-space-xs flex items-center"><button class="p-0.5 rounded-full ring-2 ring-primary/40 hover:ring-primary transition-all focus:outline-none" type="button"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADYiyMUfQ8kjFNPI7pBEqATkprXNEdCsdQDi6ZCDevh_hrbrfj8_J4QMu4nEZfCFtP3RiFrwdNW-Eq5jYA2uz9qKjb0YkFKhkeyoVM2lnV3PdLXGR_dIMMj8pi7WB9GHF6GGLng1-RDkGGN5BbUroB__NbrLOLm2kvXRUR8kR7MaaqgBPs-g_Apoudrwll2ASxtcXTM182v3kp6x67voJqBHSWWwJI9AnqUJYypb92v_QtcEQXvODW6A"/></button></div></div></div></div></header><main class="w-full pt-20 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full">
+<!-- Room Top Utility & Status Banner -->
+<section class="w-full bg-surface-container-low px-gutter py-space-sm shadow-md">
+<div class="w-full flex flex-col xl:flex-row xl:items-center xl:justify-between gap-space-sm">
+<!-- Left: Navigation & Room Identity -->
+<div class="flex flex-wrap items-center gap-space-md min-w-0">
+<a class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-primary transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+<span>Rời Phòng</span>
+</a>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs truncate">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-primary font-label-caps text-label-caps uppercase">Phòng Chiếu #CS-8942</span>
+<h1 class="font-headline-sm text-headline-sm text-on-surface truncate">House of the Dragon S2:E4 “Khiêu Vũ Cùng Rồng”</h1>
+</div>
+<p class="font-body-sm text-body-sm text-outline flex items-center gap-2">
+<span>Bản chiếu rạp 4K Dolby Atmos</span>
+<span>•</span>
+<span class="text-secondary font-medium">Chủ phòng: MinhKhang_CineVIP</span>
+<span class="material-symbols-outlined text-secondary text-xs" style="font-variation-settings: 'FILL' 1;">stars</span>
+</p>
+</div>
+</div>
+<!-- Right: Real-time Telemetry & Host Action Bar -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- Live & Sync Badge -->
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-error"></span>
+</span>
+<span class="font-label-caps text-label-caps text-on-surface tracking-wider uppercase font-bold">LIVE SYNC</span>
+<span class="font-body-sm text-body-sm text-outline">•</span>
+<span class="font-label-md text-label-md text-tertiary">Trễ: &lt;28ms</span>
+</div>
+<!-- Participants Counter Badge -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-primary text-base">group</span>
+<span>12 / 20</span>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-1 bg-surface-container rounded-lg p-0.5">
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-md hover:bg-surface-container-high text-on-surface hover:text-primary transition-all font-label-md text-label-md" id="copyInviteBtn" type="button">
+<span class="material-symbols-outlined text-sm">link</span>
+<span class="hidden sm:inline">Sao chép link</span>
+</button>
+<button class="p-2 rounded-md hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all" title="Mời bạn bè" type="button">
+<span class="material-symbols-outlined text-base">person_add</span>
+</button>
+<button class="p-2 rounded-md hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all" title="Cài đặt phòng" type="button">
+<span class="material-symbols-outlined text-base">tune</span>
+</button>
+<button class="p-2 rounded-md hover:bg-surface-container-high text-on-surface-variant hover:text-error transition-all" title="Báo cáo vi phạm" type="button">
+<span class="material-symbols-outlined text-base">flag</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Notification Banner for Quick Sync -->
+<div class="hidden w-full bg-primary-container/20 px-gutter py-2 flex items-center justify-between text-on-primary-container font-label-md text-label-md" id="syncFeedbackAlert">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary">drafts</span>
+<span>Đã đồng bộ khung hình hoàn tất với máy chủ chính. Độ lệch 0.02s.</span>
+</div>
+<button class="p-1 hover:opacity-75" onclick="document.getElementById('syncFeedbackAlert').classList.add('hidden')">
+<span class="material-symbols-outlined text-xs">close</span>
+</button>
+</div>
+<!-- Primary Workspace: Theater Grid (70% Player / 30% Interactive Panel) -->
+<div class="w-full px-gutter py-space-md grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- LEFT COLUMN: Theatrical Player (lg:col-span-8 xl:col-span-8) -->
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<!-- Video Stage Container -->
+<div class="relative w-full aspect-video rounded-xl overflow-hidden bg-surface-container-lowest shadow-2xl flex flex-col justify-end group select-none">
+<!-- Video Backdrop Scene -->
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Epic cinematic dragon battle scene at dusk from House of the Dragon, roaring silver and vermilion dragons clash amid smoky crimson clouds over a gothic stone fortress, fiery embers drifting through atmospheric blue-tinted fog, ultra-wide cinematic lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDFVZJNVfBrPDuKcF2HB9Xw2Cy9_yU_LWNctcO5ukqDPGBRoui5LLo2sgvRow28VUlMO5A-u5HC44F3CCVKniE53NBhL9NKAm4POdqGUxae1qcgO6gxKhqFg04UZzmd1_GNxv50wf8hyauz0_VK6heJzagqyfK2-8yJw43QAKsWnXoyWRvoXF6AogkIy8I4ce1d4frJkqxDcnlN7n1d9Y7qQT0JuUhIHUtmwryN9mV29AebzEcsQQYsRw')">
+<!-- Gradients for HUD clarity -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-surface-container-lowest/60"></div>
+<div class="absolute inset-0 bg-radial-at-c from-transparent via-transparent to-surface-container-lowest/40"></div>
+</div>
+<!-- Floating Live Emojis Flow Layer -->
+<div class="pointer-events-none absolute inset-0 overflow-hidden z-20" id="reactionStage">
+<div class="absolute bottom-16 right-16 text-3xl animate-bounce opacity-90 transition-all duration-1000 transform -translate-y-24">🔥</div>
+<div class="absolute bottom-20 right-28 text-2xl animate-pulse opacity-80 transition-all duration-700 transform -translate-y-36">🐉</div>
+<div class="absolute bottom-12 right-20 text-3xl opacity-75 animate-bounce transition-all duration-1000 transform -translate-y-20">😱</div>
+</div>
+<!-- Host Master Lock Banner Overlay (Top of Video) -->
+<div class="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-md shadow-lg">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span class="font-label-caps text-label-caps text-on-surface">Đang khóa tua: Đồng bộ tuyệt đối theo Chủ Phòng (Minh Khang)</span>
+</div>
+<!-- Right Top Format Tags -->
+<div class="absolute top-4 right-4 z-20 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md text-tertiary font-label-caps text-label-caps">DOLBY VISION</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md text-primary font-label-caps text-label-caps">4K UHD</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md text-secondary font-label-caps text-label-caps">60 FPS</span>
+</div>
+<!-- Center Play State Indicator (Watermark) -->
+<div class="absolute inset-0 m-auto w-16 h-16 rounded-full bg-primary-container/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+<!-- Controls Scrubbing HUD (Bottom of Video) -->
+<div class="relative z-30 p-space-md bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/90 to-transparent flex flex-col gap-2">
+<!-- Progress Bar & Buffering Track -->
+<div class="w-full group/track relative py-2 cursor-pointer">
+<!-- Background rail -->
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest relative overflow-hidden">
+<!-- Buffer progress -->
+<div class="absolute left-0 top-0 bottom-0 bg-outline/40 w-3/4"></div>
+<!-- Played progress (60%) -->
+<div class="absolute left-0 top-0 bottom-0 bg-primary-container w-[60.5%]"></div>
+</div>
+<!-- Playhead Thumb -->
+<div class="absolute left-[60.5%] top-1/2 -translate-y-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-primary shadow-lg ring-2 ring-surface-container-lowest transition-transform group-hover/track:scale-125"></div>
+<!-- Tooltip Hover marker -->
+<div class="absolute left-[60.5%] -top-6 -translate-x-1/2 px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-caps text-label-caps pointer-events-none">
+              38:45
+            </div>
+</div>
+<!-- Bottom Control Strip -->
+<div class="w-full flex items-center justify-between text-on-surface">
+<!-- Left Controls: Play, Skip, Volume, Timer -->
+<div class="flex items-center gap-space-sm">
+<button class="p-2 rounded-full hover:bg-surface-container text-primary transition-all" title="Tạm dừng / Tiếp tục" type="button">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">pause</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" title="Lùi 10 giây" type="button">
+<span class="material-symbols-outlined text-xl">replay_10</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" title="Tới 10 giây" type="button">
+<span class="material-symbols-outlined text-xl">forward_10</span>
+</button>
+<div class="flex items-center gap-1.5 group/vol">
+<button class="p-2 rounded-full hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" type="button">
+<span class="material-symbols-outlined text-xl">volume_up</span>
+</button>
+<div class="w-16 h-1 rounded-full bg-surface-container-highest relative overflow-hidden hidden sm:block">
+<div class="w-4/5 h-full bg-primary"></div>
+</div>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant ml-2">
+<span class="text-on-surface font-medium">38:45</span>
+<span class="text-outline"> / 64:00</span>
+</div>
+</div>
+<!-- Right Controls: Audio profile, Quality, Screen size -->
+<div class="flex items-center gap-space-xs">
+<!-- Audio Track info -->
+<div class="hidden sm:flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container text-secondary font-label-caps text-label-caps">
+<span class="material-symbols-outlined text-xs">spatial_audio</span>
+<span>ATMOS 5.1</span>
+</div>
+<!-- Quality selector -->
+<button class="px-2 py-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all" type="button">
+                4K HDR • 60fps
+              </button>
+<!-- Cinema Mode Button -->
+<button class="p-2 rounded-full hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" title="Chế độ rạp chiếu (Mở rộng)" type="button">
+<span class="material-symbols-outlined text-xl">crop_landscape</span>
+</button>
+<!-- Fullscreen Button -->
+<button class="p-2 rounded-full hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" title="Toàn màn hình" type="button">
+<span class="material-symbols-outlined text-xl">fullscreen</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Floating Reaction Dock (Under Video) -->
+<div class="w-full p-space-sm bg-surface-container-low rounded-xl flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base">add_reaction</span>
+<span class="font-label-md text-label-md text-on-surface">Thả cảm xúc phòng:</span>
+<div class="flex items-center gap-1.5">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high transition-transform hover:scale-110 active:scale-95 text-lg" onclick="spawnReaction('🔥')" type="button">🔥</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high transition-transform hover:scale-110 active:scale-95 text-lg" onclick="spawnReaction('🐉')" type="button">🐉</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high transition-transform hover:scale-110 active:scale-95 text-lg" onclick="spawnReaction('😱')" type="button">😱</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high transition-transform hover:scale-110 active:scale-95 text-lg" onclick="spawnReaction('👏')" type="button">👏</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high transition-transform hover:scale-110 active:scale-95 text-lg" onclick="spawnReaction('🍿')" type="button">🍿</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high transition-transform hover:scale-110 active:scale-95 text-lg" onclick="spawnReaction('❤️')" type="button">❤️</button>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md transition-all" id="resyncBtn" type="button">
+<span class="material-symbols-outlined text-sm">sync</span>
+<span>Đồng Bộ Lại (Resync)</span>
+</button>
+</div>
+</div>
+<!-- Quick Room Watch-Party Tools Bento -->
+<div class="w-full grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Tool 1: Skip Vote -->
+<div class="p-space-md bg-surface-container rounded-xl flex flex-col justify-between gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-lg">how_to_vote</span>
+<span class="font-label-md text-label-md text-on-surface">Bỏ phiếu Tua Mở Đầu</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-caps text-label-caps">8/12 Đồng ý</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Cần thêm 1 phiếu để tự động nhảy qua 02:15 đoạn intro.</p>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[66%]"></div>
+</div>
+<button class="w-full py-1.5 rounded-lg bg-surface-container-highest hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all" type="button">
+            Bỏ Phiếu Bỏ Qua (+1)
+          </button>
+</div>
+<!-- Tool 2: WebRTC Voice Health -->
+<div class="p-space-md bg-surface-container rounded-xl flex flex-col justify-between gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-lg">network_check</span>
+<span class="font-label-md text-label-md text-on-surface">Mạng Lưới Mesh P2P</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-container/20 text-tertiary font-label-caps text-label-caps">99.8% Ổn định</span>
+</div>
+<div class="flex items-center justify-between font-body-sm text-body-sm text-outline">
+<span>Gói tin hao hụt (Loss):</span>
+<span class="text-on-surface font-medium">0.0%</span>
+</div>
+<div class="flex items-center justify-between font-body-sm text-body-sm text-outline">
+<span>Băng thông chia sẻ:</span>
+<span class="text-on-surface font-medium">18.4 Mbps</span>
+</div>
+<div class="w-full py-1 text-center font-label-caps text-label-caps text-outline">
+            MÃ HÓA ĐẦU-CUỐI E2EE CHUẨN WEBRTC
+          </div>
+</div>
+<!-- Tool 3: Next Up in Playlist -->
+<div class="p-space-md bg-surface-container rounded-xl flex flex-col justify-between gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">playlist_play</span>
+<span class="font-label-md text-label-md text-on-surface">Tập Tiếp Theo</span>
+</div>
+<span class="material-symbols-outlined text-outline text-sm">auto_mode</span>
+</div>
+<div class="truncate">
+<h4 class="font-label-md text-label-md text-on-surface truncate">Tập 5: “Vị Vua Xanh và Hoàng Hậu Đen”</h4>
+<p class="font-body-sm text-body-sm text-outline">Thời lượng: 67 phút • Tự chuyển tập</p>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-caps text-label-caps text-primary">TỰ ĐỘNG PHÁT KẾ TIẾP</span>
+<span class="material-symbols-outlined text-primary text-base">toggle_on</span>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Interactive Watch Party Side Panel (lg:col-span-4 xl:col-span-4) -->
+<div class="lg:col-span-4 flex flex-col h-[760px] bg-surface-container rounded-xl shadow-xl overflow-hidden">
+<!-- Tab Header Strip -->
+<div class="w-full bg-surface-container-high p-1.5 flex items-center gap-1 select-none">
+<button class="flex-1 py-2 px-2 rounded-lg bg-surface text-primary font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all" id="tabChatBtn" onclick="switchSideTab('chat')" type="button">
+<span class="material-symbols-outlined text-base">forum</span>
+<span>Trò Chuyện</span>
+</button>
+<button class="flex-1 py-2 px-2 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all" id="tabVoiceBtn" onclick="switchSideTab('voice')" type="button">
+<span class="material-symbols-outlined text-base">mic</span>
+<span>Voice (6)</span>
+</button>
+<button class="flex-1 py-2 px-2 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all" id="tabMembersBtn" onclick="switchSideTab('members')" type="button">
+<span class="material-symbols-outlined text-base">group</span>
+<span>Thành Viên (12)</span>
+</button>
+</div>
+<!-- TAB CONTENT 1: LIVE CHAT (Active) -->
+<div class="flex-1 flex flex-col min-h-0 bg-surface-container" id="contentChat">
+<!-- Pinned Announcement from Host -->
+<div class="px-space-md py-space-sm bg-surface-container-high/60 flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-base shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">push_pin</span>
+<div class="min-w-0 flex-1">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-secondary font-bold uppercase">Ghim từ Chủ Phòng (Minh Khang)</span>
+<span class="font-label-caps text-label-caps text-outline">Ghim 10p trước</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5">
+              Chào mừng cả nhà! Đoạn đánh nhau ở Rook’s Rest siêu cháy, nhớ bật Dolby Atmos nhé! 🍿
+            </p>
+</div>
+</div>
+<!-- Chat Stream Messages (Scrollable) -->
+<div class="flex-1 overflow-y-auto p-space-md space-y-space-sm" id="chatStreamBox">
+<!-- System Alert Message -->
+<div class="flex items-center justify-center">
+<span class="px-3 py-1 rounded-full bg-surface-container-highest text-outline font-label-caps text-label-caps flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">login</span>
+              [Hệ thống]: Hoàng Long vừa tham gia phòng chiếu
+            </span>
+</div>
+<!-- Message 1: Host -->
+<div class="flex items-start gap-space-xs group">
+<div class="relative shrink-0">
+<div class="w-8 h-8 rounded-full bg-cover bg-center" data-alt="Portrait avatar of a young Vietnamese tech professional with modern glasses, smiling warmly against deep indigo studio background." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA_r-FlkwYsN8jqa-rmZDOD97CavQRPf2V71ivZyYt7yvaXw-rmVEBUkQPs0S8_ElTSKwMyeTX130F4OyDGkGDUbGK86GpX_tRGJxJRklbTjjp_dFqU6TcOzGtS7kO5HMgu7XuIHedmyBFPfiSQtDmxim7EK5GZzYXER1-YcaJ7WgafgtquzqmaO3JH1bMxQHMGo4IQ8wZ3wfapd9JZPG1Bn6fBkcvrBzkvEVbOn4knGWFqK1FdJ1fyaQ')"></div>
+<span class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-secondary rounded-full flex items-center justify-center text-[8px] text-surface-container-lowest font-bold" title="Chủ phòng">👑</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-baseline gap-2">
+<span class="font-label-md text-label-md text-secondary font-bold truncate">Minh Khang</span>
+<span class="px-1.5 py-0.2 rounded bg-secondary/10 text-secondary font-label-caps text-label-caps font-semibold">VIP CROWN</span>
+<span class="font-label-caps text-label-caps text-outline">38:12</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5">
+                Chuẩn bị đến cảnh Vhagar bay từ trên mây xuống kìa anh em ơi! Khủng khiếp thực sự! 😱
+              </p>
+</div>
+</div>
+<!-- System Action Message -->
+<div class="flex items-center justify-center">
+<span class="px-3 py-1 rounded-full bg-surface-container-highest text-primary font-label-caps text-label-caps flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">sync</span>
+              [Đồng bộ]: Chủ phòng đã đồng bộ tiến trình tại 38:45
+            </span>
+</div>
+<!-- Message 2: VIP Gold Member -->
+<div class="flex items-start gap-space-xs group">
+<div class="shrink-0">
+<div class="w-8 h-8 rounded-full bg-cover bg-center" data-alt="Close-up avatar of a stylish Asian woman in ambient cinematic theater lighting with soft bokeh." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAHhf1NRSGBela4T7KRncYs1ECION8JIfH6V06TK491VBdemS3gv2ZWH-MD-ZknT3TbfnEm6JL3yyy991HVc0TgZutc0mRxtiisOUyiHVi1PXbDJMkP5zh3Pt3aIRdlAiyA5m674pwBsH_AWK9BWwVMbDl1YoQV0za3rLvAKqrdriakGP6XzKZLvM7DhyNYtJb2zpVP9SNX75f4G-K533_4MOrrBvk1qyLOp2oBKchQp9vpXQp-yLOU1g')"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-baseline gap-2">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Thảo Lê</span>
+<span class="px-1.5 py-0.2 rounded bg-primary/10 text-primary font-label-caps text-label-caps">VIP GOLD</span>
+<span class="font-label-caps text-label-caps text-outline">38:20</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5">
+                Âm thanh bass đập rung cả tai nghe luôn, CGI tập này đỉnh nhất cả series! 🔥🔥🔥
+              </p>
+</div>
+</div>
+<!-- Message 3: Spoiler Tagged Message -->
+<div class="flex items-start gap-space-xs group">
+<div class="shrink-0">
+<div class="w-8 h-8 rounded-full bg-cover bg-center" data-alt="Portrait avatar of a young film critic student wearing casual hoodie in low light." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAdxtRkMrzKCUYXGXpCCLr0GKSryespCX3nQv1d3Wk2dcVrDGLG0raZ7xOWjXICRcp9-NhogdWLd8T1_BSqTlCa4iQ4WXBuP6JIvJcPeM2b5BqYCBPFLE9qFSi1XJZDQt_1GC9TXFnt5clZ8Th3Ng1jSVDS4VSAtaWliJwddBtb57x14QS1dTM4bcP7gAflNLUkYxF22wmw29wDdc26WtDTyjUTgZJL0Rw-pP0rOc0HnvTMo1FuTpjz-g')"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-baseline gap-2">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium truncate">Quốc Bảo</span>
+<span class="font-label-caps text-label-caps text-outline">38:31</span>
+</div>
+<!-- Hidden Spoiler Container -->
+<div class="mt-1 p-2 rounded-lg bg-surface-container-highest cursor-pointer hover:bg-surface-container-high transition-colors" onclick="this.querySelector('.spoiler-text').classList.toggle('blur-sm')">
+<div class="flex items-center gap-1 text-primary font-label-caps text-label-caps mb-1">
+<span class="material-symbols-outlined text-xs">visibility_off</span>
+<span>CẢNH BÁO SPOILER (Nhấn để xem)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface blur-sm spoiler-text transition-all duration-300">
+                  Con rồng Sunfyre của Aegon đoạn này bị cắn rơi thẳng xuống rừng luôn, sốc vãi!
+                </p>
+</div>
+</div>
+</div>
+<!-- Message 4: Member with Reaction GIF -->
+<div class="flex items-start gap-space-xs group">
+<div class="shrink-0">
+<div class="w-8 h-8 rounded-full bg-cover bg-center" data-alt="Digital illustration minimalist avatar profile with gold and indigo tones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJivguM2tCCUoJCY7hVSnbZwstet-bRUZ2hTX3X2LEviG6-DDtjQ5pTuDaJSU7z0Yrh64KE33lNmWOtDWbVz85xgo4_zVpB4nBiPXlFoMh7K2aIbfTAQ3d_t9d2FWh32bafY8bwhE01NYeNCfM_NbwYUvIRfBkibt94p1NEY8SzKv1G1k0z7kMTPXxWoW4suhWqxcPoPt4X5-jUmCdycqgV9L01Iyj_YtsAReCUjW9AAF4c05X-K0bvw')"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-baseline gap-2">
+<span class="font-label-md text-label-md text-tertiary font-semibold truncate">Hải Nam_FilmBuff</span>
+<span class="font-label-caps text-label-caps text-outline">38:44</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5">
+                Nhạc nền lúc này sởn da gà thật sự... 🐉🍿
+              </p>
+</div>
+</div>
+</div>
+<!-- Chat Input & Interaction Footer -->
+<div class="p-space-sm bg-surface-container-high flex flex-col gap-2">
+<!-- Input Aux Controls Strip -->
+<div class="flex items-center justify-between text-outline px-1">
+<div class="flex items-center gap-2">
+<button class="hover:text-primary transition-colors text-xs flex items-center gap-1 font-label-caps text-label-caps" type="button">
+<span class="material-symbols-outlined text-sm">mood</span>
+<span>Emoji</span>
+</button>
+<button class="hover:text-primary transition-colors text-xs flex items-center gap-1 font-label-caps text-label-caps" type="button">
+<span class="material-symbols-outlined text-sm">gif_box</span>
+<span>GIF</span>
+</button>
+<button class="hover:text-primary transition-colors text-xs flex items-center gap-1 font-label-caps text-label-caps" type="button">
+<span class="material-symbols-outlined text-sm">note_add</span>
+<span>Sticker</span>
+</button>
+</div>
+<label class="flex items-center gap-1.5 cursor-pointer text-xs font-label-caps text-label-caps hover:text-on-surface">
+<input class="rounded bg-surface-container text-primary focus:ring-0" id="spoilerToggle" type="checkbox"/>
+<span>Đánh dấu Spoiler</span>
+</label>
+</div>
+<!-- Message Input Form -->
+<form class="flex items-center gap-2" onsubmit="handleSendChat(event)">
+<div class="flex-1 flex items-center bg-surface-container rounded-lg px-3 py-1.5 focus-within:ring-1 focus-within:ring-primary">
+<input autocomplete="off" class="w-full bg-transparent border-none outline-none font-body-sm text-body-sm text-on-surface placeholder:text-outline" id="chatInputMessage" placeholder="Nhắn tin với mọi người trong phòng..." type="text"/>
+</div>
+<button class="px-4 py-2 rounded-lg bg-primary-container hover:bg-primary-container/90 text-on-primary-container font-label-md text-label-md font-semibold transition-all flex items-center justify-center shrink-0 shadow-md hover:shadow-primary-container/20" type="submit">
+<span class="material-symbols-outlined text-lg">send</span>
+</button>
+</form>
+</div>
+</div>
+<!-- TAB CONTENT 2: VOICE & WEBCAM (Initially hidden via switch logic) -->
+<div class="hidden flex-1 flex flex-col min-h-0 bg-surface-container p-space-md overflow-y-auto" id="contentVoice">
+<!-- Voice Hub Header -->
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Kênh Đàm Thoại Trực Tiếp</span>
+</div>
+<span class="font-label-caps text-label-caps text-tertiary">6 / 12 ĐANG NÓI</span>
+</div>
+<!-- 2x3 Grid of Speaking Tiles -->
+<div class="grid grid-cols-2 gap-space-sm mb-space-md">
+<!-- Tile 1: Active Speaker (Host) -->
+<div class="p-space-sm rounded-xl bg-surface-container-high flex flex-col items-center justify-center relative overflow-hidden shadow-lg">
+<div class="absolute inset-0 bg-primary/10 animate-pulse pointer-events-none"></div>
+<div class="relative w-16 h-16 rounded-full overflow-hidden mb-2 shadow-md">
+<div class="w-full h-full bg-cover bg-center" data-alt="Close up profile of Minh Khang wearing gaming cinema headset speaking into microphone." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCBYhqzXxyUjeXF0U_7lO7nAvJAYY22gp5dJrlDHTySGpVNrpxhBKjZStDUW4Pormv-pXs3ApklY4m_xIWQY8DEEWShY9j0h4SF0SCVjm3Ir8beAHdsszRYvmenBS5_TjoxsDTVzuoGo4dX5OiGZfez1gI_GVuxfGcfIrpEEG4MEYWQqIx3RmeM8BjER9qdSvG4fQ7YNugtkBCOtW-Jm-wYNW5tSbsEimAEnKJl5uc6V4y8mC3XK87Vhg')"></div>
+<span class="absolute bottom-0 right-0 p-0.5 bg-secondary rounded-full text-surface-container-lowest font-bold text-xs">👑</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate max-w-[120px]">Minh Khang</span>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-primary text-sm animate-pulse">mic</span>
+<span class="font-label-caps text-label-caps text-primary">Đang nói...</span>
+</div>
+</div>
+<!-- Tile 2: Speaker 2 -->
+<div class="p-space-sm rounded-xl bg-surface-container-high flex flex-col items-center justify-center relative">
+<div class="w-16 h-16 rounded-full overflow-hidden mb-2">
+<div class="w-full h-full bg-cover bg-center" data-alt="Portrait of Asian girl with cinema headphones reacting excitedly." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDpbxnCDq_419DYEVxqN5xKlVqT9Sj4RLTJ4tlpiLsAlsJ-tQV9c7UAjG_otH7RsVlI7i_aOuTv_9G-3WnNok7lZVyHKBEEVnxql3s6ewjyPcwUEuQDl91EPC9BsqMvk4alWyguTRzjoMNKNz6NGqF2VaWPhIk27i_AdVyaetIlRGvMc0yUfsTMDhzbnZ2ArtdJUMtVxuvJMPjxNz1-SiPas6dxxQaDEzc6nemFENoW4D_5qAJiZErkEA')"></div>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate max-w-[120px]">Thảo Lê</span>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-primary text-sm">mic</span>
+<span class="font-label-caps text-label-caps text-outline">Đang kết nối</span>
+</div>
+</div>
+<!-- Tile 3: Muted Speaker -->
+<div class="p-space-sm rounded-xl bg-surface-container-high/50 flex flex-col items-center justify-center relative opacity-75">
+<div class="w-16 h-16 rounded-full overflow-hidden mb-2">
+<div class="w-full h-full bg-cover bg-center" data-alt="Portrait of young man with studio headphones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBJSkJi5qKnn1OGb0rIeK0XyUoWn-pj28zHY06GCOmrsv_hb7YXVmgsTkC8015VheUT661NWuk740UG0ziT7fGeizUB1xY4HhhK6z7Jj6Hk9hj31XAMP5a-_7JnfIBMObiHDI1u1mTskSoJzNfN2FACoqEw0NrwijXAmiEeIq6cbIbV_tFvWm8gZUaqTH3JpRgTCteg2K052m03jskcpxMXqSRMTTJWMsuFGpIQ66MAcIBoqmU2DDJOAQ')"></div>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate max-w-[120px]">Quốc Bảo</span>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-error text-sm">mic_off</span>
+<span class="font-label-caps text-label-caps text-error">Đã tắt mic</span>
+</div>
+</div>
+<!-- Tile 4: Speaker with Video feed -->
+<div class="p-space-sm rounded-xl bg-surface-container-high flex flex-col items-center justify-center relative">
+<div class="w-16 h-16 rounded-full overflow-hidden mb-2">
+<div class="w-full h-full bg-cover bg-center" data-alt="Young Vietnamese woman watching screen attentively with glasses in dimly lit room." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBjIN4hQeTOJdOVT97B5XKO6qiRmhxYOZujk5i0E5h3DudFNPMD1zgm29a7aaGv85ytKVBG3YFJjQcPBHvm6tkON58tvf8iOfpwyO5IJ5Ofpe6nzwP_UYzJTxJgcTozpAmP34Xvz2b-pCLRROJHGmX6_klbImwmrhoctX1maoB3Yv2tEC8t956z7HaZllkXmb0nQffo8USLy9yuXZhtmVY1BcdrlVSV0EqTDV5bAj01b6DWD8YnftyYkw')"></div>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate max-w-[120px]">Mai Linh</span>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-tertiary text-sm">videocam</span>
+<span class="font-label-caps text-label-caps text-tertiary">Cam mở</span>
+</div>
+</div>
+<!-- Tile 5: Speaker 5 -->
+<div class="p-space-sm rounded-xl bg-surface-container-high flex flex-col items-center justify-center relative">
+<div class="w-16 h-16 rounded-full overflow-hidden mb-2">
+<div class="w-full h-full bg-cover bg-center" data-alt="Portrait of a young man smiling during video call." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD1id3Iv0Y3wQ1HRww1j9_VwSCS33Mos-qnJRceSU17otV7F3bla7OqPZeFoNcX6cKbd-KQ2C86YfgzPJnHWt5m6A_7as4347q0Ih1CV8vHIDeV7dThx_t1BFIR1WiTOK_hv-VMekTK6HTj2GvfSvhIQXK_LiwuOZzxkj8b8rr6dgWrWAu9I69Ml81hDz1OBV70Z_-lC0NFjqxUFKrse2tuq2sgCRcdI9Qwq7Nqoa58UArDV8IextxbRw')"></div>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate max-w-[120px]">Hoàng Long</span>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-primary text-sm">mic</span>
+<span class="font-label-caps text-label-caps text-outline">Lắng nghe</span>
+</div>
+</div>
+<!-- Tile 6: Speaker 6 (Muted) -->
+<div class="p-space-sm rounded-xl bg-surface-container-high/50 flex flex-col items-center justify-center relative opacity-75">
+<div class="w-16 h-16 rounded-full overflow-hidden mb-2">
+<div class="w-full h-full bg-cover bg-center" data-alt="Avatar portrait of male viewer in warm room lamp." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuButwcCn8wESxFgFc0GJb0yK7Ne2jOmMXukTbSlnJ4OfmUCTQO6uxz_W_L7ha9YDTOxuRo17DyosmI1Z77l_OCJepcoRaSqiI39CwjQOHTaY9QacEgbDBTWPvFs_T8mb3WbnQSUgAV9LajEp8g9h0KASjBSJFqLq2ne4LNVRw9bYSw0v2xP_TBui1GYov4lK7ZjAZRdZ66rJKxFveYGTg7PuhBVZA4lxMMaBrFUXTRnYiMYhjhqFY1q9w')"></div>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate max-w-[120px]">Hải Nam</span>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-error text-sm">mic_off</span>
+<span class="font-label-caps text-label-caps text-error">Đã tắt mic</span>
+</div>
+</div>
+</div>
+<!-- Voice Call Bottom Dock Bar -->
+<div class="mt-auto p-space-sm rounded-xl bg-surface-container-high flex items-center justify-around">
+<button class="p-3 rounded-full bg-primary-container text-on-primary-container hover:opacity-90 transition-all shadow-md" id="toggleMicBtn" onclick="toggleMic()" title="Phím tắt: M" type="button">
+<span class="material-symbols-outlined text-xl" id="micIcon">mic</span>
+</button>
+<button class="p-3 rounded-full bg-surface-container hover:bg-surface-container-highest text-on-surface transition-all" title="Bật Camera: C" type="button">
+<span class="material-symbols-outlined text-xl">videocam</span>
+</button>
+<button class="p-3 rounded-full bg-surface-container hover:bg-surface-container-highest text-on-surface transition-all" title="Chia sẻ âm thanh máy tính" type="button">
+<span class="material-symbols-outlined text-xl">screen_share</span>
+</button>
+<button class="p-3 rounded-full bg-error-container text-on-error-container hover:opacity-90 transition-all" title="Rời Kênh Thoại" type="button">
+<span class="material-symbols-outlined text-xl">call_end</span>
+</button>
+</div>
+</div>
+<!-- TAB CONTENT 3: MEMBERS LIST (Initially hidden) -->
+<div class="hidden flex-1 flex flex-col min-h-0 bg-surface-container p-space-md overflow-y-auto" id="contentMembers">
+<!-- Members Header & Room Authority Info -->
+<div class="p-space-sm rounded-lg bg-surface-container-high mb-space-md">
+<div class="flex items-center justify-between text-outline font-label-caps text-label-caps">
+<span>QUYỀN ĐIỀU HÀNH PHÒNG</span>
+<span class="text-primary font-bold">CHỦ PHÒNG QUYẾT ĐỊNH</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+            Chủ phòng nắm quyền Play/Pause và tua phim. Thành viên VIP có thể đề xuất tua bằng hình thức bỏ phiếu chung.
+          </p>
+</div>
+<div class="space-y-space-sm">
+<span class="font-label-caps text-label-caps text-secondary font-bold uppercase tracking-wider">Chủ Phòng &amp; Điều Hành Viên (2)</span>
+<!-- Host Entry -->
+<div class="p-space-sm rounded-xl bg-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-9 h-9 rounded-full bg-cover bg-center shrink-0" data-alt="Portrait avatar of host Minh Khang." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC2A0Z7zfsW-nFWS1_ipGEM6sVwT9botVBzZhMCOAAtGBXP-IElU9A8sw5s512PbJiVI7YoJlwor4NyNV0jjh-NsjD-oJOl-dhtjEZJVNHhD4t7llaFMd_CDkCe0CycOvc7UQr2C4BS-wSink4hXaea9OqAhSSa68KrG1jKiNeWgy__ZrJXQPN0RfUFfBzDBqPeKwnMFTJgnF1yJrs7HMvTPgBW6ezJiSMMiNeQSU_3XvdEx3g--a--8A')"></div>
+<div class="min-w-0">
+<div class="flex items-center gap-1">
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Minh Khang</span>
+<span class="material-symbols-outlined text-secondary text-sm">stars</span>
+</div>
+<span class="font-label-caps text-label-caps text-secondary">CHỦ PHÒNG • VIP DIAMOND</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-sm">mic</span>
+<span class="material-symbols-outlined text-secondary text-base">admin_panel_settings</span>
+</div>
+</div>
+<!-- Moderator Entry -->
+<div class="p-space-sm rounded-xl bg-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-9 h-9 rounded-full bg-cover bg-center shrink-0" data-alt="Avatar of cinema moderator." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBAe7P5CWeZ6uaNesRct1UT4MLf8X8tpwYIcFxNATJuHikH20Mwrta7mQXvvKrXELqvuDDpvfzlSAR8HAY0ELJX1YNY6tkh2rhhBhP8FeeUTZ5kZP82-hP0sdysuRXdPm9_vyj_aP_kweSKzcj3-TXUp0JDLzruR1pnnvBxTGTWZCHg3Uydcptgl5UwdySaSUxoX_btQG83lR1HGcidV-yhlkEIx_mFaSmOF6hzAHeeMnD74qetOwRPrw')"></div>
+<div class="min-w-0">
+<div class="flex items-center gap-1">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">VietCinemas Mod</span>
+<span class="material-symbols-outlined text-tertiary text-sm">verified</span>
+</div>
+<span class="font-label-caps text-label-caps text-tertiary">KIỂM DUYỆT VIÊN</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-base">shield</span>
+</div>
+<!-- General Members Header -->
+<div class="pt-space-sm">
+<span class="font-label-caps text-label-caps text-outline font-bold uppercase tracking-wider">Thành Viên Khác (10)</span>
+</div>
+<!-- Member 1 -->
+<div class="p-2 rounded-lg hover:bg-surface-container-high flex items-center justify-between transition-colors">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-cover bg-center shrink-0" data-alt="Avatar profile member 1." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCBFmAmhzyisAZhEvsNhvxUrs4XBYL-5I1KF3nxqm3L4OhSCVMlcKHUCyWEKCHZRk_yXRBUhdQap6cjeZlTw455bo0Y0v4xSmB9vIY2pcSIr1UHXdT6CXZlvDRvRwLqrhXhPH_bj18ZlblT2ljIBXgkHrSL1OF-vF4vIZbH8m3c_U4nL4CWlJCfQ6hKKZbMpudWORstQ-At6NrLoA7pv-b230Y8HX2G9kOeE3Qw4LPpixOjrtSK8W4cog')"></div>
+<div>
+<span class="font-label-md text-label-md text-on-surface block">Thảo Lê</span>
+<span class="font-label-caps text-label-caps text-primary">VIP Gold</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary text-sm">mic</span>
+</div>
+<!-- Member 2 -->
+<div class="p-2 rounded-lg hover:bg-surface-container-high flex items-center justify-between transition-colors">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-cover bg-center shrink-0" data-alt="Avatar profile member 2." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBmTnoBTvLFpiOTKMM-kIX022sNwNwq2cd0so-B01pZg0lf7_vCAU60_e8-jmAVFRWo0rtTn2psJpjbHfVxuJBwmQqpTNIkLYvRDzVYgNCAneYSN36fC4eOs2T4qxmkrXkAB5y2u868Ywk95LIPvDwDgd8n05Xnqtp-jhbUiJaoyRb0iSY3LBUAfHUXEN03n93AzKpk9DcJ7mhFPtHIqm7_DGFFUdUY6Eugx6NjxFz4DhgJDcvwt7tAtw')"></div>
+<div>
+<span class="font-label-md text-label-md text-on-surface block">Trần Mai Linh</span>
+<span class="font-label-caps text-label-caps text-outline">Đã xác thực</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-tertiary text-sm">videocam</span>
+</div>
+<!-- Member 3 -->
+<div class="p-2 rounded-lg hover:bg-surface-container-high flex items-center justify-between transition-colors">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-cover bg-center shrink-0" data-alt="Avatar profile member 3." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB4h6mv7tnQht3yHnWGZZGsiAGEbWmFVxt3uYOsCyxszsLUhgB2jSR5ZMVp5-TkHmDhJ_qWGgzlr0RE2KUIcANogY3v2_zINsfg67jM7sEXAmXbn7Ob-kJ0CUKeaIwjHDYW0oN2qOYzr9nFeMOWFXcsjy8zbmMhzCiqRJyTw0qAK7LvM7F2YGzXl1a5ToEMqa39OME8w5IssdKNvovwmer3FkuYlJ-s2yYiJQHkzZ7LIo4qiShqcMYhDA')"></div>
+<div>
+<span class="font-label-md text-label-md text-on-surface block">Hoàng Long</span>
+<span class="font-label-caps text-label-caps text-outline">Thành viên</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary text-sm">mic</span>
+</div>
+<!-- Member 4 -->
+<div class="p-2 rounded-lg hover:bg-surface-container-high flex items-center justify-between transition-colors">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-cover bg-center shrink-0" data-alt="Avatar profile member 4." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDg1f4IeQmFfbj_-bp6JIWfwH01rxCXgGjtPLjQ_fu_iBlwvGUm5dsR40Dx7HjUv7hKOic0X8UnhtIfU2yibB7KfCd4Zx9B0iu3wHFd_YNVHfaE2D-TsR5KSkV-DqNTTAVS0NOGBU9jsAMl6CMeeZb-9chumwLTxlNLzLNCkQl_HjwBGVG6Bp5FDAp9GTwUjjI8VinAqSjdVC_lRn3yad1LVBwvVdO9T96vTw0G2fmavJ4HbMZdiLmHeA')"></div>
+<div>
+<span class="font-label-md text-label-md text-on-surface block">Quốc Bảo</span>
+<span class="font-label-caps text-label-caps text-outline">Thành viên</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-sm">mic_off</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Micro-Interactions Inline Vanilla Script -->
+<script>
+    // Tab Switch Logic between Chat, Voice, and Members
+    function switchSideTab(tabName) {
+      const chatBtn = document.getElementById('tabChatBtn');
+      const voiceBtn = document.getElementById('tabVoiceBtn');
+      const membersBtn = document.getElementById('tabMembersBtn');
+
+      const chatContent = document.getElementById('contentChat');
+      const voiceContent = document.getElementById('contentVoice');
+      const membersContent = document.getElementById('contentMembers');
+
+      // Reset styles
+      [chatBtn, voiceBtn, membersBtn].forEach(btn => {
+        btn.className = "flex-1 py-2 px-2 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all";
+      });
+
+      // Hide all panels
+      chatContent.classList.add('hidden');
+      voiceContent.classList.add('hidden');
+      membersContent.classList.add('hidden');
+
+      if (tabName === 'chat') {
+        chatBtn.className = "flex-1 py-2 px-2 rounded-lg bg-surface text-primary font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all shadow-sm";
+        chatContent.classList.remove('hidden');
+      } else if (tabName === 'voice') {
+        voiceBtn.className = "flex-1 py-2 px-2 rounded-lg bg-surface text-primary font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all shadow-sm";
+        voiceContent.classList.remove('hidden');
+      } else if (tabName === 'members') {
+        membersBtn.className = "flex-1 py-2 px-2 rounded-lg bg-surface text-primary font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all shadow-sm";
+        membersContent.classList.remove('hidden');
+      }
+    }
+
+    // Dynamic Emoji Floater onto the Video Screen
+    function spawnReaction(emoji) {
+      const stage = document.getElementById('reactionStage');
+      if (!stage) return;
+      const el = document.createElement('div');
+      el.innerText = emoji;
+      el.className = 'absolute text-3xl pointer-events-none transition-all duration-1000 ease-out';
+      
+      const randomLeft = 60 + Math.random() * 30; // Random percentage within right side of video
+      el.style.left = randomLeft + '%';
+      el.style.bottom = '20px';
+      el.style.opacity = '1';
+      stage.appendChild(el);
+
+      requestAnimationFrame(() => {
+        el.style.transform = 'translateY(-140px) scale(1.4)';
+        el.style.opacity = '0';
+      });
+
+      setTimeout(() => {
+        el.remove();
+      }, 1050);
+    }
+
+    // Handle sending a chat message into the live stream
+    function handleSendChat(e) {
+      e.preventDefault();
+      const input = document.getElementById('chatInputMessage');
+      const isSpoiler = document.getElementById('spoilerToggle').checked;
+      const text = input.value.trim();
+      if (!text) return;
+
+      const stream = document.getElementById('chatStreamBox');
+      const msgDiv = document.createElement('div');
+      msgDiv.className = 'flex items-start gap-space-xs group';
+
+      const spoilerClass = isSpoiler ? 'blur-sm' : '';
+      const spoilerWrapper = isSpoiler ? 
+        `<div class="mt-1 p-2 rounded-lg bg-surface-container-highest cursor-pointer" onclick="this.querySelector('.spoiler-text').classList.toggle('blur-sm')">
+           <div class="flex items-center gap-1 text-primary font-label-caps text-label-caps mb-1">
+             <span class="material-symbols-outlined text-xs">visibility_off</span>
+             <span>CẢNH BÁO SPOILER</span>
+           </div>
+           <p class="font-body-sm text-body-sm text-on-surface ${spoilerClass} spoiler-text">${text}</p>
+         </div>` : 
+        `<p class="font-body-sm text-body-sm text-on-surface mt-0.5">${text}</p>`;
+
+      msgDiv.innerHTML = `
+        <div class="shrink-0">
+          <div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-xs">BẠN</div>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-baseline gap-2">
+            <span class="font-label-md text-label-md text-primary font-semibold truncate">Bạn (Tôi)</span>
+            <span class="px-1.5 py-0.2 rounded bg-surface-container-highest text-on-surface-variant font-label-caps text-label-caps">VIP</span>
+            <span class="font-label-caps text-label-caps text-outline">38:46</span>
+          </div>
+          ${spoilerWrapper}
+        </div>
+      `;
+
+      stream.appendChild(msgDiv);
+      stream.scrollTop = stream.scrollHeight;
+      input.value = '';
+      document.getElementById('spoilerToggle').checked = false;
+    }
+
+    // Resync Button Interaction
+    document.getElementById('resyncBtn')?.addEventListener('click', () => {
+      const alert = document.getElementById('syncFeedbackAlert');
+      if (alert) {
+        alert.classList.remove('hidden');
+        setTimeout(() => {
+          alert.classList.add('hidden');
+        }, 4000);
+      }
+    });
+
+    // Copy link button tooltip feedback
+    document.getElementById('copyInviteBtn')?.addEventListener('click', function() {
+      const originalText = this.innerHTML;
+      this.innerHTML = '<span class="material-symbols-outlined text-sm text-primary">done</span><span class="text-primary font-semibold">Đã chép link!</span>';
+      setTimeout(() => {
+        this.innerHTML = originalText;
+      }, 2500);
+    });
+
+    // Mic Toggle Micro-interaction
+    let isMuted = false;
+    function toggleMic() {
+      isMuted = !isMuted;
+      const btn = document.getElementById('toggleMicBtn');
+      const icon = document.getElementById('micIcon');
+      if (isMuted) {
+        btn.className = "p-3 rounded-full bg-surface-container-highest text-error hover:opacity-90 transition-all shadow-md";
+        icon.innerText = "mic_off";
+      } else {
+        btn.className = "p-3 rounded-full bg-primary-container text-on-primary-container hover:opacity-90 transition-all shadow-md";
+        icon.innerText = "mic";
+      }
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-low/95 mt-space-xl"><div class="w-full px-gutter py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-lg mb-space-xl"><div class="lg:col-span-2 space-y-space-md"><div class="flex items-center gap-space-xs"><img alt="CineStreams Brand Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WC0McFhPdYTMUpIJiw3NTLOZDekEzqplij7U6Ik1JbwrohLRGwQha077NudFdm-uyJOYTlJ389bVezmrd0z6BwSlUa6-KDapHwljOG2Sp6W9cAX-kP9jJuyrLFx-kuH6EYmRsJicTOIRNP20-4lQcg8xmGDsHx6im-VxJh0ri4IhPmZKhOcwLsu3TMLb67bFmFSJOwLY3jzjYn9G97WMLRANSvHiinx2OhXgTVhjMWhvxuLNwLK7VBaGIb"/><span class="font-headline-sm text-headline-sm text-primary font-bold">CineStreams</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Nền tảng phát trực tuyến chuẩn điện ảnh hàng đầu với chất lượng 4K Dolby Vision và âm thanh vòm Dolby Atmos. Trải nghiệm kho phim chọn lọc cùng trí tuệ nhân tạo CineAI thế hệ mới.</p><div class="flex items-center gap-space-sm"><span class="px-2.5 py-1 rounded-full bg-surface-container-high text-tertiary font-label-caps text-label-caps">DOLBY VISION</span><span class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-caps text-label-caps">4K ULTRA HD</span><span class="px-2.5 py-1 rounded-full bg-surface-container-high text-secondary font-label-caps text-label-caps">CINE AI</span></div></div><div><h4 class="font-label-lg text-label-lg text-on-surface mb-space-md">Khám Phá</h4><ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" data-path="phim-le" href="#">Phim Chiếu Rạp Mới</a></li><li><a class="hover:text-primary transition-colors" data-path="phim-bo" href="#">Series Độc Quyền</a></li><li><a class="hover:text-primary transition-colors" data-path="hoat-hinh" href="#">Anime &amp; Hoạt Họa</a></li><li><a class="hover:text-primary transition-colors" data-path="bang-xep-hang" href="#">Top 10 Thịnh Hành</a></li><li><a class="hover:text-primary transition-colors" data-path="tro-ly-phim-ai" href="#">CineAI Gợi Ý Phim</a></li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface mb-space-md">Hỗ Trợ &amp; Pháp Lý</h4><ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-primary transition-colors" href="#">Trung Tâm Trợ Giúp</a></li><li><a class="hover:text-primary transition-colors" href="#">Điều Khoản Sử Dụng</a></li><li><a class="hover:text-primary transition-colors" href="#">Chính Sách Quyền Riêng Tư</a></li><li><a class="hover:text-primary transition-colors" href="#">Bản Quyền &amp; DMCA</a></li><li><a class="hover:text-primary transition-colors" data-path="vip-goi-cuoc" href="#">Quyền Lợi Hội Viên VIP</a></li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface mb-space-md">Thanh Toán &amp; Ứng Dụng</h4><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">Phương thức thanh toán bảo mật:</p><div class="flex flex-wrap gap-space-xs mb-space-md"><span class="px-2 py-1 rounded bg-surface-container text-xs text-on-surface font-semibold">VietQR</span><span class="px-2 py-1 rounded bg-surface-container text-xs text-on-surface font-semibold">MoMo</span><span class="px-2 py-1 rounded bg-surface-container text-xs text-on-surface font-semibold">Visa</span><span class="px-2 py-1 rounded bg-surface-container text-xs text-on-surface font-semibold">Mastercard</span></div><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">Tải ứng dụng CineStreams:</p><div class="flex gap-space-xs"><div class="px-3 py-1.5 rounded-lg bg-surface-container text-on-surface flex items-center gap-1.5 font-label-md text-label-md"><span class="material-symbols-outlined text-sm">tv</span>Smart TV</div><div class="px-3 py-1.5 rounded-lg bg-surface-container text-on-surface flex items-center gap-1.5 font-label-md text-label-md"><span class="material-symbols-outlined text-sm">phone_iphone</span>Mobile</div></div></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md text-outline font-body-sm text-body-sm"><p>© 2025 CineStreams Entertainment Inc. Giấy phép cung cấp dịch vụ phát thanh, truyền hình trả tiền số 184/GP-BTTTT.</p><div class="flex items-center gap-space-md"><span class="flex items-center gap-1 text-on-surface-variant"><span class="material-symbols-outlined text-sm text-primary">verified_user</span>Bảo mật dữ liệu 256-bit</span><span class="text-outline">|</span><span class="text-on-surface-variant">Máy chủ CDN Việt Nam tốc độ cao</span></div></div></div></footer></body></html>
