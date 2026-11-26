@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Spring%20Boot-3.3.5-brightgreen.svg" alt="Spring Boot 3" />
-  <img src="https://img.shields.io/badge/Java-17-orange.svg" alt="Java 21" />
+  <img src="https://img.shields.io/badge/Java-21-orange.svg" alt="Java 21" />
   <img src="https://img.shields.io/badge/React-18-blue.svg" alt="React 18" />
   <img src="https://img.shields.io/badge/TypeScript-5-blue.svg" alt="TypeScript 5" />
   <img src="https://img.shields.io/badge/Vite-6-purple.svg" alt="Vite 6" />
