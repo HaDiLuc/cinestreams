@@ -11,13 +11,17 @@ public enum ERole {
             EPermission.USER_READ
     )),
     ROLE_VIP_USER(Set.of(
-            EPermission.USER_READ
+            EPermission.USER_READ,
+            EPermission.STREAM_4K,
+            EPermission.DOLBY_ATMOS,
+            EPermission.WATCH_PARTY_HOST
     )),
     ROLE_CONTENT_EDITOR(Set.of(
             EPermission.USER_READ,
             EPermission.MOVIE_MANAGE,
             EPermission.CONTENT_EDIT,
-            EPermission.SUBTITLE_MANAGE
+            EPermission.SUBTITLE_MANAGE,
+            EPermission.COMMENT_MODERATE
     )),
     ROLE_FINANCE_MANAGER(Set.of(
             EPermission.USER_READ,
@@ -33,8 +37,14 @@ public enum ERole {
             EPermission.MOVIE_MANAGE,
             EPermission.CONTENT_EDIT,
             EPermission.SUBTITLE_MANAGE,
+            EPermission.COMMENT_MODERATE,
             EPermission.FINANCE_MANAGE,
-            EPermission.REFUND_PROCESS
+            EPermission.REFUND_PROCESS,
+            EPermission.STREAM_4K,
+            EPermission.DOLBY_ATMOS,
+            EPermission.WATCH_PARTY_HOST,
+            EPermission.QUALITY_PUBLISH_GATE,
+            EPermission.AUDIT_LOG_READ
     ));
 
     private final Set<EPermission> permissions;

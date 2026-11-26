@@ -71,36 +71,45 @@ public class DatabaseSeeder implements CommandLineRunner {
         Permission pUploadManage = getOrCreatePermission("upload_manage", "Quyền upload chunking và transcode video", "MOVIE");
         Permission pContentEdit = getOrCreatePermission("content:edit", "Quyền biên tập metadata, poster, banner, mùa và tập", "CONTENT");
         Permission pSubtitleManage = getOrCreatePermission("subtitle:manage", "Quyền tải lên và cấu hình phụ đề WebVTT", "CONTENT");
-        Permission pFinanceManage = getOrCreatePermission("finance:manage", "Quyền xem doanh thu, đối soát cổng thanh toán", "FINANCE");
-        Permission pRefundProcess = getOrCreatePermission("refund:process", "Quyền xử lý hoàn tiền đơn hàng VIP", "FINANCE");
-        Permission pStream4k = getOrCreatePermission("STREAM_4K", "Xem phim phân giải 4K HDR", "STREAMING");
+        Permission pCommentModerate = getOrCreatePermission("comment:moderate", "Quyền kiểm duyệt bình luận và đánh giá của cộng đồng", "CONTENT");
+        Permission pFinanceManage = getOrCreatePermission("finance:manage", "Quyền cấu hình biểu giá VIP, theo dõi đơn hàng VietQR, đối soát và xem doanh thu", "FINANCE");
+        Permission pRefundProcess = getOrCreatePermission("refund:process", "Quyền xử lý phê duyệt hoàn tiền đơn hàng VIP", "FINANCE");
+        Permission pStream4k = getOrCreatePermission("STREAM_4K", "Xem phim phân giải 1080p và 4K Dolby Atmos", "STREAMING");
         Permission pDolbyAtmos = getOrCreatePermission("DOLBY_ATMOS", "Âm thanh vòm Dolby Atmos", "STREAMING");
-        Permission pWatchPartyHost = getOrCreatePermission("WATCH_PARTY_HOST", "Chủ phòng xem chung WatchParty", "WATCHPARTY");
+        Permission pWatchPartyHost = getOrCreatePermission("WATCH_PARTY_HOST", "Khởi tạo hoặc tham gia phòng xem chung WatchParty", "WATCHPARTY");
+        Permission pQualityPublishGate = getOrCreatePermission("quality:publish_gate", "Phê duyệt xuất bản phim ra trang chủ (Quality Publish Gate)", "QUALITY");
+        Permission pAuditLogRead = getOrCreatePermission("audit_log:read", "Tra cứu toàn bộ Nhật ký kiểm toán (Audit Log)", "SYSTEM");
 
-        Role guestRole = getOrCreateRole("ROLE_GUEST", "Khách vãng lai (Xem trailer, danh mục công khai, xem thử 3 phút)", Set.of(pUserRead));
-        Role freeUserRole = getOrCreateRole("ROLE_FREE_USER", "Thành viên miễn phí (Xem nội dung Free, tối đa 720p, có quảng cáo)", Set.of(pUserRead));
-        Role vipUserRole = getOrCreateRole("ROLE_VIP_USER", "Thành viên trả phí (Xem độc quyền VIP/Originals, 1080p/4K, không quảng cáo, WatchParty)",
+        Role guestRole = getOrCreateRole("ROLE_GUEST", "Khách vãng lai (Duyệt danh mục phim trang chủ, tìm kiếm phim, xem trailer và xem thử 3 phút/180s đầu tiên)", Set.of(pUserRead));
+        Role freeUserRole = getOrCreateRole("ROLE_FREE_USER", "Thành viên miễn phí (Xem trọn vẹn phim Free tối đa 720p, quản lý Watchlist, lưu lịch sử, bình luận/đánh giá)", Set.of(pUserRead));
+        Role vipUserRole = getOrCreateRole("ROLE_VIP_USER", "Hội viên VIP cao cấp (Xem không giới hạn kho phim VIP/Originals, mở khóa 1080p và 4K Dolby Atmos, khởi tạo hoặc tham gia Watch Party)",
                 Set.of(pUserRead, pStream4k, pDolbyAtmos, pWatchPartyHost));
-        Role contentEditorRole = getOrCreateRole("ROLE_CONTENT_EDITOR", "Biên tập nội dung (Nhập metadata phim, tải lên poster, banner, WebVTT, tạo season và quản lý tập)",
-                Set.of(pUserRead, pMovieManage, pUploadManage, pContentEdit, pSubtitleManage));
-        Role financeManagerRole = getOrCreateRole("ROLE_FINANCE_MANAGER", "Quản lý doanh thu (Theo dõi lịch sử giao dịch mua gói, báo cáo doanh số, hoàn tiền, đối soát cổng thanh toán)",
+        Role contentEditorRole = getOrCreateRole("ROLE_CONTENT_EDITOR", "Biên tập viên nội dung (Truy cập CMS, khởi tạo/cập nhật Metadata, mùa, tập, tải poster/backdrop/WebVTT, upload video 5GB+, kiểm duyệt bình luận)",
+                Set.of(pUserRead, pMovieManage, pUploadManage, pContentEdit, pSubtitleManage, pCommentModerate));
+        Role financeManagerRole = getOrCreateRole("ROLE_FINANCE_MANAGER", "Quản lý tài chính & vận hành (Cấu hình giá gói VIP, theo dõi đơn VietQR, đối soát sao kê, phê duyệt hoàn tiền, báo cáo doanh thu Dashboard)",
                 Set.of(pUserRead, pFinanceManage, pRefundProcess));
-        Role adminRole = getOrCreateRole("ROLE_ADMIN", "Quản trị toàn quyền (Quản lý người dùng, phân quyền vai trò, cấu hình hệ thống, xem log kiểm toán)",
-                Set.of(pUserRead, pUserCreate, pUserUpdate, pUserDelete, pRoleManage, pMovieManage, pUploadManage, pContentEdit, pSubtitleManage, pFinanceManage, pRefundProcess, pStream4k, pDolbyAtmos, pWatchPartyHost));
+        Role adminRole = getOrCreateRole("ROLE_ADMIN", "Quản trị viên hệ thống tối cao (Toàn quyền: Quản lý người dùng, kích hoạt/khóa tài khoản, phân quyền động Role/Permission, duyệt xuất bản phim Quality Publish Gate, tra cứu Audit Log)",
+                Set.of(pUserRead, pUserCreate, pUserUpdate, pUserDelete, pRoleManage, pMovieManage, pUploadManage, pContentEdit, pSubtitleManage, pCommentModerate, pFinanceManage, pRefundProcess, pStream4k, pDolbyAtmos, pWatchPartyHost, pQualityPublishGate, pAuditLogRead));
 
-        // Tài khoản admin mẫu
-        if (!userRepository.existsByUsername("admin")) {
-            User admin = new User("admin", "admin@vti.com.vn", passwordEncoder.encode("admin123"));
-            admin.setVerified(true);
-            admin.setRoles(new HashSet<>(List.of(adminRole, vipUserRole)));
-            userRepository.save(admin);
-            logger.info("Đã khởi tạo tài khoản admin: admin / admin123");
-        }
+        // Luôn cập nhật và đồng bộ tài khoản admin tối cao
+        User admin = userRepository.findByUsername("admin").orElseGet(() -> {
+            User newAdmin = new User("admin", "admin@vti.com.vn", passwordEncoder.encode("admin123"));
+            return newAdmin;
+        });
+        admin.setVerified(true);
+        admin.setActive(true);
+        Set<Role> adminRoles = admin.getRoles() != null ? new HashSet<>(admin.getRoles()) : new HashSet<>();
+        adminRoles.add(adminRole);
+        adminRoles.add(vipUserRole);
+        admin.setRoles(adminRoles);
+        userRepository.save(admin);
+        logger.info("Đã đồng bộ tài khoản admin: admin / admin123 (active=true, verified=true, ROLE_ADMIN)");
 
         // Tài khoản Content Editor mẫu
         if (!userRepository.existsByUsername("editor")) {
             User editor = new User("editor", "editor@cinestreams.vn", passwordEncoder.encode("editor123"));
             editor.setVerified(true);
+            editor.setActive(true);
             editor.setRoles(new HashSet<>(List.of(contentEditorRole, freeUserRole)));
             userRepository.save(editor);
             logger.info("Đã khởi tạo tài khoản Content Editor: editor / editor123");
@@ -110,6 +119,7 @@ public class DatabaseSeeder implements CommandLineRunner {
         if (!userRepository.existsByUsername("finance")) {
             User finance = new User("finance", "finance@cinestreams.vn", passwordEncoder.encode("finance123"));
             finance.setVerified(true);
+            finance.setActive(true);
             finance.setRoles(new HashSet<>(List.of(financeManagerRole, freeUserRole)));
             userRepository.save(finance);
             logger.info("Đã khởi tạo tài khoản Finance Manager: finance / finance123");
@@ -119,6 +129,7 @@ public class DatabaseSeeder implements CommandLineRunner {
         if (!userRepository.existsByUsername("vip_user")) {
             User vip = new User("vip_user", "vip@cinestreams.vn", passwordEncoder.encode("vip123"));
             vip.setVerified(true);
+            vip.setActive(true);
             vip.setRoles(new HashSet<>(List.of(vipUserRole, freeUserRole)));
             userRepository.save(vip);
             logger.info("Đã khởi tạo tài khoản VIP User: vip_user / vip123");
@@ -128,19 +139,26 @@ public class DatabaseSeeder implements CommandLineRunner {
         if (!userRepository.existsByUsername("free_user")) {
             User free = new User("free_user", "free@cinestreams.vn", passwordEncoder.encode("free123"));
             free.setVerified(true);
+            free.setActive(true);
             free.setRoles(new HashSet<>(List.of(freeUserRole)));
             userRepository.save(free);
             logger.info("Đã khởi tạo tài khoản Free User: free_user / free123");
         }
 
-        // Tài khoản PM / Lead mẫu (hadinhluc_pm)
-        if (!userRepository.existsByUsername("hadinhluc_pm")) {
-            User pm = new User("hadinhluc_pm", "luc.hadinh@cinestreams.vn", passwordEncoder.encode("123456"));
-            pm.setVerified(true);
-            pm.setRoles(new HashSet<>(List.of(adminRole, vipUserRole, freeUserRole)));
-            userRepository.save(pm);
-            logger.info("Đã khởi tạo tài khoản PM / VIP: hadinhluc_pm / 123456");
-        }
+        // Luôn cập nhật và đồng bộ tài khoản hadinhluc_pm
+        User pm = userRepository.findByUsername("hadinhluc_pm").orElseGet(() -> {
+            User newPm = new User("hadinhluc_pm", "luc.hadinh@cinestreams.vn", passwordEncoder.encode("123456"));
+            return newPm;
+        });
+        pm.setVerified(true);
+        pm.setActive(true);
+        Set<Role> pmRoles = pm.getRoles() != null ? new HashSet<>(pm.getRoles()) : new HashSet<>();
+        pmRoles.add(adminRole);
+        pmRoles.add(vipUserRole);
+        pmRoles.add(freeUserRole);
+        pm.setRoles(pmRoles);
+        userRepository.save(pm);
+        logger.info("Đã đồng bộ tài khoản PM / VIP: hadinhluc_pm / 123456 (active=true, verified=true, ROLE_ADMIN)");
     }
 
     private void seedMoviesAndEpisodes() {

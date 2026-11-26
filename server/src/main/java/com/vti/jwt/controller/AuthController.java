@@ -16,6 +16,8 @@ import com.vti.jwt.service.OtpService;
 import com.vti.jwt.service.VerificationService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.DisabledException;
@@ -58,21 +60,61 @@ public class AuthController {
     @Autowired
     private OtpService otpService;
 
+    @Value("${app.jwt.expiration-ms:86400000}")
+    private long jwtExpirationMs;
+
+    private static final String SINGLE_DEVICE_DENIED_MSG = "Tài khoản hiện đang bị từ chối truy cập, vui lòng thử lại sau";
+
+    private boolean isLoggedInOnAnotherDevice(User user, String requestDeviceId) {
+        if (user == null) {
+            return false;
+        }
+        String activeDeviceId = user.getActiveDeviceId();
+        Instant activeExpiry = user.getActiveSessionExpiry();
+        if (activeDeviceId == null || activeDeviceId.isBlank() || activeExpiry == null || !activeExpiry.isAfter(Instant.now())) {
+            return false;
+        }
+        if (requestDeviceId != null && !requestDeviceId.isBlank() && requestDeviceId.trim().equals(activeDeviceId)) {
+            return false;
+        }
+        return true;
+    }
+
+    private void activateSingleDeviceSession(User user, String requestDeviceId) {
+        String sessionDeviceId = (requestDeviceId != null && !requestDeviceId.isBlank())
+                ? requestDeviceId.trim()
+                : UUID.randomUUID().toString();
+        user.setActiveDeviceId(sessionDeviceId);
+        user.setActiveSessionExpiry(Instant.now().plusMillis(jwtExpirationMs));
+        userRepository.save(user);
+    }
+
     // ==========================================================
     // 1. Traditional Auth Endpoints (Preserved for compatibility)
     // ==========================================================
 
     @PostMapping("/login")
-    public ResponseEntity<ResponseModel<?>> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<ResponseModel<?>> authenticateUser(
+            @Valid @RequestBody LoginRequest loginRequest,
+            @RequestHeader(value = "X-Device-Id", required = false) String deviceId) {
         try {
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+
+            UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+            User user = userRepository.findById(userDetails.getId()).orElse(null);
+            if (isLoggedInOnAnotherDevice(user, deviceId)) {
+                return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                        .body(ResponseModel.error(SINGLE_DEVICE_DENIED_MSG));
+            }
+            if (user != null) {
+                activateSingleDeviceSession(user, deviceId);
+            }
 
             SecurityContextHolder.getContext().setAuthentication(authentication);
 
             String jwt = jwtUtils.generateJwtToken(authentication);
 
-            UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
             List<String> roles = userDetails.getAuthorities().stream()
                     .map(GrantedAuthority::getAuthority)
                     .filter(auth -> auth.startsWith("ROLE_"))
@@ -278,16 +320,18 @@ public class AuthController {
      * Endpoint: POST /api/auth/verify-register-otp
      */
     @PostMapping("/verify-register-otp")
-    public ResponseEntity<ResponseModel<?>> verifyRegisterOtp(@Valid @RequestBody VerifyOtpRequest request) {
+    public ResponseEntity<ResponseModel<?>> verifyRegisterOtp(
+            @Valid @RequestBody VerifyOtpRequest request,
+            @RequestHeader(value = "X-Device-Id", required = false) String deviceId) {
         try {
             // 1. Kiểm tra OTP: tồn tại, chưa dùng, hạn 5 phút, đếm lần sai (tối đa 5 lần)
             otpService.verifyOtp(request.getEmail().trim(), request.getOtpCode().trim(), OtpType.REGISTER);
 
-            // 2. Kích hoạt User (verified = true)
+            // 2. Kích hoạt User (verified = true) và ghi nhận thiết bị đăng nhập duy nhất
             User user = userRepository.findByEmail(request.getEmail().trim())
                     .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy thông tin tài khoản!"));
             user.setVerified(true);
-            userRepository.save(user);
+            activateSingleDeviceSession(user, deviceId);
 
             // 3. Cấp phát Token tự động để user đăng nhập ngay
             String jwt = jwtUtils.generateTokenFromUsername(user.getUsername());
@@ -317,7 +361,9 @@ public class AuthController {
      * Bước 1: POST /api/auth/login-2fa
      */
     @PostMapping("/login-2fa")
-    public ResponseEntity<ResponseModel<?>> login2Fa(@Valid @RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<ResponseModel<?>> login2Fa(
+            @Valid @RequestBody LoginRequest loginRequest,
+            @RequestHeader(value = "X-Device-Id", required = false) String deviceId) {
         // 1. Tìm user theo username hoặc email
         Optional<User> userOpt = userRepository.findByUsername(loginRequest.getUsername());
         if (userOpt.isEmpty()) {
@@ -340,6 +386,12 @@ public class AuthController {
             return ResponseEntity.badRequest().body(ResponseModel.error("Tài khoản chưa được kích hoạt!"));
         }
 
+        // 3.1. Kiểm tra giới hạn 1 thiết bị / 1 tài khoản
+        if (isLoggedInOnAnotherDevice(user, deviceId)) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                    .body(ResponseModel.error(SINGLE_DEVICE_DENIED_MSG));
+        }
+
         // 4. Sinh OTP 2FA và gửi mail
         otpService.generateAndSendOtp(user.getEmail(), user.getUsername(), OtpType.LOGIN_2FA, null);
 
@@ -357,13 +409,21 @@ public class AuthController {
      * Bước 2: POST /api/auth/verify-login-2fa
      */
     @PostMapping("/verify-login-2fa")
-    public ResponseEntity<ResponseModel<?>> verifyLogin2Fa(@Valid @RequestBody VerifyOtpRequest request) {
+    public ResponseEntity<ResponseModel<?>> verifyLogin2Fa(
+            @Valid @RequestBody VerifyOtpRequest request,
+            @RequestHeader(value = "X-Device-Id", required = false) String deviceId) {
         // 1. Kiểm tra OTP 2FA
         otpService.verifyOtp(request.getEmail().trim(), request.getOtpCode().trim(), OtpType.LOGIN_2FA);
 
-        // 2. Tìm user
+        // 2. Tìm user & kiểm tra phiên thiết bị duy nhất
         User user = userRepository.findByEmail(request.getEmail().trim())
                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy thông tin tài khoản!"));
+
+        if (isLoggedInOnAnotherDevice(user, deviceId)) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                    .body(ResponseModel.error(SINGLE_DEVICE_DENIED_MSG));
+        }
+        activateSingleDeviceSession(user, deviceId);
 
         // 3. Cấp phát Token
         String jwt = jwtUtils.generateTokenFromUsername(user.getUsername());
@@ -478,27 +538,40 @@ public class AuthController {
     // ==========================================================
 
     @PostMapping("/refreshtoken")
-    public ResponseEntity<ResponseModel<TokenRefreshResponse>> refreshToken(@Valid @RequestBody TokenRefreshRequest request) {
+    public ResponseEntity<ResponseModel<?>> refreshToken(
+            @Valid @RequestBody TokenRefreshRequest request,
+            @RequestHeader(value = "X-Device-Id", required = false) String deviceId) {
         String requestRefreshToken = request.getRefreshToken();
 
-        return refreshTokenService.findByToken(requestRefreshToken)
+        RefreshToken refreshToken = refreshTokenService.findByToken(requestRefreshToken)
                 .map(refreshTokenService::verifyExpiration)
-                .map(RefreshToken::getUser)
-                .map(user -> {
-                    String newAccessToken = jwtUtils.generateTokenFromUsername(user.getUsername());
-                    TokenRefreshResponse response = new TokenRefreshResponse(newAccessToken, requestRefreshToken);
-                    return ResponseEntity.ok(ResponseModel.success(response, "Làm mới Access Token thành công!"));
-                })
                 .orElseThrow(() -> new TokenRefreshException(requestRefreshToken,
                         "Refresh token không tồn tại trong hệ thống!"));
+
+        User user = refreshToken.getUser();
+        if (isLoggedInOnAnotherDevice(user, deviceId)) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                    .body(ResponseModel.error(SINGLE_DEVICE_DENIED_MSG));
+        }
+        activateSingleDeviceSession(user, deviceId);
+
+        String newAccessToken = jwtUtils.generateTokenFromUsername(user.getUsername());
+        TokenRefreshResponse response = new TokenRefreshResponse(newAccessToken, requestRefreshToken);
+        return ResponseEntity.ok(ResponseModel.success(response, "Làm mới Access Token thành công!"));
     }
 
     @PostMapping("/logout")
     public ResponseEntity<ResponseModel<?>> logoutUser() {
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Object principal = auth != null ? auth.getPrincipal() : null;
         if (principal instanceof UserDetailsImpl) {
             UserDetailsImpl userDetails = (UserDetailsImpl) principal;
             refreshTokenService.deleteByUserId(userDetails.getId());
+            userRepository.findById(userDetails.getId()).ifPresent(u -> {
+                u.setActiveDeviceId(null);
+                u.setActiveSessionExpiry(null);
+                userRepository.save(u);
+            });
         }
         return ResponseEntity.ok(ResponseModel.success(null, "Đăng xuất thành công!"));
     }

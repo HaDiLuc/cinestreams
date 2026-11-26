@@ -2,8 +2,10 @@ package com.vti.jwt.controller;
 
 import com.vti.jwt.dto.response.ResponseModel;
 import com.vti.jwt.exception.ResourceNotFoundException;
+import com.vti.jwt.model.AuditLog;
 import com.vti.jwt.model.EpisodeEntity;
 import com.vti.jwt.model.MovieEntity;
+import com.vti.jwt.repository.AuditLogRepository;
 import com.vti.jwt.repository.EpisodeRepository;
 import com.vti.jwt.repository.MovieRepository;
 import org.slf4j.Logger;
@@ -11,6 +13,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
@@ -29,8 +34,23 @@ public class MovieController {
     @Autowired
     private EpisodeRepository episodeRepository;
 
+    @Autowired
+    private AuditLogRepository auditLogRepository;
+
     @Value("${app.upload.video-dir:uploads/videos}")
     private String videoDirPath;
+
+    private String getCurrentUsername() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return (auth != null && auth.getName() != null) ? auth.getName() : "system_admin";
+    }
+
+    private void recordAudit(String action, String target, String details) {
+        try {
+            auditLogRepository.save(new AuditLog(getCurrentUsername(), action, target, details));
+        } catch (Exception ignored) {
+        }
+    }
 
     // ==========================================================
     // Public Endpoints for Viewers (TASK-064)
@@ -303,10 +323,12 @@ public class MovieController {
     }
 
     /**
-     * TASK-060: API Phê duyệt & Xuất bản Phim ra Trang chủ (Publish Movie API)
+     * TASK-060: API Phê duyệt & Xuất bản Phim ra Trang chủ (Quality Publish Gate)
+     * Thẩm quyền: Chỉ ADMIN tối cao sở hữu quyền phê duyệt xuất bản phim ra trang chủ (Quality Publish Gate)
      * Tiêu chí nghiệm thu: Phim phải có ít nhất 1 video tập đã transcode COMPLETED mới được chuyển sang PUBLISHED
      */
     @PatchMapping("/admin/movies/{movieId}/publish")
+    @PreAuthorize("hasRole('ADMIN') or hasAuthority('quality:publish_gate')")
     public ResponseEntity<ResponseModel<MovieEntity>> publishMovie(@PathVariable String movieId) {
         MovieEntity movie = movieRepository.findById(movieId)
                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy phim với ID: " + movieId));
@@ -323,6 +345,8 @@ public class MovieController {
         movie.setStatus("PUBLISHED");
         movie.setUpdatedAt(Instant.now());
         MovieEntity saved = movieRepository.save(movie);
+
+        recordAudit("PUBLISH_MOVIE", movie.getTitle(), "Phê duyệt xuất bản phim [" + movie.getTitle() + "] qua Quality Publish Gate ra trang chủ");
 
         return ResponseEntity.ok(ResponseModel.success(saved,
                 "Phê duyệt và xuất bản phim ra trang chủ CineStreams thành công!"));

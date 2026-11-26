@@ -70,7 +70,7 @@ public class WebSecurityConfig {
                 "http://127.0.0.1:3000"
         ));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD"));
-        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-Requested-With", "Accept", "Origin", "Range"));
+        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-Requested-With", "Accept", "Origin", "Range", "X-Device-Id"));
         configuration.setExposedHeaders(Arrays.asList("Authorization", "Content-Range", "Accept-Ranges", "Content-Length", "Content-Type"));
         configuration.setAllowCredentials(true);
         configuration.setMaxAge(3600L);
@@ -95,7 +95,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/api/watchparty/**").permitAll()
                         .requestMatchers("/api/admin/**").permitAll()
                         .requestMatchers("/api/roles/**").permitAll()
-                        .requestMatchers("/api/user/history/**").permitAll()
+                        .requestMatchers("/api/user/**").permitAll()
                         .requestMatchers("/hls/**").permitAll()
                         .requestMatchers("/uploads/**").permitAll()
                         .anyRequest().authenticated()

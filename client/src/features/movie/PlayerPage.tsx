@@ -26,9 +26,29 @@ export const PlayerPage: React.FC = () => {
     currentUser && (
       currentUser.isVip ||
       currentUser.vipTier?.toUpperCase().includes('VIP') ||
-      currentUser.roles?.some((r: string) => r.toUpperCase().includes('VIP') || r.toUpperCase().includes('ADMIN'))
+      currentUser.roles?.some((r: any) => {
+        const roleStr = (typeof r === 'object' && r?.name ? r.name : String(r)).toUpperCase();
+        return roleStr.includes('VIP') || roleStr.includes('ADMIN');
+      })
     )
   );
+
+  const isFreeUser = Boolean(
+    isAuthenticated &&
+    !isVipUser &&
+    currentUser && (
+      currentUser.roles?.some((r: any) => {
+        const roleStr = (typeof r === 'object' && r?.name ? r.name : String(r)).toUpperCase();
+        return roleStr.includes('FREE_USER') || roleStr.includes('USER');
+      }) || true
+    )
+  );
+
+  const isGuest = !isAuthenticated;
+
+  // Guest 3-minute (180s) preview modal state
+  const [showGuestPreviewEndedModal, setShowGuestPreviewEndedModal] = useState<boolean>(false);
+  const [showVipRequiredModal, setShowVipRequiredModal] = useState<boolean>(false);
 
   // Dynamic Movie & Episode State
   const [movie, setMovie] = useState<any | null>(null);
@@ -258,7 +278,16 @@ export const PlayerPage: React.FC = () => {
   // Time & Duration sync
   const handleTimeUpdate = () => {
     if (videoRef.current) {
-      setCurrentTime(videoRef.current.currentTime);
+      const current = videoRef.current.currentTime;
+      setCurrentTime(current);
+
+      // Quy tắc Role 1: GUEST chỉ được xem thử đúng 3 phút (180 giây) đầu tiên của các bộ phim
+      if (isGuest && current >= 180) {
+        videoRef.current.pause();
+        videoRef.current.currentTime = 180;
+        setIsPlaying(false);
+        setShowGuestPreviewEndedModal(true);
+      }
     }
   };
 
@@ -329,6 +358,17 @@ export const PlayerPage: React.FC = () => {
 
   // Quality switch
   const handleQualityChange = (levelIdx: number, label: string) => {
+    // Phân quyền chất lượng:
+    // FREE_USER chỉ được xem tối đa 720p. Độ phân giải 1080p và 4K Dolby Atmos chỉ dành riêng cho VIP_USER.
+    const selectedLevel = levelIdx >= 0 ? availableLevels[levelIdx] : null;
+    const isHighQuality = selectedLevel && (selectedLevel.height > 720 || label.includes('1080') || label.includes('4K') || label.includes('2160'));
+
+    if (!isVipUser && isHighQuality) {
+      setShowSettings(false);
+      setShowVipRequiredModal(true);
+      return;
+    }
+
     if (hlsRef.current) {
       hlsRef.current.currentLevel = levelIdx;
     }
@@ -716,18 +756,29 @@ export const PlayerPage: React.FC = () => {
                         {currentLevelIndex === -1 && <span className="material-symbols-outlined text-xs">check</span>}
                       </button>
 
-                      {availableLevels.map((lvl, idx) => (
-                        <button
-                          key={lvl.name + idx}
-                          onClick={() => handleQualityChange(idx, lvl.name)}
-                          className={`w-full text-left px-2 py-1.5 rounded transition-colors flex items-center justify-between ${
-                            currentLevelIndex === idx ? 'text-primary bg-primary/20 font-bold' : 'hover:bg-surface-variant'
-                          }`}
-                        >
-                          <span>{lvl.name}</span>
-                          {currentLevelIndex === idx && <span className="material-symbols-outlined text-xs">check</span>}
-                        </button>
-                      ))}
+                      {availableLevels.map((lvl, idx) => {
+                        const isHighRes = lvl.height > 720 || lvl.name.includes('1080') || lvl.name.includes('4K');
+                        const isLockedForUser = !isVipUser && isHighRes;
+                        return (
+                          <button
+                            key={lvl.name + idx}
+                            onClick={() => handleQualityChange(idx, lvl.name)}
+                            className={`w-full text-left px-2 py-1.5 rounded transition-colors flex items-center justify-between ${
+                              currentLevelIndex === idx ? 'text-primary bg-primary/20 font-bold' : 'hover:bg-surface-variant'
+                            }`}
+                          >
+                            <span className="flex items-center gap-1.5">
+                              <span>{lvl.name}</span>
+                              {isLockedForUser && (
+                                <span className="px-1 py-0.2 rounded bg-amber-500/20 text-amber-400 text-[9px] font-bold">
+                                  VIP 👑
+                                </span>
+                              )}
+                            </span>
+                            {currentLevelIndex === idx && <span className="material-symbols-outlined text-xs">check</span>}
+                          </button>
+                        );
+                      })}
                     </div>
 
                     <div className="border-t border-surface-variant/30 pt-2">
@@ -778,6 +829,81 @@ export const PlayerPage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Modal thông báo hết 3 phút xem thử cho GUEST */}
+      {showGuestPreviewEndedModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fade-in">
+          <div className="max-w-md w-full bg-surface-container-low border border-primary/40 rounded-3xl p-6 text-center shadow-2xl space-y-4">
+            <div className="w-16 h-16 rounded-2xl bg-primary/20 text-primary mx-auto flex items-center justify-center">
+              <span className="material-symbols-outlined text-3xl">timer</span>
+            </div>
+            <div className="space-y-1.5">
+              <h3 className="text-lg font-bold text-on-surface">Đã Hết 3 Phút (180 Giây) Xem Thử!</h3>
+              <p className="text-xs text-outline leading-relaxed">
+                Bạn đang trải nghiệm dưới quyền <strong className="text-white">Khách vãng lai (GUEST)</strong>.
+                Hãy đăng ký tài khoản miễn phí để thưởng thức trọn vẹn bộ phim và lưu lịch sử xem phim.
+              </p>
+            </div>
+            <div className="pt-2 flex flex-col gap-2">
+              <button
+                onClick={() => {
+                  setShowGuestPreviewEndedModal(false);
+                  navigate('/dang-ky');
+                }}
+                className="w-full py-3 rounded-xl bg-primary text-on-primary font-bold text-xs shadow-lg hover:bg-primary/90 transition-all flex items-center justify-center gap-2"
+              >
+                <span className="material-symbols-outlined text-base">how_to_reg</span>
+                <span>Đăng Ký Tài Khoản Miễn Phí (FREE_USER)</span>
+              </button>
+              <button
+                onClick={() => {
+                  setShowGuestPreviewEndedModal(false);
+                  navigate('/dang-nhap');
+                }}
+                className="w-full py-2.5 rounded-xl bg-surface-container hover:bg-surface-variant text-zinc-300 text-xs font-semibold transition-colors"
+              >
+                Đã có tài khoản? Đăng nhập ngay
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal yêu cầu VIP cho độ phân giải 1080p / 4K */}
+      {showVipRequiredModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fade-in">
+          <div className="max-w-md w-full bg-surface-container-low border border-amber-500/40 rounded-3xl p-6 text-center shadow-2xl space-y-4">
+            <div className="w-16 h-16 rounded-2xl bg-amber-500/20 text-amber-400 mx-auto flex items-center justify-center">
+              <span className="material-symbols-outlined text-3xl">workspace_premium</span>
+            </div>
+            <div className="space-y-1.5">
+              <h3 className="text-lg font-bold text-amber-200">Đặc Quyền Hội Viên VIP Cao Cấp</h3>
+              <p className="text-xs text-outline leading-relaxed">
+                Thành viên miễn phí (FREE_USER) hỗ trợ độ phân giải tối đa <strong className="text-white">720p</strong>.
+                Độ phân giải siêu nét <strong className="text-amber-400">1080p Full HD</strong> và <strong className="text-amber-400">4K Dolby Atmos</strong> độc quyền dành cho <strong className="text-amber-300">Hội viên VIP (VIP_USER)</strong>.
+              </p>
+            </div>
+            <div className="pt-2 flex flex-col gap-2">
+              <button
+                onClick={() => {
+                  setShowVipRequiredModal(false);
+                  openPaymentModal();
+                }}
+                className="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-black font-bold text-xs shadow-lg hover:brightness-110 transition-all flex items-center justify-center gap-2"
+              >
+                <span className="material-symbols-outlined text-base">verified</span>
+                <span>Nâng Cấp Gói VIP Ngay</span>
+              </button>
+              <button
+                onClick={() => setShowVipRequiredModal(false)}
+                className="w-full py-2.5 rounded-xl bg-surface-container hover:bg-surface-variant text-zinc-300 text-xs font-semibold transition-colors"
+              >
+                Đóng
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -6,7 +6,9 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Document(collection = "users")
@@ -33,7 +35,17 @@ public class User {
 
     private boolean verified = false;
 
+    private Boolean active = true;
+
     private Instant verificationExpiryDate;
+
+    private String activeDeviceId;
+
+    private Instant activeSessionExpiry;
+
+    private String avatar;
+
+    private List<String> watchlist = new ArrayList<>();
 
     private Instant createdAt = Instant.now();
 
@@ -47,6 +59,7 @@ public class User {
         this.roles = new HashSet<>();
         this.permissions = new HashSet<>();
         this.verified = false;
+        this.active = true;
         this.createdAt = Instant.now();
     }
 
@@ -114,12 +127,52 @@ public class User {
         this.verified = verified;
     }
 
+    public boolean isActive() {
+        return active == null || Boolean.TRUE.equals(active);
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active != null ? active : true;
+    }
+
     public Instant getVerificationExpiryDate() {
         return verificationExpiryDate;
     }
 
     public void setVerificationExpiryDate(Instant verificationExpiryDate) {
         this.verificationExpiryDate = verificationExpiryDate;
+    }
+
+    public String getActiveDeviceId() {
+        return activeDeviceId;
+    }
+
+    public void setActiveDeviceId(String activeDeviceId) {
+        this.activeDeviceId = activeDeviceId;
+    }
+
+    public Instant getActiveSessionExpiry() {
+        return activeSessionExpiry;
+    }
+
+    public void setActiveSessionExpiry(Instant activeSessionExpiry) {
+        this.activeSessionExpiry = activeSessionExpiry;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public List<String> getWatchlist() {
+        return watchlist;
+    }
+
+    public void setWatchlist(List<String> watchlist) {
+        this.watchlist = watchlist;
     }
 
     public Instant getCreatedAt() {

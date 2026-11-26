@@ -7,13 +7,19 @@ import { LatestMovies } from './LatestMovies';
 import { SeriesVip } from './SeriesVip';
 import { StreamingTechBento } from './StreamingTechBento';
 import { useMovieStore } from '../../stores/useMovieStore';
+import { useAuthStore } from '../../stores/useAuthStore';
 
 export const HomePage: React.FC = () => {
-  const { fetchDynamicMovies } = useMovieStore();
+  const { fetchDynamicMovies, fetchUserData } = useMovieStore();
+  const { isAuthenticated } = useAuthStore();
 
   useEffect(() => {
-    fetchDynamicMovies();
-  }, [fetchDynamicMovies]);
+    fetchDynamicMovies().then(() => {
+      if (isAuthenticated) {
+        fetchUserData();
+      }
+    });
+  }, [fetchDynamicMovies, fetchUserData, isAuthenticated]);
 
   return (
     <div className="flex flex-col w-full text-on-surface">

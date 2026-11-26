@@ -116,7 +116,7 @@ export const AdminCmsPage: React.FC = () => {
       setAvailableGenres((prev) => [...prev, trimmed]);
       try {
         await apiClient.post('/categories', { name: trimmed, description: `Thể loại phim ${trimmed}` });
-      } catch {}
+      } catch { }
     }
     setCustomGenreInput('');
   };
@@ -187,7 +187,11 @@ export const AdminCmsPage: React.FC = () => {
     userPerms.some((p) => ['movie_manage', 'upload_manage', 'user:create', 'category:create', 'content:edit'].includes(p))
   );
 
-  const canPublishMovie = Boolean(isSuperAdmin || isContentEditor);
+  // Phê duyệt xuất bản phim ra trang chủ (Quality Publish Gate): Độc quyền dành riêng cho ADMIN
+  const canPublishMovie = Boolean(
+    isSuperAdmin ||
+    userPerms.some((p) => ['quality:publish_gate', 'role_manage'].includes(p))
+  );
 
   const location = useLocation();
   const [searchParams] = useSearchParams();
@@ -780,11 +784,10 @@ export const AdminCmsPage: React.FC = () => {
         <div className="flex items-center gap-2 border-b border-surface-variant/40 pb-2">
           <button
             onClick={() => setActiveTab('movies')}
-            className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition-all ${
-              activeTab === 'movies'
+            className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition-all ${activeTab === 'movies'
                 ? 'bg-primary text-on-primary shadow-[0_0_15px_rgba(229,9,20,0.35)]'
                 : 'bg-surface-container hover:bg-surface-variant text-outline hover:text-on-surface'
-            }`}
+              }`}
           >
             <span className="material-symbols-outlined text-base">movie</span>
             <span>🎬 Quản Lý & Đăng Tải Phim</span>
@@ -794,11 +797,10 @@ export const AdminCmsPage: React.FC = () => {
               setActiveTab('users');
               if (usersList.length === 0) fetchUsers();
             }}
-            className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition-all ${
-              activeTab === 'users'
+            className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition-all ${activeTab === 'users'
                 ? 'bg-primary text-on-primary shadow-[0_0_15px_rgba(229,9,20,0.35)]'
                 : 'bg-surface-container hover:bg-surface-variant text-outline hover:text-on-surface'
-            }`}
+              }`}
           >
             <span className="material-symbols-outlined text-base">manage_accounts</span>
             <span>🛡️ Phân Quyền & Quản Lý User ({usersList.length > 0 ? usersList.length : '...'})</span>
@@ -809,11 +811,10 @@ export const AdminCmsPage: React.FC = () => {
       {/* Toast Notification */}
       {notification && (
         <div
-          className={`p-3 rounded-xl text-xs flex items-center justify-between border ${
-            notification.type === 'success'
+          className={`p-3 rounded-xl text-xs flex items-center justify-between border ${notification.type === 'success'
               ? 'bg-primary/15 border-primary text-primary'
               : 'bg-error/20 border-error text-error'
-          }`}
+            }`}
         >
           <div className="flex items-center gap-2">
             <span className="material-symbols-outlined text-sm">
@@ -831,216 +832,215 @@ export const AdminCmsPage: React.FC = () => {
       {activeTab === 'movies' && (
         <div className="space-y-6">
           {/* KPI Stats (TASK-061) */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="p-4 rounded-2xl bg-surface-container-low border border-surface-variant/30 flex items-center gap-3">
-          <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
-            <span className="material-symbols-outlined text-2xl">movie</span>
-          </div>
-          <div>
-            <p className="text-xs text-outline font-medium">Tổng số phim</p>
-            <p className="text-xl font-bold font-mono">{movies.length}</p>
-          </div>
-        </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="p-4 rounded-2xl bg-surface-container-low border border-surface-variant/30 flex items-center gap-3">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                <span className="material-symbols-outlined text-2xl">movie</span>
+              </div>
+              <div>
+                <p className="text-xs text-outline font-medium">Tổng số phim</p>
+                <p className="text-xl font-bold font-mono">{movies.length}</p>
+              </div>
+            </div>
 
-        <div className="p-4 rounded-2xl bg-surface-container-low border border-surface-variant/30 flex items-center gap-3">
-          <div className="w-12 h-12 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center">
-            <span className="material-symbols-outlined text-2xl">publish</span>
+            <div className="p-4 rounded-2xl bg-surface-container-low border border-surface-variant/30 flex items-center gap-3">
+              <div className="w-12 h-12 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center">
+                <span className="material-symbols-outlined text-2xl">publish</span>
+              </div>
+              <div>
+                <p className="text-xs text-outline font-medium">Đã xuất bản</p>
+                <p className="text-xl font-bold font-mono text-green-400">
+                  {movies.filter((m) => m.status === 'PUBLISHED').length}
+                </p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-surface-container-low border border-surface-variant/30 flex items-center gap-3">
+              <div className="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center">
+                <span className="material-symbols-outlined text-2xl">edit_document</span>
+              </div>
+              <div>
+                <p className="text-xs text-outline font-medium">Bản nháp (Draft)</p>
+                <p className="text-xl font-bold font-mono text-amber-400">
+                  {movies.filter((m) => m.status === 'DRAFT').length}
+                </p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-surface-container-low border border-surface-variant/30 flex items-center gap-3">
+              <div className="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center">
+                <span className="material-symbols-outlined text-2xl">cloud_sync</span>
+              </div>
+              <div>
+                <p className="text-xs text-outline font-medium">Video HLS Ready</p>
+                <p className="text-xl font-bold font-mono text-sky-400">
+                  {movies.filter((m) => m.streamUrl && m.streamUrl.includes('hls')).length}
+                </p>
+              </div>
+            </div>
           </div>
-          <div>
-            <p className="text-xs text-outline font-medium">Đã xuất bản</p>
-            <p className="text-xl font-bold font-mono text-green-400">
-              {movies.filter((m) => m.status === 'PUBLISHED').length}
-            </p>
+
+          {/* Filter and Search Bar (TASK-061) */}
+          <div className="flex flex-col sm:flex-row items-center gap-3 bg-surface-container-low p-3 rounded-2xl border border-surface-variant/30">
+            <div className="relative flex-1 w-full">
+              <span className="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-lg">
+                search
+              </span>
+              <input
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Tìm kiếm phim theo tiêu đề hoặc tên gốc..."
+                className="w-full h-10 pl-10 pr-4 rounded-xl bg-surface-container text-xs text-on-surface outline-none border border-surface-variant/40 focus:border-primary"
+              />
+            </div>
+
+            <div className="flex items-center gap-2 w-full sm:w-auto">
+              <select
+                value={statusFilter}
+                onChange={(e) => setStatusFilter(e.target.value as any)}
+                className="h-10 px-3 rounded-xl bg-surface-container text-xs text-on-surface outline-none border border-surface-variant/40"
+              >
+                <option value="ALL">Tất cả trạng thái</option>
+                <option value="PUBLISHED">Đã xuất bản (PUBLISHED)</option>
+                <option value="DRAFT">Bản nháp (DRAFT)</option>
+              </select>
+
+              <select
+                value={genreFilter}
+                onChange={(e) => setGenreFilter(e.target.value)}
+                className="h-10 px-3 rounded-xl bg-surface-container text-xs text-on-surface outline-none border border-surface-variant/40"
+              >
+                <option value="ALL">Tất cả thể loại</option>
+                {availableGenres.map((g) => (
+                  <option key={g} value={g}>{g}</option>
+                ))}
+              </select>
+            </div>
           </div>
-        </div>
 
-        <div className="p-4 rounded-2xl bg-surface-container-low border border-surface-variant/30 flex items-center gap-3">
-          <div className="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center">
-            <span className="material-symbols-outlined text-2xl">edit_document</span>
-          </div>
-          <div>
-            <p className="text-xs text-outline font-medium">Bản nháp (Draft)</p>
-            <p className="text-xl font-bold font-mono text-amber-400">
-              {movies.filter((m) => m.status === 'DRAFT').length}
-            </p>
-          </div>
-        </div>
+          {/* Movies Table (TASK-061) */}
+          <div className="rounded-2xl bg-surface-container-low border border-surface-variant/30 overflow-hidden shadow-xl">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs text-on-surface">
+                <thead className="bg-surface-container uppercase text-[10px] tracking-wider text-outline border-b border-surface-variant/30">
+                  <tr>
+                    <th className="py-3 px-4">Poster / Tên Phim</th>
+                    <th className="py-3 px-3">Thể Loại</th>
+                    <th className="py-3 px-3">Loại</th>
+                    <th className="py-3 px-3">Năm / Điểm</th>
+                    <th className="py-3 px-3">Trạng Thái</th>
+                    <th className="py-3 px-4 text-right">Thao Tác</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-surface-variant/20">
+                  {filteredMovies.map((m) => (
+                    <tr key={m.id} className="hover:bg-surface-container/40 transition-colors">
+                      <td className="py-3 px-4 flex items-center gap-3">
+                        <img
+                          src={m.poster || m.backdrop}
+                          alt={m.title}
+                          className="w-10 h-14 object-cover rounded-lg bg-zinc-800 shrink-0"
+                        />
+                        <div>
+                          <p className="font-bold text-sm text-white line-clamp-1">{m.title}</p>
+                          <p className="text-[11px] text-outline line-clamp-1">{m.originalTitle || m.slug}</p>
+                        </div>
+                      </td>
 
-        <div className="p-4 rounded-2xl bg-surface-container-low border border-surface-variant/30 flex items-center gap-3">
-          <div className="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center">
-            <span className="material-symbols-outlined text-2xl">cloud_sync</span>
-          </div>
-          <div>
-            <p className="text-xs text-outline font-medium">Video HLS Ready</p>
-            <p className="text-xl font-bold font-mono text-sky-400">
-              {movies.filter((m) => m.streamUrl && m.streamUrl.includes('hls')).length}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Filter and Search Bar (TASK-061) */}
-      <div className="flex flex-col sm:flex-row items-center gap-3 bg-surface-container-low p-3 rounded-2xl border border-surface-variant/30">
-        <div className="relative flex-1 w-full">
-          <span className="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-lg">
-            search
-          </span>
-          <input
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Tìm kiếm phim theo tiêu đề hoặc tên gốc..."
-            className="w-full h-10 pl-10 pr-4 rounded-xl bg-surface-container text-xs text-on-surface outline-none border border-surface-variant/40 focus:border-primary"
-          />
-        </div>
-
-        <div className="flex items-center gap-2 w-full sm:w-auto">
-          <select
-            value={statusFilter}
-            onChange={(e) => setStatusFilter(e.target.value as any)}
-            className="h-10 px-3 rounded-xl bg-surface-container text-xs text-on-surface outline-none border border-surface-variant/40"
-          >
-            <option value="ALL">Tất cả trạng thái</option>
-            <option value="PUBLISHED">Đã xuất bản (PUBLISHED)</option>
-            <option value="DRAFT">Bản nháp (DRAFT)</option>
-          </select>
-
-          <select
-            value={genreFilter}
-            onChange={(e) => setGenreFilter(e.target.value)}
-            className="h-10 px-3 rounded-xl bg-surface-container text-xs text-on-surface outline-none border border-surface-variant/40"
-          >
-            <option value="ALL">Tất cả thể loại</option>
-            {availableGenres.map((g) => (
-              <option key={g} value={g}>{g}</option>
-            ))}
-          </select>
-        </div>
-      </div>
-
-      {/* Movies Table (TASK-061) */}
-      <div className="rounded-2xl bg-surface-container-low border border-surface-variant/30 overflow-hidden shadow-xl">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs text-on-surface">
-            <thead className="bg-surface-container uppercase text-[10px] tracking-wider text-outline border-b border-surface-variant/30">
-              <tr>
-                <th className="py-3 px-4">Poster / Tên Phim</th>
-                <th className="py-3 px-3">Thể Loại</th>
-                <th className="py-3 px-3">Loại</th>
-                <th className="py-3 px-3">Năm / Điểm</th>
-                <th className="py-3 px-3">Trạng Thái</th>
-                <th className="py-3 px-4 text-right">Thao Tác</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-surface-variant/20">
-              {filteredMovies.map((m) => (
-                <tr key={m.id} className="hover:bg-surface-container/40 transition-colors">
-                  <td className="py-3 px-4 flex items-center gap-3">
-                    <img
-                      src={m.poster || m.backdrop}
-                      alt={m.title}
-                      className="w-10 h-14 object-cover rounded-lg bg-zinc-800 shrink-0"
-                    />
-                    <div>
-                      <p className="font-bold text-sm text-white line-clamp-1">{m.title}</p>
-                      <p className="text-[11px] text-outline line-clamp-1">{m.originalTitle || m.slug}</p>
-                    </div>
-                  </td>
-
-                  <td className="py-3 px-3">
-                    <div className="flex flex-wrap gap-1 max-w-[170px]">
-                      {m.genres && m.genres.length > 0 ? (
-                        <>
-                          {m.genres.slice(0, 2).map((g) => (
-                            <span key={g} className="px-2 py-0.5 rounded bg-surface-container text-[10px] text-zinc-300 font-medium">
-                              {g}
-                            </span>
-                          ))}
-                          {m.genres.length > 2 && (
-                            <span className="px-1.5 py-0.5 rounded bg-primary/20 text-primary text-[10px] font-bold" title={m.genres.slice(2).join(', ')}>
-                              +{m.genres.length - 2}
-                            </span>
+                      <td className="py-3 px-3">
+                        <div className="flex flex-wrap gap-1 max-w-[170px]">
+                          {m.genres && m.genres.length > 0 ? (
+                            <>
+                              {m.genres.slice(0, 2).map((g) => (
+                                <span key={g} className="px-2 py-0.5 rounded bg-surface-container text-[10px] text-zinc-300 font-medium">
+                                  {g}
+                                </span>
+                              ))}
+                              {m.genres.length > 2 && (
+                                <span className="px-1.5 py-0.5 rounded bg-primary/20 text-primary text-[10px] font-bold" title={m.genres.slice(2).join(', ')}>
+                                  +{m.genres.length - 2}
+                                </span>
+                              )}
+                            </>
+                          ) : (
+                            <span className="text-[10px] text-outline italic">Chưa phân loại</span>
                           )}
-                        </>
-                      ) : (
-                        <span className="text-[10px] text-outline italic">Chưa phân loại</span>
-                      )}
-                    </div>
-                  </td>
+                        </div>
+                      </td>
 
-                  <td className="py-3 px-3">
-                    <span className="capitalize font-mono">{m.type}</span>
-                  </td>
+                      <td className="py-3 px-3">
+                        <span className="capitalize font-mono">{m.type}</span>
+                      </td>
 
-                  <td className="py-3 px-3 font-mono">
-                    {m.releaseYear} • <span className="text-primary font-bold">★ {m.imdbRating}</span>
-                  </td>
+                      <td className="py-3 px-3 font-mono">
+                        {m.releaseYear} • <span className="text-primary font-bold">★ {m.imdbRating}</span>
+                      </td>
 
-                  <td className="py-3 px-3">
-                    <span
-                      className={`px-2.5 py-1 rounded-full text-[10px] font-bold ${
-                        m.status === 'PUBLISHED'
-                          ? 'bg-green-500/20 text-green-400 border border-green-500/30'
-                          : 'bg-amber-500/20 text-amber-400 border border-amber-500/30'
-                      }`}
-                    >
-                      {m.status === 'PUBLISHED' ? 'Đã xuất bản' : 'Bản nháp'}
-                    </span>
-                  </td>
-
-                  <td className="py-3 px-4 text-right">
-                    <div className="flex items-center justify-end gap-1.5">
-                      {/* Quản lý tập & Upload Video (TASK-063) */}
-                      <button
-                        onClick={() => handleOpenEpisodes(m)}
-                        className="p-1.5 rounded-lg bg-surface-container hover:bg-surface-variant text-primary"
-                        title="Quản lý tập & Tải video"
-                      >
-                        <span className="material-symbols-outlined text-base">video_library</span>
-                      </button>
-
-                      {/* Phê duyệt / Xuất bản (TASK-060) */}
-                      {m.status !== 'PUBLISHED' && (
-                        <button
-                          onClick={() => handlePublishMovie(m.id)}
-                          className="p-1.5 rounded-lg bg-green-500/20 hover:bg-green-500/30 text-green-400"
-                          title="Phê duyệt & Xuất bản ra trang chủ"
+                      <td className="py-3 px-3">
+                        <span
+                          className={`px-2.5 py-1 rounded-full text-[10px] font-bold ${m.status === 'PUBLISHED'
+                              ? 'bg-green-500/20 text-green-400 border border-green-500/30'
+                              : 'bg-amber-500/20 text-amber-400 border border-amber-500/30'
+                            }`}
                         >
-                          <span className="material-symbols-outlined text-base">check_circle</span>
-                        </button>
-                      )}
+                          {m.status === 'PUBLISHED' ? 'Đã xuất bản' : 'Bản nháp'}
+                        </span>
+                      </td>
 
-                      {/* Sửa (TASK-062) */}
-                      <button
-                        onClick={() => {
-                          setEditingMovie({ ...m, genres: Array.isArray(m.genres) ? m.genres : [] });
-                          setCustomGenreInput('');
-                          setIsMovieModalOpen(true);
-                        }}
-                        className="p-1.5 rounded-lg bg-surface-container hover:bg-surface-variant text-zinc-300"
-                        title="Chỉnh sửa metadata"
-                      >
-                        <span className="material-symbols-outlined text-base">edit</span>
-                      </button>
+                      <td className="py-3 px-4 text-right">
+                        <div className="flex items-center justify-end gap-1.5">
+                          {/* Quản lý tập & Upload Video (TASK-063) */}
+                          <button
+                            onClick={() => handleOpenEpisodes(m)}
+                            className="p-1.5 rounded-lg bg-surface-container hover:bg-surface-variant text-primary"
+                            title="Quản lý tập & Tải video"
+                          >
+                            <span className="material-symbols-outlined text-base">video_library</span>
+                          </button>
 
-                      {/* Xóa */}
-                      <button
-                        onClick={() => handleDeleteMovie(m.id)}
-                        className="p-1.5 rounded-lg bg-error/15 hover:bg-error/30 text-error"
-                        title="Xóa phim"
-                      >
-                        <span className="material-symbols-outlined text-base">delete</span>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                          {/* Phê duyệt / Xuất bản (TASK-060) */}
+                          {m.status !== 'PUBLISHED' && (
+                            <button
+                              onClick={() => handlePublishMovie(m.id)}
+                              className="p-1.5 rounded-lg bg-green-500/20 hover:bg-green-500/30 text-green-400"
+                              title="Phê duyệt & Xuất bản ra trang chủ"
+                            >
+                              <span className="material-symbols-outlined text-base">check_circle</span>
+                            </button>
+                          )}
+
+                          {/* Sửa (TASK-062) */}
+                          <button
+                            onClick={() => {
+                              setEditingMovie({ ...m, genres: Array.isArray(m.genres) ? m.genres : [] });
+                              setCustomGenreInput('');
+                              setIsMovieModalOpen(true);
+                            }}
+                            className="p-1.5 rounded-lg bg-surface-container hover:bg-surface-variant text-zinc-300"
+                            title="Chỉnh sửa metadata"
+                          >
+                            <span className="material-symbols-outlined text-base">edit</span>
+                          </button>
+
+                          {/* Xóa */}
+                          <button
+                            onClick={() => handleDeleteMovie(m.id)}
+                            className="p-1.5 rounded-lg bg-error/15 hover:bg-error/30 text-error"
+                            title="Xóa phim"
+                          >
+                            <span className="material-symbols-outlined text-base">delete</span>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  )}
+      )}
 
       {/* ================= TAB 2: QUẢN LÝ PHÂN QUYỀN USER (CHO ADMIN) ================= */}
       {isSuperAdmin && activeTab === 'users' && (
@@ -1565,11 +1565,10 @@ export const AdminCmsPage: React.FC = () => {
                               : [...current, genre];
                             setEditingMovie({ ...editingMovie, genres: updated });
                           }}
-                          className={`px-2.5 py-1 rounded-lg text-xs font-medium border transition-all flex items-center gap-1 ${
-                            isSelected
+                          className={`px-2.5 py-1 rounded-lg text-xs font-medium border transition-all flex items-center gap-1 ${isSelected
                               ? 'bg-primary text-white border-primary shadow-sm shadow-primary/30'
                               : 'bg-surface-container-low text-zinc-300 border-surface-variant/40 hover:border-primary/50 hover:text-white'
-                          }`}
+                            }`}
                         >
                           <span className="material-symbols-outlined text-[13px]">
                             {isSelected ? 'check' : 'add'}
@@ -1994,11 +1993,10 @@ export const AdminCmsPage: React.FC = () => {
                     <div
                       key={ep.id}
                       onClick={() => setSelectedEpisodeId(ep.id)}
-                      className={`p-3 rounded-xl flex items-center justify-between text-xs cursor-pointer transition-all border group ${
-                        isSelected
+                      className={`p-3 rounded-xl flex items-center justify-between text-xs cursor-pointer transition-all border group ${isSelected
                           ? 'bg-primary/10 border-primary ring-1 ring-primary'
                           : 'bg-surface-container border-surface-variant/30 hover:border-surface-variant'
-                      }`}
+                        }`}
                     >
                       <div className="min-w-0 flex-1 mr-2">
                         <div className="flex items-center gap-1.5 truncate">

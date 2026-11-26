@@ -4,23 +4,18 @@
 
 # ----------------- Node.js & Frontend -----------------
 node_modules/
-**/node_modules/
 client/node_modules/
 dist/
-**/dist/
 client/dist/
 .npm/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
 
 # ----------------- Java & Maven -----------------
 target/
-**/target/
 server/target/
-Java-SpringBoot-JWT-Lab2/
 *.class
 *.jar
 *.war
@@ -35,31 +30,20 @@ server/uploads/temp/*
 !server/uploads/temp/.gitkeep
 server/uploads/videos/*
 !server/uploads/videos/.gitkeep
-uploads/temp/*
-!uploads/temp/.gitkeep
-uploads/videos/*
-!uploads/videos/.gitkeep
-
-# Không commit các file media dung lượng lớn
-*.mp4
-*.ts
-*.m3u8
-*.mov
-*.avi
-*.mkv
-*.webm
 
 # ----------------- Environment & Secrets -----------------
 .env
-.env.local
-.env.*.local
-**/.env
-**/.env.local
-!**/.env.example
+.env.*
+!.env.example
+*.env
+client/.env*
+!client/.env.example
+server/.env*
+!server/.env.example
+application-local.properties
+server/src/main/resources/application-local.properties
 *.pem
 *.key
-*.backup
-**/application-local.properties
 
 # ----------------- IDEs & Editors -----------------
 .idea/
@@ -72,9 +56,6 @@ uploads/videos/*
 *.njsproj
 *.sln
 *.sw?
-.project
-.classpath
-.settings/
 
 # ----------------- Operating System Junk -----------------
 .DS_Store
@@ -86,10 +67,10 @@ ehthumbs.db
 Thumbs.db
 __MACOSX/
 *.tmp
-*.log
 
 # ----------------- Archive Files -----------------
 *.zip
 *.tar.gz
 *.rar
 *.7z
+

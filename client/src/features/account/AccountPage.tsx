@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../../stores/useAuthStore';
 import { useMovieStore } from '../../stores/useMovieStore';
@@ -17,7 +17,13 @@ const PRESET_AVATARS = [
 
 export const AccountPage: React.FC = () => {
   const { currentUser, isAuthenticated, toggleKidsMode, openAuthModal, updateAvatar } = useAuthStore();
-  const { watchlist, continueWatching, removeContinueWatching, movies } = useMovieStore();
+  const { watchlist, continueWatching, removeContinueWatching, movies, fetchUserData } = useMovieStore();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      fetchUserData();
+    }
+  }, [isAuthenticated, fetchUserData]);
   const { openPaymentModal } = useVipStore();
   const [activeTab, setActiveTab] = useState<'watchlist' | 'history'>('watchlist');
   const navigate = useNavigate();

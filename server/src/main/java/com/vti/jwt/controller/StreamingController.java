@@ -1,9 +1,12 @@
 package com.vti.jwt.controller;
 
 import com.vti.jwt.dto.response.ResponseModel;
+import com.vti.jwt.model.User;
 import com.vti.jwt.model.WatchHistory;
+import com.vti.jwt.repository.UserRepository;
 import com.vti.jwt.repository.WatchHistoryRepository;
 import com.vti.jwt.security.jwt.JwtUtils;
+import com.vti.jwt.security.services.UserDetailsImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +15,8 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.ResourceRegion;
 import org.springframework.http.*;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
@@ -32,6 +37,17 @@ public class StreamingController {
 
     @Autowired
     private WatchHistoryRepository watchHistoryRepository;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    private String resolveUserId(String fallbackUserId) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null && auth.getPrincipal() instanceof UserDetailsImpl userDetails) {
+            return userDetails.getId();
+        }
+        return fallbackUserId;
+    }
 
     @Value("${app.upload.video-dir:uploads/videos}")
     private String videoDirPath;
@@ -185,11 +201,12 @@ public class StreamingController {
             @RequestParam double currentSeconds,
             @RequestParam double totalSeconds) {
 
+        String resolvedUserId = resolveUserId(userId);
         int percent = totalSeconds > 0 ? (int) Math.min(100, (currentSeconds / totalSeconds) * 100) : 0;
 
-        WatchHistory history = watchHistoryRepository.findByUserIdAndMovieId(userId, movieId)
+        WatchHistory history = watchHistoryRepository.findByUserIdAndMovieId(resolvedUserId, movieId)
                 .orElse(WatchHistory.builder()
-                        .userId(userId)
+                        .userId(resolvedUserId)
                         .movieId(movieId)
                         .episodeId(episodeId)
                         .build());
@@ -204,6 +221,17 @@ public class StreamingController {
     }
 
     /**
+     * Lấy toàn bộ danh sách lịch sử xem (Tiếp tục xem) của người dùng
+     */
+    @GetMapping("/user/history")
+    public ResponseEntity<ResponseModel<List<WatchHistory>>> getAllWatchHistory(
+            @RequestParam(required = false, defaultValue = "user-vip-001") String userId) {
+        String resolvedUserId = resolveUserId(userId);
+        List<WatchHistory> list = watchHistoryRepository.findAllByUserIdOrderByUpdatedAtDesc(resolvedUserId);
+        return ResponseEntity.ok(ResponseModel.success(list, "Lấy danh sách lịch sử xem thành công!"));
+    }
+
+    /**
      * Lấy mốc xem dở của một phim
      */
     @GetMapping("/user/history/{movieId}")
@@ -211,9 +239,91 @@ public class StreamingController {
             @PathVariable String movieId,
             @RequestParam(required = false, defaultValue = "user-vip-001") String userId) {
 
-        Optional<WatchHistory> history = watchHistoryRepository.findByUserIdAndMovieId(userId, movieId);
+        String resolvedUserId = resolveUserId(userId);
+        Optional<WatchHistory> history = watchHistoryRepository.findByUserIdAndMovieId(resolvedUserId, movieId);
         return history.map(h -> ResponseEntity.ok(ResponseModel.success(h, "Lấy mốc xem dở thành công!")))
                 .orElseGet(() -> ResponseEntity.ok(ResponseModel.success(null, "Chưa có lịch sử xem phim này.")));
+    }
+
+    /**
+     * Xóa một phim khỏi lịch sử tiếp tục xem
+     */
+    @DeleteMapping("/user/history/{movieId}")
+    public ResponseEntity<ResponseModel<?>> deleteWatchHistory(
+            @PathVariable String movieId,
+            @RequestParam(required = false, defaultValue = "user-vip-001") String userId) {
+        String resolvedUserId = resolveUserId(userId);
+        watchHistoryRepository.findByUserIdAndMovieId(resolvedUserId, movieId)
+                .ifPresent(watchHistoryRepository::delete);
+        return ResponseEntity.ok(ResponseModel.success(null, "Đã xóa khỏi lịch sử xem!"));
+    }
+
+    /**
+     * Lấy danh sách phim yêu thích (Watchlist) của người dùng
+     */
+    @GetMapping("/user/watchlist")
+    public ResponseEntity<ResponseModel<List<String>>> getWatchlist() {
+        String resolvedUserId = resolveUserId("");
+        if (resolvedUserId == null || resolvedUserId.isBlank()) {
+            return ResponseEntity.ok(ResponseModel.success(List.of(), "Chưa đăng nhập."));
+        }
+        List<String> watchlist = userRepository.findById(resolvedUserId)
+                .map(u -> u.getWatchlist() != null ? u.getWatchlist() : List.<String>of())
+                .orElse(List.of());
+        return ResponseEntity.ok(ResponseModel.success(watchlist, "Lấy danh sách yêu thích thành công!"));
+    }
+
+    /**
+     * Thêm / xóa phim khỏi danh sách yêu thích (Watchlist)
+     */
+    @PostMapping("/user/watchlist/{movieId}")
+    public ResponseEntity<ResponseModel<List<String>>> toggleWatchlist(@PathVariable String movieId) {
+        String resolvedUserId = resolveUserId("");
+        if (resolvedUserId == null || resolvedUserId.isBlank()) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(ResponseModel.error("Vui lòng đăng nhập để lưu phim yêu thích!"));
+        }
+        Optional<User> userOpt = userRepository.findById(resolvedUserId);
+        if (userOpt.isEmpty()) {
+            return ResponseEntity.badRequest().body(ResponseModel.error("Không tìm thấy người dùng!"));
+        }
+        User user = userOpt.get();
+        List<String> list = user.getWatchlist() != null ? new ArrayList<>(user.getWatchlist()) : new ArrayList<>();
+        boolean added;
+        if (list.contains(movieId)) {
+            list.remove(movieId);
+            added = false;
+        } else {
+            list.add(movieId);
+            added = true;
+        }
+        user.setWatchlist(list);
+        userRepository.save(user);
+        return ResponseEntity.ok(ResponseModel.success(list, added ? "Đã thêm vào danh sách yêu thích!" : "Đã xóa khỏi danh sách yêu thích!"));
+    }
+
+    /**
+     * Cập nhật ảnh đại diện (Avatar) cho tài khoản người dùng
+     */
+    @PutMapping("/user/avatar")
+    public ResponseEntity<ResponseModel<String>> updateAvatar(@RequestBody Map<String, String> body) {
+        String resolvedUserId = resolveUserId("");
+        if (resolvedUserId == null || resolvedUserId.isBlank()) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(ResponseModel.error("Vui lòng đăng nhập để cập nhật ảnh đại diện!"));
+        }
+        String avatarUrl = body != null ? body.get("avatar") : null;
+        if (avatarUrl == null || avatarUrl.isBlank()) {
+            return ResponseEntity.badRequest().body(ResponseModel.error("Đường dẫn ảnh đại diện không hợp lệ!"));
+        }
+        Optional<User> userOpt = userRepository.findById(resolvedUserId);
+        if (userOpt.isEmpty()) {
+            return ResponseEntity.badRequest().body(ResponseModel.error("Không tìm thấy người dùng!"));
+        }
+        User user = userOpt.get();
+        user.setAvatar(avatarUrl);
+        userRepository.save(user);
+        return ResponseEntity.ok(ResponseModel.success(avatarUrl, "Cập nhật ảnh đại diện thành công!"));
     }
 
     private File findVideoFile(String videoId) {

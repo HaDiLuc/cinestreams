@@ -49,11 +49,12 @@ export const CineAiPage: React.FC = () => {
     syncKnowledgeWithApi();
   }, []);
 
+  /*
   // Tự động cuộn xuống khi đang stream phản hồi
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, isStreaming, isThinking]);
-
+*/
   const handleSend = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
     if (!inputPrompt.trim() || isThinking || isStreaming) return;
@@ -184,33 +185,30 @@ export const CineAiPage: React.FC = () => {
         <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none text-xs">
           <button
             onClick={() => setActiveMode('mood')}
-            className={`px-4 py-2.5 rounded-xl font-medium flex items-center gap-2 whitespace-nowrap transition-all border ${
-              activeMode === 'mood'
-                ? 'bg-surface-container-high text-primary border-primary/50 shadow-sm shadow-primary/20'
-                : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-transparent'
-            }`}
+            className={`px-4 py-2.5 rounded-xl font-medium flex items-center gap-2 whitespace-nowrap transition-all border ${activeMode === 'mood'
+              ? 'bg-surface-container-high text-primary border-primary/50 shadow-sm shadow-primary/20'
+              : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-transparent'
+              }`}
           >
             <span className="material-symbols-outlined text-base">forum</span>
             <span>💬 Trò Chuyện & Gợi Ý Cảm Xúc</span>
           </button>
           <button
             onClick={() => setActiveMode('explainer')}
-            className={`px-4 py-2.5 rounded-xl font-medium flex items-center gap-2 whitespace-nowrap transition-all border ${
-              activeMode === 'explainer'
-                ? 'bg-surface-container-high text-primary border-primary/50 shadow-sm shadow-primary/20'
-                : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-transparent'
-            }`}
+            className={`px-4 py-2.5 rounded-xl font-medium flex items-center gap-2 whitespace-nowrap transition-all border ${activeMode === 'explainer'
+              ? 'bg-surface-container-high text-primary border-primary/50 shadow-sm shadow-primary/20'
+              : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-transparent'
+              }`}
           >
             <span className="material-symbols-outlined text-base">psychology_alt</span>
             <span>🧠 Tóm Tắt & Giải Mã Kịch Bản (RAG Deep Explainer)</span>
           </button>
           <button
             onClick={() => setActiveMode('compare')}
-            className={`px-4 py-2.5 rounded-xl font-medium flex items-center gap-2 whitespace-nowrap transition-all border ${
-              activeMode === 'compare'
-                ? 'bg-surface-container-high text-primary border-primary/50 shadow-sm shadow-primary/20'
-                : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-transparent'
-            }`}
+            className={`px-4 py-2.5 rounded-xl font-medium flex items-center gap-2 whitespace-nowrap transition-all border ${activeMode === 'compare'
+              ? 'bg-surface-container-high text-primary border-primary/50 shadow-sm shadow-primary/20'
+              : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container border-transparent'
+              }`}
           >
             <span className="material-symbols-outlined text-base">compare_arrows</span>
             <span>⚖️ So Sánh Phim & Vũ Trụ Điện Ảnh</span>
@@ -276,9 +274,8 @@ export const CineAiPage: React.FC = () => {
                   key={m.key}
                   onClick={() => selectMood(m.key, m.label)}
                   disabled={isStreaming}
-                  className={`px-2.5 py-1.5 rounded-xl text-xs font-medium border bg-gradient-to-r transition-all ${m.color} ${
-                    activeMood === m.key ? 'ring-2 ring-primary scale-105' : 'hover:scale-102 hover:brightness-110'
-                  }`}
+                  className={`px-2.5 py-1.5 rounded-xl text-xs font-medium border bg-gradient-to-r transition-all ${m.color} ${activeMood === m.key ? 'ring-2 ring-primary scale-105' : 'hover:scale-102 hover:brightness-110'
+                    }`}
                 >
                   {m.label}
                 </button>
@@ -311,11 +308,10 @@ export const CineAiPage: React.FC = () => {
                 <div
                   key={s.id}
                   onClick={() => loadChat(s.id)}
-                  className={`group flex items-center justify-between p-2.5 rounded-xl cursor-pointer transition-all border ${
-                    currentChatId === s.id
-                      ? 'bg-surface-container-high border-primary/50 text-on-surface shadow-sm'
-                      : 'hover:bg-surface-container-high/60 border-transparent text-on-surface-variant hover:text-on-surface'
-                  }`}
+                  className={`group flex items-center justify-between p-2.5 rounded-xl cursor-pointer transition-all border ${currentChatId === s.id
+                    ? 'bg-surface-container-high border-primary/50 text-on-surface shadow-sm'
+                    : 'hover:bg-surface-container-high/60 border-transparent text-on-surface-variant hover:text-on-surface'
+                    }`}
                 >
                   <div className="flex items-center gap-2 min-w-0 flex-1">
                     <span
@@ -323,9 +319,8 @@ export const CineAiPage: React.FC = () => {
                         e.stopPropagation();
                         togglePinChat(s.id);
                       }}
-                      className={`material-symbols-outlined text-sm shrink-0 cursor-pointer ${
-                        s.isPinned ? 'text-primary' : 'text-outline group-hover:text-primary'
-                      }`}
+                      className={`material-symbols-outlined text-sm shrink-0 cursor-pointer ${s.isPinned ? 'text-primary' : 'text-outline group-hover:text-primary'
+                        }`}
                       style={{ fontVariationSettings: s.isPinned ? "'FILL' 1" : "'FILL' 0" }}
                       title={s.isPinned ? 'Bỏ ghim' : 'Ghim hội thoại'}
                     >

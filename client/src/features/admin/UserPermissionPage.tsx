@@ -9,9 +9,19 @@ interface SystemUser {
   email: string;
   fullName?: string;
   verified?: boolean;
+  active?: boolean;
   roles?: any[];
   permissions?: any[];
   createdAt?: string;
+}
+
+interface AuditLogItem {
+  id: string;
+  username: string;
+  action: string;
+  target: string;
+  details: string;
+  timestamp: string;
 }
 
 const getRoleName = (r: any): string => {
@@ -62,6 +72,58 @@ export const UserPermissionPage: React.FC = () => {
   const [newRoleName, setNewRoleName] = useState<string>('');
   const [newRoleDesc, setNewRoleDesc] = useState<string>('');
   const [creatingRole, setCreatingRole] = useState<boolean>(false);
+
+  // Tab & Audit Log State (Admin toàn quyền tra cứu Audit Log)
+  const [activeTab, setActiveTab] = useState<'users' | 'audit_log'>('users');
+  const [auditLogs, setAuditLogs] = useState<AuditLogItem[]>([]);
+  const [loadingAuditLogs, setLoadingAuditLogs] = useState<boolean>(false);
+
+  // Toggle Lock/Unlock User
+  const handleToggleUserActive = async (targetUsername: string) => {
+    setUpdatingUsername(targetUsername);
+    try {
+      const res = await apiClient.patch<any>(`/roles/users/${encodeURIComponent(targetUsername)}/toggle-active`);
+      if (res && res.success) {
+        setNotification({
+          text: res.message || `Đã cập nhật trạng thái tài khoản ${targetUsername}!`,
+          type: 'success',
+        });
+        await fetchUsers();
+      } else {
+        setNotification({
+          text: res.message || 'Không thể đổi trạng thái tài khoản!',
+          type: 'error',
+        });
+      }
+    } catch (err: any) {
+      setNotification({
+        text: err?.message || 'Lỗi khi cập nhật trạng thái người dùng',
+        type: 'error',
+      });
+    } finally {
+      setUpdatingUsername(null);
+    }
+  };
+
+  const fetchAuditLogs = async () => {
+    setLoadingAuditLogs(true);
+    try {
+      const res = await apiClient.get<any>('/roles/audit-logs');
+      if (res && res.success && Array.isArray(res.data)) {
+        setAuditLogs(res.data);
+      }
+    } catch (err: any) {
+      console.warn('Lỗi tải audit logs:', err);
+    } finally {
+      setLoadingAuditLogs(false);
+    }
+  };
+
+  useEffect(() => {
+    if (activeTab === 'audit_log') {
+      fetchAuditLogs();
+    }
+  }, [activeTab]);
 
   useEffect(() => {
     if (isSuperAdmin) {
@@ -326,8 +388,32 @@ export const UserPermissionPage: React.FC = () => {
           </div>
           <h1 className="text-2xl lg:text-3xl font-extrabold tracking-tight">Hệ Thống Phân Quyền & Quản Lý User</h1>
           <p className="text-xs text-outline mt-1">
-            Phân bổ vai trò đa cấp: Content Editor (Biên tập nội dung), Finance Manager (Quản lý doanh thu), Admin và Moderator
+            Quản lý tài khoản, kích hoạt hoặc khóa tài khoản, phân quyền 6 vai trò chuẩn, kiểm soát Quality Publish Gate & Audit Log
           </p>
+          <div className="flex items-center gap-2 mt-3">
+            <button
+              onClick={() => setActiveTab('users')}
+              className={`px-3.5 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1.5 transition-all ${
+                activeTab === 'users'
+                  ? 'bg-primary text-on-primary shadow-md'
+                  : 'bg-surface-container hover:bg-surface-variant text-outline hover:text-white'
+              }`}
+            >
+              <span className="material-symbols-outlined text-sm">group</span>
+              <span>Danh Sách Người Dùng</span>
+            </button>
+            <button
+              onClick={() => setActiveTab('audit_log')}
+              className={`px-3.5 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1.5 transition-all ${
+                activeTab === 'audit_log'
+                  ? 'bg-primary text-on-primary shadow-md'
+                  : 'bg-surface-container hover:bg-surface-variant text-outline hover:text-white'
+              }`}
+            >
+              <span className="material-symbols-outlined text-sm">history_edu</span>
+              <span>Nhật Ký Kiểm Toán (Audit Log)</span>
+            </button>
+          </div>
         </div>
 
         <div className="flex items-center gap-2.5 shrink-0 flex-wrap">
@@ -463,6 +549,7 @@ export const UserPermissionPage: React.FC = () => {
       </div>
 
       {/* Control Bar: Search & Filter */}
+      {activeTab === 'users' && (
       <div className="flex flex-col md:flex-row items-center gap-3 bg-surface-container-low p-3.5 rounded-2xl border border-surface-variant/30">
         <div className="relative flex-1 w-full">
           <span className="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-lg">
@@ -515,8 +602,10 @@ export const UserPermissionPage: React.FC = () => {
           </button>
         </div>
       </div>
+      )}
 
       {/* Users Table */}
+      {activeTab === 'users' && (
       <div className="rounded-2xl bg-surface-container-low border border-surface-variant/30 overflow-hidden shadow-2xl">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs text-on-surface">
@@ -585,19 +674,33 @@ export const UserPermissionPage: React.FC = () => {
                         </div>
                       </td>
 
-                      {/* Cột 2: Trạng thái OTP */}
+                      {/* Cột 2: Trạng thái OTP & Khóa/Mở */}
                       <td className="py-3.5 px-3">
-                        {u.verified ? (
-                          <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center gap-1 w-max">
-                            <span className="material-symbols-outlined text-xs">verified</span>
-                            <span>Đã kích hoạt OTP</span>
-                          </span>
-                        ) : (
-                          <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30 flex items-center gap-1 w-max">
-                            <span className="material-symbols-outlined text-xs">pending</span>
-                            <span>Chưa kích hoạt</span>
-                          </span>
-                        )}
+                        <div className="space-y-1.5">
+                          {u.verified ? (
+                            <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center gap-1 w-max">
+                              <span className="material-symbols-outlined text-xs">verified</span>
+                              <span>Đã kích hoạt OTP</span>
+                            </span>
+                          ) : (
+                            <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30 flex items-center gap-1 w-max">
+                              <span className="material-symbols-outlined text-xs">pending</span>
+                              <span>Chưa kích hoạt</span>
+                            </span>
+                          )}
+
+                          {u.active === false ? (
+                            <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-red-500/20 text-red-400 border border-red-500/30 flex items-center gap-1 w-max">
+                              <span className="material-symbols-outlined text-xs">lock</span>
+                              <span>ĐÃ KHÓA TÀI KHOẢN</span>
+                            </span>
+                          ) : (
+                            <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-500/10 text-emerald-300 flex items-center gap-1 w-max">
+                              <span className="material-symbols-outlined text-xs">check_circle</span>
+                              <span>Đang hoạt động</span>
+                            </span>
+                          )}
+                        </div>
                       </td>
 
                       {/* Cột 3: Vai trò & Quyền (6 Roles Chuẩn) */}
@@ -737,6 +840,24 @@ export const UserPermissionPage: React.FC = () => {
                                   </button>
                                 )}
 
+                                {/* Khóa / Kích hoạt tài khoản */}
+                                {u.username !== 'admin' && (
+                                  <button
+                                    onClick={() => handleToggleUserActive(u.username)}
+                                    className={`px-2 py-1 rounded-lg font-bold text-[10px] flex items-center gap-1 transition-all border ${
+                                      u.active === false
+                                        ? 'bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border-emerald-500/30'
+                                        : 'bg-zinc-700/40 hover:bg-zinc-700/70 text-zinc-300 border-zinc-600/40'
+                                    }`}
+                                    title={u.active === false ? "Kích hoạt lại tài khoản" : "Khóa tài khoản này"}
+                                  >
+                                    <span className="material-symbols-outlined text-xs">
+                                      {u.active === false ? 'lock_open' : 'lock'}
+                                    </span>
+                                    <span>{u.active === false ? 'Mở Khóa' : 'Khóa'}</span>
+                                  </button>
+                                )}
+
                                 {/* Nút Tùy chỉnh chi tiết */}
                                 <button
                                   onClick={() => handleOpenEditModal(u)}
@@ -759,6 +880,87 @@ export const UserPermissionPage: React.FC = () => {
           </table>
         </div>
       </div>
+      )}
+
+      {/* Tab 2: Audit Logs (Admin Audit Log Inspection) */}
+      {activeTab === 'audit_log' && (
+        <div className="rounded-2xl bg-surface-container-low border border-surface-variant/30 overflow-hidden shadow-2xl">
+          <div className="p-4 border-b border-surface-variant/30 flex items-center justify-between">
+            <div>
+              <h3 className="font-bold text-sm text-on-surface flex items-center gap-2">
+                <span className="material-symbols-outlined text-amber-400 text-lg">history_edu</span>
+                <span>Nhật Ký Kiểm Toán Toàn Hệ Thống (Audit Logs)</span>
+              </h3>
+              <p className="text-[11px] text-outline mt-0.5">
+                Ghi nhận các tác vụ: Kích hoạt/khóa tài khoản, gán/thu hồi quyền, phê duyệt xuất bản phim Quality Publish Gate
+              </p>
+            </div>
+            <button
+              onClick={fetchAuditLogs}
+              disabled={loadingAuditLogs}
+              className="px-3 py-1.5 rounded-xl bg-surface-container hover:bg-surface-variant text-xs text-on-surface font-semibold flex items-center gap-1.5 transition-colors border border-surface-variant/40"
+            >
+              <span className={`material-symbols-outlined text-sm ${loadingAuditLogs ? 'animate-spin text-primary' : ''}`}>
+                refresh
+              </span>
+              <span>Làm Mới Log</span>
+            </button>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs text-on-surface">
+              <thead className="bg-surface-container uppercase text-[10px] tracking-wider text-outline border-b border-surface-variant/30">
+                <tr>
+                  <th className="py-3 px-4">Thời Gian</th>
+                  <th className="py-3 px-3">Người Thực Hiện</th>
+                  <th className="py-3 px-3">Hành Động</th>
+                  <th className="py-3 px-3">Đối Tượng</th>
+                  <th className="py-3 px-4">Chi Tiết Tác Vụ</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-surface-variant/20">
+                {loadingAuditLogs ? (
+                  <tr>
+                    <td colSpan={5} className="py-12 text-center text-outline">
+                      <span className="material-symbols-outlined animate-spin text-2xl text-primary inline-block">sync</span>
+                      <p className="mt-1 text-xs">Đang tải nhật ký kiểm toán...</p>
+                    </td>
+                  </tr>
+                ) : auditLogs.length === 0 ? (
+                  <tr>
+                    <td colSpan={5} className="py-12 text-center text-outline">
+                      <span className="material-symbols-outlined text-3xl opacity-40 mb-1 inline-block">verified_user</span>
+                      <p className="text-xs">Chưa có bản ghi nhật ký kiểm toán mới.</p>
+                    </td>
+                  </tr>
+                ) : (
+                  auditLogs.map((log) => (
+                    <tr key={log.id} className="hover:bg-surface-container/50 transition-colors">
+                      <td className="py-3 px-4 font-mono text-[11px] text-outline whitespace-nowrap">
+                        {log.timestamp ? new Date(log.timestamp).toLocaleString('vi-VN') : 'Vừa xong'}
+                      </td>
+                      <td className="py-3 px-3 font-bold text-amber-400">
+                        @{log.username}
+                      </td>
+                      <td className="py-3 px-3">
+                        <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-surface-container-high border border-surface-variant/40 font-mono">
+                          {log.action}
+                        </span>
+                      </td>
+                      <td className="py-3 px-3 font-medium text-on-surface">
+                        {log.target}
+                      </td>
+                      <td className="py-3 px-4 text-outline text-[11px]">
+                        {log.details}
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
 
       {/* ================= MODAL TÙY CHỈNH PHÂN QUYỀN (CHÍNH XÁC 6 ROLES) ================= */}
       {isEditModalOpen && selectedUserForEdit && (
@@ -794,7 +996,7 @@ export const UserPermissionPage: React.FC = () => {
                     <p className="font-bold text-xs text-zinc-200">GUEST (Khách vãng lai)</p>
                     <span className="text-[10px] font-mono text-zinc-400">{selectedRoles.includes('ROLE_GUEST') ? '✓ Đang bật' : ''}</span>
                   </div>
-                  <p className="text-[11px] text-outline mt-0.5">Xem trailer, danh mục phim công khai, xem thử 3 phút đầu của nội dung có phí.</p>
+                  <p className="text-[11px] text-outline mt-0.5">Duyệt danh mục phim trang chủ, tìm kiếm phim, xem trailer và xem thử đúng 3 phút (180 giây) đầu tiên của các bộ phim.</p>
                 </div>
               </div>
 
@@ -817,7 +1019,7 @@ export const UserPermissionPage: React.FC = () => {
                       {selectedRoles.includes('ROLE_FREE_USER') || selectedRoles.includes('ROLE_USER') ? '✓ Đang bật' : ''}
                     </span>
                   </div>
-                  <p className="text-[11px] text-zinc-300 mt-0.5">Xem các nội dung nhãn Free, độ phân giải tối đa 720p, có hiển thị quảng cáo đầu/giữa phim.</p>
+                  <p className="text-[11px] text-zinc-300 mt-0.5">Đã đăng ký tài khoản & xác thực Email OTP 6 số. Được xem trọn vẹn phim gắn nhãn Free chất lượng tối đa 720p, quản lý Watchlist, lưu lịch sử xem và bình luận/đánh giá phim.</p>
                 </div>
               </div>
 
@@ -835,12 +1037,12 @@ export const UserPermissionPage: React.FC = () => {
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center justify-between">
-                    <p className="font-bold text-xs text-amber-300">VIP_USER (Thành viên trả phí)</p>
+                    <p className="font-bold text-xs text-amber-300">VIP_USER (Hội viên VIP cao cấp)</p>
                     <span className="text-[10px] font-mono text-amber-400">
                       {selectedRoles.includes('ROLE_VIP_USER') || selectedRoles.includes('ROLE_VIP') ? '✓ Đang bật' : ''}
                     </span>
                   </div>
-                  <p className="text-[11px] text-zinc-300 mt-0.5">Xem phim độc quyền VIP/Originals, chuẩn 1080p/4K, không quảng cáo, mở tính năng phòng xem chung.</p>
+                  <p className="text-[11px] text-zinc-300 mt-0.5">Đã thanh toán gói VIP. Hưởng toàn bộ quyền người dùng cơ bản, cộng thêm: Xem không giới hạn kho phim VIP/Originals độc quyền, mở khóa 1080p Full HD và 4K Dolby Atmos, quyền khởi tạo hoặc tham gia Watch Party thời gian thực.</p>
                 </div>
               </div>
 
@@ -858,10 +1060,10 @@ export const UserPermissionPage: React.FC = () => {
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center justify-between">
-                    <p className="font-bold text-xs text-fuchsia-300">CONTENT_EDITOR (Biên tập nội dung)</p>
+                    <p className="font-bold text-xs text-fuchsia-300">CONTENT_EDITOR (Biên tập viên nội dung)</p>
                     <span className="text-[10px] font-mono text-fuchsia-400">{selectedRoles.includes('ROLE_CONTENT_EDITOR') ? '✓ Đang bật' : ''}</span>
                   </div>
-                  <p className="text-[11px] text-zinc-300 mt-0.5">Nhập metadata phim, tải lên poster, banner, phụ đề WebVTT, tạo season và quản lý tập.</p>
+                  <p className="text-[11px] text-zinc-300 mt-0.5">Truy cập Cổng quản trị CMS, khởi tạo và cập nhật Metadata phim, mùa, tập, tải poster/backdrop/phụ đề WebVTT, tải video phân đoạn 5GB+ và kiểm duyệt bình luận cộng đồng.</p>
                 </div>
               </div>
 
@@ -879,10 +1081,10 @@ export const UserPermissionPage: React.FC = () => {
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center justify-between">
-                    <p className="font-bold text-xs text-emerald-300">FINANCE_MANAGER (Quản lý doanh thu)</p>
+                    <p className="font-bold text-xs text-emerald-300">FINANCE_MANAGER (Quản lý tài chính & vận hành)</p>
                     <span className="text-[10px] font-mono text-emerald-400">{selectedRoles.includes('ROLE_FINANCE_MANAGER') ? '✓ Đang bật' : ''}</span>
                   </div>
-                  <p className="text-[11px] text-zinc-300 mt-0.5">Theo dõi lịch sử giao dịch mua gói, báo cáo doanh số, xử lý hoàn tiền và đối soát cổng thanh toán.</p>
+                  <p className="text-[11px] text-zinc-300 mt-0.5">Cấu hình biểu giá các gói cước VIP, theo dõi danh sách đơn hàng thanh toán VietQR, đối soát sao kê tài chính, phê duyệt hoàn tiền và xem báo cáo doanh thu trên Dashboard.</p>
                 </div>
               </div>
 
@@ -900,10 +1102,10 @@ export const UserPermissionPage: React.FC = () => {
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center justify-between">
-                    <p className="font-bold text-xs text-red-300">ADMIN (Quản trị toàn quyền)</p>
+                    <p className="font-bold text-xs text-red-300">ADMIN (Quản trị viên hệ thống tối cao)</p>
                     <span className="text-[10px] font-mono text-red-400">{selectedRoles.includes('ROLE_ADMIN') ? '✓ Đang bật' : ''}</span>
                   </div>
-                  <p className="text-[11px] text-zinc-300 mt-0.5">Quản lý người dùng, phân quyền vai trò, cấu hình hệ thống, xem toàn bộ log kiểm toán (audit log).</p>
+                  <p className="text-[11px] text-zinc-300 mt-0.5">Toàn quyền hệ thống: Quản lý người dùng, kích hoạt/khóa tài khoản, phân quyền động (tạo Permission, tạo Role và gán cho User), phê duyệt xuất bản phim ra trang chủ (Quality Publish Gate) và tra cứu toàn bộ Nhật ký kiểm toán (Audit Log).</p>
                 </div>
               </div>
             </div>

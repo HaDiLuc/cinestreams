@@ -21,8 +21,14 @@ public enum EPermission {
     MOVIE_MANAGE("movie:manage"),
     CONTENT_EDIT("content:edit"),
     SUBTITLE_MANAGE("subtitle:manage"),
+    COMMENT_MODERATE("comment:moderate"),
     FINANCE_MANAGE("finance:manage"),
-    REFUND_PROCESS("refund:process");
+    REFUND_PROCESS("refund:process"),
+    STREAM_4K("STREAM_4K"),
+    DOLBY_ATMOS("DOLBY_ATMOS"),
+    WATCH_PARTY_HOST("WATCH_PARTY_HOST"),
+    QUALITY_PUBLISH_GATE("quality:publish_gate"),
+    AUDIT_LOG_READ("audit_log:read");
 
     private final String permission;
 
