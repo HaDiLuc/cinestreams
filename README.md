@@ -36,7 +36,7 @@
                                                  v
                                +-----------------------------------+
                                |    CineStreams Backend Service    |
-                               |       (Spring Boot 3 / Java 17)   |
+                               |       (Spring Boot 3 / Java 21)   |
                                |             Port: 8088            |
                                +--------+-----------------+--------+
                                         |                 |
