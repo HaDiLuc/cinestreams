@@ -18,6 +18,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
@@ -148,6 +149,7 @@ class CineStreamsFullSuiteTest {
     }
 
     @Test
+    @WithMockUser(authorities = {"ROLE_ADMIN", "quality:publish_gate"})
     @DisplayName("[TASK-058 & TASK-060] Tạo phim và phê duyệt xuất bản ra trang chủ")
     void testMovieCreateAndPublishValidation() throws Exception {
         MovieEntity movie = MovieEntity.builder()

@@ -106,7 +106,7 @@ public class UserDetailsImpl implements UserDetails {
 
         boolean isUserActive = true;
         try {
-            isUserActive = user.isActive();
+            isUserActive = user.isActive() && user.isVerified();
         } catch (Exception ignored) {
         }
 
